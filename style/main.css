@@ -1,6 +1,9 @@
 html,
 
-#title {
+body {
+  background-image: url("image/forest.png");
+}
+#title {  
   text-align: center;
-  font-size: 4em
+  font-size: 2em
 }
