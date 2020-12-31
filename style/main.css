@@ -7,3 +7,7 @@ body {
   text-align: center;
   font-size: 4em;
 }
+#startButton {
+  position: absolute;
+  left: 40vw
+}
