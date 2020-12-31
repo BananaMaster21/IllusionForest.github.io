@@ -29,7 +29,7 @@ function gameIntro () {
   requestAnimationFrame(gameIntro);
   if (playIntro === 1) {
     //background stuff
-introCtx.drawImage(introBackground, 0, 0, introW, introH + introH * 0.33);
+introCtx.drawImage(introBackground, 0, 0, introW, introH);
     
     //caracter stuff 2
     if (side === "ArrowLeft") {
@@ -47,7 +47,7 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH + introH * 0.33);
     if (caracterMoveSide === 0) {
         caracterX = caracterX - 0
         }
-    introCtx.fillStyle = rgb(255, 255, 255);
+    introCtx.fillStyle = "rgb(255, 255, 255)";
     introCtx.fillRect(caracterX, introH * 0.50, 100, 100);
     
   }
