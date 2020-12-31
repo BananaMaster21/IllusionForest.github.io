@@ -1,9 +1,13 @@
 html,
 
 body {
+  overflow: hidden;
+}
+#startScreen {
   background-image: url("https://BananaMaster21.github.io/IllusionForest.github.io/image/forest.png");
   
-  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
 }
 #title {  
   text-align: center;
@@ -17,5 +21,8 @@ body {
   background-color: white;
   
   position: absolute;
-  left: 120px;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 }
