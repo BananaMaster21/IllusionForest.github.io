@@ -19,6 +19,8 @@ side = undefined;
 
 //intro code stuff
 var intro = document.getElementById("intro");
+intro.setAttribute("width", screen.width + "px");
+intro.setAttribute("height", screen.height + "px");
 var introCtx = intro.getContext("2d");
 
 var introW = intro.width;
@@ -29,7 +31,7 @@ function gameIntro () {
   requestAnimationFrame(gameIntro);
   if (playIntro === 1) {
     //background stuff
-introCtx.drawImage(introBackground, 0, 0, screen.width, screen.height);
+introCtx.drawImage(introBackground, 0, 0, introW, introH);
     
     //caracter stuff 2
     if (side === "ArrowLeft") {
