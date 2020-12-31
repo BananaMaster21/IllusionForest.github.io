@@ -57,7 +57,7 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
         caracterX = caracterX + 10;
         }
     if (caracterMoveSide === 0) {
-        caracterX = caracterX - 0
+        caracterX = caracterX - 0;
         }
     
     //jumping and falling stuff
@@ -74,6 +74,7 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
         onGround = 1;
         upTimer = 20;
         fallTimer = 0;
+        jump = 0;
         }
         
     //player
