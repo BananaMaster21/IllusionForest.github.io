@@ -38,17 +38,17 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
     if (side === "ArrowRight") {
         caracterMoveSide = 2;
         }
-    if (MoveSide === 1) {
+    if (caracterMoveSide === 1) {
         caracterX = caracterX - 5;
         }
-    if (boatMoveSide === 2) {
+    if (caracterMoveSide === 2) {
         caracterX = caracterX + 5;
         }
-    if (boatMoveSide === 0) {
+    if (caracterMoveSide === 0) {
         caracterX = caracterX - 0
         }
     introCtx.fillStyle = rgb(255, 255, 255);
-    introCtx.fillRect(caracterX, introH * 0.50);
+    introCtx.fillRect(caracterX, introH * 0.50, 100, 100);
     
   }
 }
