@@ -6,16 +6,19 @@ startButton.onclick = function () {playIntro = 1;}
 
 //intro code stuff
 var intro = document.getElementById("intro");
-var ctxIntro = intro.getContext("2d");
-var introWidth = intro.width;
-var introHeight = intro.height;
+var introCtx = canvas1.getContext("2d");
+var introW = canvas1.width;
+var introH = canvas1.height;
 
 
 var introBackground = document.getElementById("forest");
 function gameIntro () {
   requestAnimationFrame(gameIntro);
   if (playIntro === 1) {
-ctxIntro.drawImage(introBackground, 0, 0, introWidth, introHeight);
+    
+ctx1.drawImage(introBackground, 0, 0, introW, introH);
+    
   }
 }
+
 requestAnimationFrame(gameIntro);
