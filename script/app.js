@@ -5,8 +5,8 @@ var startButton = document.getElementById("startButton");
 startButton.onclick = function () {playIntro = 1;}
 
 //intro code stuff
-var intro = document.getElementById("myCanvas");
-var ctxIntro = supercoolcanvas.getContext("2d");
+var intro = document.getElementById("intro");
+var ctxIntro = intro.getContext("2d");
 var introWidth = intro.width;
 var introHeight = intro.height;
 
