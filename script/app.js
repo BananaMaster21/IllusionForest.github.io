@@ -80,6 +80,8 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
     //player
     introCtx.fillStyle = "rgb(255, 255, 255)";
     introCtx.fillRect(caracterX, caracterY - 100, 100, 100);
+    //cool dev circle v.0.2
+    introCtx.fillRect(100, 100, 50, 50);
     
   }
 }
