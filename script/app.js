@@ -18,4 +18,4 @@ function playIntro () {
 ctxIntro.drawImage(introBackground, 0, 0, introWidth, introHeight);
   }
 }
-requestAnimationFrame(playIntro):
+requestAnimationFrame(playIntro);
