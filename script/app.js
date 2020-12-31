@@ -13,9 +13,9 @@ var introHeight = intro.height;
 
 var introBackground = document.getElementById("forest");
 function playIntro () {
-  requestAnimationFrame(playIntro);
+  requestAnimationFrame(gameIntro);
   if (playIntro === 1) {
 ctxIntro.drawImage(introBackground, 0, 0, introWidth, introHeight);
   }
 }
-requestAnimationFrame(playIntro);
+requestAnimationFrame(gameIntro);
