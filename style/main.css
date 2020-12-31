@@ -1,7 +1,9 @@
 html,
 
 body {
+  background-color: forestgreen;
   margin: 0px;
+  
   overflow: hidden;
 }
 #startScreen {
