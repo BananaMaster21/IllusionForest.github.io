@@ -29,7 +29,7 @@ function gameIntro () {
   requestAnimationFrame(gameIntro);
   if (playIntro === 1) {
     //background stuff
-introCtx.drawImage(introBackground, 0, 0, introW, introH);
+introCtx.drawImage(introBackground, 0, 0, introW, introH + introH * 0.33);
     
     //caracter stuff 2
     if (side === "ArrowLeft") {
