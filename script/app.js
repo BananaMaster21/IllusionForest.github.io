@@ -20,9 +20,9 @@ side = undefined;
 //intro code stuff
 var intro = document.getElementById("intro");
 var introCtx = intro.getContext("2d");
-var introW = intro.width;
-var introH = intro.height;
 
+intro.setAttribute("width", screen.width + "px");
+intro.setAttribute("height", screen.height + "px"):
 
 var introBackground = document.getElementById("forest");
 function gameIntro () {
