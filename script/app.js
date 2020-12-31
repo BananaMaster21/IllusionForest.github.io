@@ -9,10 +9,10 @@ var caracterX = 400;
 var caracterMoveSide = 0;
 var side = undefined;
 
-function boatMove (event) {
+function caracterMove (event) {
 side = event.key;
 }
-function boatStop () {
+function caracterStop () {
 caracterMoveSide = 0;
 side = undefined;
 }
