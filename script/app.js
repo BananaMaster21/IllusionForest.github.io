@@ -40,6 +40,11 @@ function gameIntro () {
     //background stuff
 introCtx.drawImage(introBackground, 0, 0, introW, introH);
     
+    
+    //cool dev squares
+    introCtx.fillStyle = "rgb(255, 255, 255)";
+    introCtx.fillRect(500, 100, 100, 100);
+    
     //caracter stuff 2
     if (side === "ArrowLeft") {
         caracterMoveSide = 1;
@@ -59,6 +64,11 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
     if (caracterMoveSide === 0) {
         caracterX = caracterX - 0;
         }
+    
+    
+    //cool dev squares
+    introCtx.fillStyle = "rgb(255, 255, 255)";
+    introCtx.fillRect(300, 100, 100, 100);
     
     //jumping and falling stuff
     if (jump === 1) {
@@ -80,8 +90,10 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
     //player
     introCtx.fillStyle = "rgb(255, 255, 255)";
     introCtx.fillRect(caracterX, caracterY - 100, 100, 100);
-    //cool dev circle v.0.2
-    introCtx.fillRect(100, 100, 50, 50);
+    
+    //cool dev squares
+    introCtx.fillStyle = "rgb(255, 255, 255)";
+    introCtx.fillRect(100, 100, 100, 100);
     
   }
 }
