@@ -61,7 +61,7 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
         }
     
     //jumping and falling stuff
-    if (jump === 1 &&) {
+    if (jump === 1) {
         onGround = 0;
         upTimer = upTimer - 1;
         caracterY = caracterY - upTimer;
