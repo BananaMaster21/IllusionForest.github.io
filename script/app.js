@@ -21,9 +21,6 @@ side = undefined;
 var intro = document.getElementById("intro");
 var introCtx = intro.getContext("2d");
 
-intro.setAttribute("width", screen.width + "px");
-intro.setAttribute("height", screen.height + "px"):
-
 var introBackground = document.getElementById("forest");
 function gameIntro () {
   requestAnimationFrame(gameIntro);
