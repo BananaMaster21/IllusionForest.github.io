@@ -6,13 +6,11 @@ startButton.onclick = function () {playIntro = 1;}
 
 //caracter stuff 1
 var caracterX = 400;
-var caracterY = introH * 0.50;
 var caracterMoveSide = 0;
 var side = undefined;
 var jump = false;
 var fall = false;
 var onGround = 1;
-var ground = introH * 0.50;
 var upTimer = 20;
 var fallTimer = 0;
 
@@ -32,6 +30,8 @@ var introCtx = intro.getContext("2d");
 
 var introW = intro.width;
 var introH = intro.height;
+var caracterY = introH /2;
+var ground = introH /2;
 
 var introBackground = document.getElementById("forest");
 function gameIntro () {
