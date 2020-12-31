@@ -77,10 +77,12 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
         caracterY = caracterY - upTimer;
        }
     if (caracterY < ground && onGround === 0 && upTimer === 0) {
+      if ( fallTimer <= 10) {
         fallTimer = fallTimer + 1;
+            }
         caracterY = caracterY + fallTimer;
         }
-    if (caracterY === ground - 100) {
+    if (caracterY >= ground - 100) {
         onGround = 1;
         upTimer = 20;
         fallTimer = 0;
