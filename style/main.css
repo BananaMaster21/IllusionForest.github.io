@@ -1,6 +1,7 @@
 html,
 
 body {
+  margin: 0px;
   overflow: hidden;
 }
 #startScreen {
@@ -16,13 +17,15 @@ body {
 #startButton {
   position: absolute;
   left: 40vw;
+  width: 20vw;
+  height: 40vh;
 }
 .canvases{
   background-color: white;
   
   position: absolute;
   top: 200vh;
-  left: 0;
-  width: 100vw;
+  left: 1vw;
+  width: 98vw;
   height: 100vh;
 }
