@@ -13,8 +13,6 @@ body {
 }
 .canvases{
   background-color: white;
-  width: 1300;
-  height: 700;
   
   position: absolute;
   left: 40px;
