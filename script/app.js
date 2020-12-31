@@ -20,6 +20,10 @@ side = undefined;
 //intro code stuff
 var intro = document.getElementById("intro");
 var introCtx = intro.getContext("2d");
+introCtx.imageSmoothingEnabled = false;
+
+var introW = intro.width;
+var introH = intro.height;
 
 var introBackground = document.getElementById("forest");
 function gameIntro () {
