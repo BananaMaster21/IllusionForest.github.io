@@ -6,8 +6,15 @@ startButton.onclick = function () {playIntro = 1;}
 
 //caracter stuff 1
 var caracterX = 400;
+var caracterY = introH * 0.50;
 var caracterMoveSide = 0;
 var side = undefined;
+var jump = false;
+var fall = false;
+var onGround = 1;
+var ground = introH * 0.50;
+var upTimer = 20;
+var fallTimer = 0;
 
 function caracterMove (event) {
 side = event.key;
@@ -40,17 +47,38 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
     if (side === "ArrowRight") {
         caracterMoveSide = 2;
         }
+    if (side === " " && onGround === 1) {
+        jump = 1;
+        }
     if (caracterMoveSide === 1) {
-        caracterX = caracterX - 5;
+        caracterX = caracterX - 10;
         }
     if (caracterMoveSide === 2) {
-        caracterX = caracterX + 5;
+        caracterX = caracterX + 10;
         }
     if (caracterMoveSide === 0) {
         caracterX = caracterX - 0
         }
+    
+    //jumping and falling stuff
+    if (jump === 1 &&) {
+        onGround = 0;
+        upTimer = upTimer - 1;
+        caracterY = caracterY - upTimer;
+       }
+    if (caracterY < ground && onGround === 0 && upTimer === 0) {
+        fallTimer = fallTimer + 1;
+        caracterY = caracterY + fallTimer;
+        }
+    if (caracterY === ground - 100) {
+        onGround = 1;
+        upTimer = 20;
+        fallTimer = 0;
+        }
+        
+    //player
     introCtx.fillStyle = "rgb(255, 255, 255)";
-    introCtx.fillRect(caracterX, introH * 0.50, 100, 100);
+    introCtx.fillRect(caracterX, caracterY - 100, 100, 100);
     
   }
 }
