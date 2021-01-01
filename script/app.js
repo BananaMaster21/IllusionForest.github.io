@@ -98,7 +98,7 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
         feetSwitch = feetSwitch + 1;
         if (feetSwitch <= 4) {caracterImage = bobRight1;}
         if (feetSwitch >= 5) {caracterImage = bobRight2;}
-        if (feetSwitch >= 9 {feetSwitch = 0;}
+        if (feetSwitch >= 9) {feetSwitch = 0;}
           }
         if (jump === 1) {caracterImage = bobRight2;}
         }
