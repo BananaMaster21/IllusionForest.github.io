@@ -9,9 +9,11 @@ var intro = document.getElementById("intro");
 intro.setAttribute("width", screen.width + "px");
 intro.setAttribute("height", screen.height + "px");
 var introCtx = intro.getContext("2d");
-
 var introW = intro.width;
 var introH = intro.height;
+
+//ground
+var ground = introH /1.3;
 
 //caracter stuff 1
 //moving 1
@@ -48,9 +50,6 @@ var fall = false;
 var onGround = 1;
 var upTimer = introH /40;
 var fallTimer = 0;
-
-//ground
-var ground = introH /1.3;
 
 var introBackground = document.getElementById("forest");
 function gameIntro () {
