@@ -146,27 +146,26 @@ var heartsW = canvasesW /50;
 var heartsH = canvasesH /25;
 
 function reset () {                                                                                                    //start of reset function
-var caracterX = canvasesW /25;
-var caracterY = ground - caracterH;
-var caracterMoveSide = 0;
-var caracterKeepSide = "right";
-var side = undefined;
-var feetSwitch = 0;
-var speed = 0;
-var jump = false;
-var fall = false;
-var onGround = 1;
-var upTimer = canvasesH /40;
-var fallTimer = 0;
-var heart = document.getElementById("heart");
-var lives = 2;
-var healTimer = 0;
-var whenHeal = 300;
-var heart1X = canvasesW /25;
-var heart2X = canvasesW /12.5;
-var heartsY = canvasesH /20;
-var heartsW = canvasesW /50;
-var heartsH = canvasesH /25;
+ caracterX = canvasesW /25;
+ caracterY = ground - caracterH;
+ caracterMoveSide = 0;
+ caracterKeepSide = "right";
+ side = undefined;
+ feetSwitch = 0;
+ speed = 0;
+ jump = false;
+ fall = false;
+ onGround = 1;
+ upTimer = canvasesH /40;
+ fallTimer = 0;
+ healTimer = 0;
+ whenHeal = 300;
+ heart1X = canvasesW /25;
+ heart2X = canvasesW /12.5;
+ heartsY = canvasesH /20;
+ heartsW = canvasesW /50;
+ heartsH = canvasesH /25;
+ lives = 2;
 }                                                                                                                     //end of reset function
 
 function liveAndHeal () {
@@ -185,7 +184,7 @@ function liveAndHeal () {
 function gamePart1 () {
 requestAnimationFrame(gamePart1);
   if (playLevel === 1) {
-    ctx1.drawImage(introBackground, 0, 0, part1W, part1H);
+    ctx1.drawImage(introBackground, 0, 0, canvasesW, canvasesH);
   }
     //running and jumping
     moving();
