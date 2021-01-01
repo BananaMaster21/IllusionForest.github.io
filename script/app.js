@@ -145,6 +145,30 @@ var heartsY = canvasesH /20;
 var heartsW = canvasesW /50;
 var heartsH = canvasesH /25;
 
+function reset () {                                                                                                    //start of reset function
+var caracterX = canvasesW /25;
+var caracterY = ground - caracterH;
+var caracterMoveSide = 0;
+var caracterKeepSide = "right";
+var side = undefined;
+var feetSwitch = 0;
+var speed = 0;
+var jump = false;
+var fall = false;
+var onGround = 1;
+var upTimer = canvasesH /40;
+var fallTimer = 0;
+var heart = document.getElementById("heart");
+var lives = 2;
+var healTimer = 0;
+var whenHeal = 300;
+var heart1X = canvasesW /25;
+var heart2X = canvasesW /12.5;
+var heartsY = canvasesH /20;
+var heartsW = canvasesW /50;
+var heartsH = canvasesH /25;
+}                                                                                                                     //end of reset function
+
 function liveAndHeal () {
   if (lives === 2) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart2X, heartsY, heartsW, heartsH);}
   
