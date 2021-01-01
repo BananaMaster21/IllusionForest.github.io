@@ -46,7 +46,7 @@ var side = undefined;
 var jump = false;
 var fall = false;
 var onGround = 1;
-var upTimer = caracterH *2;
+var upTimer = introH /40;
 var fallTimer = 0;
 
 //ground
@@ -94,20 +94,24 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
             }
         }
     //jumping and falling stuff
+    
+    //jumping
     if (jump === 1) {
         onGround = 0;
-        upTimer = upTimer - caracterH *2 /10;
+        upTimer = upTimer - introH /800;
         caracterY = caracterY - upTimer;
        }
+    //falling
     if (caracterY < ground && onGround === 0 && upTimer === 0) {
-      if ( fallTimer <= caracterH *2 /10) {
-        fallTimer = fallTimer + caracterH *2 /100;
+      if ( fallTimer <= introH /80) {
+        fallTimer = fallTimer + introH /800;
             }
         caracterY = caracterY + fallTimer;
         }
+    //landing
     if (caracterY >= ground - caracterH) {
         onGround = 1;
-        upTimer = caracterH *2;
+        upTimer = introH /40;
         fallTimer = 0;
         jump = 0;
         }
