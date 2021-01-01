@@ -4,25 +4,7 @@ var playIntro = 0;
 var startButton = document.getElementById("startButton");
 startButton.onclick = function () {playIntro = 1;}
 
-//caracter stuff 1
-var caracterX = 400;
-var caracterMoveSide = 0;
-var side = undefined;
-var jump = false;
-var fall = false;
-var onGround = 1;
-var upTimer = 20;
-var fallTimer = 0;
-
-function caracterMove (event) {
-side = event.key;
-}
-function caracterStop () {
-caracterMoveSide = 0;
-side = undefined;
-}
-
-//intro code stuff
+//canvas things
 var intro = document.getElementById("intro");
 intro.setAttribute("width", screen.width + "px");
 intro.setAttribute("height", screen.height + "px");
@@ -30,8 +12,41 @@ var introCtx = intro.getContext("2d");
 
 var introW = intro.width;
 var introH = intro.height;
+
+//caracter stuff 1
+//moving 1
+function caracterMove (event) {
+side = event.key;
+}
+function caracterStop () {
+caracterMoveSide = 0;
+side = undefined;
+}
+//get caracter images
+var bobRight1 = document.getElementById("bobRight1");
+var bobRight2 = document.getElementById("bobRight2");
+var bobLeft1 = document.getElementById("bobLeft1");
+var bobLeft2 = document.getElementById("bobLeft2");
+
+var caracterImage = bobRight1;
+//walking stuff
+var feetSwitch = 0;
+//caracter start coords
+var caracterX = 400;
 var caracterY = introH /2;
-var ground = introH /2;
+//caracter sides
+var caracterMoveSide = 0;
+var caracterKeepSide = "right";
+var side = undefined;
+//jumping variables
+var jump = false;
+var fall = false;
+var onGround = 1;
+var upTimer = 20;
+var fallTimer = 0;
+
+//ground
+var ground = introH /1.2;
 
 var introBackground = document.getElementById("forest");
 function gameIntro () {
@@ -40,36 +55,34 @@ function gameIntro () {
     //background stuff
 introCtx.drawImage(introBackground, 0, 0, introW, introH);
     
-    
-    //cool dev squares
-    introCtx.fillStyle = "rgb(255, 255, 255)";
-    introCtx.fillRect(500, 100, 100, 100);
-    
     //caracter stuff 2
     if (side === "ArrowLeft") {
         caracterMoveSide = 1;
+        caracterKeepSide = "left";
         }
     if (side === "ArrowRight") {
         caracterMoveSide = 2;
+        caracterKeepSide = "right";
         }
     if (side === " " && onGround === 1) {
         jump = 1;
         }
     if (caracterMoveSide === 1) {
         caracterX = caracterX - 10;
+        
         }
     if (caracterMoveSide === 2) {
         caracterX = caracterX + 10;
         }
     if (caracterMoveSide === 0) {
         caracterX = caracterX - 0;
+      if (caracterKeepSide === "left") {
+        caracterImage = bobLeft1;
+            }
+      if (caracterKeepSide === "right") {
+        caracterImage = bobRight1;
+            }
         }
-    
-    
-    //cool dev squares
-    introCtx.fillStyle = "rgb(255, 255, 255)";
-    introCtx.fillRect(300, 100, 100, 100);
-    
     //jumping and falling stuff
     if (jump === 1) {
         onGround = 0;
@@ -90,12 +103,8 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
         }
         
     //player
-    introCtx.fillStyle = "rgb(255, 255, 255)";
-    introCtx.fillRect(caracterX, caracterY - 100, 100, 100);
     
-    //cool dev squares
-    introCtx.fillStyle = "rgb(255, 255, 255)";
-    introCtx.fillRect(100, 100, 100, 100);
+    introCtx.drawImage(caracterImage, caracterX, caracterY - introH/10, introW /10, introH /10);
     
   }
 }
