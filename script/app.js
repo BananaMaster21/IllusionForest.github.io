@@ -147,8 +147,8 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
     introCtx.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
     
     //hearts and damage
-    if (lives === 2) {ctx.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx.drawImage(heart, heart2X, heartsY, heartsW, heartsH);}
-    if (lives === 1) {ctx.drawImage(heart, heart1X, heartsY, heartsW, heartsH);}
+    if (lives === 2) {introCtx.drawImage(heart, heart1X, heartsY, heartsW, heartsH);introCtx.drawImage(heart, heart2X, heartsY, heartsW, heartsH);}
+    if (lives === 1) {introCtx.drawImage(heart, heart1X, heartsY, heartsW, heartsH);}
     if (lives === 0) {}
         
   }
