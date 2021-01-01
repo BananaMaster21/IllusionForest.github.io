@@ -145,7 +145,8 @@ var heartsY = canvasesH /20;
 var heartsW = canvasesW /50;
 var heartsH = canvasesH /25;
 
-function reset () {                                                                                                    //start of reset function
+function reset () {                                                                                                   //start of reset function
+   if (lives === 0) {
  caracterX = canvasesW /25;
  caracterY = ground - caracterH;
  caracterMoveSide = 0;
@@ -166,6 +167,7 @@ function reset () {                                                             
  heartsW = canvasesW /50;
  heartsH = canvasesH /25;
  lives = 2;
+   }
 }                                                                                                                     //end of reset function
 
 function liveAndHeal () {
