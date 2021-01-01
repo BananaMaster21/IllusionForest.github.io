@@ -43,7 +43,7 @@ var side = undefined;
 var jump = false;
 var fall = false;
 var onGround = 1;
-var upTimer = 20;
+var upTimer = introH /10;
 var fallTimer = 0;
 
 //ground
@@ -73,6 +73,7 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
         if (speed <= introW /100) {
         speed = speed + introW /1000;
           }
+        
         }
     if (caracterMoveSide === 2) {
         caracterX = caracterX + speed;
@@ -92,25 +93,25 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
     //jumping and falling stuff
     if (jump === 1) {
         onGround = 0;
-        upTimer = upTimer - 1;
+        upTimer = upTimer - introH /1000;
         caracterY = caracterY - upTimer;
        }
     if (caracterY < ground && onGround === 0 && upTimer === 0) {
-      if ( fallTimer <= 10) {
-        fallTimer = fallTimer + 1;
+      if ( fallTimer <= introH /100) {
+        fallTimer = fallTimer + introh /1000;
             }
         caracterY = caracterY + fallTimer;
         }
-    if (caracterY >= ground - 100) {
+    if (caracterY >= ground - introH /8) {
         onGround = 1;
-        upTimer = 20;
+        upTimer = introH /10;
         fallTimer = 0;
         jump = 0;
         }
         
     //player
     
-    introCtx.drawImage(caracterImage, caracterX, caracterY - introH/10, introW /10, introH /10);
+    introCtx.drawImage(caracterImage, caracterX, caracterY - introH/10, introW /10, introH /8);
     
   }
 }
