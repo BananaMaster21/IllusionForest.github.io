@@ -31,6 +31,7 @@ var bobLeft2 = document.getElementById("bobLeft2");
 var caracterImage = bobRight1;
 //walking stuff
 var feetSwitch = 0;
+var speed = 0;
 //caracter start coords
 var caracterX = 400;
 var caracterY = introH /2;
@@ -68,11 +69,16 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
         jump = 1;
         }
     if (caracterMoveSide === 1) {
-        caracterX = caracterX - 10;
-        
+        caracterX = caracterX - speed;
+        if (speed <= introW /100) {
+        speed = speed + introW /1000;
+          }
         }
     if (caracterMoveSide === 2) {
-        caracterX = caracterX + 10;
+        caracterX = caracterX + speed;
+        if (speed <= introW /100) {
+        speed = speed + introW /1000;
+          }
         }
     if (caracterMoveSide === 0) {
         caracterX = caracterX - 0;
