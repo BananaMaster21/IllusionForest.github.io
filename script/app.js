@@ -12,8 +12,10 @@ var introCtx = intro.getContext("2d");
 var introW = intro.width;
 var introH = intro.height;
 
+//ground for DEVS
+var groundTest = 1.35;
 //ground
-var ground = introH /1.3;
+var ground = introH /groundTest;
 
 //caracter stuff 1
 //moving 1
@@ -79,10 +81,12 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
           }
       //walk animation left
       if (jump === 0) {
-        if (feetSwitch <= 4) {caracterImage = bobLeft1;}
-        if (feetSwitch >= 5) {caracterImage = bobLeft2;}
-        if (feetSwitch >= 9) {feetSwitch = 0;}
+        feetSwitch = feetSwitch + 1;
+        if (feetSwitch <= 2) {caracterImage = bobLeft1;}
+        if (feetSwitch >= 3) {caracterImage = bobLeft2;}
+        if (feetSwitch >= 5) {feetSwitch = 0;}
           }
+        if (jump === 1) {caracterImage = bobLeft2;}
         }
     //right
     if (caracterMoveSide === 2) {
@@ -93,10 +97,12 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
           }
       //walk animation right
       if (jump === 0) {
-        if (feetSwitch <= 4) {caracterImage = bobRight1;}
-        if (feetSwitch >= 5) {caracterImage = bobRight2;}
-        if (feetSwitch >= 9) {feetSwitch = 0;}
+        feetSwitch = feetSwitch + 1;
+        if (feetSwitch <= 2) {caracterImage = bobRight1;}
+        if (feetSwitch >= 3) {caracterImage = bobRight2;}
+        if (feetSwitch >= 5) {feetSwitch = 0;}
           }
+        if (jump === 1) {caracterImage = bobRight2;}
         }
     //center
     if (caracterMoveSide === 0) {
@@ -133,7 +139,7 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
         
     //player
     
-    introCtx.drawImage(caracterImage, caracterX, caracterY, caracterW, caracterH);
+    introCtx.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
     
   }
 }
