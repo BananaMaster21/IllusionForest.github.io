@@ -34,12 +34,12 @@ var caracterImage = bobRight1;
 //walking stuff
 var feetSwitch = 0;
 var speed = 0;
-//caracter start coords
-var caracterX = 400;
-var caracterY = ground - caracterH;
 //caracter size 
 var caracterW = introW /10;
 var caracterH = introH /7;
+//caracter start coords
+var caracterX = 400;
+var caracterY = ground - caracterH;
 //caracter sides
 var caracterMoveSide = 0;
 var caracterKeepSide = "right";
