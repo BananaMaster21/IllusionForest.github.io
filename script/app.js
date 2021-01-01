@@ -1,22 +1,44 @@
 //start game stuff
-var playIntro = 0;
+var playLevel = 0;
 
 var startButton = document.getElementById("startButton");
-startButton.onclick = function () {playIntro = 1;}
+startButton.onclick = function () {playLevel = 1;}
 
-//canvas things
-var intro = document.getElementById("intro");
-intro.setAttribute("width", screen.width + "px");
-intro.setAttribute("height", screen.height + "px");
-var introCtx = intro.getContext("2d");
-var introW = intro.width;
-var introH = intro.height;
+//canvas
+var part1 = document.getElementById("part1");
+part1.setAttribute("width", screen.width + "px");
+part1.setAttribute("height", screen.height + "px");
+var ctx1 = part1.getContext("2d");
+var canvasesW = screen.width;
+var canvasesH = screen.height;
 
 //ground
-var ground = introH /1.25;
+var ground = canvasesH /1.25;
 
-//caracter stuff 1
-//moving 1
+//backgrounds part 1
+var introBackground = document.getElementById("forest");
+
+//get caracter image states
+var bobRight1 = document.getElementById("bobRight1");
+var bobRight2 = document.getElementById("bobRight2");
+var bobLeft1 = document.getElementById("bobLeft1");
+var bobLeft2 = document.getElementById("bobLeft2");
+var caracterImage = bobRight1;
+
+//caracter size 
+var caracterW = canvasesW /10;
+var caracterH = canvasesH /7;
+
+//caracter start coords
+var caracterX = canvasesW /25;
+var caracterY = ground - caracterH;
+
+//caracter sides
+var caracterMoveSide = 0;
+var caracterKeepSide = "right";
+var side = undefined;
+
+//walking and jumping 
 function caracterMove (event) {
 side = event.key;
 }
@@ -24,52 +46,18 @@ function caracterStop () {
 caracterMoveSide = 0;
 side = undefined;
 }
-//get caracter images
-var bobRight1 = document.getElementById("bobRight1");
-var bobRight2 = document.getElementById("bobRight2");
-var bobLeft1 = document.getElementById("bobLeft1");
-var bobLeft2 = document.getElementById("bobLeft2");
 
-var caracterImage = bobRight1;
-//walking stuff
 var feetSwitch = 0;
 var speed = 0;
-//caracter size 
-var caracterW = introW /10;
-var caracterH = introH /7;
-//caracter start coords
-var caracterX = 400;
-var caracterY = ground - caracterH;
-//caracter sides
-var caracterMoveSide = 0;
-var caracterKeepSide = "right";
-var side = undefined;
-//jumping variables
+
 var jump = false;
 var fall = false;
 var onGround = 1;
-var upTimer = introH /40;
+var upTimer = canvasesH /40;
 var fallTimer = 0;
-// lives
-var heart = document.getElementById("heart");
-var lives = 2;
-var healTimer = 0;
-var whenHeal = 300;
-var heart1X = introW /25;
-var heart2X = introW /12.5;
-var heartsY = introH /20;
-var heartsW = introW /50;
-var heartsH = introH /25;
 
-var introBackground = document.getElementById("forest");
-function gameIntro () {
-  requestAnimationFrame(gameIntro);
-  if (playIntro === 1) {
-    //background stuff
-introCtx.drawImage(introBackground, 0, 0, introW, introH);
-    
-    //caracter stuff 2
-    if (side === "ArrowLeft") {
+function moving () {                                                                                                  //start of moving function
+   if (side === "ArrowLeft") {
         caracterMoveSide = 1;
         caracterKeepSide = "left";
         }
@@ -84,8 +72,8 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
     if (caracterMoveSide === 1) {
         caracterX = caracterX - speed;
       //add speed
-        if (speed <= introW /100) {
-        speed = speed + introW /1000;
+        if (speed <= canvasesW /100) {
+        speed = speed + canvasesW /1000;
           }
       //walk animation left
       if (jump === 0) {
@@ -100,8 +88,8 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
     if (caracterMoveSide === 2) {
         caracterX = caracterX + speed;
       //add speed
-        if (speed <= introW /100) {
-        speed = speed + introW /1000;
+        if (speed <= canvasesW /100) {
+        speed = speed + canvasesW /1000;
           }
       //walk animation right
       if (jump === 0) {
@@ -127,34 +115,61 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
     //jumping
     if (jump === 1) {
         onGround = 0;
-        upTimer = upTimer - introH /800;
+        upTimer = upTimer - canvasesH /800;
         caracterY = caracterY - upTimer;
        }
     //falling
     if (caracterY < ground && onGround === 0 && upTimer === 0) {
-      if ( fallTimer <= introH /80) {
-        fallTimer = fallTimer + introH /800;
+      if ( fallTimer <= canvasesH /80) {
+        fallTimer = fallTimer + canvasesH /800;
             }
         caracterY = caracterY + fallTimer;
         }
     //landing
     if (caracterY >= ground - caracterH) {
         onGround = 1;
-        upTimer = introH /40;
+        upTimer = canvasesH /40;
         fallTimer = 0;
         jump = 0;
-        }
-        
-    //player
-    introCtx.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
-    
-    //hearts and damage
-    if (lives === 2) {introCtx.drawImage(heart, heart1X, heartsY, heartsW, heartsH);introCtx.drawImage(heart, heart2X, heartsY, heartsW, heartsH);}
-    if (lives === 1) {introCtx.drawImage(heart, heart1X, heartsY, heartsW, heartsH); healTimer = healTimer +1;}
-       if (whenHeal === healTimer) {lives = 2; healTimer = 0;}
-    if (lives === 0) {}
-        
-  }
+        }                                                                                                               //end of moving function
 }
 
-requestAnimationFrame(gameIntro);
+// lives
+var heart = document.getElementById("heart");
+var lives = 2;
+var healTimer = 0;
+var whenHeal = 300;
+var heart1X = canvasesW /25;
+var heart2X = canvasesW /12.5;
+var heartsY = canvasesH /20;
+var heartsW = canvasesW /50;
+var heartsH = canvasesH /25;
+
+function liveAndHeal () {
+  if (lives === 2) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart2X, heartsY, heartsW, heartsH);}
+  
+    if (lives === 1) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH); healTimer = healTimer +1;}
+  
+       if (whenHeal === healTimer) {lives = 2; healTimer = 0;}
+  
+    if (lives === 0) {
+      ctx1.fillStyle = rgba" 0, 0, 0, 0.5"; ctx1.fillRect(0, 0, canvasesW, canvasesH); 
+      ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font(""+canvasesH+"px Arial"); ctx1.fillText("Click to restart", canvasesW /2, canvasesH /4);
+    }
+}
+
+function gamePart1 () {
+requestAnimationFrame(gamePart1);
+  if (playLevel === 1) {
+    ctx1.drawImage(introBackground, 0, 0, part1W, part1H);
+  }
+    //running and jumping
+    moving();
+        
+    //player
+    ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+    
+    //hearts and damage
+    liveAndHeal();
+}
+requestAnimationFrame(gamePart1);
