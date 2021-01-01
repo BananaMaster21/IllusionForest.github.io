@@ -36,7 +36,7 @@ var feetSwitch = 0;
 var speed = 0;
 //caracter start coords
 var caracterX = 400;
-var caracterY = ground;
+var caracterY = ground - caracterH;
 //caracter size 
 var caracterW = introW /10;
 var caracterH = introH /7;
@@ -53,6 +53,11 @@ var fallTimer = 0;
 // lives
 var heart = document.getElementById("heart");
 var lives = 2;
+var heart1X = introW /25;
+var heart2X = introW /12.5;
+var heartsY = introH /20;
+var heartsW = introW /50;
+var heartsH = introH /25;
 
 var introBackground = document.getElementById("forest");
 function gameIntro () {
@@ -141,9 +146,9 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
     //player
     introCtx.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
     
-    //hearts and life
-    if (lives === 2) {}
-    if (lives === 1) {}
+    //hearts and damage
+    if (lives === 2) {ctx.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx.drawImage(heart, heart2X, heartsY, heartsW, heartsH);}
+    if (lives === 1) {ctx.drawImage(heart, heart1X, heartsY, heartsW, heartsH);}
     if (lives === 0) {}
         
   }
