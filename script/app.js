@@ -50,6 +50,9 @@ var fall = false;
 var onGround = 1;
 var upTimer = introH /40;
 var fallTimer = 0;
+// lives
+var heart = document.getElementById("heart");
+var lives = 2;
 
 var introBackground = document.getElementById("forest");
 function gameIntro () {
@@ -136,9 +139,13 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
         }
         
     //player
-    
     introCtx.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
     
+    //hearts and life
+    if (lives === 2) {}
+    if (lives === 1) {}
+    if (lives === 0) {}
+        
   }
 }
 
