@@ -53,6 +53,8 @@ var fallTimer = 0;
 // lives
 var heart = document.getElementById("heart");
 var lives = 2;
+var healTimer = 0;
+var whenHeal = 30;
 var heart1X = introW /25;
 var heart2X = introW /12.5;
 var heartsY = introH /20;
@@ -148,7 +150,8 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
     
     //hearts and damage
     if (lives === 2) {introCtx.drawImage(heart, heart1X, heartsY, heartsW, heartsH);introCtx.drawImage(heart, heart2X, heartsY, heartsW, heartsH);}
-    if (lives === 1) {introCtx.drawImage(heart, heart1X, heartsY, heartsW, heartsH);}
+    if (lives === 1) {introCtx.drawImage(heart, heart1X, heartsY, heartsW, heartsH); healTimer = healTimer +1;}
+       if (whenHeal === healTimer) {lives = 2; healTimer = 0;}
     if (lives === 0) {}
         
   }
