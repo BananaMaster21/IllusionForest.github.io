@@ -50,7 +50,7 @@ var upTimer = introH /40;
 var fallTimer = 0;
 
 //ground
-var ground = introH /1.2;
+var ground = introH /1.3;
 
 var introBackground = document.getElementById("forest");
 function gameIntro () {
@@ -71,19 +71,35 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
     if (side === " " && onGround === 1) {
         jump = 1;
         }
+    //left
     if (caracterMoveSide === 1) {
         caracterX = caracterX - speed;
+      //add speed
         if (speed <= introW /100) {
         speed = speed + introW /1000;
           }
-        
+      //walk animation left
+      if (jump === 0) {
+        if (feetSwitch <= 4) {caracterImage = bobLeft1;}
+        if (feetSwitch >= 5) {caracterImage = bobLeft2;}
+        if (feetSwitch >= 9) {feetSwitch = 0;}
+          }
         }
+    //right
     if (caracterMoveSide === 2) {
         caracterX = caracterX + speed;
+      //add speed
         if (speed <= introW /100) {
         speed = speed + introW /1000;
           }
+      //walk animation right
+      if (jump === 0) {
+        if (feetSwitch <= 4) {caracterImage = bobRight1;}
+        if (feetSwitch >= 5) {caracterImage = bobRight2;}
+        if (feetSwitch >= 9) {feetSwitch = 0;}
+          }
         }
+    //center
     if (caracterMoveSide === 0) {
         caracterX = caracterX - 0;
       if (caracterKeepSide === "left") {
@@ -118,7 +134,7 @@ introCtx.drawImage(introBackground, 0, 0, introW, introH);
         
     //player
     
-    introCtx.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+    introCtx.drawImage(caracterImage, caracterX, caracterY, caracterW, caracterH);
     
   }
 }
