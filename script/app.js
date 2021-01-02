@@ -173,6 +173,8 @@ function obstacleFloor (image, x, y, width, height) {
    if (x >= caracterX + caracterW && y >= caracterY + caracterH) {hitingRight = 1;}else {rightStop = 1;}
    if (x <= caracterX && y >= caracterY + caracterH) {hitingLeft = 1;}else {leftStop = 1;}
    if (y >= caracterY + caracterH && x >= caracterX + caracterW && x + width <= caracterX) {onGround === 1}
+   stopHitingLeft ();
+   stopHitingRight();
 }
 
 function reset () {
