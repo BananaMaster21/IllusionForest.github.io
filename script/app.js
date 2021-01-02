@@ -16,7 +16,8 @@ var canvasesH = screen.height;
 var resetButton = document.getElementById("reviveButton");
 var resetW = canvasesW /5;
 var resetY = canvasesH /5;
-var tree = document.getElementById("trunk");
+var rock = document.getElementById("rock");
+var rockY = ground - caracterH;
 
 //ground
 var ground = canvasesH /1.25;
@@ -229,10 +230,10 @@ requestAnimationFrame(gamePart1);
     } //end of pause
    
     //obstacles
-    obstacleFloor(tree, 500, ground - caracterH, caracterW, caracterH);
+    obstacleFloor(rock, 500, ground - caracterH, caracterW, caracterH);
    
     //player
-    ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+    ctx1.drawImage(caracterImage, caracterX, rockY, caracterW, caracterH);
     
     //hearts and damage
     liveAndHeal();
