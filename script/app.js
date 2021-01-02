@@ -15,7 +15,7 @@ var canvasesH = screen.height;
 //image area
 var resetButton = document.getElementById("reviveButton");
 var resetW = canvasesW /5;
-var resetY = canvasesH /2.5;
+var resetY = canvasesH /5;
 
 //ground
 var ground = canvasesH /1.25;
@@ -61,7 +61,7 @@ var onGround = 1;
 var upTimer = canvasesH /40;
 var fallTimer = 0;
 
-function moving () {                                                                                                  //start of moving function
+function moving () {
    if (side === "ArrowLeft") {
         caracterMoveSide = 1;
         caracterKeepSide = "left";
@@ -136,7 +136,7 @@ function moving () {                                                            
         upTimer = canvasesH /40;
         fallTimer = 0;
         jump = 0;
-        }                                                                                                               //end of moving function
+        }
 }
 
 // lives
@@ -150,8 +150,9 @@ var heartsY = canvasesH /20;
 var heartsW = canvasesW /50;
 var heartsH = canvasesH /25;
 
-function reset () {                                                                                                   //start of reset function
+function reset () {
    if (lives === 0) {
+ pause = 0;
  caracterX = canvasesW /25;
  caracterY = ground - caracterH;
  caracterMoveSide = 0;
@@ -173,7 +174,9 @@ function reset () {                                                             
  heartsH = canvasesH /25;
  lives = 2;
    }
-}                                                                                                      
+}
+//pausing
+var pause = 0;
 
 var TextSize = canvasesH /10;
 var Darkness = 0.8;
@@ -186,9 +189,10 @@ function liveAndHeal () {
        if (whenHeal === healTimer) {lives = 2; healTimer = 0;}
   
     if (lives === 0) {
+      pause = 1;
       ctx1.fillStyle = "rgba( 0, 0, 0,"+Darkness+")"; ctx1.fillRect(0, 0, canvasesW, canvasesH); 
       ctx1.fillStyle = "lightGrey"; ctx1.textAlign = "center"; ctx1.font = ""+TextSize+"px Arial"; ctx1.fillText("Click to restart", canvasesW /2, canvasesH /4);
-       ctx1.drawImage(resetButton, canvasesW /2 - canvasesW /20, canvasesH /2 - canvasesH /40, resetW, resetY);
+      ctx1.drawImage(resetButton, canvasesW /2 - canvasesW /5, canvasesH /2 - canvasesH /5, resetW, resetY);
     }
 }
 
@@ -197,9 +201,14 @@ requestAnimationFrame(gamePart1);
   if (playLevel === 1) {
     ctx1.drawImage(introBackground, 0, 0, canvasesW, canvasesH);
   }
+    //pause
+    if (pause === 1) { //start of pause
+       
     //running and jumping
     moving();
-        
+       
+    } //end of pause
+   
     //player
     ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
     
