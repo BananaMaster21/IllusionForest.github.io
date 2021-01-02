@@ -16,6 +16,7 @@ var canvasesH = screen.height;
 var resetButton = document.getElementById("reviveButton");
 var resetW = canvasesW /5;
 var resetY = canvasesH /5;
+var tree = document.getElementById("trunk");
 
 //ground
 var ground = canvasesH /1.25;
@@ -163,9 +164,9 @@ var heartsH = canvasesH /25;
 //obstacles 
 function obstacleFloor (part, image, x, y, width, height) {
    part.drawImage(image, x, y, width, height);
-   if (x >= caracterX + caracterW && x + width /2 < caracterX + caracterW) {hitingRight = 1;}
-   if (x <= caracterX && x + width /2 > caracterX) {hitingLeft = 1;}
-   if () {}
+   if (x >= caracterX + caracterW && x + width /2 < caracterX + caracterW && y > caracterY + caracterH) {hitingRight = 1;}
+   if (x <= caracterX && x + width /2 > caracterX && y > caracterY + caracterH) {hitingLeft = 1;}
+   if (y >= caracterY + caracterH && x < caracterX + caracterW && x + width < caracterX) {onGround === 1}
 }
 
 function reset () {
@@ -226,6 +227,9 @@ requestAnimationFrame(gamePart1);
     moving();
        
     } //end of pause
+   
+    //obstacles
+    obstacleFloor(ctx1, tree, 500, ground - caracterH, caracterW, caracterH);
    
     //player
     ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
