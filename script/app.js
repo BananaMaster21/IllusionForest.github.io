@@ -134,13 +134,19 @@ function moving () {
             }
         caracterY = caracterY + fallTimer;
         }
-    //landing
+    //landing on ground
     if (caracterY >= ground - caracterH) {
         onGround = 1;
         upTimer = canvasesH /40;
         fallTimer = 0;
         jump = 0;
         }
+   //landing on obstacle
+   if (onGround === 1) {
+       upTimer = canvasesH /40;
+       fallTimer = 0;
+       jump = 0;
+       }
 }
 
 // lives
