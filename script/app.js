@@ -43,7 +43,11 @@ var rockY = ground - caracterH - caracterH;
 
 //hit detection
 var hitingLeft = 0;
+var leftStop = 0;
 var hitingRight = 0;
+var rightStop = 0;
+function stopHitingLeft () {if (leftStop === 1) {hitingLeft = 0; leftStop = 0;}}
+function stopHitingRight () {if (rightStop === 1) {hitingright = 0; rightStop = 0;}}
 
 //caracter sides
 var caracterMoveSide = 0;
@@ -166,8 +170,8 @@ var heartsH = canvasesH /25;
 //obstacles 
 function obstacleFloor (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
-   if (x >= caracterX + caracterW && y >= caracterY + caracterH) {hitingRight = 1;}
-   if (x <= caracterX && y >= caracterY + caracterH) {hitingLeft = 1;}
+   if (x >= caracterX + caracterW && y >= caracterY + caracterH) {hitingRight = 1;}else {rightStop = 1;}
+   if (x <= caracterX && y >= caracterY + caracterH) {hitingLeft = 1;}else {leftStop = 1;}
    if (y >= caracterY + caracterH && x >= caracterX + caracterW && x + width <= caracterX) {onGround === 1}
 }
 
