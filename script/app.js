@@ -160,6 +160,14 @@ var heartsY = canvasesH /20;
 var heartsW = canvasesW /50;
 var heartsH = canvasesH /25;
 
+//obstacles 
+function obstacleFloor (part, image, x, y, width, height) {
+   part.drawImage(image, x, y, width, height);
+   if (x >= caracterX + caracterW && x + width /2 < caracterX + caracterW) {hitingRight = 1;}
+   if (x <= caracterX && x + width /2 > caracterX) {hitingLeft = 1;}
+   if () {}
+}
+
 function reset () {
    if (lives === 0) {
  pause = 0;
