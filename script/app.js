@@ -173,7 +173,7 @@ function obstacleFloor (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
    if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY > y - 5) {hitingRight = 1;}else {hitingRight = 0;}
    if (x + width >= caracterX && caracterX > x + width /2 && caracterY > y - 5) {hitingLeft = 1;}else {hitingLeft = 0;}
-   if (y >= caracterY) {fallStop = 1;}
+   if (y >= caracterY && caracterY + 5 >= y && caracterX + caracterH > x && x + width < caracterX) {fallStop = 1;}
 }
 
 function reset () {
