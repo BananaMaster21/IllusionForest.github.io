@@ -166,9 +166,9 @@ var heartsH = canvasesH /25;
 //obstacles 
 function obstacleFloor (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
-   if (x >= caracterX + caracterW && x + width /2 < caracterX + caracterW && y > caracterY + caracterH) {hitingRight = 1;}
-   if (x <= caracterX && x + width /2 > caracterX && y > caracterY + caracterH) {hitingLeft = 1;}
-   if (y >= caracterY + caracterH && x < caracterX + caracterW && x + width < caracterX) {onGround === 1}
+   if (x >= caracterX + caracterW && y >= caracterY + caracterH) {hitingRight = 1;}
+   if (x <= caracterX && y >= caracterY + caracterH) {hitingLeft = 1;}
+   if (y >= caracterY + caracterH && x >= caracterX + caracterW && x + width <= caracterX) {onGround === 1}
 }
 
 function reset () {
