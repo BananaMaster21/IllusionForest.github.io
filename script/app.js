@@ -173,7 +173,10 @@ function reset () {                                                             
  heartsH = canvasesH /25;
  lives = 2;
    }
-}                                                                                                                     //end of reset function
+}                                                                                                      
+
+var textSize = 30;
+var darkness = 0.75;
 
 function liveAndHeal () {
   if (lives === 2) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart2X, heartsY, heartsW, heartsH);}
@@ -183,8 +186,8 @@ function liveAndHeal () {
        if (whenHeal === healTimer) {lives = 2; healTimer = 0;}
   
     if (lives === 0) {
-      ctx1.fillStyle = "rgba( 0, 0, 0, 0.)"; ctx1.fillRect(0, 0, canvasesW, canvasesH); 
-      ctx1.fillStyle = "lightGrey"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /15+"px Arial"; ctx1.fillText("Click to restart", canvasesW /2, canvasesH /4);
+      ctx1.fillStyle = "rgba( 0, 0, 0,"+darkness+")"; ctx1.fillRect(0, 0, canvasesW, canvasesH); 
+      ctx1.fillStyle = "lightGrey"; ctx1.textAlign = "center"; ctx1.font = ""+textSize+"px Arial"; ctx1.fillText("Click to restart", canvasesW /2, canvasesH /4);
        ctx1.drawImage(resetButton, canvasesW /2 - canvasesW /20, canvasesH /2 - canvasesH /40, resetW, resetY);
     }
 }
