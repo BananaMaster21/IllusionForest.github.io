@@ -192,7 +192,7 @@ function liveAndHeal () {
       pause = 1;
       ctx1.fillStyle = "rgba( 0, 0, 0,"+Darkness+")"; ctx1.fillRect(0, 0, canvasesW, canvasesH); 
       ctx1.fillStyle = "lightGrey"; ctx1.textAlign = "center"; ctx1.font = ""+TextSize+"px Arial"; ctx1.fillText("Click to restart", canvasesW /2, canvasesH /4);
-      ctx1.drawImage(resetButton, canvasesW /2 - canvasesW /5, canvasesH /2 - canvasesH /5, resetW, resetY);
+      ctx1.drawImage(resetButton, canvasesW /2 - resetW /2, canvasesH /2 - resety /2, resetW, resetY);
     }
 }
 
@@ -202,7 +202,7 @@ requestAnimationFrame(gamePart1);
     ctx1.drawImage(introBackground, 0, 0, canvasesW, canvasesH);
   }
     //pause
-    if (pause === 1) { //start of pause
+    if (pause === 0) { //start of pause
        
     //running and jumping
     moving();
