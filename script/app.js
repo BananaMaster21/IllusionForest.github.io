@@ -38,6 +38,10 @@ var caracterH = canvasesH /7;
 var caracterX = canvasesW /25;
 var caracterY = ground - caracterH;
 
+//hit detection
+var hitingLeft = 0;
+var hitingRight = 0;
+
 //caracter sides
 var caracterMoveSide = 0;
 var caracterKeepSide = "right";
@@ -74,7 +78,7 @@ function moving () {
         jump = 1;
         }
     //left
-    if (caracterMoveSide === 1) {
+    if (caracterMoveSide === 1 && hitingLeft === 0) {
         caracterX = caracterX - speed;
       //add speed
         if (speed <= canvasesW /100) {
@@ -90,7 +94,7 @@ function moving () {
         if (jump === 1) {caracterImage = bobLeft2;}
         }
     //right
-    if (caracterMoveSide === 2) {
+    if (caracterMoveSide === 2 && hitingRight === 0) {
         caracterX = caracterX + speed;
       //add speed
         if (speed <= canvasesW /100) {
