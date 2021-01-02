@@ -230,10 +230,10 @@ requestAnimationFrame(gamePart1);
     } //end of pause
    
     //obstacles
-    obstacleFloor(rock, 500, ground - caracterH, caracterW, caracterH);
+    obstacleFloor(rock, 500, rockY, caracterW, caracterH);
    
     //player
-    ctx1.drawImage(caracterImage, caracterX, rockY, caracterW, caracterH);
+    ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
     
     //hearts and damage
     liveAndHeal();
