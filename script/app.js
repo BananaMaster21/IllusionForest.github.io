@@ -39,7 +39,7 @@ var resetButton = document.getElementById("reviveButton");
 var resetW = canvasesW /5;
 var resetY = canvasesH /5;
 var rock = document.getElementById("rock");
-var rockY = ground - caracterH;
+var rockY = ground - caracterH - caracterH;
 
 //hit detection
 var hitingLeft = 0;
