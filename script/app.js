@@ -182,7 +182,7 @@ function liveAndHeal () {
        if (whenHeal === healTimer) {lives = 2; healTimer = 0;}
   
     if (lives === 0) {
-      ctx1.fillStyle = "rgba( 0, 0, 0, 0.5)"; ctx1.fillRect(0, 0, canvasesW, canvasesH); 
+      ctx1.fillStyle = "rgba( 0, 0, 0, 0.75)"; ctx1.fillRect(0, 0, canvasesW, canvasesH); 
       ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH+"px Arial"; ctx1.fillText("Click to restart", canvasesW /2, canvasesH /4);
        ctx1.drawImage(resetButton, canvasesW /2 - canvasesW /20, canvasesH /2 - canvasesH /40, canvasesW /20, canvasesH /40);
     }
