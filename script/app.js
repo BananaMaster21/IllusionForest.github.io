@@ -12,12 +12,6 @@ var ctx1 = part1.getContext("2d");
 var canvasesW = screen.width;
 var canvasesH = screen.height;
 
-//image area
-var resetButton = document.getElementById("reviveButton");
-var resetW = canvasesW /5;
-var resetY = canvasesH /5;
-var rock = document.getElementById("rock");
-var rockY = ground - caracterH;
 
 //ground
 var ground = canvasesH /1.25;
@@ -39,6 +33,13 @@ var caracterH = canvasesH /7;
 //caracter start coords
 var caracterX = canvasesW /25;
 var caracterY = ground - caracterH;
+
+//image area
+var resetButton = document.getElementById("reviveButton");
+var resetW = canvasesW /5;
+var resetY = canvasesH /5;
+var rock = document.getElementById("rock");
+var rockY = ground - caracterH;
 
 //hit detection
 var hitingLeft = 0;
