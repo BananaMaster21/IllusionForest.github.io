@@ -14,7 +14,8 @@ var canvasesH = screen.height;
 
 //image area
 var resetButton = document.getElementById("reviveButton");
-var resetW = canvasesW /2
+var resetW = canvasesW /5;
+var resetY = canvasesH /2.5;
 
 //ground
 var ground = canvasesH /1.25;
@@ -183,8 +184,8 @@ function liveAndHeal () {
   
     if (lives === 0) {
       ctx1.fillStyle = "rgba( 0, 0, 0, 0.75)"; ctx1.fillRect(0, 0, canvasesW, canvasesH); 
-      ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /20+"px Arial"; ctx1.fillText("Click to restart", canvasesW /2, canvasesH /4);
-       ctx1.drawImage(resetButton, canvasesW /2 - canvasesW /20, canvasesH /2 - canvasesH /40, canvasesW /10, canvasesH /20);
+      ctx1.fillStyle = "lightGrey"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /15+"px Arial"; ctx1.fillText("Click to restart", canvasesW /2, canvasesH /4);
+       ctx1.drawImage(resetButton, canvasesW /2 - canvasesW /20, canvasesH /2 - canvasesH /40, introW, introH);
     }
 }
 
