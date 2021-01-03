@@ -150,7 +150,6 @@ function moving () {
         }
    //landing on obstacle
    if (fallStop === 1) {
-       onGround = 1;
        upTimer = canvasesH /40;
        fallTimer = 0;
        jump = 0;
@@ -170,6 +169,13 @@ var heartsW = canvasesW /50;
 var heartsH = canvasesH /25;
 
 //obstacles
+var obstaclesHitY = 0;
+var obstaclesHitRight = 0;
+var obstaclesHitLeft = 0;
+function obstacleCollision () {
+   
+   
+}
 function obstacleFloor (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
    if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY > y - 5) {hitingRight = 1;}else {hitingRight = 0;}
