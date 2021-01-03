@@ -134,7 +134,7 @@ function moving () {
         caracterY = caracterY - upTimer;
        }
     //falling
-    if (caracterY < ground && onGround === 0 && upTimer === 0 && stopFall === 0) {
+    if (caracterY < ground && onGround === 0 && upTimer === 0 || fallStop === 0) {
       if ( fallTimer <= canvasesH /80) {
         fallTimer = fallTimer + canvasesH /800;
             }
@@ -174,7 +174,8 @@ function obstacleFloor (image, x, y, width, height) {
    if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY > y - 5) {hitingRight = 1;}else {hitingRight = 0;}
    if (x + width >= caracterX && caracterX > x + width /2 && caracterY > y - 5) {hitingLeft = 1;}else {hitingLeft = 0;}
    if (y <= caracterY && caracterX + caracterW > x && caracterX + caracterW /30 < x + width) {fallStop = 1;}
-   if (y <= caracterY && caracterX < x + width && caracterX - caracterW /30 > x) {fallStop = 1;}
+   
+   if (y <= caracterY && x < caracterX + caractewrW /2 && ) {fallStop = 1}else {fall}
 }
 
 function reset () {
