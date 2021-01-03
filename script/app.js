@@ -135,7 +135,7 @@ function moving () {
         caracterY = caracterY - upTimer;
        }
     //falling
-    if (caracterY < ground && onGround === 0 && upTimer === 0 || fallStop === 0 && jump === 0 && onPlatform === 0) {
+    if (caracterY < ground && onGround === 0 && upTimer === 0 || fallStop === 0 && jump === 0 && onPlatform === 0 && onGround === 0) {
       if ( fallTimer <= canvasesH /80) {
         fallTimer = fallTimer + canvasesH /800;
             }
@@ -144,6 +144,7 @@ function moving () {
     //landing on ground
     if (caracterY >= ground - caracterH) {
         onGround = 1;
+        onPlatform = 1;
         upTimer = canvasesH /40;
         fallTimer = 0;
         jump = 0;
@@ -151,6 +152,7 @@ function moving () {
    //landing on obstacle
    if (fallStop === 1) {
        onGround = 1;
+       onPlatform = 1;
        upTimer = canvasesH /40;
        fallTimer = 0;
        jump = 0;
@@ -174,7 +176,7 @@ function obstacleFloor (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
    if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY > y - 5) {hitingRight = 1;}else {hitingRight = 0;}
    if (x + width >= caracterX && caracterX > x + width /2 && caracterY > y - 5) {hitingLeft = 1;}else {hitingLeft = 0;}
-   if (y <= caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width || onGround === 1) {fallStop = 1; onPlatform = 1;}else {fallStop = 0; onPlatform = 0;}
+   if (y <= caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; onPlatform = 1;}else {fallStop = 0; onPlatform = 0;}
 }
 
 function reset () {
