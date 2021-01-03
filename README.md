@@ -1,2 +1,2 @@
 # IllusionForest.github.io
-Html and JavaScript magical forest platformer.
+Simple Html and JavaScript platformer.
