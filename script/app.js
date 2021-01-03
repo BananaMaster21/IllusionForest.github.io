@@ -144,7 +144,6 @@ function moving () {
     //landing on ground
     if (caracterY >= ground - caracterH) {
         onGround = 1;
-        onPlatform = 1;
         upTimer = canvasesH /40;
         fallTimer = 0;
         jump = 0;
@@ -152,7 +151,6 @@ function moving () {
    //landing on obstacle
    if (fallStop === 1) {
        onGround = 1;
-       onPlatform = 1;
        upTimer = canvasesH /40;
        fallTimer = 0;
        jump = 0;
