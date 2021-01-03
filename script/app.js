@@ -132,7 +132,6 @@ function moving () {
     //jumping
     if (jump === 1) {
         onGround = 0;
-        onPlatform = 0;
         upTimer = upTimer - canvasesH /800;
         caracterY = caracterY - upTimer;
        }
