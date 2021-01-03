@@ -236,6 +236,7 @@ requestAnimationFrame(gamePart1);
     } //end of pause
    
     //obstacles
+    walkOffObstacle();
     obstacleFloor(rock, 500, rockY, caracterW, caracterH);
    
     //player
