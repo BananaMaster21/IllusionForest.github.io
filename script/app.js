@@ -48,6 +48,7 @@ var hitingRight = 0;
 var rightStop = 0;
 var fallStop = 0;
 var onPlatform = 1;
+var test  = 100;
 
 //caracter sides
 var caracterMoveSide = 0;
@@ -174,7 +175,7 @@ function obstacleFloor (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
    if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY > y - 5) {hitingRight = 1;}else {hitingRight = 0;}
    if (x + width >= caracterX && caracterX > x + width /2 && caracterY > y - 5) {hitingLeft = 1;}else {hitingLeft = 0;}
-   if (y <= caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; onPlatform = 1;}else {fallStop = 0; onPlatform = 0; if (caracterY < ground - caracterH) {onGround = 0;}}
+   if (y <= caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; onPlatform = 1;}else {fallStop = 0; onPlatform = 0; if (test < ground - caracterH) {onGround = 0;}}
 }
 
 function reset () {
