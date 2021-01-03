@@ -134,7 +134,7 @@ function moving () {
         caracterY = caracterY - upTimer;
        }
     //falling
-    if (caracterY < ground && onGround === 0 && upTimer === 0 || fallStop === 0) {
+    if (caracterY < ground && onGround === 0 && upTimer === 0 || fallStop === 0 && onGround === 0) {
       if ( fallTimer <= canvasesH /80) {
         fallTimer = fallTimer + canvasesH /800;
             }
