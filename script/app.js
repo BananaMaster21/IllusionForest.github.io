@@ -165,7 +165,7 @@ var heartsH = canvasesH /25;
 //obstacles
 var fallOff = 0;
 function slip () {
-if(caracterY - caracterH /2 > ground - caracterH /2 && jump === 0 && fallOff === 1) {sliping = 1;}else {fallOff = 0;}
+if(caracterY - caracterH /2 < ground - caracterH /2 && jump === 0 && fallOff === 1) {sliping = 1;}else {fallOff = 0;}
 }
 
 function obstacleFloor (image, x, y, width, height) {
