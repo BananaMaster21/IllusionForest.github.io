@@ -142,12 +142,17 @@ function moving () {
         caracterY = caracterY + fallTimer;
         }
     //landing
-    if (caracterY >= ground - caracterH || fallStop === 1) {
+    if (caracterY >= ground - caracterH) {
         onGround = 1;
         upTimer = canvasesH /40;
         fallTimer = 0;
         jump = 0;
         }
+   if (fallStop === 1) {
+       upTimer = canvasesH /40;
+       fallTimer = 0;
+       jump = 0;
+       }
 }
 
 // lives
