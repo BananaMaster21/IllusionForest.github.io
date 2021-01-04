@@ -99,8 +99,6 @@ function moving () {
         if (feetSwitch >= 9) {feetSwitch = 0;}
           }
         if (jump === 1) {caracterImage = bobLeft2;}
-      //reset left if its hiting something
-      if (hitingRight === 1) {hitingRight = 0;}
         }
     //right
     if (caracterMoveSide === 2 && hitingRight === 0) {
@@ -117,8 +115,6 @@ function moving () {
         if (feetSwitch >= 9) {feetSwitch = 0;}
           }
         if (jump === 1) {caracterImage = bobRight2;}
-      //reset left if its hiting something
-      if (hitingLeft === 1) {hitingLeft = 0;}
         }
     //center
     if (caracterMoveSide === 0) {
@@ -172,14 +168,14 @@ var fallOff = 0;
 var hitRight = 0;
 
 function walkOffObstacle () {
-   if (fallOff === 1) {fallStop = 0; onPlatform = 0; onGround = 0;}
+   if (fallOff === 1) {onGround = 0;}
 }
 
 function obstaclePassive (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
-   if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY > y - 5) {hitingRight = 1;}
-   if (x + width >= caracterX && caracterX > x + width /2 && caracterY > y - 5) {hitingLeft = 1;}else {hitingLeft = 1;}
-   if (y <= caracterY && y + height > caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; onPlatform = 1; onGround = 1; fallOff = 0;}else {fallOff += 1;}
+   if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY > y - 5) {hitingRight = 1;}else {hitingRight = 0;}
+   if (x + width >= caracterX && caracterX > x + width /2 && caracterY > y - 5) {hitingLeft = 1;}else {hitingLeft = 0;}
+   if (y <= caracterY && y + height > caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; onPlatform = 1; onGround = 1; fallOff = 0;}else {fallStop = 0; onPlatform = 0; fallOff += 1;}
 }
 
 function reset () {
