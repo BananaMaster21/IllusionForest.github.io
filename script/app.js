@@ -81,7 +81,7 @@ function moving () {
         caracterMoveSide = 2;
         caracterKeepSide = "right";
         }
-    if (side === " " && onGround === 1 || side === " " && fallStop === 1;) {
+    if (side === " " && onGround === 1) {
         jump = 1;
         }
     //left
@@ -142,17 +142,12 @@ function moving () {
         caracterY = caracterY + fallTimer;
         }
     //landing
-    if (caracterY >= ground - caracterH) {
+    if (caracterY >= ground - caracterH || fallStop === 1) {
         onGround = 1;
         upTimer = canvasesH /40;
         fallTimer = 0;
         jump = 0;
         }
-   if (fallStop === 1) {
-       upTimer = canvasesH /40;
-       fallTimer = 0;
-       jump = 0;
-       }
 }
 
 // lives
@@ -179,26 +174,24 @@ right_2: 0,
 
 //sliping off obstacles 
 function slip () {
-   if(ob.fall_1 + ob.fall_2 === 1 && caracterY < ground - caracterH /2 && jump === 0 && onGround === 0) {fallStop = 0; sliping = 1;}else {sliping = 0;}
+   if(ob.fall_1 + ob.fall_2 === 1 && caracterY < ground - caracterH /2 && jump === 0) {fallStop = 0; sliping = 1;}else {sliping = 0;}
 }
 function wallRight () {
-   if(ob.right_1 + ob.right_2 === 1) {hitingRight = 1;}else {hitingRight = 0;}
+   if(ob.right_1 + ob.right_2 === 2) {hitingRight = 0;}
 }
 function wallLeft () {
-   if(ob.left_1 + ob.left_2 === 1) {hitingLeft = 1;}else {hitingLeft = 0;}
+   if(ob.left_1 + ob.left_2 === 2) {hitingLeft = 0;}
 }
 
 function obstacle (image, x, y, width, height, number) {
    ctx1.drawImage(image, x, y, width, height);
    //colision right
-   if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY > y - 5) {
-      if (number === 1) {ob.right_1 = 1;}else if (number === 2) {ob.right_2 = 1;}}else {
+   if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY > y - 5) {hitingRight = 1;}else {
          if (number === 1) {ob.right_1 = 0;}else if (number === 2) {ob.right_2 = 0;}}
    
    //colision left
-   if (x + width >= caracterX && caracterX > x + width /2 && caracterY > y - 5) {
-      if (number === 1) {ob.left_1 = 1;}else if (number === 2) {ob.left_2 = 1;}}else {
-         if (number === 1) {ob.left_1 = 0;}else if (number === 2) {ob.left_2 = 0;}}
+   if (x + width >= caracterX && caracterX > x + width /2 && caracterY > y - 5) {hitingLeft = 1;}else {
+         if (number === 1) {ob.left_1 = 1;}else if (number === 2) {ob.left_2 = 1;}}
    
    //colision top
    if (y <= caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1;}else {if (number === 1) {ob.fall_1 = 1;}else if (number === 2) {ob.fall_2 = 1;}}
@@ -268,7 +261,7 @@ requestAnimationFrame(gamePart1);
     wallRight();
     wallLeft();
     obstacle(rock, 500, rockY, caracterW, caracterH, 1);
-    obstacle(rock, 800, rockY, caracterW, caracterH, 1);
+    obstacle(rock, 800, rockY, caracterW, caracterH, 2);
     
    
     //player
