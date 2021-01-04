@@ -174,7 +174,7 @@ right_2: 0,
 
 //sliping off obstacles 
 function slip () {
-   if(ob.fall_1 + ob.fall_2 === 2 && caracterY < ground - caracterH /2 && jump === 0) {fallStop = 0; sliping = 1; }else {sliping = 0;}
+   if(ob.fall_1 + ob.fall_2 === 2 && caracterY < ground - caracterH && jump === 0) {fallStop = 0; sliping = 1; }else {sliping = 0;}
 }
 function wallRight () {
    if(ob.right_1 + ob.right_2 === 2) {hitingRight = 0;}else {ob.right_1 = 0; ob.right_2 = 0;}
@@ -187,7 +187,7 @@ function obstacle (image, x, y, width, height, number) {
    ctx1.drawImage(image, x, y, width, height);
    //colision right
    if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY > y - 5) {hitingRight = 1;}else {
-         if (number === 1) {ob.right_1 = 0;}else if (number === 2) {ob.right_2 = 0;}}
+         if (number === 1) {ob.right_1 = 1;}else if (number === 2) {ob.right_2 = 1;}}
    
    //colision left
    if (x + width >= caracterX && caracterX > x + width /2 && caracterY > y - 5) {hitingLeft = 1;}else {
