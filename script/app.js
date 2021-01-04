@@ -81,7 +81,7 @@ function moving () {
         caracterMoveSide = 2;
         caracterKeepSide = "right";
         }
-    if (side === " " && onGround === 1) {
+    if (side === " " && onGround === 1 || side === " " && onPlatform === 1) {
         jump = 1;
         }
     //left
