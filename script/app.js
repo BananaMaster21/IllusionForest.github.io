@@ -47,7 +47,6 @@ var leftStop = 0;
 var hitingRight = 0;
 var rightStop = 0;
 var fallStop = 0;
-var onPlatform = 1;
 var sliping = 0;
 
 //caracter sides
@@ -82,7 +81,7 @@ function moving () {
         caracterMoveSide = 2;
         caracterKeepSide = "right";
         }
-    if (side === " " && onGround === 1) {
+    if (side === " " && onGround === 1 || side === " " && fallStop === 1;) {
         jump = 1;
         }
     //left
@@ -175,7 +174,7 @@ right_2: 0,
 
 //sliping off obstacles 
 function slip () {
-   if(ob.fall_1 + ob.fall_2 === 1 && caracterY < ground - caracterH /2 && jump === 0) {onGround = 0; onPlatform = 0; fallStop = 0; sliping = 1;}else {sliping = 0;}
+   if(ob.fall_1 + ob.fall_2 === 1 && caracterY < ground - caracterH /2 && jump === 0 && onGround === 0) {fallStop = 0; sliping = 1;}else {sliping = 0;}
 }
 function wallRight () {
    if(ob.right_1 + ob.right_2 === 1) {hitingRight = 1;}else {hitingRight = 0;}
@@ -197,7 +196,7 @@ function obstacle (image, x, y, width, height, number) {
          if (number === 1) {ob.left_1 = 0;}else if (number === 2) {ob.left_2 = 0;}}
    
    //colision top
-   if (y <= caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; fall = 0;}else {if (number === 1) {ob.fall_1 = 1;}else if (number === 2) {ob.fall_2 = 1;}}
+   if (y <= caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1;}else {if (number === 1) {ob.fall_1 = 1;}else if (number === 2) {ob.fall_2 = 1;}}
 }
 
 function reset () {
