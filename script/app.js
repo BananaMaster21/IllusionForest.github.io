@@ -163,7 +163,7 @@ var heartsH = canvasesH /25;
 
 //obstacles
 var fallOff = 0;
-function slip () {if (fallOff === 1) {onGround = 0;}}
+function slip () {if (fallOff > 0 && fallOff <= 3) {onGround = 0;}}
 
 function obstacleFloor (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
