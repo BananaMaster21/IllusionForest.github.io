@@ -165,14 +165,14 @@ var heartsH = canvasesH /25;
 //obstacles
 var fallOff = 0;
 function slip () {
-if(caracterY - caracterH /2 < ground - caracterH /2 && fallOff === 1) {sliping = 1;}else {fallOff = 0;}
+if(caracterY - caracterH /2 > ground - caracterH /2 && jump === 0 && fallOff === 1) {sliping = 1;}else {fallOff = 0;}
 }
 
 function obstacleFloor (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
    if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY > y - 5) {hitingRight = 1;}else {hitingRight = 0;}
    if (x + width >= caracterX && caracterX > x + width /2 && caracterY > y - 5) {hitingLeft = 1;}else {hitingLeft = 0;}
-   if (y <= caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; onPlatform = 1;}else {fallStop = 0; onPlatform = 0; fallOff = 1;}
+   if (y <= caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; onPlatform = 1; fallOff = 0;}else {fallStop = 0; onPlatform = 0; fallOff = 1;}
 }
 
 function reset () {
