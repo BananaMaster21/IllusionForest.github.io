@@ -131,8 +131,6 @@ function moving () {
     //jumping
     if (jump === 1) {
         onGround = 0;
-        onPlatform = 0;
-        fallStop = 0;
         upTimer = upTimer - canvasesH /800;
         caracterY = caracterY - upTimer;
        }
@@ -144,17 +142,12 @@ function moving () {
         caracterY = caracterY + fallTimer;
         }
     //landing
-    if (caracterY >= ground - caracterH) {
+    if (caracterY >= ground - caracterH || fallStop === 1) {
         onGround = 1;
         upTimer = canvasesH /40;
         fallTimer = 0;
         jump = 0;
         }
-    if (fallStop === 1 && onPlatform === 1) {
-        upTimer = canvasesH /40;
-        fallTimer = 0;
-        jump = 0;
-       }
 }
 
 // lives
@@ -172,12 +165,11 @@ var heartsH = canvasesH /25;
 var fallOff = 0;
 
 function walkOffObstacle () {
-   if (fallOff === 1 && jump === 0) {
-      onGround = 0;
-   }
+   if (fallOff === 1) {
+       onGround = 0;
+       }
 }
-
-function obstaclePassive (image, x, y, width, height) {
+function obstacleFloor (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
    if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY > y - 5) {hitingRight = 1;}else {hitingRight = 0;}
    if (x + width >= caracterX && caracterX > x + width /2 && caracterY > y - 5) {hitingLeft = 1;}else {hitingLeft = 0;}
@@ -243,11 +235,8 @@ requestAnimationFrame(gamePart1);
        
     } //end of pause
    
-    //obstacle and traps
-    //hitting them
-    walkOffObstacle();
-    //making them
-    obstaclePassive(rock, 500, rockY, caracterW, caracterH);
+    //obstacles
+    obstacleFloor(rock, 500, rockY, caracterW, caracterH);
    
     //player
     ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
