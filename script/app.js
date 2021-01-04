@@ -169,33 +169,36 @@ right_1: 0,
 fall_2: 0,
 left_2: 0,
 right_2: 0,
+fall_3: 0,
+left_3: 0,
+right_3: 0,
 }
 
 
 //sliping off obstacles 
 function slip () {
-   if(ob.fall_1 + ob.fall_2 === 2 && caracterY < ground - caracterH && jump === 0) {fallStop = 0; sliping = 1; }else {sliping = 0;}
+   if(ob.fall_1 + ob.fall_2 + ob.fall_3 === 3 && caracterY < ground - caracterH && jump === 0) {fallStop = 0; sliping = 1; }else {sliping = 0;}
 }
 function wallRight () {
-   if(ob.right_1 + ob.right_2 === 2) {hitingRight = 0;}else {ob.right_1 = 0; ob.right_2 = 0;}
+   if(ob.right_1 + ob.right_2 + ob.right_3 === 3) {hitingRight = 0;}else {ob.right_1 = 0; ob.right_2 = 0; ob.right_3 = 0;}
 }
 function wallLeft () {
-   if(ob.left_1 + ob.left_2 === 2) {hitingLeft = 0;}else {ob.left_1 = 0; ob.left_2 = 0;}
+   if(ob.left_1 + ob.left_2 + ob.left_3 === 3) {hitingLeft = 0;}else {ob.left_1 = 0; ob.left_2 = 0; ob.left_3 = 0;}
 }
 
 function obstacle (image, x, y, width, height, number) {
    ctx1.drawImage(image, x, y, width, height);
    //colision right
    if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY > y - 5) {hitingRight = 1;}else {
-         if (number === 1) {ob.right_1 = 1;}else if (number === 2) {ob.right_2 = 1;}}
+         if (number === 1) {ob.right_1 = 1;}else if (number === 2) {ob.right_2 = 1;}else if (number === 3) {ob.right_3 = 1;}}
    
    //colision left
    if (x + width >= caracterX && caracterX > x + width /2 && caracterY > y - 5) {hitingLeft = 1;}else {
-         if (number === 1) {ob.left_1 = 1;}else if (number === 2) {ob.left_2 = 1;}}
+         if (number === 1) {ob.left_1 = 1;}else if (number === 2) {ob.left_2 = 1;}else if (number === 3) {ob.left_3 = 1;}}
    
    //colision top
-   if (y <= caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; if (number === 1) {ob.fall_1 = 0;}else if (number === 2) {ob.fall_2 = 0;}}else {
-      if (number === 1) {ob.fall_1 = 1;}else if (number === 2) {ob.fall_2 = 1;}}
+   if (y <= caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; if (number === 1) {ob.fall_1 = 0;}else if (number === 2) {ob.fall_2 = 0;}else if (number === 3) {ob.fall_3 = 0;}}else {
+      if (number === 1) {ob.fall_1 = 1;}else if (number === 2) {ob.fall_2 = 1;}else if (number === 3) {ob.fall_3 = 1;}}
 }
 
 function reset () {
@@ -263,6 +266,7 @@ requestAnimationFrame(gamePart1);
     wallLeft();
     obstacle(rock, 500, rockY, caracterW, caracterH, 1);
     obstacle(rock, 800, rockY, caracterW, caracterH, 2);
+    obstacle(rock, 600, rockY, caracterW, caracterH /2, 3);
     
    
     //player
