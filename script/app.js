@@ -266,7 +266,7 @@ requestAnimationFrame(gamePart1);
     wallLeft();
     obstacle(rock, 500, rockY, caracterW, caracterH, 1);
     obstacle(rock, 800, rockY, caracterW, caracterH, 2);
-    obstacle(rock, 600, rockY, caracterW, caracterH /2, 3);
+    obstacle(rock, 600, rockY - caracterH /2, caracterW, caracterH *2, 3);
     
    
     //player
