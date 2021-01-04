@@ -206,12 +206,6 @@ function reset () {
  upTimer = canvasesH /40;
  fallTimer = 0;
  healTimer = 0;
- whenHeal = 300;
- heart1X = canvasesW /25;
- heart2X = canvasesW /12.5;
- heartsY = canvasesH /20;
- heartsW = canvasesW /50;
- heartsH = canvasesH /25;
  lives = 2;
    }
 }
@@ -246,7 +240,7 @@ function liveAndHeal () {
       pause = 1;
       ctx1.fillStyle = "rgba( 0, 0, 0,"+Darkness+")"; ctx1.fillRect(0, 0, canvasesW, canvasesH); 
       ctx1.fillStyle = "lightGrey"; ctx1.textAlign = "center"; ctx1.font = ""+TextSize+"px Arial"; ctx1.fillText("Click to restart", canvasesW /2, canvasesH /4);
-      ctx1.drawImage(resetButton, canvasesW /2 - resetW /2, canvasesH /2 - resety /2, resetW, resetY);
+      ctx1.drawImage(resetButton, canvasesW /2 - resetW /2, canvasesH /2 - resetY /2, resetW, resetY);
     }
 }
 
