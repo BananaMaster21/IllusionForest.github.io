@@ -163,16 +163,33 @@ var heartsW = canvasesW /50;
 var heartsH = canvasesH /25;
 
 //obstacles
-var fallOff = 0;
-function slip () {
-if(caracterY - caracterH /2 < ground - caracterH /2 && jump === 0 && fallOff === 1) {sliping = 1;}else {fallOff = 0;}
+var ob = {
+fall_1: 0,
+left_1: 0,
+right_1: 0,
+fall_2: 0,
+left_2: 0,
+right_2: 0,
 }
 
-function obstacleFloor (image, x, y, width, height) {
+
+//sliping off obstacles 
+function slip () {
+   if(ob.fall_1 + ob.fall_2 === 1 && caracterY - caracterH /2 < ground - caracterH /2 && jump === 0) {sliping = 1;}else {sliping = 0;}
+}
+function wallRight () {
+   if(ob.right_1 + ob.right_2 === 1) {hitingRight = 1;}else {hitingRight = 0;}
+}
+function wallLeft () {
+   if(ob.left_1 + ob.left_2 === 1) {hitingLeft = 1;}else {hitingLeft = 0;}
+}
+
+
+function obstacle (image, x, y, width, height, fall, left, right) {
    ctx1.drawImage(image, x, y, width, height);
-   if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY > y - 5) {hitingRight = 1;}else {hitingRight = 0;}
+   if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY > y - 5) {right = 1;}else {right = 0;}
    if (x + width >= caracterX && caracterX > x + width /2 && caracterY > y - 5) {hitingLeft = 1;}else {hitingLeft = 0;}
-   if (y <= caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; onPlatform = 1; fallOff = 0;}else {fallStop = 0; onPlatform = 0; fallOff = 1;}
+   if (y <= caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; fall = 0;}else {fall = 1;}
 }
 
 function reset () {
@@ -236,7 +253,9 @@ requestAnimationFrame(gamePart1);
    
     //obstacles
     slip();
-    obstacleFloor(rock, 500, rockY, caracterW, caracterH);
+    obstacle(rock, 500, rockY, caracterW, caracterH, ob.fall_1, ob.left_1, ob.right_1);
+    obstacle(rock, 800, rockY, caracterW, caracterH, ob.fall_2, ob.left_2, ob.right_2);
+    
    
     //player
     ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
