@@ -243,7 +243,6 @@ requestAnimationFrame(gamePart1);
     walkOffObstacle();
     //making them
     obstaclePassive(rock, 500, rockY, caracterW, caracterH);
-    obstaclePassive(rock, 800, rockY, caracterW, caracterH);
    
     //player
     ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
