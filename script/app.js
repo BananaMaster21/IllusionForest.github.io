@@ -48,6 +48,7 @@ var hitingRight = 0;
 var rightStop = 0;
 var fallStop = 0;
 var onPlatform = 1;
+var sliping = 0;
 
 //caracter sides
 var caracterMoveSide = 0;
@@ -135,7 +136,7 @@ function moving () {
         caracterY = caracterY - upTimer;
        }
     //falling
-    if (caracterY < ground && onGround === 0 && upTimer === 0 || fallStop === 0 && jump === 0 && onPlatform === 0 && onGround === 0) {
+    if (caracterY < ground && onGround === 0 && upTimer === 0 || sliping === 1) {
       if ( fallTimer <= canvasesH /80) {
         fallTimer = fallTimer + canvasesH /800;
             }
@@ -163,13 +164,15 @@ var heartsH = canvasesH /25;
 
 //obstacles
 var fallOff = 0;
-function slip () {if (fallOff > 0 && fallOff <= 3) {onGround = 0;}}
+function slip () {
+if(caracterY - caracterH /2 < ground - caracterH /2 && fallOff === 1) {sliping = 1;}else {fallOff = 0;}
+}
 
 function obstacleFloor (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
    if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY > y - 5) {hitingRight = 1;}else {hitingRight = 0;}
    if (x + width >= caracterX && caracterX > x + width /2 && caracterY > y - 5) {hitingLeft = 1;}else {hitingLeft = 0;}
-   if (y <= caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; onPlatform = 1; fallOff = 0;}else {fallStop = 0; onPlatform = 0; fallOff += 1;}
+   if (y <= caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; onPlatform = 1;}else {fallStop = 0; onPlatform = 0; fallOff = 1;}
 }
 
 function reset () {
@@ -232,6 +235,7 @@ requestAnimationFrame(gamePart1);
     } //end of pause
    
     //obstacles
+    slip();
     obstacleFloor(rock, 500, rockY, caracterW, caracterH);
    
     //player
