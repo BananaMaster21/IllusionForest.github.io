@@ -35,11 +35,9 @@ var caracterX = canvasesW /25;
 var caracterY = ground - caracterH;
 
 //image area
+var heart = document.getElementById("heart");
 var resetButton = document.getElementById("reviveButton");
-var resetW = canvasesW /5;
-var resetY = canvasesH /5;
 var rock = document.getElementById("rock");
-var rockY = ground - caracterH - caracterH;
 
 //hit detection
 var hitingLeft = 0;
@@ -150,17 +148,6 @@ function moving () {
         }
 }
 
-// lives
-var heart = document.getElementById("heart");
-var lives = 2;
-var healTimer = 0;
-var whenHeal = 300;
-var heart1X = canvasesW /25;
-var heart2X = canvasesW /12.5;
-var heartsY = canvasesH /20;
-var heartsW = canvasesW /50;
-var heartsH = canvasesH /25;
-
 //obstacles
 var ob = {
 fall_1: 0,
@@ -174,6 +161,8 @@ left_3: 0,
 right_3: 0,
 }
 
+//obstacles
+var floor = ground - caracterH;
 
 //sliping off obstacles 
 function slip () {
@@ -229,8 +218,22 @@ function reset () {
 //pausing
 var pause = 0;
 
+
+// lives
+var lives = 2;
+var healTimer = 0;
+var whenHeal = 300;
+var heart1X = canvasesW /25;
+var heart2X = canvasesW /12.5;
+var heartsY = canvasesH /20;
+var heartsW = canvasesW /50;
+var heartsH = canvasesH /25;
+
+//death screen
 var TextSize = canvasesH /10;
 var Darkness = 0.8;
+var resetW = canvasesW /5;
+var resetY = canvasesH /5;
 
 function liveAndHeal () {
   if (lives === 2) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart2X, heartsY, heartsW, heartsH);}
@@ -264,9 +267,13 @@ requestAnimationFrame(gamePart1);
     slip();
     wallRight();
     wallLeft();
-    obstacle(rock, 500, rockY, caracterW, caracterH, 1);
-    obstacle(rock, 800, rockY, caracterW, caracterH, 2);
-    obstacle(rock, 700, rockY - caracterH, caracterW, caracterH *2, 3);
+   
+   if (playLevel === 1) {
+    
+    obstacle(rock, canvasesW *1/3 - caracterW /2, floor - caracterH, caracterW, caracterH, 1);
+    obstacle(rock, canvasesW *1/2 - caracterW /2, floor - caracterH *2, caracterW, caracterH *2, 2);
+    obstacle(rock, canvasesW *2/3 - caracterW /2, floor - caracterH, caracterW, caracterH, 3);
+   }  
     
    
     //player
