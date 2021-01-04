@@ -261,6 +261,8 @@ requestAnimationFrame(gamePart1);
    
     //obstacles
     slip();
+    wallRight();
+    wallLeft();
     obstacle(rock, 500, rockY, caracterW, caracterH, 1);
     obstacle(rock, 800, rockY, caracterW, caracterH, 1);
     
