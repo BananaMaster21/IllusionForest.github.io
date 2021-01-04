@@ -81,7 +81,7 @@ function moving () {
         caracterMoveSide = 2;
         caracterKeepSide = "right";
         }
-    if (side === " " && onGround === 1 || side === " " && onPlatform === 1) {
+    if (side === " " && onGround === 1) {
         jump = 1;
         }
     //left
@@ -149,6 +149,7 @@ function moving () {
         jump = 0;
         }
    if (fallStop === 1) {
+       onGround = 1;
        upTimer = canvasesH /40;
        allTimer = 0;
        jump = 0;
@@ -167,11 +168,14 @@ var heartsW = canvasesW /50;
 var heartsH = canvasesH /25;
 
 //obstacles
+var fallOff = 0;
+function slip () {if (fallOff === 1) {onGround = 0;}}
+
 function obstacleFloor (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
    if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY > y - 5) {hitingRight = 1;}else {hitingRight = 0;}
    if (x + width >= caracterX && caracterX > x + width /2 && caracterY > y - 5) {hitingLeft = 1;}else {hitingLeft = 0;}
-   if (y <= caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; onPlatform = 1;}else {fallStop = 0; onPlatform = 0;}
+   if (y <= caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; onPlatform = 1; fallOff = 0;}else {fallStop = 0; onPlatform = 0; fallOff += 1;}
 }
 
 function reset () {
