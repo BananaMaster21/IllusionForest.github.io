@@ -191,13 +191,20 @@ function obstacle (image, x, y, width, height, number) {
 }
 
 //traps
-var damageAmount = 1;
-
+var damageActivated = 0;
+var damageReset = 0;
+function damageTimer () {
+   if (damageActivated === 1 ) {
+      damageReset += 1;
+      if (damageReset === 150) {
+          damageActivated = 0;
+          }
+      }
+}
 function trap (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
    
-   if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /3) {}
-   
+   if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /3) {if (damageActivated === 0){if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
 }
 
 function reset () {
@@ -273,6 +280,9 @@ requestAnimationFrame(gamePart1);
     wallLeft();
    
    if (playLevel === 1) {
+      
+      trap(spikeFloor, canvasesW *3/8, floor - caracterH /2, caracterW, caracterH /2);
+      trap(trap(spikeFloor, canvasesW *4/5, floor - caracterH /2, caracterW *1.5, caracterH /2);
     
     obstacle(rock, canvasesW *1/3 - caracterW /2, floor - caracterH, caracterW, caracterH, 1);
     obstacle(rock, canvasesW *1/2 - caracterW /2, floor - caracterH *2, caracterW, caracterH *2, 2);
