@@ -199,6 +199,9 @@ function damageTimer () {
       damageReset += 1;
       if (damageReset === 150) {
           damageActivated = 0;
+      if (jump === 1) {
+          damageActivated = 0;
+          }
           }
       }
 }
