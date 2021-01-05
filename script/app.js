@@ -179,11 +179,11 @@ function obstacle (image, x, y, width, height, number) {
    ctx1.drawImage(image, x, y, width, height);
    
    //colision right
-   if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY - caracterH /2 > y && caracterY - caracterH /2 > y + height) {hitingRight = 1;}else {
+   if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY - caracterH /2 > y && caracterY - caracterH /2 < y + height) {hitingRight = 1;}else {
          if (number === 1) {ob.right_1 = 1;}else if (number === 2) {ob.right_2 = 1;}else if (number === 3) {ob.right_3 = 1;}}
    
    //colision left
-   if (x + width >= caracterX && caracterX > x + width /2 && caracterY - caracterH /2 > y && caracterY - caracterH /2 > y + height) {hitingLeft = 1;}else {
+   if (x + width >= caracterX && caracterX > x + width /2 && caracterY - caracterH /2 > y && caracterY - caracterH /2 < y + height) {hitingLeft = 1;}else {
          if (number === 1) {ob.left_1 = 1;}else if (number === 2) {ob.left_2 = 1;}else if (number === 3) {ob.left_3 = 1;}}
    
    //colision top
