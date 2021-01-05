@@ -282,7 +282,7 @@ requestAnimationFrame(gamePart1);
    if (playLevel === 1) {
       
       trap(spikeFloor, canvasesW *3/8, floor - caracterH /2, caracterW, caracterH /2);
-      trap(trap(spikeFloor, canvasesW *4/5, floor - caracterH /2, caracterW *1.5, caracterH /2);
+      trap(spikeFloor, canvasesW *4/5, floor - caracterH /2, caracterW *1.5, caracterH /2);
     
     obstacle(rock, canvasesW *1/3 - caracterW /2, floor - caracterH, caracterW, caracterH, 1);
     obstacle(rock, canvasesW *1/2 - caracterW /2, floor - caracterH *2, caracterW, caracterH *2, 2);
