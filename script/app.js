@@ -174,20 +174,30 @@ function wallRight () {
 function wallLeft () {
    if(ob.left_1 + ob.left_2 + ob.left_3 === 3) {hitingLeft = 0;}else {ob.left_1 = 0; ob.left_2 = 0; ob.left_3 = 0;}
 }
-
 function obstacle (image, x, y, width, height, number) {
    ctx1.drawImage(image, x, y, width, height);
+   
    //colision right
-   if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY > y - 5) {hitingRight = 1;}else {
+   if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY - caracterH /2 > y && caracterY - caracterH /2 < y + width) {hitingRight = 1;}else {
          if (number === 1) {ob.right_1 = 1;}else if (number === 2) {ob.right_2 = 1;}else if (number === 3) {ob.right_3 = 1;}}
    
    //colision left
-   if (x + width >= caracterX && caracterX > x + width /2 && caracterY > y - 5) {hitingLeft = 1;}else {
+   if (x + width >= caracterX && caracterX > x + width /2 && caracterY - caracterH /2 > y && caracterY - caracterH /2 < y + width) {hitingLeft = 1;}else {
          if (number === 1) {ob.left_1 = 1;}else if (number === 2) {ob.left_2 = 1;}else if (number === 3) {ob.left_3 = 1;}}
    
    //colision top
-   if (y <= caracterY && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; if (number === 1) {ob.fall_1 = 0;}else if (number === 2) {ob.fall_2 = 0;}else if (number === 3) {ob.fall_3 = 0;}}else {
+   if (y <= caracterY && caracterY - caracterH /2 < y + height && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; if (number === 1) {ob.fall_1 = 0;}else if (number === 2) {ob.fall_2 = 0;}else if (number === 3) {ob.fall_3 = 0;}}else {
       if (number === 1) {ob.fall_1 = 1;}else if (number === 2) {ob.fall_2 = 1;}else if (number === 3) {ob.fall_3 = 1;}}
+}
+
+//traps
+var damageAmount = 1;
+
+function trap (image, x, y, width, height) {
+   ctx1.drawImage(image, x, y, width, height);
+   
+   if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /3) {}
+   
 }
 
 function reset () {
