@@ -195,15 +195,8 @@ function obstacle (image, x, y, width, height, number) {
 var damageActivated = 0;
 var damageReset = 0;
 function damageTimer () {
-   if (damageActivated === 1 ) {
-      damageReset += 1;
-      if (damageReset === 150) {
-          damageActivated = 0;
-      if (jump === 1) {
-          damageActivated = 0;
-          }
-          }
-      }
+   if (damageActivated === 1 ) {damageReset += 1;if (damageReset === 150) {damageActivated = 0;}}
+   if (jump === 1) {damageActivated = 0; }
 }
 function trap (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
