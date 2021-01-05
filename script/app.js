@@ -38,6 +38,7 @@ var caracterY = ground - caracterH;
 var heart = document.getElementById("heart");
 var resetButton = document.getElementById("reviveButton");
 var rock = document.getElementById("rock");
+var spikeFloor = document.getElementById("spikeFloor");
 
 //hit detection
 var hitingLeft = 0;
