@@ -194,9 +194,9 @@ function obstacle (image, x, y, width, height, number) {
 //traps
 var damageActivated = 0;
 var damageReset = 0;
+var inTrap = 0;
 function damageTimer () {
-   if (damageActivated === 1 ) {damageReset += 1;if (damageReset === 150) {damageActivated = 0;}}
-   if (jump === 1) {damageActivated = 0; }
+   if (damageActivated === 1 ) {damageReset += 1;if (damageReset === 75) {damageActivated = 0;}}
 }
 function trap (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
@@ -237,11 +237,6 @@ var heartsY = canvasesH /20;
 var heartsW = canvasesW /50;
 var heartsH = canvasesH /25;
 
-//death screen
-var TextSize = canvasesH /10;
-var Darkness = 0.8;
-var resetW = canvasesW /5;
-var resetY = canvasesH /5;
 
 function liveAndHeal () {
   if (lives === 2) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart2X, heartsY, heartsW, heartsH);}
@@ -251,6 +246,11 @@ function liveAndHeal () {
        if (whenHeal === healTimer) {lives = 2; healTimer = 0;}
   
     if (lives === 0) {
+       //death screen
+       var TextSize = canvasesH /10;
+       var Darkness = 0.8;
+       var resetW = canvasesW /5;
+       var resetY = canvasesH /5;
       pause = 1;
       ctx1.fillStyle = "rgba( 0, 0, 0,"+Darkness+")"; ctx1.fillRect(0, 0, canvasesW, canvasesH); 
       ctx1.fillStyle = "lightGrey"; ctx1.textAlign = "center"; ctx1.font = ""+TextSize+"px Arial"; ctx1.fillText("Click to restart", canvasesW /2, canvasesH /4);
@@ -278,13 +278,25 @@ requestAnimationFrame(gamePart1);
     damageTimer();
    
    if (playLevel === 1) {
+      ctx1.fillStyle = "black";
+      ctx1.textAlign = "start";
+      ctx1.font = ""+canvasesH /20+"px Arial";
       
       trap(spikeFloor, canvasesW *3/8, floor - caracterH /2, caracterW, caracterH /2);
-      trap(spikeFloor, canvasesW *4/5, floor - caracterH /2, caracterW *1.5, caracterH /2);
+      //spike hurt instructions
+      ctx1.fillText("Spikes hurt", canvasesW *4/5, floor - caracterH *1.5 );
+      trap(spikeFloor, canvasesW *4/5, floor - caracterH /2, caracterW *4/3, caracterH /2);
     
     obstacle(rock, canvasesW *1/3 - caracterW /2, floor - caracterH, caracterW, caracterH, 1);
     obstacle(rock, canvasesW *1/2 - caracterW /2, floor - caracterH *2, caracterW, caracterH *2, 2);
     obstacle(rock, canvasesW *2/3 - caracterW /2, floor - caracterH, caracterW, caracterH, 3);
+      
+      //where hearts are instructions
+      ctx1.fillText("Your lives", canvasesW /6.25, canvasesH /20);
+      
+      //controls instructions
+      ctx1.texAlign = "center";
+      ctx1.fillText("Arrow keys to move left and right, Space to jump", canvasesW /2,floor - caracterH *3);
    }  
     
    
