@@ -1,9 +1,9 @@
 //start game stuff
-var playLevel = "intro";
+var playLevel = 0;
 var nextLevel = 0;
 
 var startButton = document.getElementById("startButton");
-startButton.onclick = function () {playLevel = 1;}
+startButton.onclick = function () {playLevel = 0;}
 
 //canvas
 var part1 = document.getElementById("part1");
@@ -188,7 +188,7 @@ function obstacle (image, x, y, width, height, number) {
          if (number === 1) {ob.left_1 = 1;}else if (number === 2) {ob.left_2 = 1;}else if (number === 3) {ob.left_3 = 1;}}
    
    //colision top
-   if (y <= caracterY && caracterY < y + height /4 && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; if (number === 1) {ob.fall_1 = 0;}else if (number === 2) {ob.fall_2 = 0;}else if (number === 3) {ob.fall_3 = 0;}}else {
+   if (y <= caracterY && caracterY < y + height /3 && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; if (number === 1) {ob.fall_1 = 0;}else if (number === 2) {ob.fall_2 = 0;}else if (number === 3) {ob.fall_3 = 0;}}else {
       if (number === 1) {ob.fall_1 = 1;}else if (number === 2) {ob.fall_2 = 1;}else if (number === 3) {ob.fall_3 = 1;}}
 }
 
@@ -229,7 +229,7 @@ function reset () {
 //going to next level function
 function next () {
    if (caracterX >= canvasesW) {
-       if (playLevel === "intro") {playLevel === 1;}
+       if (playLevel === 0) {playLevel === 1;}reset();
     }
 }
 
@@ -271,9 +271,13 @@ var instructionTimer = 0;
 
 function gamePart1 () {
 requestAnimationFrame(gamePart1);
-  if (playLevel === "intro") {
+  if (playLevel === 0) {
     ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
   }
+   
+   //go to next level
+   next();
+   
     //pause
     if (pause === 0) { //start of pause
        
@@ -288,7 +292,7 @@ requestAnimationFrame(gamePart1);
     wallLeft();
     damageTimer();
    
-    if (playLevel === "intro") {
+    if (playLevel === 0) {
       instructionTimer += 1;
       
       ctx1.fillStyle = "black";
