@@ -299,7 +299,7 @@ requestAnimationFrame(gamePart1);
       ctx1.textAlign = "center";
       if (instructionTimer < 225) {
       ctx1.fillText("Arrow keys to move left and right, Space to jump", canvasesW /2,floor - caracterH *3);
-      }else {ctx1.fillText("Walk out this side of the level =~~~>", canvasesW /2,floor - caracterH *3);}
+      }else {ctx1.fillText("Next level this way =~~~>", canvasesW /2,floor - caracterH *3);}
       
     //player
     ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
