@@ -229,7 +229,7 @@ function reset () {
 //going to next level function
 function next () {
    if (caracterX >= canvasesW) {
-       if (playLevel === "intro") {playLevel === 1;}reset();
+       if (playLevel === "intro") {playLevel === 1;}
     }
 }
 
