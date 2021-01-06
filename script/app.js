@@ -257,6 +257,7 @@ function liveAndHeal () {
       ctx1.drawImage(resetButton, canvasesW /2 - resetW /2, canvasesH /2 - resetY /2, resetW, resetY);
     }
 }
+var instructionTimer = 0;
 
 function gamePart1 () {
 requestAnimationFrame(gamePart1);
@@ -278,30 +279,33 @@ requestAnimationFrame(gamePart1);
     damageTimer();
    
    if (playLevel === 1) {
+      instructionTimer += 1;
+      
       ctx1.fillStyle = "black";
       ctx1.textAlign = "start";
       ctx1.font = ""+canvasesH /20+"px Arial";
       
-      trap(spikeFloor, canvasesW *3/8, floor - caracterH /2, caracterW, caracterH /2);
       //spike hurt instructions
       ctx1.fillText("Spikes hurt", canvasesW *4/5, floor - caracterH *1.5 );
-      trap(spikeFloor, canvasesW *4/5, floor - caracterH /2, caracterW *4/3, caracterH /2);
     
-    obstacle(rock, canvasesW *1/3 - caracterW /2, floor - caracterH, caracterW, caracterH, 1);
-    obstacle(rock, canvasesW *1/2 - caracterW /2, floor - caracterH *2, caracterW, caracterH *2, 2);
-    obstacle(rock, canvasesW *2/3 - caracterW /2, floor - caracterH, caracterW, caracterH, 3);
+      obstacle(rock, canvasesW *1/3 - caracterW /2, floor - caracterH, caracterW, caracterH, 1);
+      obstacle(rock, canvasesW *1/2 - caracterW /2, floor - caracterH *2, caracterW, caracterH *2, 2);
+      obstacle(rock, canvasesW *2/3 - caracterW /2, floor - caracterH, caracterW, caracterH, 3);
       
       //where hearts are instructions
       ctx1.fillText("Your lives", canvasesW /6.25, canvasesH /10);
       
       //controls instructions
       ctx1.textAlign = "center";
+      if (instructionTimer < 150) {
       ctx1.fillText("Arrow keys to move left and right, Space to jump", canvasesW /2,floor - caracterH *3);
-   }  
-    
-   
+      }else {ctx1.fillText("Walk out this side of the level =~~~>", canvasesW /2,floor - caracterH *3);}
+      
     //player
     ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+      trap(spikeFloor, canvasesW *3/8, floor - caracterH /2, caracterW, caracterH /2);
+      trap(spikeFloor, canvasesW *4/5, floor - caracterH /2, caracterW *4/3, caracterH /2);
+   }  
     
     //hearts and damage
     liveAndHeal();
