@@ -1,5 +1,6 @@
 //start game stuff
-var playLevel = 0;
+var playLevel = "intro";
+var nextLevel = 0;
 
 var startButton = document.getElementById("startButton");
 startButton.onclick = function () {playLevel = 1;}
@@ -187,7 +188,7 @@ function obstacle (image, x, y, width, height, number) {
          if (number === 1) {ob.left_1 = 1;}else if (number === 2) {ob.left_2 = 1;}else if (number === 3) {ob.left_3 = 1;}}
    
    //colision top
-   if (y <= caracterY && caracterY - caracterH < y + height /4 && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; if (number === 1) {ob.fall_1 = 0;}else if (number === 2) {ob.fall_2 = 0;}else if (number === 3) {ob.fall_3 = 0;}}else {
+   if (y <= caracterY && caracterY < y + height /4 && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; if (number === 1) {ob.fall_1 = 0;}else if (number === 2) {ob.fall_2 = 0;}else if (number === 3) {ob.fall_3 = 0;}}else {
       if (number === 1) {ob.fall_1 = 1;}else if (number === 2) {ob.fall_2 = 1;}else if (number === 3) {ob.fall_3 = 1;}}
 }
 
@@ -205,7 +206,7 @@ function trap (image, x, y, width, height) {
 }
 
 function reset () {
-   if (lives === 0) {
+   if (lives === 0 || nextLevel === 1) {
  pause = 0;
  caracterX = canvasesW /25;
  caracterY = ground - caracterH;
@@ -221,8 +222,17 @@ function reset () {
  fallTimer = 0;
  healTimer = 0;
  lives = 2;
+ nextLevel === 0;
    }
 }
+
+//going to next level function
+function next () {
+   if (caracterX >= canvasesW) {
+       if (playLevel === "intro") {playLevel === 1;}reset();
+    }
+}
+
 //pausing
 var pause = 0;
 
@@ -278,7 +288,7 @@ requestAnimationFrame(gamePart1);
     wallLeft();
     damageTimer();
    
-   if (playLevel === 1) {
+    if (playLevel === "intro") {
       instructionTimer += 1;
       
       ctx1.fillStyle = "black";
@@ -298,11 +308,14 @@ requestAnimationFrame(gamePart1);
       //controls instructions
       ctx1.textAlign = "center";
       if (instructionTimer < 225) {
-      ctx1.fillText("Arrow keys to move left and right, Space to jump", canvasesW /2,floor - caracterH *3);
-      }else {ctx1.fillText("Next level this way =~~~>", canvasesW /2,floor - caracterH *3);}
+      ctx1.fillText("Arrow keys to move left and right, Space to jump", canvasesW /2,floor - caracterH *3);}else {
+      ctx1.fillText("Next level this way =~~~>", canvasesW /2,floor - caracterH *3);
+      }
       
-    //player
-    ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+      //player
+      ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+      
+      //traps
       trap(spikeFloor, canvasesW *3/8, floor - caracterH /2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW *4/5, floor - caracterH /2, caracterW *4/3, caracterH /2);
    }  
