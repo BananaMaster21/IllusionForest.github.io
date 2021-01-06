@@ -292,10 +292,10 @@ requestAnimationFrame(gamePart1);
     obstacle(rock, canvasesW *2/3 - caracterW /2, floor - caracterH, caracterW, caracterH, 3);
       
       //where hearts are instructions
-      ctx1.fillText("Your lives", canvasesW /6.25, canvasesH /20);
+      ctx1.fillText("Your lives", canvasesW /6.25, canvasesH /10);
       
       //controls instructions
-      ctx1.texAlign = "center";
+      ctx1.textAlign = "center";
       ctx1.fillText("Arrow keys to move left and right, Space to jump", canvasesW /2,floor - caracterH *3);
    }  
     
