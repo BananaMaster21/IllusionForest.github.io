@@ -271,7 +271,7 @@ var instructionTimer = 0;
 
 function gamePart1 () {
 requestAnimationFrame(gamePart1);
-  if (playLevel === 1) {
+  if (playLevel === "intro") {
     ctx1.drawImage(introBackground, 0, 0, canvasesW, canvasesH);
   }
     //pause
