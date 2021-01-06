@@ -18,7 +18,7 @@ var canvasesH = screen.height;
 var ground = canvasesH /1.25;
 
 //backgrounds part 1
-var introBackground = document.getElementById("forest");
+var introBack = document.getElementById("introback");
 
 //get caracter image states
 var bobRight1 = document.getElementById("bobRight1");
@@ -272,7 +272,7 @@ var instructionTimer = 0;
 function gamePart1 () {
 requestAnimationFrame(gamePart1);
   if (playLevel === "intro") {
-    ctx1.drawImage(introBackground, 0, 0, canvasesW, canvasesH);
+    ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
   }
     //pause
     if (pause === 0) { //start of pause
