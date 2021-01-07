@@ -294,6 +294,7 @@ requestAnimationFrame(gamePart1);
   }
    
    //go to next level
+   reset();
    next();
    
     //pause
