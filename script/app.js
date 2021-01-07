@@ -17,8 +17,10 @@ var canvasesH = screen.height;
 //ground
 var ground = canvasesH /1.25;
 
-//backgrounds part 1
+//backgrounds
 var introBack = document.getElementById("introback");
+var lvl_1Back = document.getElementById("lvl1back");
+var house = document.getElementById("house");
 
 //get caracter image states
 var bobRight1 = document.getElementById("bobRight1");
@@ -161,6 +163,9 @@ right_2: 0,
 fall_3: 0,
 left_3: 0,
 right_3: 0,
+fall_4: 0,
+left_4: 0,
+right_4: 0,
 }
 
 //obstacles
@@ -168,28 +173,28 @@ var floor = ground - caracterH;
 
 //sliping off obstacles 
 function slip () {
-   if(ob.fall_1 + ob.fall_2 + ob.fall_3 === 3 && caracterY < ground - caracterH && jump === 0) {fallStop = 0; sliping = 1; }else {sliping = 0;}
+   if(ob.fall_1 + ob.fall_2 + ob.fall_3 + ob.fall_4 === 4 && caracterY < ground - caracterH && jump === 0) {fallStop = 0; sliping = 1; }else {sliping = 0;}
 }
 function wallRight () {
-   if(ob.right_1 + ob.right_2 + ob.right_3 === 3) {hitingRight = 0;}else {ob.right_1 = 0; ob.right_2 = 0; ob.right_3 = 0;}
+   if(ob.right_1 + ob.right_2 + ob.right_3 + ob.right_4 === 4) {hitingRight = 0;}else {ob.right_1 = 0; ob.right_2 = 0; ob.right_3 = 0; ob.right_4 = 0;}
 }
 function wallLeft () {
-   if(ob.left_1 + ob.left_2 + ob.left_3 === 3) {hitingLeft = 0;}else {ob.left_1 = 0; ob.left_2 = 0; ob.left_3 = 0;}
+   if(ob.left_1 + ob.left_2 + ob.left_3 + ob.left_4 === 4) {hitingLeft = 0;}else {ob.left_1 = 0; ob.left_2 = 0; ob.left_3 = 0; ob.left_4 = 0;}
 }
 function obstacle (image, x, y, width, height, number) {
    ctx1.drawImage(image, x, y, width, height);
    
    //colision right
    if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY - caracterH /2 > y && caracterY - caracterH /2 < y + height) {hitingRight = 1;}else {
-         if (number === 1) {ob.right_1 = 1;}else if (number === 2) {ob.right_2 = 1;}else if (number === 3) {ob.right_3 = 1;}}
+         if (number === 1) {ob.right_1 = 1;}else if (number === 2) {ob.right_2 = 1;}else if (number === 3) {ob.right_3 = 1;}else if (number === 4) {ob.right_4 = 1;}}
    
    //colision left
    if (x + width >= caracterX && caracterX > x + width /2 && caracterY - caracterH /2 > y && caracterY - caracterH /2 < y + height) {hitingLeft = 1;}else {
-         if (number === 1) {ob.left_1 = 1;}else if (number === 2) {ob.left_2 = 1;}else if (number === 3) {ob.left_3 = 1;}}
+         if (number === 1) {ob.left_1 = 1;}else if (number === 2) {ob.left_2 = 1;}else if (number === 3) {ob.left_3 = 1;}else if (number === 4) {ob.left_4 = 1;}}
    
    //colision top
-   if (y <= caracterY && caracterY < y + height /2 && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; if (number === 1) {ob.fall_1 = 0;}else if (number === 2) {ob.fall_2 = 0;}else if (number === 3) {ob.fall_3 = 0;}}else {
-      if (number === 1) {ob.fall_1 = 1;}else if (number === 2) {ob.fall_2 = 1;}else if (number === 3) {ob.fall_3 = 1;}}
+   if (y <= caracterY && caracterY < y + height /2 && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; if (number === 1) {ob.fall_1 = 0;}else if (number === 2) {ob.fall_2 = 0;}else if (number === 3) {ob.fall_3 = 0;}else if (number === 4) {ob.fall_4 = 0;}}else {
+      if (number === 1) {ob.fall_1 = 1;}else if (number === 2) {ob.fall_2 = 1;}else if (number === 3) {ob.fall_3 = 1;}else if (number === 4) {ob.fall_4 = 1;}}
 }
 
 //traps
@@ -272,7 +277,11 @@ var instructionTimer = 0;
 function gamePart1 () {
 requestAnimationFrame(gamePart1);
   if (playLevel === 0) {
-    ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
+      ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
+  }
+  if (playLevel === 1) {
+      ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH);
+      ctx1.drawImage(house, 0 - caracterW *1.5, floor - caracterH *2, caracterW *3, caracterH *2);
   }
    
    //go to next level
@@ -305,9 +314,12 @@ requestAnimationFrame(gamePart1);
       obstacle(rock, canvasesW *1/3 - caracterW /2, floor - caracterH, caracterW, caracterH, 1);
       obstacle(rock, canvasesW *1/2 - caracterW /2, floor - caracterH *2, caracterW, caracterH *2, 2);
       obstacle(rock, canvasesW *2/3 - caracterW /2, floor - caracterH, caracterW, caracterH, 3);
+       
+      //obstacles not in use
+      obstacle(rock, 0, 0, 0, 0, 4);
       
       //where hearts are instructions
-      ctx1.fillText("Your lives", heart2X *1.5, canvasesH /20 - canvasesH /40);
+      ctx1.fillText("Your lives", heart2X *1.5, canvasesH /20 + canvasesH /40);
       
       //controls instructions
       ctx1.textAlign = "center";
@@ -323,6 +335,15 @@ requestAnimationFrame(gamePart1);
       trap(spikeFloor, canvasesW *3/8, floor - caracterH /2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW *4/5, floor - caracterH /2, caracterW *4/3, caracterH /2);
    }  
+   if (playLevel === 1) {
+      
+      
+      //player
+      ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+      
+      //traps
+      
+   }
     
     //hearts and damage
     liveAndHeal();
