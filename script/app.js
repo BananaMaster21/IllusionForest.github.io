@@ -234,7 +234,7 @@ function reset () {
 //going to next level function
 function next () {
    if (caracterX >= 0 + canvasesW) {
-       if (playLevel === 0) {playLevel === 1;}reset();
+       if (playLevel === 0) {playLevel = 1;}console.log("test"); reset();
     }
 }
 
@@ -337,6 +337,13 @@ requestAnimationFrame(gamePart1);
    }  
    if (playLevel === 1) {
       
+      //obstacles
+      
+      //obstacles not in use
+      obstacle(rock, 0, 0, 0, 0, 1);
+      obstacle(rock, 0, 0, 0, 0, 2);
+      obstacle(rock, 0, 0, 0, 0, 3);
+      obstacle(rock, 0, 0, 0, 0, 4);
       
       //player
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
