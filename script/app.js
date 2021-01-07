@@ -274,8 +274,11 @@ function liveAndHeal () {
 }
 
 //MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC
+var audio_0 = document.getElementById("sound_intro");
+var audio_1 = document.getElementById("sound_1");
 function music () {
-   
+if (playLevel === 0) {audio_0.setAttribute("autoplay","true"); audio_0.setAttribute("loop","true");}else {audio_0.setAttribute("autoplay","false"); audio_0.setAttribute("loop","false");}
+if (playLevel === 1) {audio_1.setAttribute("autoplay","true"); audio_1.setAttribute("loop","true");}else {audio_1.setAttribute("autoplay","false"); audio_1.setAttribute("loop","false");}
 }
 
 var instructionTimer = 0;
