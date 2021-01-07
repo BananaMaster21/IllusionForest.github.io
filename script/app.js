@@ -29,6 +29,15 @@ var bobLeft1 = document.getElementById("bobLeft1");
 var bobLeft2 = document.getElementById("bobLeft2");
 var caracterImage = bobRight1;
 
+//how far meter
+var meter1 = document.getElementById("meter1");
+var meter2 = document.getElementById("meter2");
+var meter3 = document.getElementById("meter3");
+var meter4 = document.getElementById("meter4");
+var meter5 = document.getElementById("meter5");
+var meter6 = document.getElementById("meter6");
+var meter7 = document.getElementById("meter7");
+
 //caracter size 
 var caracterW = canvasesW /10;
 var caracterH = canvasesH /7;
@@ -286,20 +295,12 @@ function gamePart1 () {
 requestAnimationFrame(gamePart1);
   if (playLevel === 0) {
       ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
-      //lvl number
-      ctx1.font = ""+canvasesH /15+"px Arial";
-      ctx1.fillStyle = "aqua";
-      ctx1.textAlign = "end";
-      ctx1.fillText("LvL: intro", canvasesW *9/10, canvasesH /20 + canvasesH /40);
   }
   if (playLevel === 1) {
       ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH);
       ctx1.drawImage(house, 0 - caracterW *3, floor - caracterH *3.5, caracterW *6, caracterH *4);
       //lvl number
-      ctx1.font = ""+canvasesH /15+"px Arial";
-      ctx1.fillStyle = "aqua";
-      ctx1.textAlign = "end";
-      ctx1.fillText("LvL: 1", canvasesW *9/10, canvasesH /20 + canvasesH /40);
+      ctx1.drawImage(meter1, canvasesW /2 - canvasesW *1/6, canvasesH /10, canvasesW *1/3, canvasesH /25);
   }
    
    //level music
