@@ -1,5 +1,5 @@
 //start game stuff
-var playLevel = 0;
+var playLevel = 99;
 var nextLevel = 0;
 
 var startButton = document.getElementById("startButton");
