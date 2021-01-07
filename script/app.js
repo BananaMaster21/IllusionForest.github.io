@@ -234,7 +234,7 @@ function reset () {
 //going to next level function
 function next () {
    if (caracterX >= 0 + canvasesW) {
-       if (playLevel === 0) {playLevel = 1;}console.log("test"); reset();
+       if (playLevel === 0) {playLevel = 1;}nextLevel = 1;
     }
 }
 
@@ -281,7 +281,7 @@ requestAnimationFrame(gamePart1);
   }
   if (playLevel === 1) {
       ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH);
-      ctx1.drawImage(house, 0 - caracterW *3, floor - caracterH *4, caracterW *6, caracterH *4);
+      ctx1.drawImage(house, 0 - caracterW *3, floor - caracterH *3, caracterW *6, caracterH *4);
   }
    
    //go to next level
