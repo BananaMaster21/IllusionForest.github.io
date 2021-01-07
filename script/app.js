@@ -272,6 +272,12 @@ function liveAndHeal () {
       ctx1.drawImage(resetButton, canvasesW /2 - resetW /2, canvasesH /2 - resetY /2, resetW, resetY);
     }
 }
+
+//MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC
+function music () {
+   
+}
+
 var instructionTimer = 0;
 
 function gamePart1 () {
