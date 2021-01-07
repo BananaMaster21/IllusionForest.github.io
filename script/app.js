@@ -281,7 +281,7 @@ requestAnimationFrame(gamePart1);
   }
   if (playLevel === 1) {
       ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH);
-      ctx1.drawImage(house, 0 - caracterW *1.5, floor - caracterH *2, caracterW *3, caracterH *2);
+      ctx1.drawImage(house, 0 - caracterW *3, floor - caracterH *4, caracterW *6, caracterH *4);
   }
    
    //go to next level
