@@ -275,10 +275,10 @@ function liveAndHeal () {
 //MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC
 var audio_0 = document.getElementById("sound_intro");
 var audio_1 = document.getElementById("sound_1");
-/*function music () {
-if (playLevel === 0) {audio_0.muted = false;}else {audio_0.muted = true;}
-if (playLevel === 1) {audio_1.muted = false;}else {audio_1.muted = true;}
-}*/
+function music () {
+if (playLevel === 0) {audio_0.play();}else {audio_0.pause();}
+if (playLevel === 1) {audio_1.play();}else {audio_1.pause();}
+}
 
 var instructionTimer = 0;
 
@@ -301,6 +301,9 @@ requestAnimationFrame(gamePart1);
       ctx1.textAlign = "end";
       ctx1.fillText("LvL: 1", canvasesW *9/10, canvasesH /20 + canvasesH /40);
   }
+   
+   //level music
+   music();
    
    //going to next level
    next();
