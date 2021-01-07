@@ -286,10 +286,19 @@ function gamePart1 () {
 requestAnimationFrame(gamePart1);
   if (playLevel === 0) {
       ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
+      //lvl number
+      ctx1.font = ""+canvasesH /20+"px Arial";
+      ctx1.fillStyle = "aqua";
+      ctx1.textAlign = "end";
   }
   if (playLevel === 1) {
       ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH);
       ctx1.drawImage(house, 0 - caracterW *3, floor - caracterH *3.5, caracterW *6, caracterH *4);
+      //lvl number
+      ctx1.font = ""+canvasesH /15+"px Arial";
+      ctx1.fillStyle = "aqua";
+      ctx1.textAlign = "end";
+      ctx1.fillText("LvL: 1", canvasesW *9/10, canvasesH /20 + canvasesH /40):
   }
    
    //going to next level
