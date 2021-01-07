@@ -290,7 +290,7 @@ requestAnimationFrame(gamePart1);
       ctx1.font = ""+canvasesH /15+"px Arial";
       ctx1.fillStyle = "aqua";
       ctx1.textAlign = "end";
-      ctx1.fillText("LvL: intro", canvasesW *9/10, canvasesH /20 + canvasesH /40):
+      ctx1.fillText("LvL: intro", canvasesW *9/10, canvasesH /20 + canvasesH /40);
   }
   if (playLevel === 1) {
       ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH);
