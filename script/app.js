@@ -211,7 +211,7 @@ function trap (image, x, y, width, height) {
 }
 
 function reset () {
-   if (lives === 0 || nextLevel === 1) {
+   if (lives === 0) {
  pause = 0;
  caracterX = canvasesW /25;
  caracterY = ground - caracterH;
@@ -227,14 +227,13 @@ function reset () {
  fallTimer = 0;
  healTimer = 0;
  lives = 2;
- nextLevel === 0;
    }
 }
 
 //going to next level function
 function next () {
    if (caracterX >= 0 + canvasesW) {
-       if (playLevel === 0) {playLevel = 1;}nextLevel = 1;
+       if (playLevel === 0) {playLevel = 1;}caracterX = canvasesW /25;
     }
 }
 
@@ -293,8 +292,7 @@ requestAnimationFrame(gamePart1);
       ctx1.drawImage(house, 0 - caracterW *3, floor - caracterH *3.5, caracterW *6, caracterH *4);
   }
    
-   //go to next level
-   reset();
+   //going to next level
    next();
    
     //pause
