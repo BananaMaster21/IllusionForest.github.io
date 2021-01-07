@@ -233,7 +233,7 @@ function reset () {
 //going to next level function
 function next () {
    if (caracterX >= 0 + canvasesW) {
-       if (playLevel === 0) {playLevel = 1;}caracterX = canvasesW /25;
+       if (playLevel === 0) {playLevel = 1; caracterY = ground - caracterH;}caracterX = canvasesW /25;
     }
 }
 
