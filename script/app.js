@@ -21,6 +21,7 @@ var ground = canvasesH /1.25;
 var introBack = document.getElementById("introback");
 var lvl_1Back = document.getElementById("lvl1back");
 var house = document.getElementById("house");
+var lvl_2Back = document.getElementById("lvl2back");
 
 //get caracter image states
 var bobRight1 = document.getElementById("bobRight1");
@@ -243,9 +244,8 @@ function reset () {
 //going to next level function
 function next () {
    if (caracterX >= 0 + canvasesW) {
-       if (playLevel === 0) {playLevel = 1; caracterY = ground - caracterH;}
-       if (playLevel === 1) {playLevel = 2; caracterY = ground - caracterH;}
-       caracterX = canvasesW /25;
+       if (playLevel === 0) {caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 1;}
+       if (playLevel === 1) {caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 2;}
     }
 }
 
