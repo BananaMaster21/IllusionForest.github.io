@@ -362,8 +362,8 @@ requestAnimationFrame(gamePart1);
       //obstacles
       obstacle(rock, canvasesW *1/3, floor - caracterH, caracterW, caracterH, 1);
       obstacle(rock, canvasesW *1/2, floor - caracterH *3.5, caracterW, caracterH, 2);
-      obstacle(rock, canvasesW - caracterW *2, floor - caracterH, caracterW, caracterH, 2);
-      obstacle(rock, canvasesW - caracterW, floor - canvasesH + caracterH *1.5, caracterW, canvasesH + caracterH *1.5, 4);
+      obstacle(rock, canvasesW - caracterW *3, floor - caracterH, caracterW, caracterH, 2);
+      obstacle(rock, canvasesW - caracterW *2, floor - canvasesH + caracterH *1.5, caracterW, canvasesH + caracterH *1.5, 4);
       
       //player
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
