@@ -360,12 +360,13 @@ requestAnimationFrame(gamePart1);
    if (playLevel === 1) {
       
       //obstacles
+      obstacle(rock, canvasesW *1/3, floor - caracterH, caracterW, caracterH, 1);
+      
+      obstacle(rock, canvasesW - caracterW, floor - caracterH *5, caracterW, caracterH *5, 4);
       
       //obstacles not in use
-      obstacle(rock, 0, 0, 0, 0, 1);
       obstacle(rock, 0, 0, 0, 0, 2);
       obstacle(rock, 0, 0, 0, 0, 3);
-      obstacle(rock, 0, 0, 0, 0, 4);
       
       //player
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
