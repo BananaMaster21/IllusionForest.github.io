@@ -243,7 +243,9 @@ function reset () {
 //going to next level function
 function next () {
    if (caracterX >= 0 + canvasesW) {
-       if (playLevel === 0) {playLevel = 1; caracterY = ground - caracterH;}caracterX = canvasesW /25;
+       if (playLevel === 0) {playLevel = 1; caracterY = ground - caracterH;}
+       if (playLevel === 1) {playLevel = 1; caracterY = ground - caracterH;}
+       caracterX = canvasesW /25;
     }
 }
 
@@ -287,7 +289,7 @@ var audio_0 = document.getElementById("sound_intro");
 var audio_1 = document.getElementById("sound_1");
 function music () {
 if (playLevel === 0) {audio_0.play();}else {audio_0.pause();}
-if (playLevel === 1) {audio_1.play();}else {audio_1.pause();}
+if (playLevel === 1 || playLevel === 2) {audio_1.play();}else {audio_1.pause();}
 }
 
 var instructionTimer = 0;
@@ -302,6 +304,11 @@ requestAnimationFrame(gamePart1);
       ctx1.drawImage(house, 0 - caracterW *3, floor - caracterH *3.5, caracterW *6, caracterH *4);
       //lvl number
       ctx1.drawImage(meter1, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);
+  }
+  if (playLevel === 2) {
+      ctx1.drawImage(lvl_2Back, 0, 0, canvasesW, canvasesH);
+      //lvl number
+      ctx1.drawImage(meter2, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);
   }
    
    //level music
