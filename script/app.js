@@ -147,6 +147,7 @@ function moving () {
        }
     //falling
     if (caracterY < ground && onGround === 0 && upTimer === 0 || sliping === 1) {
+        onGround = 0;
       if ( fallTimer <= canvasesH /80) {
         fallTimer = fallTimer + canvasesH /800;
             }
@@ -182,7 +183,7 @@ var floor = ground - caracterH;
 
 //sliping off obstacles 
 function slip () {
-   if(ob.fall_1 + ob.fall_2 + ob.fall_3 + ob.fall_4 === 4 && caracterY < ground - caracterH && jump === 0) {fallStop = 0; onGround = 0; sliping = 1; }else {sliping = 0;}
+   if(ob.fall_1 + ob.fall_2 + ob.fall_3 + ob.fall_4 === 4 && caracterY < ground - caracterH && jump === 0) {fallStop = 0; sliping = 1; }else {sliping = 0;}
 }
 function wallRight () {
    if(ob.right_1 + ob.right_2 + ob.right_3 + ob.right_4 === 4) {hitingRight = 0;}else {ob.right_1 = 0; ob.right_2 = 0; ob.right_3 = 0; ob.right_4 = 0;}
@@ -300,7 +301,7 @@ requestAnimationFrame(gamePart1);
       ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH);
       ctx1.drawImage(house, 0 - caracterW *3, floor - caracterH *3.5, caracterW *6, caracterH *4);
       //lvl number
-      ctx1.drawImage(meter1, canvasesW /2 - canvasesW *1/4, canvasesH /20, canvasesW *1/2, caracterH *2/5);
+      ctx1.drawImage(meter1, canvasesW /2 - canvasesW *1/6, canvasesH /20, canvasesW *1/3, caracterH *2/5);
   }
    
    //level music
