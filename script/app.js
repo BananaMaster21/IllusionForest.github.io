@@ -244,7 +244,7 @@ function reset () {
 function next () {
    if (caracterX >= 0 + canvasesW) {
        if (playLevel === 0) {playLevel = 1; caracterY = ground - caracterH;}
-       if (playLevel === 1) {playLevel = 1; caracterY = ground - caracterH;}
+       if (playLevel === 1) {playLevel = 2; caracterY = ground - caracterH;}
        caracterX = canvasesW /25;
     }
 }
@@ -379,6 +379,23 @@ requestAnimationFrame(gamePart1);
       //traps
       trap(spikeFloor, canvasesW *1/3 + caracterW, floor - caracterH /2, caracterW *1.5, caracterH /2);
       trap(spikeFloor, canvasesW *1/3 + caracterW *2.5, floor - caracterH /2, caracterW, caracterH /2);
+      
+   }
+   if (playLevel === 2) {
+      
+      //obstacles
+      
+      //obstacles not in use
+      obstacle(rock, 0, 0, 0, 0, 1);
+      obstacle(rock, 0, 0, 0, 0, 2);
+      obstacle(rock, 0, 0, 0, 0, 3);
+      obstacle(rock, 0, 0, 0, 0, 4);
+      
+      //player
+      ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+      
+      //traps
+      
       
    }
     
