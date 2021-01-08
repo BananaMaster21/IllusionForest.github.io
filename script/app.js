@@ -369,7 +369,8 @@ requestAnimationFrame(gamePart1);
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
       
       //traps
-      trap(spikeFloor, canvasesW *1/3 + caracterW, floor - caracterH /2, caracterW, caracterH /2);
+      trap(spikeFloor, canvasesW *1/3 + caracterW *1.5, floor - caracterH /2, caracterW *1.5, caracterH /2);
+      trap(spikeFloor, canvasesW *1/3 + caracterW *3, floor - caracterH /2, caracterW *1.5, caracterH /2);
       
    }
     
