@@ -300,7 +300,7 @@ requestAnimationFrame(gamePart1);
       ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH);
       ctx1.drawImage(house, 0 - caracterW *3, floor - caracterH *3.5, caracterW *6, caracterH *4);
       //lvl number
-      ctx1.drawImage(meter1, canvasesW /2 - canvasesW *1/6, canvasesH /10, canvasesW *1/3, caracterH);
+      ctx1.drawImage(meter1, canvasesW /2, canvasesH /10, canvasesW *0.5, caracterH *2);
   }
    
    //level music
