@@ -21,7 +21,7 @@ var ground = canvasesH /1.25;
 var introBack = document.getElementById("introback");
 var lvl_1Back = document.getElementById("lvl1back");
 var lvl_2Back = document.getElementById("lvl2back");
-var lvl_2Back = document.getElementById("lvl2back");
+var lvl_3Back = document.getElementById("lvl2back");
 
 //get caracter image states
 var bobRight1 = document.getElementById("bobRight1");
