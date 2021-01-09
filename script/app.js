@@ -53,6 +53,7 @@ var resetButton = document.getElementById("reviveButton");
 var house = document.getElementById("house");
 var rock = document.getElementById("rock");
 var spikeFloor = document.getElementById("spikeFloor");
+var door = document.getElementById("door");
 
 //hit detection
 var hitingLeft = 0;
@@ -220,6 +221,11 @@ function trap (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
    
    if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + height ) {if (damageActivated === 0){if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
+}
+//the doors
+function portal (x, y) {
+   ctx1.drawImage(door, x, y, caracterW, caracterH *2);
+   if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + height && jump === 1) {console.log("Caracter activated a portal");}
 }
 
 function reset () {
