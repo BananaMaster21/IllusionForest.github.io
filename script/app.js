@@ -262,13 +262,10 @@ var heartsY = canvasesH /20;
 var heartsW = canvasesW /50;
 var heartsH = canvasesH /25;
 
-
-function liveAndHeal () {
+function liveAndLive () {
   if (lives === 2) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart2X, heartsY, heartsW, heartsH);}
   
-    if (lives === 1) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH); healTimer = healTimer +1;}
-  
-       if (whenHeal === healTimer) {lives = 2; healTimer = 0;}
+    if (lives === 1) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);}
   
     if (lives === 0) {
        //death screen
@@ -383,12 +380,10 @@ requestAnimationFrame(gamePart1);
    if (playLevel === 2) {
       
       //obstacles
-      
-      //obstacles not in use
-      obstacle(rock, 0, 0, 0, 0, 1);
-      obstacle(rock, 0, 0, 0, 0, 2);
-      obstacle(rock, 0, 0, 0, 0, 3);
-      obstacle(rock, 0, 0, 0, 0, 4);
+      obstacle(rock, canvasesW *1/4, floor - caracterH *1.5, caracterW, caracterH *1.5, 1);
+      obstacle(rock, canvasesW *1/4 + caracterW, floor - caracterH *3, caracterW, caracterH *3, 2);
+      obstacle(rock, canvasesW *3/4, 0, caracterW, caracterH *2, 3);
+      obstacle(rock, canvasesW *3/4, floor - caracterH *1.5, caracterW, caracterH *1.5, 4);
       
       //player
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
@@ -399,6 +394,6 @@ requestAnimationFrame(gamePart1);
    }
     
     //hearts and damage
-    liveAndHeal();
+    liveAndLive();
 }
 requestAnimationFrame(gamePart1);
