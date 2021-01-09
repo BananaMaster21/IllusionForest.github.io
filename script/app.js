@@ -20,7 +20,7 @@ var ground = canvasesH /1.25;
 //backgrounds
 var introBack = document.getElementById("introback");
 var lvl_1Back = document.getElementById("lvl1back");
-var house = document.getElementById("house");
+var lvl_2Back = document.getElementById("lvl2back");
 var lvl_2Back = document.getElementById("lvl2back");
 
 //get caracter image states
@@ -50,6 +50,7 @@ var caracterY = ground - caracterH;
 //image area
 var heart = document.getElementById("heart");
 var resetButton = document.getElementById("reviveButton");
+var house = document.getElementById("house");
 var rock = document.getElementById("rock");
 var spikeFloor = document.getElementById("spikeFloor");
 
@@ -244,7 +245,19 @@ function reset () {
 //going to next level function
 function next () {
    if (caracterX >= 0 + canvasesW) {
-       if (playLevel === 0) {caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 1;}else if (playLevel === 1) {caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 2;}
+       if (playLevel === 0) {
+          
+//start of cheking which level it is
+          
+          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 1;
+       }else if (playLevel === 1) {
+          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 2;
+       }else if (playLevel === 2) {
+          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 3;
+       }
+      
+//end of cheking which level it is
+      
     }
 }
 
@@ -305,6 +318,11 @@ requestAnimationFrame(gamePart1);
       ctx1.drawImage(lvl_2Back, 0, 0, canvasesW, canvasesH);
       //lvl number
       ctx1.drawImage(meter2, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);
+  }
+  if (playLevel === 3) {
+      ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);
+      //lvl number
+      ctx1.drawImage(meter3, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);
   }
    
    //level music
@@ -392,6 +410,22 @@ requestAnimationFrame(gamePart1);
       trap(spikeFloor, canvasesW *1/4 + caracterW *1.5, floor - caracterH /2, caracterW *1.5, caracterH /2);
       trap(spikeFloor, canvasesW *1/4 + caracterW *3, floor - caracterH /2, caracterW *1.5, caracterH /2);
       trap(spikeFloor, canvasesW *1/4 + caracterW *4.5, floor - caracterH /2, caracterW *1.5, caracterH /2);
+      
+   }
+   if (playLevel === 3) {
+      
+      //obstacles
+      
+      //obstacles not in use
+      obstacle(rock, 0, 0, 0, 0, 1);
+      obstacle(rock, 0, 0, 0, 0, 2);
+      obstacle(rock, 0, 0, 0, 0, 3);
+      obstacle(rock, 0, 0, 0, 0, 4);
+      
+      //player
+      ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+      
+      //traps
       
    }
     
