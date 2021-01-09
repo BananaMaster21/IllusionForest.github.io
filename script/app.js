@@ -382,16 +382,16 @@ requestAnimationFrame(gamePart1);
       //obstacles
       obstacle(rock, canvasesW *1/4 - caracterW /2, floor - caracterH *1.5, caracterW, caracterH *1.5, 1);
       obstacle(rock, canvasesW *1/4 + caracterW /2, floor - caracterH *3, caracterW, caracterH *3, 2);
-      obstacle(rock, canvasesW *3/4 + caracterW, 0 - caracterH, caracterW, caracterH *2.5, 3);
-      obstacle(rock, canvasesW *3/4 + caracterW, floor - caracterH *1.5, caracterW, caracterH *1.5, 4);
+      obstacle(rock, canvasesW *3/4 + caracterW, 0 - caracterH *2, caracterW, caracterH *2.5, 3);
+      obstacle(rock, canvasesW *3/4 + caracterW, floor - caracterH *2.5, caracterW, caracterH *2.5, 4);
       
       //player
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
       
       //traps
       trap(spikeFloor, canvasesW *1/4 + caracterW *1.5, floor - caracterH /2, caracterW *1.5, caracterH /2);
-      trap(spikeFloor, canvasesW *1/4 + caracterW *3, floor - caracterH /2, caracterW, caracterH /2);
-      trap(spikeFloor, canvasesW *1/4 + caracterW *4, floor - caracterH /2, caracterW *1.5, caracterH /2);
+      trap(spikeFloor, canvasesW *1/4 + caracterW *3, floor - caracterH /2, caracterW *1.5, caracterH /2);
+      trap(spikeFloor, canvasesW *1/4 + caracterW *4.5, floor - caracterH /2, caracterW *1.5, caracterH /2);
       
    }
     
