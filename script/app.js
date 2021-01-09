@@ -53,6 +53,7 @@ var resetButton = document.getElementById("reviveButton");
 var house = document.getElementById("house");
 var rock = document.getElementById("rock");
 var spikeFloor = document.getElementById("spikeFloor");
+var spikeWall = document.getElementById("spikeWall");
 var door = document.getElementById("door");
 
 //hit detection
