@@ -72,8 +72,10 @@ function caracterMove (event) {
 side = event.key;
 }
 function caracterStop () {
+if (jump === 0) {
 caracterMoveSide = 0;
 side = undefined;
+}
 }
 
 var feetSwitch = 0;
