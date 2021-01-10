@@ -227,7 +227,8 @@ function trap (image, x, y, width, height) {
 
 var traping = {
    mh1: 0,
-   mv1: 0
+   mv1: 0,
+   start1: 0;
 }
 
 
@@ -236,12 +237,14 @@ function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, sta
    
    if (start === 1) {
        var D = undefined;
-       start === 0;
+       traping.start1 = 1;
        }
-   if (axis === "horizontal" && x === oldX && D === undefined) {D = "right";}
-   if (axis === "vertical" && y === oldY && D === undefined) {D = "down";}
+   if (axis === "horizontal" && D === undefined) {D = "right";}
+   if (axis === "vertical" && D === undefined) {D = "down";}
+   
    if (axis === "horizontal" && D === "right") {if (x <= oldX + distance /2) {traping.mh1 += canvasesW /200}else if (x > oldX + distance /2) {D = "left";}}
    if (axis === "horizontal" && D === "left") {if (x >= oldX - distance /2) {traping.mh1 -= canvasesW /200}else if (x < oldX - distance /2) {D = "right";}} 
+   
    if (axis === "vertical" && D === "down") {if (y <= oldY + distance /2) {traping.mv1 += canvasesW /200}else if (y > oldY + distance /2) {D = "up";}}
    if (axis === "vertical" && D === "up") {if (y >= oldY - distance /2) {traping.mv1 -= canvasesW /200}else if (y < oldY - distance /2) {D = "down";}}
    
@@ -461,7 +464,7 @@ requestAnimationFrame(gamePart1);
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
       
       //traps
-      movingTrap(spikeBall, canvasesW /2 + traping.mh1, canvasesW /2, canvasesH /2 + traping.mv1, canvasesH, caracterW, caracterW, canvasesH /2, "vertical", 1);
+      movingTrap(spikeBall, canvasesW /2 + traping.mh1, canvasesW /2, canvasesH /2 + traping.mv1, canvasesH, caracterW, caracterW, canvasesH /2, "vertical", 1 + traping.start1);
       
    }
     
