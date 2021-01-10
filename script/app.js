@@ -430,7 +430,7 @@ requestAnimationFrame(gamePart1);
       obstacle(rock, 0, 0, 0, 0, 4);
       
       //DooooooooooooooooooooooooooooooooooooooooooR
-      portal(canvasesW *1/6, canvasesH *1/6);
+      portal(canvasesW *1/6, canvasesH *1/8);
       
       //player
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
