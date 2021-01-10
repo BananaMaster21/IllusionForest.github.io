@@ -225,8 +225,8 @@ function trap (image, x, y, width, height) {
 }
 //the doors
 function portal (x, y) {
-   ctx1.drawImage(door, x, y, caracterW, caracterH *2);
-   if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + caracterW && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + caracterH *2 && jump === 1) {console.log("Caracter activated a portal");}
+   ctx1.drawImage(door, x, y, caracterW, caracterH *1.5);
+   if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + caracterW && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + caracterH *1.5 && jump === 1) {console.log("Caracter activated a portal");}
 }
 
 function reset () {
@@ -430,7 +430,7 @@ requestAnimationFrame(gamePart1);
       obstacle(rock, 0, 0, 0, 0, 4);
       
       //DooooooooooooooooooooooooooooooooooooooooooR
-      portal(canvasesW *1/6, canvasesH *1/8);
+      portal(canvasesW *1/6, canvasesH *1/12);
       
       //player
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
