@@ -54,6 +54,7 @@ var house = document.getElementById("house");
 var rock = document.getElementById("rock");
 var spikeFloor = document.getElementById("spikeFloor");
 var spikeWall = document.getElementById("spikeWall");
+var spikeBall = document.getElementById("spikeBall");
 var door = document.getElementById("door");
 
 //hit detection
