@@ -463,7 +463,7 @@ requestAnimationFrame(gamePart1);
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
       
       //traps
-      movingTrap(spikeBall, canvasesW /2 + traping.mh1, canvasesW /2, canvasesH /2 + traping.mv1, canvasesH /2, caracterW, caracterW, canvasesH /2, "vertical", 1 + traping.start1);
+      movingTrap(spikeBall, canvasesW /2 + traping.mh1, canvasesW /2, canvasesH *1/4 + traping.mv1, canvasesH *1/4, caracterW, caracterW, canvasesH /2, "vertical", 1 + traping.start1);
       
    }
     
