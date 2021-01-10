@@ -228,7 +228,7 @@ function trap (image, x, y, width, height) {
 var traping = {
    mh1: 0,
    mv1: 0,
-   start1: 0;
+   start1: 0
 }
 
 
