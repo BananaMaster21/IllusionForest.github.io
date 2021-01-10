@@ -223,6 +223,21 @@ function trap (image, x, y, width, height) {
    
    if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + height ) {if (damageActivated === 0){if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
 }
+function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis) {
+   ctx1.drawImage(image, x, y, width, height);
+   
+   var D = undefined;
+   
+   if (axis === "horizontal" && x === oldX && D === undefined) {D = "right";}
+   if (axis === "vertical" && y === oldY && D === undefined) {D = "down";}
+   if (axis === "horizontal" && D === "right") {if (x <= oldX + distance /2) {x += canvasesW /200}else if (x > oldX + distance /2) {D = "left";}}
+   if (axis === "horizontal" && D === "left") {if (x >= oldX - distance /2) {x -= canvasesW /200}else if (x < oldX - distance /2) {D = "left";}} 
+   if (axis === "vertical" && D === "down") {if (y <= oldY + distance /2) {x += canvasesW /200}else if (y > oldY + distance /2) {D = "up";}}
+   if (axis === "vertical" && D === "up") {if (y >= oldY - distance /2) {x -= canvasesW /200}else if (y < oldY - distance /2) {D = "down";}}
+   
+   if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /2 >= y && caracterY - caracterH /2 <= y + height ) {if (damageActivated === 0){if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
+}
+
 //the doors
 function portal (x, y) {
    ctx1.drawImage(door, x, y, caracterW, caracterH *1.5);
@@ -422,7 +437,7 @@ requestAnimationFrame(gamePart1);
    if (playLevel === 3) {
       
       //obstacles
-      obstacle(rock, canvasesW *1/6 - caracterW /6, canvasesH *1/12 + caracterH *1.5, caracterW *caracterW + caracterW *1/3, caracterH *2/3, 1);
+      obstacle(rock, canvasesW *1/6 - caracterW /6, canvasesH *1/12 + caracterH *1.5, caracterW + caracterW *1/3, caracterH *2/3, 1);
       
       //obstacles not in use
       obstacle(rock, 0, 0, 0, 0, 2);
@@ -436,6 +451,7 @@ requestAnimationFrame(gamePart1);
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
       
       //traps
+      movingTrap(spikeBall, canvasesW /2, canvasesW /2, canvasesH /2, canvasesH /2, caracterW, caracterW, canvasesH /2, "vertical");
       
    }
     
