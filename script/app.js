@@ -230,15 +230,14 @@ var traping = {
    mv1: 0,
    start1: 0
 }
+var D = undefined;
 
 
 function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, start) {
    ctx1.drawImage(image, x, y, width, height);
    
-   if (start === 1) {
-       var D = undefined;
-       traping.start1 = 1;
-       }
+   if (start === 1) {traping.start1 = 1;}
+
    if (axis === "horizontal" && D === undefined) {D = "right";}
    if (axis === "vertical" && D === undefined) {D = "down";}
    
