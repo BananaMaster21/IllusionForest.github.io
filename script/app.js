@@ -440,7 +440,7 @@ requestAnimationFrame(gamePart1);
    if (playLevel === 3) {
       
       //obstacles
-      obstacle(rock, canvasesW *1/6 - caracterW /6, canvasesH *1/12 + caracterH *1.5, caracterW + caracterW *1/3, caracterH *2/3, 1);
+      obstacle(rock, canvasesW *1/6 - caracterW /6, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW + caracterW *1/3, caracterH *2/3, 1);
       
       //obstacles not in use
       obstacle(rock, 0, 0, 0, 0, 2);
