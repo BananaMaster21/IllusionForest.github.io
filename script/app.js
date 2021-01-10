@@ -224,11 +224,13 @@ function trap (image, x, y, width, height) {
    
    if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + height ) {if (damageActivated === 0){if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
 }
-function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis) {
+function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, start) {
    ctx1.drawImage(image, x, y, width, height);
    
-   var D = undefined;
-   
+   if (start === 1) {
+       var D = undefined;
+       start === 0;
+       }
    if (axis === "horizontal" && x === oldX && D === undefined) {D = "right";}
    if (axis === "vertical" && y === oldY && D === undefined) {D = "down";}
    if (axis === "horizontal" && D === "right") {if (x <= oldX + distance /2) {x += canvasesW /200}else if (x > oldX + distance /2) {D = "left";}}
@@ -452,7 +454,7 @@ requestAnimationFrame(gamePart1);
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
       
       //traps
-      movingTrap(spikeBall, canvasesW /2, canvasesW /2, 0, 0, caracterW, caracterW, canvasesH /2, "vertical");
+      movingTrap(spikeBall, canvasesW /2, canvasesW /2, 0, 0, caracterW, caracterW, canvasesH /2, "vertical", 1);
       
    }
     
