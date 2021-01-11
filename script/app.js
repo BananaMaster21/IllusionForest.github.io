@@ -360,6 +360,11 @@ requestAnimationFrame(gamePart1);
       //lvl number
       ctx1.drawImage(meter3, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);
   }
+  if (playLevel === 4) {
+      ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);
+      //lvl number
+      ctx1.drawImage(meter4, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);
+  }
    
    //level music
    music();
@@ -480,6 +485,22 @@ requestAnimationFrame(gamePart1);
       ctx1.textAlign = "center";
       ctx1.font = ""+canvasesH /20+"px Arial";
       ctx1.fillText("Remember walk or jump out this side of the screen to go to the level =~~~>", canvasesW *1/2, canvasesH *7/9);
+      
+   }
+   if (playLevel === 4) {
+      
+      //objects
+      
+      //objects not in use
+      obstacle(rock, 0, 0, 0, 0, 1);
+      obstacle(rock, 0, 0, 0, 0, 2);
+      obstacle(rock, 0, 0, 0, 0, 3);
+      obstacle(rock, 0, 0, 0, 0, 4);
+      
+      //player
+      ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+      
+      //traps
       
    }
     
