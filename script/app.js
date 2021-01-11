@@ -451,9 +451,17 @@ requestAnimationFrame(gamePart1);
       //obstacles
       obstacle(rock, canvasesW *1/6 - caracterW /6, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW + caracterW *1/3, caracterH *2/3, 1);
       
+      //door????
+      ctx1.fillStyle = "black";
+      ctx1.textAlign = "center";
+      ctx1.font = ""+canvasesH /20+"px Arial";
+      ctx1.fillText("Jump in door to enter", canvasesW *1/6 - caracterW /6 + caracterW + caracterW *1/3 /2, canvasesH *1/12 + caracterH *1.5 - caracterH /8 + caracterH *1/3);
+      
+      //obstacles
+      obstacle(rock, canvasesW *1/6 + caracterW *2 + caracterW *2/3, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW, caracterH *2/3, 2);
+      obstacle(rock, canvasesW *1/6 + caracterW *1/3 + caracterW *3, floor - caracterH, caracterW, caracterH, 3);
+      
       //obstacles not in use
-      obstacle(rock, 0, 0, 0, 0, 2);
-      obstacle(rock, 0, 0, 0, 0, 3);
       obstacle(rock, 0, 0, 0, 0, 4);
       
       //DooooooooooooooooooooooooooooooooooooooooooR
