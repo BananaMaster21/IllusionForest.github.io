@@ -459,8 +459,8 @@ requestAnimationFrame(gamePart1);
       
       //obstacles
       obstacle(rock, canvasesW *1/6 + caracterW *2 + caracterW *2/3, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW, caracterH *3/4, 2);
-      obstacle(rock, canvasesW *5/8 + caracterW, floor - caracterH, caracterW *1.5, caracterH, 3);
-      obstacle(rock, canvasesW *5/8 + caracterW *2.5, floor - caracterH *4, caracterW, caracterH *4, 4);
+      obstacle(rock, canvasesW *5/8 + caracterW /2, floor - caracterH, caracterW *1.5, caracterH, 3);
+      obstacle(rock, canvasesW *5/8 + caracterW *2, floor - caracterH *3.5, caracterW, caracterH *3.5, 4);
       
       //DooooooooooooooooooooooooooooooooooooooooooR
       portal(canvasesW *1/6, canvasesH *1/12);
@@ -471,7 +471,7 @@ requestAnimationFrame(gamePart1);
       //traps
       movingTrap(spikeBall, canvasesW *1/6 + caracterW + caracterW *1/3 + traping.mh1, canvasesW /2, canvasesH *2/6 + traping.mv1, canvasesH *2/6, caracterW, caracterW, canvasesH *1/3, "vertical", 1 + traping.start1);
       trap(spikeWall, canvasesW *5/8 + caracterW *2, floor - caracterH *2, caracterW /2, caracterH);
-      trap(spikeFloor, canvasesW *5/8 - caracterW *2.5, floor - caracterH *4.5, caracterW, caracterH /2);
+      trap(spikeFloor, canvasesW *5/8 - caracterW *2.5, floor - caracterH *4, caracterW, caracterH /2);
       
    }
     
