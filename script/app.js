@@ -460,7 +460,7 @@ requestAnimationFrame(gamePart1);
       //obstacles
       obstacle(rock, canvasesW *1/6 + caracterW *2 + caracterW *2/3, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW, caracterH *3/4, 2);
       obstacle(rock, canvasesW *5/8 + caracterW, floor - caracterH, caracterW *1.5, caracterH, 3);
-      obstacle(rock, canvasesW *5/8 - caracterW *2.5, floor - caracterH *4, caracterW, caracterH *4, 3);
+      obstacle(rock, canvasesW *5/8 + caracterW *2.5, floor - caracterH *4, caracterW, caracterH *4, 4);
       
       //DooooooooooooooooooooooooooooooooooooooooooR
       portal(canvasesW *1/6, canvasesH *1/12);
