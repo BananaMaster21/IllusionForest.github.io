@@ -473,6 +473,12 @@ requestAnimationFrame(gamePart1);
       trap(spikeWall, canvasesW *5/8 + caracterW *2 - caracterW /2, floor - caracterH *2 - caracterH *1/4, caracterW *3/4, caracterH *1.5);
       trap(spikeFloor, canvasesW *5/8 + caracterW *2, floor - caracterH *3.5 - caracterH *1/4, caracterW, caracterH *3/4);
       
+      //instructions
+      ctx1.fillStyle = "forestGreen";
+      ctx1.textAlign = "center";
+      ctx1.font = ""+canvasesH /20+"px Arial";
+      ctx1.fillText("Remember walk or jump out this side of the screen to go to the level =~~~>", canvasesW *1/2, canvasesH *7/9);
+      
    }
     
     //hearts and damage
