@@ -288,6 +288,8 @@ function next () {
           caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 2;
        }else if (playLevel === 2) {
           caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 3;
+       }else if (playLevel === 3) {
+          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 4;
        }
       
 //end of cheking which level it is
