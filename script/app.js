@@ -2,10 +2,19 @@
 var playLevel = 99;
 var nextLevel = 0;
 
+
+
+//----------------------------------------------------------
+//STARTING BUTTON STUFF
+//----------------------------------------------------------
 var startButton = document.getElementById("startButton");
 startButton.onclick = function () {playLevel = 0;}
 
-//canvas
+
+
+//----------------------------------------------------------
+//CANVAS STUFF
+//----------------------------------------------------------
 var part1 = document.getElementById("part1");
 part1.setAttribute("width", screen.width + "px");
 part1.setAttribute("height", screen.height + "px");
@@ -13,24 +22,42 @@ var ctx1 = part1.getContext("2d");
 var canvasesW = screen.width;
 var canvasesH = screen.height;
 
-
-//ground
+//-----the floor otherwise known as ground-----//
 var ground = canvasesH /1.25;
+var onGround = 1;
 
-//backgrounds
+//----------------------------------------------------------
+//BACKGROUND IMAGE STUFF
+//----------------------------------------------------------
 var introBack = document.getElementById("introback");
 var lvl_1Back = document.getElementById("lvl1back");
 var lvl_2Back = document.getElementById("lvl2back");
 var lvl_3Back = document.getElementById("lvl3back");
 
-//get caracter image states
+//----------------------------------------------------------
+//CARACTER STUFF
+//----------------------------------------------------------
+
+//-----caracter images-----//
 var bobRight1 = document.getElementById("bobRight1");
 var bobRight2 = document.getElementById("bobRight2");
 var bobLeft1 = document.getElementById("bobLeft1");
 var bobLeft2 = document.getElementById("bobLeft2");
 var caracterImage = bobRight1;
 
-//how far meter
+//-----caracter sides-----//
+var caracterMoveSide = 0;
+var caracterKeepSide = "right";
+var side = undefined;
+
+//-----caracter position and size-----//
+var caracterW = canvasesW /10;
+var caracterH = canvasesH /7;
+var caracterX = canvasesW /25;
+var caracterY = ground - caracterH;
+
+
+//-----how far meter-----//
 var meter1 = document.getElementById("meter1");
 var meter2 = document.getElementById("meter2");
 var meter3 = document.getElementById("meter3");
@@ -39,22 +66,24 @@ var meter5 = document.getElementById("meter5");
 var meter6 = document.getElementById("meter6");
 var meter7 = document.getElementById("meter7");
 
-//caracter size 
-var caracterW = canvasesW /10;
-var caracterH = canvasesH /7;
-
-//caracter start coords
-var caracterX = canvasesW /25;
-var caracterY = ground - caracterH;
-
-//image area
+//-----heart image-----//
 var heart = document.getElementById("heart");
+
+//-----reset button image-----//
 var resetButton = document.getElementById("reviveButton");
+
+//-----house image-----//
 var house = document.getElementById("house");
+
+//-----rock image-----//
 var rock = document.getElementById("rock");
+
+//-----spike images-----//
 var spikeFloor = document.getElementById("spikeFloor");
 var spikeWall = document.getElementById("spikeWall");
 var spikeBall = document.getElementById("spikeBall");
+
+//-----door image-----//
 var door = document.getElementById("door");
 
 //hit detection
@@ -65,41 +94,53 @@ var rightStop = 0;
 var fallStop = 0;
 var sliping = 0;
 
-//caracter sides
-var caracterMoveSide = 0;
-var caracterKeepSide = "right";
-var side = undefined;
 
-//walking and jumping 
+
+//----------------------------------------------------------
+//Control STUFF
+//----------------------------------------------------------
 function caracterMove (event) {
 side = event.key;
 }
-function caracterStop () {
-caracterMoveSide = 0;
-side = undefined;
+function caracterStop (event) {
+var offKey = event.key;
+if (offKey === "ArrowLeft" || offKey === "ArrowRight") {
+    caracterMoveSide = 0;
+    side = undefined;
+}
+if (offKey === " ") {
+   
+}
+}
+function controls () {
+if (side === "ArrowLeft") {
+    caracterMoveSide = 1;
+    caracterKeepSide = "left";
+    }
+if (side === "ArrowRight") {
+    caracterMoveSide = 2;
+    caracterKeepSide = "right";
+    }
+if (side === " " && onGround === 1) {
+    jump = 1;
+    }
+if (side === "ArrowLeft") {
+    caracterMoveSide = 1;
+    caracterKeepSide = "left";
+    }
+if (side === "ArrowRight") {
+    caracterMoveSide = 2;
+    caracterKeepSide = "right";
+    }
+if (side === " " && onGround === 1) {
+    jump = 1;
+    }
 }
 
 var feetSwitch = 0;
 var speed = 0;
 
-var jump = false;
-var fall = false;
-var onGround = 1;
-var upTimer = canvasesH /40;
-var fallTimer = 0;
-
 function moving () {
-   if (side === "ArrowLeft") {
-        caracterMoveSide = 1;
-        caracterKeepSide = "left";
-        }
-    if (side === "ArrowRight") {
-        caracterMoveSide = 2;
-        caracterKeepSide = "right";
-        }
-    if (side === " " && onGround === 1) {
-        jump = 1;
-        }
     //left
     if (caracterMoveSide === 1 && hitingLeft === 0) {
         caracterX = caracterX - speed;
@@ -142,15 +183,26 @@ function moving () {
         caracterImage = bobRight1;
             }
         }
-    //jumping and falling stuff
-    
-    //jumping
+}
+
+//----------------------------------------------------------
+//JUMPING AND FALLING STUFF
+//----------------------------------------------------------
+var jump = false;
+var fall = false;
+var upTimer = canvasesH /40;
+var fallTimer = 0;
+
+function jumpFallLand () {
+   
+   //-----JUMPING-----//
     if (jump === 1) {
         onGround = 0;
         upTimer = upTimer - canvasesH /800;
         caracterY = caracterY - upTimer;
        }
-    //falling
+   
+   //-----FALLING-----//
     if (caracterY < ground && onGround === 0 && upTimer === 0 || sliping === 1) {
         onGround = 0;
       if ( fallTimer <= canvasesH /80) {
@@ -158,7 +210,8 @@ function moving () {
             }
         caracterY = caracterY + fallTimer;
         }
-    //landing
+   
+   //-----LANDING------//
     if (caracterY >= ground - caracterH || fallStop === 1) {
         onGround = 1;
         upTimer = canvasesH /40;
@@ -166,6 +219,9 @@ function moving () {
         jump = 0;
         }
 }
+
+
+
 
 //obstacles
 var ob = {
@@ -212,31 +268,45 @@ function obstacle (image, x, y, width, height, number) {
       if (number === 1) {ob.fall_1 = 1;}else if (number === 2) {ob.fall_2 = 1;}else if (number === 3) {ob.fall_3 = 1;}else if (number === 4) {ob.fall_4 = 1;}}
 }
 
-//traps
+//----------------------------------------------------------
+//NEEDED FOR ALL TRAP STUFF
+//----------------------------------------------------------
 var damageActivated = 0;
 var damageReset = 0;
 var inTrap = 0;
+
+//-----timer for damage-----//
 function damageTimer () {
    if (damageActivated === 1 ) {damageReset += 1;if (damageReset === 75) {damageActivated = 0;}}
 }
+
+
+
+//----------------------------------------------------------
+//STATIC TRAP STUFF
+//----------------------------------------------------------
+
+//-----build static trap-----//
 function trap (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
    
    if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + height ) {if (damageActivated === 0){if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
 }
 
+
+
+//----------------------------------------------------------
+//MOVING TRAP STUFF
+//----------------------------------------------------------
 var traping = {
-   mh1: 0,
-   mv1: 0,
-   start1: 0
+   mh1: 0,//move horizontal + number
+   mv1: 0,//move vertical + number
+   d1: undefined,//direction + number
 }
-var D = undefined;
 
-
-function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, start) {
+//-----build moving trap-----//
+function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis) {
    ctx1.drawImage(image, x, y, width, height);
-   
-   if (start === 1) {traping.start1 = 1;}
 
    if (axis === "horizontal" && D === undefined) {D = "right";}
    if (axis === "vertical" && D === undefined) {D = "down";}
@@ -250,12 +320,21 @@ function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, sta
    if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /2 >= y && caracterY - caracterH /2 <= y + height ) {if (damageActivated === 0){if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
 }
 
-//the doors
+
+
+//----------------------------------------------------------
+//DOOR STUFF
+//----------------------------------------------------------
 function portal (x, y) {
    ctx1.drawImage(door, x, y, caracterW, caracterH *1.5);
    if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + caracterW && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + caracterH *1.5 && jump === 1) {console.log("Caracter activated a portal");}
 }
 
+
+
+//----------------------------------------------------------
+//RESETING WHEN DIE STUFF
+//----------------------------------------------------------
 function reset () {
    if (lives === 0) {
  pause = 0;
@@ -276,60 +355,67 @@ function reset () {
    }
 }
 
-//going to next level function
+//----------------------------------------------------------
+//SWITCHING LEVELS STUFF
+//----------------------------------------------------------
 function next () {
    if (caracterX >= 0 + canvasesW) {
        if (playLevel === 0) {
           
-//start of cheking which level it is
+      caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 1;//-----from lvl: intro to lvl: 1-----//
           
-          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 1;
        }else if (playLevel === 1) {
-          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 2;
+          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 2;//-----from lvl: 1 to lvl: 2-----//
        }else if (playLevel === 2) {
-          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 3;
+          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 3;//-----from lvl: 2 to lvl: 3-----//
        }else if (playLevel === 3) {
-          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 4;
+          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 4;//-----from lvl: 3 to lvl: 4-----//
        }
-      
-//end of cheking which level it is
       
     }
 }
 
-//pausing
-var pause = 0;
 
 
-// lives
-var lives = 2;
-var healTimer = 0;
-var whenHeal = 300;
+//----------------------------------------------------------
+//LIFE SYSTEM STUFF AND DEATH SCREEN THING
+//----------------------------------------------------------
+var life = 2;
+
+//-----heart positioning-----//
 var heart1X = canvasesW /25;
 var heart2X = canvasesW /12.5;
 var heartsY = canvasesH /20;
 var heartsW = canvasesW /50;
 var heartsH = canvasesH /25;
 
-function liveAndLive () {
+//-----pause when die-----//
+var pause = 0;
+
+//-----place hearts and activate death if needed-----//
+function live () {
   if (lives === 2) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart2X, heartsY, heartsW, heartsH);}
   
     if (lives === 1) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);}
   
     if (lives === 0) {
-       //death screen
+       //-----death screen-----//
        var TextSize = canvasesH /10;
        var Darkness = 0.8;
        var resetW = canvasesW /5;
        var resetY = canvasesH /5;
-      pause = 1;
-      ctx1.fillStyle = "rgba( 0, 0, 0,"+Darkness+")"; ctx1.fillRect(0, 0, canvasesW, canvasesH); 
-      ctx1.fillStyle = "lightGrey"; ctx1.textAlign = "center"; ctx1.font = ""+TextSize+"px Arial"; ctx1.fillText("Click to restart", canvasesW /2, canvasesH /4);
-      ctx1.drawImage(resetButton, canvasesW /2 - resetW /2, canvasesH /2 - resetY /2, resetW, resetY);
+       pause = 1;
+       ctx1.fillStyle = "rgba( 0, 0, 0,"+Darkness+")"; ctx1.fillRect(0, 0, canvasesW, canvasesH); 
+       ctx1.fillStyle = "lightGrey"; ctx1.textAlign = "center"; ctx1.font = ""+TextSize+"px Arial"; ctx1.fillText("Click to restart", canvasesW /2, canvasesH /4);
+       ctx1.drawImage(resetButton, canvasesW /2 - resetW /2, canvasesH /2 - resetY /2, resetW, resetY);
     }
 }
 
-//MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC-music-MUSIC
+
+
+//----------------------------------------------------------
+//MUSIC
+//----------------------------------------------------------
 var audio_0 = document.getElementById("sound_intro");
 var audio_1 = document.getElementById("sound_1");
 var audio_2 = document.getElementById("sound_2");
@@ -341,8 +427,15 @@ if (playLevel === 3 || playLevel === 4) {audio_2.play();}else {audio_2.pause();}
 
 var instructionTimer = 0;
 
-function gamePart1 () {
-requestAnimationFrame(gamePart1);
+
+
+//----------------------------------------------------------
+//GAME LOOP THING
+//----------------------------------------------------------
+function game () {
+requestAnimationFrame(game);
+   
+   
   if (playLevel === 0) {
       ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
   }
@@ -509,4 +602,4 @@ requestAnimationFrame(gamePart1);
     //hearts and damage
     liveAndLive();
 }
-requestAnimationFrame(gamePart1);
+requestAnimationFrame(game);
