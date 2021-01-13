@@ -312,14 +312,14 @@ var traping = {
 function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis) {
    ctx1.drawImage(image, x, y, width, height);
 
-   if (axis === "horizontal" && D === undefined) {D = "right";}
-   if (axis === "vertical" && D === undefined) {D = "down";}
+   if (axis === "horizontal" &&  traping.d1 === undefined) {D = "right";}
+   if (axis === "vertical" && traping.d1 === undefined) {D = "down";}
    
-   if (axis === "horizontal" && D === "right") {if (x <= oldX + distance /2) {traping.mh1 += canvasesW /200}else if (x > oldX + distance /2) {D = "left";}}
-   if (axis === "horizontal" && D === "left") {if (x >= oldX - distance /2) {traping.mh1 -= canvasesW /200}else if (x < oldX - distance /2) {D = "right";}} 
+   if (axis === "horizontal" && traping.d1 === "right") {if (x <= oldX + distance /2) {traping.mh1 += canvasesW /200}else if (x > oldX + distance /2) {traping.d1 = "left";}}
+   if (axis === "horizontal" && traping.d1 === "left") {if (x >= oldX - distance /2) {traping.mh1 -= canvasesW /200}else if (x < oldX - distance /2) {traping.d1 = "right";}} 
    
-   if (axis === "vertical" && D === "down") {if (y <= oldY + distance /2) {traping.mv1 += canvasesW /200}else if (y > oldY + distance /2) {D = "up";}}
-   if (axis === "vertical" && D === "up") {if (y >= oldY - distance /2) {traping.mv1 -= canvasesW /200}else if (y < oldY - distance /2) {D = "down";}}
+   if (axis === "vertical" && traping.d1 === "down") {if (y <= oldY + distance /2) {traping.mv1 += canvasesW /200}else if (y > oldY + distance /2) {traping.d1 = "up";}}
+   if (axis === "vertical" && traping.d1 === "up") {if (y >= oldY - distance /2) {traping.mv1 -= canvasesW /200}else if (y < oldY - distance /2) {traping.d1 = "down";}}
    
    if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /2 >= y && caracterY - caracterH /2 <= y + height ) {if (damageActivated === 0){if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
 }
