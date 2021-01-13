@@ -384,7 +384,7 @@ function next () {
 //----------------------------------------------------------
 //LIFE SYSTEM STUFF AND DEATH SCREEN THING
 //----------------------------------------------------------
-var life = 2;
+var lives = 2;
 
 //-----heart positioning-----//
 var heart1X = canvasesW /25;
