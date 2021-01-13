@@ -17,7 +17,7 @@ startButton.onclick = function () {playLevel = 0;}
 //----------------------------------------------------------
 //CANVAS STUFF
 //----------------------------------------------------------
-var mycanvas = document.getElementById("part1");
+var mycanvas = document.getElementById("mycanvas");
 
 //-----set canvas size-----//
 mycanvas.setAttribute("width", screen.width + "px");
