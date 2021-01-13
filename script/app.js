@@ -1,4 +1,6 @@
-//start game stuff
+//----------------------------------------------------------
+//VARIABLES NEEDED BY EVERYTHING STUFF
+//----------------------------------------------------------
 var playLevel = 99;
 var nextLevel = 0;
 
@@ -15,16 +17,22 @@ startButton.onclick = function () {playLevel = 0;}
 //----------------------------------------------------------
 //CANVAS STUFF
 //----------------------------------------------------------
-var part1 = document.getElementById("part1");
-part1.setAttribute("width", screen.width + "px");
-part1.setAttribute("height", screen.height + "px");
-var ctx1 = part1.getContext("2d");
+var mycanvas = document.getElementById("part1");
+
+//-----set canvas size-----//
+mycanvas.setAttribute("width", screen.width + "px");
+mycanvas.setAttribute("height", screen.height + "px");
 var canvasesW = screen.width;
 var canvasesH = screen.height;
+
+//-----get context of canvas-----//
+var ctx1 = canvas.getContext("2d");
 
 //-----the floor otherwise known as ground-----//
 var ground = canvasesH /1.25;
 var onGround = 1;
+
+
 
 //----------------------------------------------------------
 //BACKGROUND IMAGE STUFF
@@ -49,6 +57,7 @@ var caracterImage = bobRight1;
 var caracterMoveSide = 0;
 var caracterKeepSide = "right";
 var side = undefined;
+var otherSide = undefined;
 
 //-----caracter position and size-----//
 var caracterW = canvasesW /10;
@@ -101,6 +110,7 @@ var sliping = 0;
 //----------------------------------------------------------
 function caracterMove (event) {
 side = event.key;
+otherSide = event.key;
 }
 function caracterStop (event) {
 var offKey = event.key;
@@ -109,7 +119,7 @@ if (offKey === "ArrowLeft" || offKey === "ArrowRight") {
     side = undefined;
 }
 if (offKey === " ") {
-   
+   otherSide = 0
 }
 }
 function controls () {
@@ -121,26 +131,20 @@ if (side === "ArrowRight") {
     caracterMoveSide = 2;
     caracterKeepSide = "right";
     }
-if (side === " " && onGround === 1) {
-    jump = 1;
-    }
-if (side === "ArrowLeft") {
-    caracterMoveSide = 1;
-    caracterKeepSide = "left";
-    }
-if (side === "ArrowRight") {
-    caracterMoveSide = 2;
-    caracterKeepSide = "right";
-    }
-if (side === " " && onGround === 1) {
+if (otherSide === " " && onGround === 1) {
     jump = 1;
     }
 }
 
+
+
+//----------------------------------------------------------
+//WALKING STUFF
+//----------------------------------------------------------
 var feetSwitch = 0;
 var speed = 0;
 
-function moving () {
+function walking () {
     //left
     if (caracterMoveSide === 1 && hitingLeft === 0) {
         caracterX = caracterX - speed;
@@ -435,7 +439,7 @@ var instructionTimer = 0;
 function game () {
 requestAnimationFrame(game);
    
-   
+   //-----level backgrounds-----//
   if (playLevel === 0) {
       ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
   }
@@ -461,26 +465,30 @@ requestAnimationFrame(game);
       ctx1.drawImage(meter4, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);
   }
    
-   //level music
+   //-----level music-----//
    music();
    
-   //going to next level
+   //-----going to next level-----//
    next();
+    
    
-    //pause
-    if (pause === 0) { //start of pause
+    if (pause === 0) {
        
-    //running and jumping
-    moving();
-       
-    } //end of pause
+    //-----movement-----//
+    walking();
+    jumpFallLand();
+          
+    }
    
-    //obstacles
+    //-----obstacles-----//
     slip();
     wallRight();
     wallLeft();
     damageTimer();
    
+    
+//-----BUILD INTRO-----//
+//----------------------------------------------------------
     if (playLevel === 0) {
       instructionTimer += 1;
       
@@ -515,6 +523,10 @@ requestAnimationFrame(game);
       trap(spikeFloor, canvasesW *3/8, floor - caracterH /2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW *4/5, floor - caracterH /2, caracterW *4/3, caracterH /2);
    }  
+    
+    
+//-----BUILD LEVEL 1-----//
+//----------------------------------------------------------
    if (playLevel === 1) {
       
       //obstacles
@@ -531,6 +543,10 @@ requestAnimationFrame(game);
       trap(spikeFloor, canvasesW *1/3 + caracterW *2.5, floor - caracterH /2, caracterW, caracterH /2);
       
    }
+    
+    
+//-----BUILD LEVEL 2-----//
+//----------------------------------------------------------
    if (playLevel === 2) {
       
       //obstacles
@@ -548,6 +564,10 @@ requestAnimationFrame(game);
       trap(spikeFloor, canvasesW *1/4 + caracterW *4.5, floor - caracterH /2, caracterW *1.5, caracterH /2);
       
    }
+    
+    
+//-----BUILD LEVEL 3-----//
+//----------------------------------------------------------
    if (playLevel === 3) {
       
       //obstacles
@@ -582,6 +602,10 @@ requestAnimationFrame(game);
       ctx1.fillText("Remember walk or jump out this side of the screen to go to the level =~~~>", canvasesW *1/2, canvasesH *7/9);
       
    }
+    
+    
+//-----BUILD LEVEL 4-----//
+//----------------------------------------------------------
    if (playLevel === 4) {
       
       //objects
@@ -599,7 +623,8 @@ requestAnimationFrame(game);
       
    }
     
-    //hearts and damage
-    liveAndLive();
+    //-----hearts and damage-----//
+    live();
+    
 }
 requestAnimationFrame(game);
