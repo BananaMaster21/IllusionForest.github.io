@@ -475,6 +475,7 @@ requestAnimationFrame(game);
     if (pause === 0) {
        
     //-----movement-----//
+    controls();
     walking();
     jumpFallLand();
           
