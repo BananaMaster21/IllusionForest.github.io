@@ -26,7 +26,7 @@ var canvasesW = screen.width;
 var canvasesH = screen.height;
 
 //-----get context of canvas-----//
-var ctx1 = canvas.getContext("2d");
+var ctx1 = mycanvas.getContext("2d");
 
 //-----the floor otherwise known as ground-----//
 var ground = canvasesH /1.25;
