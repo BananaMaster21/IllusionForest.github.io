@@ -391,12 +391,6 @@ function next () {
        }else if (playLevel === 3) {
           caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 4;//-----from lvl: 3 to lvl: 4-----//
        }
-       traping.mh1 = 0;
-       traping.mv1 = 0;
-       traping.d1 = undefined;
-       traping.mh2 = 0;
-       traping.mv2 = 0;
-       traping.d2 = undefined;
     }
 }
 
