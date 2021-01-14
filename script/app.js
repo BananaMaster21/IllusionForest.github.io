@@ -625,9 +625,9 @@ requestAnimationFrame(game);
    if (playLevel === 4) {
       
       //objects
+      obstacle(rock, canvasesW *1/6 + caracterW + caracterW *1/3, floor - caracterH, caracterW, caracterH, 1);
       
       //objects not in use
-      obstacle(rock, 0, 0, 0, 0, 1);
       obstacle(rock, 0, 0, 0, 0, 2);
       obstacle(rock, 0, 0, 0, 0, 3);
       obstacle(rock, 0, 0, 0, 0, 4);
@@ -636,6 +636,7 @@ requestAnimationFrame(game);
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
       
       //traps
+      movingTrap(spikeBall, canvasesW *1/6 + caracterW + caracterW *1/3 + traping.mh1, canvasesW /2, canvasesH *2/6 - caracterH + traping.mv1, canvasesH *2/6 - caracterH, caracterW, caracterW, canvasesH *1/3, "vertical", 1);
       
    }
     
