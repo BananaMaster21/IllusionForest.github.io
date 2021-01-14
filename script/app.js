@@ -308,7 +308,7 @@ var traping = {
    d1: undefined,//direction + number
    mh2: 0,
    mv2: 0,
-   d2: undefined;
+   d2: undefined,
 }
 
 //-----build moving trap-----//
