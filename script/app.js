@@ -306,23 +306,40 @@ var traping = {
    mh1: 0,//move horizontal + number
    mv1: 0,//move vertical + number
    d1: undefined,//direction + number
+   mh2: 0,
+   mv2: 0,
+   d2: undefined;
 }
 
 //-----build moving trap-----//
-function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis) {
+function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, number) {
    ctx1.drawImage(image, x, y, width, height);
 
-   if (axis === "horizontal" &&  traping.d1 === undefined) {D = "right";}
-   if (axis === "vertical" && traping.d1 === undefined) {D = "down";}
+ if (number === 1) {
+     
+   if (axis === "horizontal" &&  traping.d1 === undefined) {traping.d1 = "right";}
+   if (axis === "vertical" && traping.d1 === undefined) {traping.d1 = "down";}
    
    if (axis === "horizontal" && traping.d1 === "right") {if (x <= oldX + distance /2) {traping.mh1 += canvasesW /200}else if (x > oldX + distance /2) {traping.d1 = "left";}}
    if (axis === "horizontal" && traping.d1 === "left") {if (x >= oldX - distance /2) {traping.mh1 -= canvasesW /200}else if (x < oldX - distance /2) {traping.d1 = "right";}} 
    
    if (axis === "vertical" && traping.d1 === "down") {if (y <= oldY + distance /2) {traping.mv1 += canvasesW /200}else if (y > oldY + distance /2) {traping.d1 = "up";}}
    if (axis === "vertical" && traping.d1 === "up") {if (y >= oldY - distance /2) {traping.mv1 -= canvasesW /200}else if (y < oldY - distance /2) {traping.d1 = "down";}}
+  
+ }else if (number === 2) {
+     
+   if (axis === "horizontal" &&  traping.d2 === undefined) {traping.d2 = "right";}
+   if (axis === "vertical" && traping.d2 === undefined) {traping.d2 = "down";}
    
+   if (axis === "horizontal" && traping.d2 === "right") {if (x <= oldX + distance /2) {traping.mh2 += canvasesW /200}else if (x > oldX + distance /2) {traping.d2 = "left";}}
+   if (axis === "horizontal" && traping.d2 === "left") {if (x >= oldX - distance /2) {traping.mh2 -= canvasesW /200}else if (x < oldX - distance /2) {traping.d2 = "right";}} 
+   
+   if (axis === "vertical" && traping.d2 === "down") {if (y <= oldY + distance /2) {traping.mv2 += canvasesW /200}else if (y > oldY + distance /2) {traping.d2 = "up";}}
+   if (axis === "vertical" && traping.d2 === "up") {if (y >= oldY - distance /2) {traping.mv2 -= canvasesW /200}else if (y < oldY - distance /2) {traping.d2 = "down";}}
+
+ }
    if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /2 >= y && caracterY - caracterH /2 <= y + height ) {if (damageActivated === 0){if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
-}
+ }
 
 
 
@@ -364,10 +381,9 @@ function reset () {
 //----------------------------------------------------------
 function next () {
    if (caracterX >= 0 + canvasesW) {
-       if (playLevel === 0) {
-          
-      caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 1;//-----from lvl: intro to lvl: 1-----//
-          
+       
+       if (playLevel === 0) { 
+      caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 1;//-----from lvl: intro to lvl: 1-----// 
        }else if (playLevel === 1) {
           caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 2;//-----from lvl: 1 to lvl: 2-----//
        }else if (playLevel === 2) {
@@ -375,7 +391,12 @@ function next () {
        }else if (playLevel === 3) {
           caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 4;//-----from lvl: 3 to lvl: 4-----//
        }
-      
+       traping.mh1 = 0;
+       traping.mv1 = 0;
+       traping.d1 = undefined;
+       traping.mh2 = 0;
+       traping.mv2 = 0;
+       traping.d2 = undefined;
     }
 }
 
