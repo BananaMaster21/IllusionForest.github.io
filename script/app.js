@@ -374,7 +374,7 @@ function portal (x, y) {
 function reset () {
    if (lives === 0) {
  pause = 0;
- if (!playlevel === 0) {playLevel = 1;}
+ if (!playLevel === 0) {playLevel = 1;}
  caracterX = canvasesW /25;
  caracterY = ground - caracterH;
  caracterMoveSide = 0;
@@ -660,7 +660,22 @@ requestAnimationFrame(game);
       trap(spikeFloor, canvasesW *1/6 +  caracterW *1/3 + caracterW *4, floor - caracterH /2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW *1/6 +  caracterW *1/3 + caracterW *5, floor - caracterH /2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW *1/6 +  caracterW *1/3 + caracterW *6, floor - caracterH /2, caracterW, caracterH /2);
-   }
+   }if (playLevel === 5) {
+       
+       //objects
+       
+       //objects not in use
+        obstacle(rock, 0, 0, 0, 0, 1);
+        obstacle(rock, 0, 0, 0, 0, 2);
+        obstacle(rock, 0, 0, 0, 0, 3);
+        obstacle(rock, 0, 0, 0, 0, 4);
+       
+        //player
+        ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+       
+        //traps
+        
+        }
     
     //-----hearts and damage-----//
     live();
