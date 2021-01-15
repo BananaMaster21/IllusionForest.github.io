@@ -626,18 +626,18 @@ requestAnimationFrame(game);
       
       //objects
       obstacle(rock, canvasesW *1/6 + caracterW + caracterW *1/3, floor - caracterH, caracterW, caracterH, 1);
-      obstacle(rock, canvasesW *1/6 +  caracterW *1/3 + caracterW *3, floor - caracterH *2, caracterW, caracterH *2, 2);
+      obstacle(rock, canvasesW *1/6 +  caracterW *1/3 + caracterW *3, floor - caracterH *2.25, caracterW, caracterH *2.25, 2);
+      obstacle(rock, canvasesW *1/6 +  caracterW *1/3 + caracterW *7, floor - caracterH *1.5, caracterW, caracterH *1.5, 3);
       
       //objects not in use
-      obstacle(rock, 0, 0, 0, 0, 3);
       obstacle(rock, 0, 0, 0, 0, 4);
       
       //player
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
       
       //traps
-      movingTrap(spikeBall, canvasesW *1/6 + caracterW + caracterW *1/3 + traping.mh1, canvasesW /2, canvasesH *2/6 - caracterH + traping.mv1, canvasesH *2/6 - caracterH, caracterW, caracterW, canvasesH *1/3, "vertical", 1);
-      
+      movingTrap(spikeBall, canvasesW *1/6 + caracterW + caracterW *1/3 + traping.mh1, 0, canvasesH *2/6 - caracterH + traping.mv1, canvasesH *2/6 - caracterH, caracterW, caracterW, canvasesH *1/3, "vertical", 1);
+      movingTrap(spikeBall, canvasesW *1/6 +  caracterW *1/3 + caracterW *7 + traping.mh2, 0, 0 + traping.mv2, canvasesH *2/6 - caracterH, caracterW, caracterW, canvasesH *3/4, "vertical", 2);
    }
     
     //-----hearts and damage-----//
