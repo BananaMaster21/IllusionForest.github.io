@@ -456,10 +456,12 @@ function live () {
 var audio_0 = document.getElementById("sound_intro");
 var audio_1 = document.getElementById("sound_1");
 var audio_2 = document.getElementById("sound_2");
+var audio_3 = document.getElementById("sound_3");
 function music () {
 if (playLevel === 0) {audio_0.play();}else {audio_0.pause();}
 if (playLevel === 1 || playLevel === 2) {audio_1.play();}else {audio_1.pause();}
 if (playLevel === 3 || playLevel === 4) {audio_2.play();}else {audio_2.pause();}
+if (playLevel === 5 || playLevel === 6) {audio_3.play();}else {audio_3.pause();}
 }
 
 var instructionTimer = 0;
