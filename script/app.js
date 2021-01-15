@@ -354,7 +354,7 @@ function portal (x, y) {
         ctx1.fillStyle = "black";
         ctx1.textAlign = "center";
         ctx1.font = ""+canvasesH /20+"px Arial";
-        ctx1.fillText("Jump to enter", x, y);
+        ctx1.fillText("Jump to enter", x + caracterW /2, y);
        
        //make something
        if (jump === 1) {
