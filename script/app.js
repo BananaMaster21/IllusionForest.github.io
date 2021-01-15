@@ -3,7 +3,6 @@
 //----------------------------------------------------------
 var playLevel = 99;
 var nextLevel = 0;
-var DEV = false;
 
 
 
@@ -585,7 +584,7 @@ requestAnimationFrame(game);
     
 //-----BUILD LEVEL 3-----//
 //----------------------------------------------------------
-   if (playLevel === 3 && DEV === true) {
+   if (playLevel === 3) {
       
       //obstacles
       obstacle(rock, canvasesW *1/6 - caracterW /6, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW + caracterW *1/3, caracterH *3/4, 1);
