@@ -348,7 +348,21 @@ function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, spe
 //----------------------------------------------------------
 function portal (x, y) {
    ctx1.drawImage(door, x, y, caracterW, caracterH *1.5);
-   if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + caracterW && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + caracterH *1.5 && jump === 1) {console.log("Caracter activated a portal");}
+   if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + caracterW && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + caracterH *1.5) {
+        
+       //writing
+        ctx1.fillStyle = "black";
+        ctx1.textAlign = "center";
+        ctx1.font = ""+canvasesH /20+"px Arial";
+        ctx1.fillText("Jump to enter", x, y);
+       
+       //make something
+       if (jump === 1) {
+           
+           console.log("Caracter activated a portal");
+           
+       }
+   }
 }
 
 
@@ -588,12 +602,6 @@ requestAnimationFrame(game);
       
       //obstacles
       obstacle(rock, canvasesW *1/6 - caracterW /6, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW + caracterW *1/3, caracterH *3/4, 1);
-      
-      //door????
-      ctx1.fillStyle = "black";
-      ctx1.textAlign = "center";
-      ctx1.font = ""+canvasesH /20+"px Arial";
-      ctx1.fillText("Jump in door to enter", canvasesW *1/6 + (caracterW /6 + caracterW + caracterW *1/3 - caracterW /3) /2, canvasesH *1/12 + caracterH *1.5 - caracterH /8 + caracterH *1/3);
       
       //obstacles
       obstacle(rock, canvasesW *1/6 + caracterW *2 + caracterW *2/3, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW, caracterH *3/4, 2);
