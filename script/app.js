@@ -645,7 +645,7 @@ requestAnimationFrame(game);
       
       //traps
       movingTrap(spikeBall, canvasesW *1/6 + caracterW + caracterW *1/3 + traping.mh1, 0, canvasesH *2/6 - caracterH + traping.mv1, canvasesH *2/6 - caracterH, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /200, 1);
-      movingTrap(spikeBall, canvasesW *1/6 +  caracterW *1/3 + caracterW *7 + traping.mh2, 0, 0 - caracterH + traping.mv2, 0 - caracterH, caracterW, caracterW, canvasesH *3/5 - caracterW *1.5, "vertical", canvasesW /200, 2);
+      movingTrap(spikeBall, canvasesW *1/6 +  caracterW *1/3 + caracterW *7 + traping.mh2, 0, 0 + traping.mv2, 0, caracterW, caracterW, canvasesH *3/5 - caracterW *1.5, "vertical", canvasesW /200, 2);
       trap(spikeFloor, canvasesW *1/6 +  caracterW *1/3 + caracterW *4, floor - caracterH /2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW *1/6 +  caracterW *1/3 + caracterW *5, floor - caracterH /2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW *1/6 +  caracterW *1/3 + caracterW *6, floor - caracterH /2, caracterW, caracterH /2);
