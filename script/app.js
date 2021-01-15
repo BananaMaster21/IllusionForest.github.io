@@ -312,7 +312,7 @@ var traping = {
 }
 
 //-----build moving trap-----//
-function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, number) {
+function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, speed, number) {
    ctx1.drawImage(image, x, y, width, height);
 
  if (number === 1) {
@@ -320,22 +320,22 @@ function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, num
    if (axis === "horizontal" &&  traping.d1 === undefined) {traping.d1 = "right";}
    if (axis === "vertical" && traping.d1 === undefined) {traping.d1 = "down";}
    
-   if (axis === "horizontal" && traping.d1 === "right") {if (x <= oldX + distance /2) {traping.mh1 += canvasesW /200}else if (x > oldX + distance /2) {traping.d1 = "left";}}
-   if (axis === "horizontal" && traping.d1 === "left") {if (x >= oldX - distance /2) {traping.mh1 -= canvasesW /200}else if (x < oldX - distance /2) {traping.d1 = "right";}} 
+   if (axis === "horizontal" && traping.d1 === "right") {if (x <= oldX + distance /2) {traping.mh1 += speed}else if (x > oldX + distance /2) {traping.d1 = "left";}}
+   if (axis === "horizontal" && traping.d1 === "left") {if (x >= oldX - distance /2) {traping.mh1 -= speed}else if (x < oldX - distance /2) {traping.d1 = "right";}} 
    
-   if (axis === "vertical" && traping.d1 === "down") {if (y <= oldY + distance /2) {traping.mv1 += canvasesW /200}else if (y > oldY + distance /2) {traping.d1 = "up";}}
-   if (axis === "vertical" && traping.d1 === "up") {if (y >= oldY - distance /2) {traping.mv1 -= canvasesW /200}else if (y < oldY - distance /2) {traping.d1 = "down";}}
+   if (axis === "vertical" && traping.d1 === "down") {if (y <= oldY + distance /2) {traping.mv1 += speed}else if (y > oldY + distance /2) {traping.d1 = "up";}}
+   if (axis === "vertical" && traping.d1 === "up") {if (y >= oldY - distance /2) {traping.mv1 -= speed}else if (y < oldY - distance /2) {traping.d1 = "down";}}
   
  }else if (number === 2) {
      
    if (axis === "horizontal" &&  traping.d2 === undefined) {traping.d2 = "right";}
    if (axis === "vertical" && traping.d2 === undefined) {traping.d2 = "down";}
    
-   if (axis === "horizontal" && traping.d2 === "right") {if (x <= oldX + distance /2) {traping.mh2 += canvasesW /200}else if (x > oldX + distance /2) {traping.d2 = "left";}}
-   if (axis === "horizontal" && traping.d2 === "left") {if (x >= oldX - distance /2) {traping.mh2 -= canvasesW /200}else if (x < oldX - distance /2) {traping.d2 = "right";}} 
+   if (axis === "horizontal" && traping.d2 === "right") {if (x <= oldX + distance /2) {traping.mh2 += speed}else if (x > oldX + distance /2) {traping.d2 = "left";}}
+   if (axis === "horizontal" && traping.d2 === "left") {if (x >= oldX - distance /2) {traping.mh2 -= speed}else if (x < oldX - distance /2) {traping.d2 = "right";}} 
    
-   if (axis === "vertical" && traping.d2 === "down") {if (y <= oldY + distance /2) {traping.mv2 += canvasesW /200}else if (y > oldY + distance /2) {traping.d2 = "up";}}
-   if (axis === "vertical" && traping.d2 === "up") {if (y >= oldY - distance /2) {traping.mv2 -= canvasesW /200}else if (y < oldY - distance /2) {traping.d2 = "down";}}
+   if (axis === "vertical" && traping.d2 === "down") {if (y <= oldY + distance /2) {traping.mv2 += speed}else if (y > oldY + distance /2) {traping.d2 = "up";}}
+   if (axis === "vertical" && traping.d2 === "up") {if (y >= oldY - distance /2) {traping.mv2 -= speed}else if (y < oldY - distance /2) {traping.d2 = "down";}}
 
  }
    if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /2 >= y && caracterY - caracterH /2 <= y + height ) {if (damageActivated === 0){if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
@@ -607,7 +607,7 @@ requestAnimationFrame(game);
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
       
       //traps
-      movingTrap(spikeBall, canvasesW *1/6 + caracterW + caracterW *1/3 + traping.mh1, canvasesW /2, canvasesH *2/6 + traping.mv1, canvasesH *2/6, caracterW, caracterW, canvasesH *1/3, "vertical", 1);
+      movingTrap(spikeBall, canvasesW *1/6 + caracterW + caracterW *1/3 + traping.mh1, canvasesW /2, canvasesH *2/6 + traping.mv1, canvasesH *2/6, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /200, 1);
       trap(spikeWall, canvasesW *5/8 + caracterW *2 - caracterW /2, floor - caracterH *2 - caracterH *1/4, caracterW *3/4, caracterH *1.5);
       trap(spikeFloor, canvasesW *5/8 + caracterW *2, floor - caracterH *3.5 - caracterH *1/4, caracterW, caracterH *3/4);
       
@@ -636,8 +636,9 @@ requestAnimationFrame(game);
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
       
       //traps
-      movingTrap(spikeBall, canvasesW *1/6 + caracterW + caracterW *1/3 + traping.mh1, 0, canvasesH *2/6 - caracterH + traping.mv1, canvasesH *2/6 - caracterH, caracterW, caracterW, canvasesH *1/3, "vertical", 1);
-      movingTrap(spikeBall, canvasesW *1/6 +  caracterW *1/3 + caracterW *7 + traping.mh2, 0, 0 + traping.mv2, canvasesH *2/6 - caracterH, caracterW, caracterW, canvasesH *3/4, "vertical", 2);
+      movingTrap(spikeBall, canvasesW *1/6 + caracterW + caracterW *1/3 + traping.mh1, 0, canvasesH *2/6 - caracterH + traping.mv1, canvasesH *2/6 - caracterH, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /200, 1);
+      movingTrap(spikeBall, canvasesW *1/6 +  caracterW *1/3 + caracterW *7 + traping.mh2, 0, 0 + traping.mv2, canvasesH *2/6 - caracterH, caracterW, caracterW, canvasesH *3/5, "vertical", canvasesW /100, 2);
+      
    }
     
     //-----hearts and damage-----//
