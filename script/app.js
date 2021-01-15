@@ -41,6 +41,7 @@ var introBack = document.getElementById("introback");
 var lvl_1Back = document.getElementById("lvl1back");
 var lvl_2Back = document.getElementById("lvl2back");
 var lvl_3Back = document.getElementById("lvl3back");
+var lvl_5Back = document.getElementById("lvl5back");
 
 //----------------------------------------------------------
 //CARACTER STUFF
@@ -373,6 +374,7 @@ function portal (x, y) {
 function reset () {
    if (lives === 0) {
  pause = 0;
+ playLevel = 1;
  caracterX = canvasesW /25;
  caracterY = ground - caracterH;
  caracterMoveSide = 0;
@@ -404,6 +406,8 @@ function next () {
           caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 3;//-----from lvl: 2 to lvl: 3-----//
        }else if (playLevel === 3) {
           caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 4;//-----from lvl: 3 to lvl: 4-----//
+       }else if (playLevel === 4) {
+          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 5;//-----from lvl: 3 to lvl: 4-----//
        }
     }
 }
@@ -492,6 +496,11 @@ requestAnimationFrame(game);
       ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);
       //lvl number
       ctx1.drawImage(meter4, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);
+  }
+  if (playLevel === 5) {
+      ctx1.drawImage(lvl_5Back, 0, 0, canvasesW, canvasesH);
+      //lvl number
+      ctx1.drawImage(meter5, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);
   }
    
    //-----level music-----//
