@@ -374,7 +374,7 @@ function portal (x, y) {
 function reset () {
    if (lives === 0) {
  pause = 0;
- if (!playLevel === 0) {playLevel = 1;}
+ if (playLevel > 0) {playLevel = 1;}
  caracterX = canvasesW /25;
  caracterY = ground - caracterH;
  caracterMoveSide = 0;
