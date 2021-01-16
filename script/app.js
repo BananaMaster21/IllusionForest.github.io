@@ -280,7 +280,7 @@ function obstacle (image, x, y, width, height, number) {
 //----------------------------------------------------------
 function vine (x, y, width, height, number) {
    ctx1.drawImage(vineImg, x, y, width, height);
-   if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + height ) {onGround = 1;}else {if (number === 1) {ob.v1 = 1;}}
+   if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + height ) {onGround = 1; if (number === 1) {ob.v1 = 0;}}else {if (number === 1) {ob.v1 = 1;}}
 }
 
 
