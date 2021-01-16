@@ -664,7 +664,7 @@ requestAnimationFrame(game);
        
       //objects
       obstacle(rock, canvasesW *2/6, floor - caracterH, caracterW, caracterH, 1);
-      obstacle(rock, canvasesW *2/6 + caracterX *4, floor - caracterH *2.25, caracterW, caracterH *2.25, 1);
+      obstacle(rock, canvasesW *2/6 + caracterW *4, floor - caracterH *2.25, caracterW, caracterH *2.25, 1);
        
       //objects not in use
       obstacle(rock, 0, 0, 0, 0, 3);
@@ -675,10 +675,10 @@ requestAnimationFrame(game);
        
       //traps
       movingTrap(spikeBall, canvasesW *2/6, undefined, canvasesH /2, canvasesH /2, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /175, 1);
-      movingTrap(spikeBall, canvasesW *2/6 + caracterW *2, canvasesW *2/6 + caracterW *2, canvasesH /2, undefined, caracterW, caracterW, canvasesH *1/3, "horizontal", canvasesW /200, 1);
-      trap(spikeFloor, canvasesW *2/6 + caracterW, floor - caracterH /2, caracterw, caracterH /2);
-      trap(spikeFloor, canvasesW *2/6 + caracterW *2, floor - caracterH /2, caracterw, caracterH /2);
-      trap(spikeFloor, canvasesW *2/6 + caracterW *3, floor - caracterH /2, caracterw, caracterH /2);
+      movingTrap(spikeBall, canvasesW *2/6 + caracterW *2, canvasesW *2/6 + caracterW *2, canvasesH /2, undefined, caracterW, caracterW, canvasesH *1/3, "horizontal", canvasesW /200, 2;
+      trap(spikeFloor, canvasesW *2/6 + caracterW, floor - caracterH /2, caracterW, caracterH /2);
+      trap(spikeFloor, canvasesW *2/6 + caracterW *2, floor - caracterH /2, caracterW, caracterH /2);
+      trap(spikeFloor, canvasesW *2/6 + caracterW *3, floor - caracterH /2, caracterW, caracterH /2);
         
         }
     
