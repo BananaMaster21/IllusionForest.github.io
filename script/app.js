@@ -271,7 +271,7 @@ function obstacle (image, x, y, width, height, number) {
          if (number === 1) {ob.left_1 = 1;}else if (number === 2) {ob.left_2 = 1;}else if (number === 3) {ob.left_3 = 1;}else if (number === 4) {ob.left_4 = 1;}}
    
    //colision top
-   if (y <= caracterY && caracterY < y + height /2 && caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width) {fallStop = 1; if (number === 1) {ob.fall_1 = 0;}else if (number === 2) {ob.fall_2 = 0;}else if (number === 3) {ob.fall_3 = 0;}else if (number === 4) {ob.fall_4 = 0;}}else {
+   if (y <= caracterY && caracterY < y + height /2 && caracterX + caracterW *1/3 > x && caracterX + caracterW *1/3 < x + width || y <= caracterY && caracterY < y + height /2 && caracterX + caracterW *2/3 < x + width && caracterX + caracterW *2/3 > x) {fallStop = 1; if (number === 1) {ob.fall_1 = 0;}else if (number === 2) {ob.fall_2 = 0;}else if (number === 3) {ob.fall_3 = 0;}else if (number === 4) {ob.fall_4 = 0;}}else {
       if (number === 1) {ob.fall_1 = 1;}else if (number === 2) {ob.fall_2 = 1;}else if (number === 3) {ob.fall_3 = 1;}else if (number === 4) {ob.fall_4 = 1;}}
 }
 
@@ -584,6 +584,7 @@ requestAnimationFrame(game);
        
       //obstacles not in use
       obstacle(rock, 0, 0, 0, 0, 4);
+      vine(0, 0, 0, 0, 1);
       
       //where hearts are instructions
       ctx1.fillText("Your lives", heart2X *1.5, canvasesH /20 + canvasesH /40);
