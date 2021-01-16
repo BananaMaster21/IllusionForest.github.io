@@ -613,7 +613,7 @@ requestAnimationFrame(game);
       obstacle(rock, canvasesW *1/3, floor - caracterH *3.5, caracterW, caracterH, 2);
       obstacle(rock, canvasesW - caracterW *3.5, floor - caracterH *2, caracterW *2, caracterH *2, 3);
       obstacle(rock, canvasesW - caracterW *2, floor - caracterH *4.5, caracterW, caracterH *4.5, 4);
-      vine(canvasesW - caracterW *3.25, 0, caracterW /2, caracterH *5, 1);
+      vine(canvasesW - caracterW *0.75, 0, caracterW /2, caracterH *5, 1);
       
       //player
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
