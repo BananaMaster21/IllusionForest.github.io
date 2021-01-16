@@ -664,7 +664,7 @@ requestAnimationFrame(game);
        
       //objects
       obstacle(rock, canvasesW *2/6, floor - caracterH, caracterW, caracterH, 1);
-      obstacle(rock, canvasesW *2/6 + caracterW *4, floor - caracterH *2.25, caracterW, caracterH *2.25, 1);
+      obstacle(rock, canvasesW *2/6 + caracterW *4, floor - caracterH *2.25, caracterW, caracterH *2.25, 2);
        
       //objects not in use
       obstacle(rock, 0, 0, 0, 0, 3);
