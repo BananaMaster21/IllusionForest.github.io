@@ -251,7 +251,7 @@ var floor = ground - caracterH;
 
 //sliping off obstacles 
 function slip () {
-   if(ob.fall_1 + ob.fall_2 + ob.fall_3 + ob.fall_4 + ob.v1 === 4 && caracterY < ground - caracterH && jump === 0) {fallStop = 0; sliping = 1; }else {sliping = 0;}
+   if(ob.fall_1 + ob.fall_2 + ob.fall_3 + ob.fall_4 + ob.v1 === 5 && caracterY < ground - caracterH && jump === 0) {fallStop = 0; sliping = 1; }else {sliping = 0;}
 }
 function wallRight () {
    if(ob.right_1 + ob.right_2 + ob.right_3 + ob.right_4 === 4) {hitingRight = 0;}else {ob.right_1 = 0; ob.right_2 = 0; ob.right_3 = 0; ob.right_4 = 0;}
