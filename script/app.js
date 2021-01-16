@@ -560,7 +560,7 @@ requestAnimationFrame(game);
       ctx1.textAlign = "center";
       if (instructionTimer < 225) {
       ctx1.fillText("Arrow keys to move left and right, Space to jump", canvasesW /2,floor - caracterH *3);}else {
-      ctx1.fillText("Next level this way =~~~>", canvasesW /2,floor - caracterH *3);
+      ctx1.fillText("Move out of the screen to change level", canvasesW /2,floor - caracterH *3);
       }
       
       //player
@@ -640,7 +640,7 @@ requestAnimationFrame(game);
       ctx1.fillStyle = "forestGreen";
       ctx1.textAlign = "center";
       ctx1.font = ""+canvasesH /20+"px Arial";
-      ctx1.fillText("Remember walk or jump out this side of the screen to go to the level =~~~>", canvasesW *1/2, canvasesH *7/9);
+      ctx1.fillText("Remember walk or jump out of the screen to change level", canvasesW *1/2, canvasesH *7/9);
       
    }
     
