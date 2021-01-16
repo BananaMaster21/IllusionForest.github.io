@@ -706,18 +706,18 @@ requestAnimationFrame(game);
        
       //objects
       obstacle(rock, canvasesW *2/6, floor - caracterH, caracterW, caracterH, 1);
-      obstacle(rock, canvasesW *2/6 + caracterW *4, floor - caracterH *2.25, caracterW, caracterH *2.25, 2);
+      obstacle(rock, canvasesW *2/6 + caracterW *2, floor - caracterH *2.5, caracterW, caracterH, 2);
+      obstacle(rock, canvasesW *2/6 + caracterW *4, floor - caracterH *2.25, caracterW, caracterH *2.25, 3);
       vine(canvasesW *2/6 + caracterW *5.5, 0, caracterW /2, caracterH *5, 1);
        
       //objects not in use
-      obstacle(rock, 0, 0, 0, 0, 3);
       obstacle(rock, 0, 0, 0, 0, 4);
        
       //player
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
        
       //traps
-      movingTrap(spikeBall, canvasesW *2/6 + traping.mh1, undefined, canvasesH *1/3 + traping.mv1, canvasesH /2, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /175, 1);
+      movingTrap(spikeBall, canvasesW *2/6 + traping.mh1, undefined, canvasesH *1/3 + traping.mv1, canvasesH *1/3, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /175, 1);
       movingTrap(spikeBall, canvasesW *2/6 + caracterW *2 + traping.mh2, canvasesW *2/6 + caracterW *2, floor - caracterH *4 + traping.mv2, undefined, caracterW, caracterW, canvasesH *1/3, "horizontal", canvasesW /200, 2);
       trap(spikeFloor, canvasesW *2/6 + caracterW, floor - caracterH /2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW *2/6 + caracterW *2, floor - caracterH /2, caracterW, caracterH /2);
