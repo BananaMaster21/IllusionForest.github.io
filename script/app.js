@@ -295,6 +295,8 @@ function next () {
           caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 4;//-----from lvl: 3 to lvl: 4-----//
        }else if (playLevel === 4) {
           caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 5;//-----from lvl: 3 to lvl: 4-----//
+       }else if (playLevel === 5) {
+          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 6;//-----from lvl: 3 to lvl: 4-----//
        }
        traping.d1 = undefined;
        traping.mh1 = 0;
@@ -313,6 +315,8 @@ function next () {
           caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 3;
        }else if (playLevel === 5) {
           caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 4;
+       }else if (playLevel === 6) {
+          caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 5;
        }
        traping.d1 = undefined;
        traping.mh1 = 0;
@@ -601,7 +605,23 @@ requestAnimationFrame(game);
       trap(spikeFloor, canvasesW *2/6 + caracterW *2, floor - caracterH /2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW *2/6 + caracterW *3, floor - caracterH /2, caracterW, caracterH /2);
         
-        }
+      }if (playLevel === 6) {
+          
+      //objects
+          
+      //objects not in use
+      obstacle(rock, 0, 0, 0, 0, 1);
+      obstacle(rock, 0, 0, 0, 0, 2);
+      obstacle(rock, 0, 0, 0, 0, 3);
+      obstacle(rock, 0, 0, 0, 0, 4);
+      vine(0, 0, 0, 0, 1);
+          
+      //player
+      ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+          
+      //traps
+           
+      }
     
     //-----hearts and damage-----//
     live();
