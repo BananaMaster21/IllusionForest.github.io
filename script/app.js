@@ -1,38 +1,15 @@
-//----------------------------------------------------------
-//VARIABLES NEEDED BY EVERYTHING STUFF
-//----------------------------------------------------------
 var playLevel = 99;
 var nextLevel = 0;
-
-
-
-//----------------------------------------------------------
-//STARTING BUTTON STUFF
-//----------------------------------------------------------
 var startButton = document.getElementById("startButton");
 startButton.onclick = function () {playLevel = 0;}
-
-
-
-//----------------------------------------------------------
-//CANVAS STUFF
-//----------------------------------------------------------
 var mycanvas = document.getElementById("mycanvas");
-
-//-----set canvas size-----//
 mycanvas.setAttribute("width", screen.width + "px");
 mycanvas.setAttribute("height", screen.height + "px");
 var canvasesW = screen.width;
 var canvasesH = screen.height;
-
-//-----get context of canvas-----//
 var ctx1 = mycanvas.getContext("2d");
-
-//-----the floor otherwise known as ground-----//
 var ground = canvasesH /1.25;
 var onGround = 1;
-
-
 
 //----------------------------------------------------------
 //BACKGROUND IMAGE STUFF
@@ -46,28 +23,23 @@ var lvl_5Back = document.getElementById("lvl5back");
 //----------------------------------------------------------
 //CARACTER STUFF
 //----------------------------------------------------------
-
-//-----caracter images-----//
 var bobRight1 = document.getElementById("bobRight1");
 var bobRight2 = document.getElementById("bobRight2");
 var bobLeft1 = document.getElementById("bobLeft1");
 var bobLeft2 = document.getElementById("bobLeft2");
 var caracterImage = bobRight1;
-
-//-----caracter sides-----//
 var caracterMoveSide = 0;
 var caracterKeepSide = "right";
 var side = undefined;
 var otherSide = undefined;
-
-//-----caracter position and size-----//
 var caracterW = canvasesW /10;
 var caracterH = canvasesH /7;
 var caracterX = canvasesW /25;
 var caracterY = ground - caracterH;
 
-
-//-----how far meter-----//
+//----------------------------------------------------------
+//IMAGE STUFF
+//----------------------------------------------------------
 var meter1 = document.getElementById("meter1");
 var meter2 = document.getElementById("meter2");
 var meter3 = document.getElementById("meter3");
@@ -75,28 +47,19 @@ var meter4 = document.getElementById("meter4");
 var meter5 = document.getElementById("meter5");
 var meter6 = document.getElementById("meter6");
 var meter7 = document.getElementById("meter7");
-
-//-----heart image-----//
 var heart = document.getElementById("heart");
-
-//-----reset button image-----//
 var resetButton = document.getElementById("reviveButton");
-
-//-----house image-----//
 var house = document.getElementById("house");
-
-//-----rock image-----//
 var rock = document.getElementById("rock");
 var vineImg = document.getElementById("vine");
-//-----spike images-----//
 var spikeFloor = document.getElementById("spikeFloor");
 var spikeWall = document.getElementById("spikeWall");
 var spikeBall = document.getElementById("spikeBall");
-
-//-----door image-----//
 var door = document.getElementById("door");
 
-//hit detection
+//----------------------------------------------------------
+//VARIABLES FOR COLLISION DETECTION
+//----------------------------------------------------------
 var hitingLeft = 0;
 var leftStop = 0;
 var hitingRight = 0;
@@ -104,40 +67,12 @@ var rightStop = 0;
 var fallStop = 0;
 var sliping = 0;
 
-
-
 //----------------------------------------------------------
 //Control STUFF
 //----------------------------------------------------------
-function caracterMove (event) {
-side = event.key;
-otherSide = event.key;
-}
-function caracterStop (event) {
-var offKey = event.key;
-if (offKey === "ArrowLeft" || offKey === "ArrowRight") {
-    caracterMoveSide = 0;
-    side = undefined;
-}
-if (offKey === " ") {
-   otherSide = 0
-}
-}
-function controls () {
-if (side === "ArrowLeft") {
-    caracterMoveSide = 1;
-    caracterKeepSide = "left";
-    }
-if (side === "ArrowRight") {
-    caracterMoveSide = 2;
-    caracterKeepSide = "right";
-    }
-if (otherSide === " " && onGround === 1) {
-    jump = 1;
-    }
-}
-
-
+function caracterMove (event) {side = event.key;otherSide = event.key;}
+function caracterStop (event) {var offKey = event.key;if (offKey === "ArrowLeft" || offKey === "ArrowRight") {caracterMoveSide = 0;side = undefined;}if (offKey === " ") {otherSide = 0}}
+function controls () {if (side === "ArrowLeft") {caracterMoveSide = 1;caracterKeepSide = "left";}if (side === "ArrowRight") {caracterMoveSide = 2;caracterKeepSide = "right";}if (otherSide === " " && onGround === 1) {jump = 1;}}
 
 //----------------------------------------------------------
 //WALKING STUFF
@@ -146,48 +81,9 @@ var feetSwitch = 0;
 var speed = 0;
 
 function walking () {
-    //left
-    if (caracterMoveSide === 1 && hitingLeft === 0) {
-        caracterX = caracterX - speed;
-      //add speed
-        if (speed <= canvasesW /100) {
-        speed = speed + canvasesW /1000;
-          }
-      //walk animation left
-      if (jump === 0) {
-        feetSwitch = feetSwitch + 1;
-        if (feetSwitch <= 4) {caracterImage = bobLeft1;}
-        if (feetSwitch >= 5) {caracterImage = bobLeft2;}
-        if (feetSwitch >= 9) {feetSwitch = 0;}
-          }
-        if (jump === 1) {caracterImage = bobLeft2;}
-        }
-    //right
-    if (caracterMoveSide === 2 && hitingRight === 0) {
-        caracterX = caracterX + speed;
-      //add speed
-        if (speed <= canvasesW /100) {
-        speed = speed + canvasesW /1000;
-          }
-      //walk animation right
-      if (jump === 0) {
-        feetSwitch = feetSwitch + 1;
-        if (feetSwitch <= 4) {caracterImage = bobRight1;}
-        if (feetSwitch >= 5) {caracterImage = bobRight2;}
-        if (feetSwitch >= 9) {feetSwitch = 0;}
-          }
-        if (jump === 1) {caracterImage = bobRight2;}
-        }
-    //center
-    if (caracterMoveSide === 0) {
-        caracterX = caracterX - 0;
-      if (caracterKeepSide === "left") {
-        caracterImage = bobLeft1;
-            }
-      if (caracterKeepSide === "right") {
-        caracterImage = bobRight1;
-            }
-        }
+    if(caracterMoveSide===1&&hitingLeft===0){caracterX=caracterX-speed;if(speed<=canvasesW/100){speed=speed+canvasesW/1000;}if(jump===0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){caracterImage=bobLeft1;}if(feetSwitch>=5){caracterImage=bobLeft2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){caracterImage=bobLeft2;}}
+    if(caracterMoveSide===2&&hitingRight===0){caracterX=caracterX+speed;if(speed<=canvasesW/100){speed=speed+canvasesW/1000;}if(jump===0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){caracterImage=bobRight1;}if(feetSwitch>=5){caracterImage=bobRight2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){caracterImage=bobRight2;}}
+    if(caracterMoveSide===0){caracterX = caracterX - 0;if (caracterKeepSide === "left") {caracterImage = bobLeft1;}if (caracterKeepSide === "right") { caracterImage = bobRight1;}}
 }
 
 //----------------------------------------------------------
@@ -199,30 +95,9 @@ var upTimer = canvasesH /40;
 var fallTimer = 0;
 
 function jumpFallLand () {
-   
-   //-----JUMPING-----//
-    if (jump === 1) {
-        onGround = 0;
-        upTimer = upTimer - canvasesH /800;
-        caracterY = caracterY - upTimer;
-       }
-   
-   //-----FALLING-----//
-    if (caracterY < ground && onGround === 0 && upTimer === 0 || sliping === 1) {
-        onGround = 0;
-      if ( fallTimer <= canvasesH /80) {
-        fallTimer = fallTimer + canvasesH /800;
-            }
-        caracterY = caracterY + fallTimer;
-        }
-   
-   //-----LANDING------//
-    if (caracterY >= ground - caracterH || fallStop === 1) {
-        onGround = 1;
-        upTimer = canvasesH /40;
-        fallTimer = 0;
-        jump = 0;
-        }
+    if(jump===1){onGround=0;upTimer=upTimer-canvasesH/800;caracterY=caracterY-upTimer;}
+    if(caracterY<ground&&onGround===0&&upTimer===0||sliping===1){onGround=0;if(fallTimer<=canvasesH/80){fallTimer=fallTimer+canvasesH/800;}caracterY=caracterY+fallTimer;}
+    if(caracterY>=ground-caracterH||fallStop===1){onGround=1;upTimer=canvasesH/40;fallTimer=0;jump=0;}
 }
 
 
