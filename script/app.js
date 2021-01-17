@@ -593,8 +593,8 @@ requestAnimationFrame(game);
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
        
       //traps
-      movingTrap(spikeBall, canvasesW *2/6 + traping.mh1, undefined, 0 + traping.mv1, 0, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /200, 1);
-      movingTrap(spikeBall, canvasesW *2/6 + caracterW *2 + traping.mh2, canvasesW *2/6 + caracterW *2, floor - caracterH *4 + traping.mv2, undefined, caracterW, caracterW, canvasesH *1/3, "horizontal", canvasesW /200, 2);
+      movingTrap(spikeBall, canvasesW *2/6 + traping.mh1, undefined, 0 + traping.mv1, 0, caracterW, caracterW, canvasesH *1/2, "vertical", canvasesW /200, 1);
+      movingTrap(spikeBall, canvasesW *2/6 + caracterW *2 + traping.mh2, canvasesW *2/6 + caracterW *2, floor - caracterH *4 + traping.mv2, undefined, caracterW, caracterW, canvasesW *1/3, "horizontal", canvasesW /200, 2);
       trap(spikeFloor, canvasesW *2/6 + caracterW, floor - caracterH /2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW *2/6 + caracterW *2, floor - caracterH /2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW *2/6 + caracterW *3, floor - caracterH /2, caracterW, caracterH /2);
