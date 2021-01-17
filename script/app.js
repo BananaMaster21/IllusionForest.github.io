@@ -305,9 +305,7 @@ function next () {
     }
     if (caracterX + caracterW < 0) {
         
-       if (playLevel === 1) {
-          caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 0;
-       }else if (playLevel === 2) {
+       if (playLevel === 2) {
           caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 1;
        }else if (playLevel === 3) {
           caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 2;
@@ -416,6 +414,10 @@ requestAnimationFrame(game);
       ctx1.drawImage(lvl_5Back, 0, 0, canvasesW, canvasesH);
       //lvl number
       ctx1.drawImage(meter5, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);
+  }else if (playLevel === 6) {
+      ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH);
+      //lvl number
+      ctx1.drawImage(meter6, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);
   }
    
    //-----level music-----//
