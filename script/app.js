@@ -623,7 +623,7 @@ requestAnimationFrame(game);
       trap(spikeFloor, canvasesW /2 - caracterW *2.5, floor - caracterH /2, caracterW, caracterH /2)
       movingTrap(spikeBall, canvasesW /2 - caracterW /2 + traping.mh1, undefined, canvasesH *2/6 - caracterH *2 + traping.mv1, canvasesH *2/6 - caracterH *2, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /200, 1);
       trap(spikeFloor, canvasesW /2 - caracterW /2, floor - caracterH *2, caracterW, caracterH /2);
-      movingTrap(spikeBall, canvasesW /2 + caracterW *1.5 + traping.mh2, undefined, canvasesH *2/6 - caracterH /2 + traping.mv2, canvasesH *2/6 - caracterH /2, caracterW, caracterW, canvasesH *1/3 + caracterH, "vertical", canvasesW /200, 2);     
+      movingTrap(spikeBall, canvasesW /2 + caracterW *1.5 + traping.mh2, undefined, canvasesH *2/6 - caracterH /2 + traping.mv2, canvasesH *2/6 - caracterH /2, caracterW, caracterW, canvasesH *1/3 + caracterH, "vertical", canvasesW /150, 2);     
       }
     
     //-----hearts and damage-----//
