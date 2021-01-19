@@ -608,7 +608,7 @@ requestAnimationFrame(game);
       }if (playLevel === 6) {
           
       //objects
-      obstacle(rock, canvasesW /2 - caracterW *1.5, floor - caracterH, caracterW *3, caracterH, 1);
+      obstacle(rock, canvasesW /2 - caracterW *1.5, floor - caracterH, caracterW, caracterH, 1);
       obstacle(rock, canvasesW /2 - caracterW /2, floor - caracterH *1.5, caracterW, caracterH *1.5, 2);
       obstacle(rock, canvasesW /2 + caracterW *2.5, 0 - caracterH /2, caracterW, caracterH *3, 3);
           
@@ -620,9 +620,9 @@ requestAnimationFrame(game);
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
           
       //traps
-      movingTrap(spikeBall, canvasesW /2 - caracterW *2.5 + traping.mh1, undefined, canvasesH *2/6 + traping.mv1, canvasesH *2/6, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /200, 1);
+      movingTrap(spikeBall, canvasesW /2 - caracterW /2 + traping.mh1, undefined, canvasesH *2/6 - caracterH *2 + traping.mv1, canvasesH *2/6 - caracterH *2, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /200, 1);
       trap(spikeFloor, canvasesW /2 - caracterW /2, floor - caracterH *2, caracterW, caracterH /2);
-      movingTrap(spikeBall, canvasesW /2 + caracterW *1.5 + traping.mh2, undefined, canvasesH *2/6 + traping.mv2, canvasesH *2/6, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /200, 2);     
+      movingTrap(spikeBall, canvasesW /2 + caracterW *1.5 + traping.mh2, undefined, canvasesH *2/6 - caracterH + traping.mv2, canvasesH *2/6 - caracterH, caracterW, caracterW, canvasesH *1/3 + caracterH, "vertical", canvasesW /200, 2);     
       }
     
     //-----hearts and damage-----//
