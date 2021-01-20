@@ -599,7 +599,7 @@ requestAnimationFrame(game);
       }if (playLevel === 6) {
           
       //objects
-      obstacle(rock, canvasesW *1/6 - caracterW /6, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW + caracterW *1/3, caracterH *3/4, 1);
+      obstacle(rock, canvasesW *1/6 - caracterW /6 - caracterW, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW + caracterW *1/3, caracterH *3/4, 1);
           
       //objects
       obstacle(rock, canvasesW /2 - caracterW *2.5, floor - caracterH, caracterW, caracterH, 2);
@@ -608,7 +608,7 @@ requestAnimationFrame(game);
       obstacle(rock, canvasesW /2 + caracterW *2.5, 0 - caracterH /2, caracterW, caracterH *3, 4);
           
       //door
-      portal(canvasesW *1/6, canvasesH *1/12);
+      portal(canvasesW *1/6 - caracterW, canvasesH *1/12);
           
       //player
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
