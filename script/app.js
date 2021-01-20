@@ -100,9 +100,6 @@ function jumpFallLand () {
     if(caracterY>=ground-caracterH||fallStop===1){onGround=1;upTimer=canvasesH/40;fallTimer=0;jump=0;}
 }
 
-
-
-
 //obstacles
 var ob = {
 fall_1: 0,
@@ -123,20 +120,14 @@ v1: 0,
 
 //obstacles
 var floor = ground - caracterH;
-
 //sliping off obstacles 
-function slip () {
-   if(ob.fall_1 + ob.fall_2 + ob.fall_3 + ob.fall_4 + ob.v1 === 5 && caracterY < ground - caracterH && jump === 0) {fallStop = 0; sliping = 1; }else {sliping = 0;}
-}
-function wallRight () {
-   if(ob.right_1 + ob.right_2 + ob.right_3 + ob.right_4 === 4) {hitingRight = 0;}else {ob.right_1 = 0; ob.right_2 = 0; ob.right_3 = 0; ob.right_4 = 0;}
-}
-function wallLeft () {
-   if(ob.left_1 + ob.left_2 + ob.left_3 + ob.left_4 === 4) {hitingLeft = 0;}else {ob.left_1 = 0; ob.left_2 = 0; ob.left_3 = 0; ob.left_4 = 0;}
-}
+function slip(){if(ob.fall_1+ob.fall_2+ob.fall_3+ob.fall_4+ob.v1===5&&caracterY<ground-caracterH&&jump===0){fallStop=0;sliping=1;}else{sliping=0;}}
+function wallRight(){if(ob.right_1+ob.right_2+ob.right_3+ob.right_4===4){hitingRight=0;}else{ob.right_1=0;ob.right_2=0;ob.right_3=0;ob.right_4=0;}}
+function wallLeft(){if(ob.left_1+ob.left_2+ob.left_3+ob.left_4===4){hitingLeft=0;}else{ob.left_1=0;ob.left_2=0;ob.left_3=0;ob.left_4=0;}}
+
 function obstacle (image, x, y, width, height, number) {
    ctx1.drawImage(image, x, y, width, height);
-   
+    
    //colision right
    if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY - caracterH /2 > y && caracterY - caracterH /2 < y + height) {hitingRight = 1;}else {
          if (number === 1) {ob.right_1 = 1;}else if (number === 2) {ob.right_2 = 1;}else if (number === 3) {ob.right_3 = 1;}else if (number === 4) {ob.right_4 = 1;}}
@@ -622,7 +613,7 @@ requestAnimationFrame(game);
       //traps
       movingTrap(spikeBall, canvasesW /2 - caracterW *1.5 + traping.mh1, undefined, canvasesH *2/6 - caracterH *2 + traping.mv1, canvasesH *2/6 - caracterH *2, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /200, 1);
       trap(spikeFloor, canvasesW /2 - caracterW *1.5, floor - caracterH *2, caracterW, caracterH /2);
-      movingTrap(spikeBall, canvasesW /2 + caracterW *1.5 + traping.mh2, undefined, canvasesH *2/6 - caracterH /2 + traping.mv2, canvasesH *2/6 - caracterH /2, caracterW, caracterW, canvasesH *1/3 + caracterH, "vertical", canvasesW /150, 2);     
+      movingTrap(spikeBall, canvasesW /2 + caracterW *1.5 + traping.mh2, undefined, canvasesH *2/6 - caracterH /2 + traping.mv2, canvasesH *2/6 - caracterH /2, caracterW, caracterW, canvasesH *1/3 + caracterH, "vertical", canvasesW /100, 2);     
       }
     
     //-----hearts and damage-----//
