@@ -599,13 +599,16 @@ requestAnimationFrame(game);
       }if (playLevel === 6) {
           
       //objects
-      obstacle(rock, canvasesW /2 - caracterW *2.5, floor - caracterH, caracterW, caracterH, 1);
-      obstacle(rock, canvasesW /2 - caracterW *1.5, floor - caracterH *1.5, caracterW, caracterH *1.5, 2);
-      vine(canvasesW /2 - caracterW *0.5 + caracterW /4, 0, caracterW /2, caracterH *5, 1);
-      obstacle(rock, canvasesW /2 + caracterW *2.5, 0 - caracterH /2, caracterW, caracterH *3, 3);
+      obstacle(rock, canvasesW *1/6 - caracterW /6, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW + caracterW *1/3, caracterH *3/4, 1);
           
-      //objects not in use
-      obstacle(rock, 0, 0, 0, 0, 4);
+      //objects
+      obstacle(rock, canvasesW /2 - caracterW *2.5, floor - caracterH, caracterW, caracterH, 2);
+      obstacle(rock, canvasesW /2 - caracterW *1.5, floor - caracterH *1.5, caracterW, caracterH *1.5, 3);
+      vine(canvasesW /2 - caracterW *0.5 + caracterW /4, 0, caracterW /2, caracterH *5, 1);
+      obstacle(rock, canvasesW /2 + caracterW *2.5, 0 - caracterH /2, caracterW, caracterH *3, 4);
+          
+      //door
+      portal(canvasesW *1/6, canvasesH *1/12);
           
       //player
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
