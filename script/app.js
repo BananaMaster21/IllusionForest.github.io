@@ -573,7 +573,7 @@ requestAnimationFrame(game);
       movingTrap(spikeBall, canvasesW *1/6 + caracterW *1/3 + traping.mh1, undefined, canvasesH *2/6 - caracterH + traping.mv1, canvasesH *2/6 - caracterH, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /200, 1);
       movingTrap(spikeBall, canvasesW *1/6 +  caracterW *1/3 + caracterW *6 + traping.mh2, undefined, 0 + traping.mv2, 0, caracterW, caracterW, canvasesH *3/5 - caracterW *1.5, "vertical", canvasesW /200, 2);
       trap(spikeFloor, canvasesW *1/6 +  caracterW *1/3 + caracterW, floor - caracterH /2, caracterW, caracterH /2);
-      trap(spikeWall, canvasesW *1/6 +  caracterW *1/3 + caracterW *1.5, floor - caracterH *2, caracterW /2, caracterH *1.5);
+      trap(spikeWall, canvasesW *1/6 +  caracterW *1/3 + caracterW *1.5, floor - caracterH *2, caracterW *3/5, caracterH *1.5);
       trap(spikeFloor, canvasesW *1/6 +  caracterW *1/3 + caracterW *3, floor - caracterH /2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW *1/6 +  caracterW *1/3 + caracterW *4, floor - caracterH /2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW *1/6 +  caracterW *1/3 + caracterW *5, floor - caracterH /2, caracterW, caracterH /2);
@@ -618,7 +618,7 @@ requestAnimationFrame(game);
       //traps
       movingTrap(spikeBall, canvasesW /2 - caracterW *1.5 + traping.mh1, undefined, canvasesH *2/6 - caracterH *2 + traping.mv1, canvasesH *2/6 - caracterH *2, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /200, 1);
       trap(spikeFloor, canvasesW /2 - caracterW *1.5, floor - caracterH *2, caracterW, caracterH /2);
-      movingTrap(spikeBall, canvasesW /2 + caracterW *2.5 + traping.mh2, undefined, canvasesH *2/6 - caracterH + traping.mv2, canvasesH *2/6 - caracterH, caracterW, caracterW, canvasesH *1/3 + caracterH, "vertical", canvasesW /175, 2);
+      movingTrap(spikeBall, canvasesW /2 + caracterW *2.5 + traping.mh2, undefined, canvasesH *2/6 - caracterH + traping.mv2, canvasesH *2/6 - caracterH, caracterW, caracterW, canvasesH *1/3 + caracterH, "vertical", canvasesW /150, 2);
       trap(spikeFloor, canvasesW /2 + caracterW *2.5, floor - caracterH /2, caracterW, caracterH /2);
       }
     
