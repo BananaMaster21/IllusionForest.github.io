@@ -63,7 +63,7 @@ var cristal4 = document.getElementById("cristal4");
 var cristal5 = document.getElementById("cristal5");
 var villageDoor = document.getElementById("villageDoor");
 var ruin = document.getElementById("ruin");
-var sign = doument.getElementById("sign");
+var sign = document.getElementById("sign");
 
 
 
