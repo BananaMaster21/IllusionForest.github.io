@@ -56,10 +56,18 @@ var spikeFloor = document.getElementById("spikeFloor");
 var spikeWall = document.getElementById("spikeWall");
 var spikeBall = document.getElementById("spikeBall");
 var door = document.getElementById("door");
+var cristal1 = document.getElementById("cristal1");
+var cristal2 = document.getElementById("cristal2");
+var cristal3 = document.getElementById("cristal3");
+var cristal4 = document.getElementById("cristal4");
+var cristal5 = document.getElementById("cristal5");
+var villageDoor = document.getElementById("villageDoor");
+var ruin = document.getElementById("ruin");
+var sign = doument.getElementById("sign");
 
-//----------------------------------------------------------
-//VARIABLES FOR COLLISION DETECTION
-//----------------------------------------------------------
+
+
+
 var hitingLeft = 0;
 var leftStop = 0;
 var hitingRight = 0;
@@ -297,8 +305,9 @@ function next () {
        traping.mv2 = 0;
     }
     if (caracterX + caracterW < 0) {
-        
-       if (playLevel === 2) {
+        if (playLevel === 1){
+        caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 525852758123;
+       }else if (playLevel === 2) {
           caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 1;
        }else if (playLevel === 3) {
           caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 2;
@@ -476,9 +485,11 @@ requestAnimationFrame(game);
       trap(spikeFloor, canvasesW *4/5, floor - caracterH /2, caracterW *4/3, caracterH /2);
    }  
     
+       //secrrrrrrrrrrrrrrrret leeeeeeeeevvvvvvvvvvvvel
+   if (playLevel === 525852758123) {ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); ctx1.drawImage(ruin, 0, floor - caracterH *1.5, caracterw *2, caracterH *1.5);}
     
-//-----BUILD LEVEL 1-----//
-//----------------------------------------------------------
+    //-----BUILD LEVEL 1-----//
+   //----------------------------------------------------------
    if (playLevel === 1) {
       
       //obstacles
@@ -498,7 +509,7 @@ requestAnimationFrame(game);
    }
     
     
-//-----BUILD LEVEL 2-----//
+ //-----BUILD LEVEL 2-----//
 //----------------------------------------------------------
    if (playLevel === 2) {
       
