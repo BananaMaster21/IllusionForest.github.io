@@ -604,13 +604,13 @@ requestAnimationFrame(game);
       obstacle(rock, canvasesW *1/6 - caracterW /6 - caracterW, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW + caracterW *1/3, caracterH *3/4, 1);
       
       //hide a trap
-      movingTrap(spikeBall, canvasesW /2 + caracterW *2.5 + traping.mh2, undefined, canvasesH *2/6 - caracterH + traping.mv2, canvasesH *2/6 - caracterH, caracterW, caracterW, canvasesH *1/3 + caracterH, "vertical", canvasesW /150, 2);
+      movingTrap(spikeBall, canvasesW /2 + caracterW *2.5 + traping.mh2, undefined, canvasesH *2/6 - caracterH + traping.mv2, canvasesH *2/6 - caracterH, caracterW, caracterW, canvasesH *1/3 + caracterH, "vertical", canvasesW /125, 2);
           
       //objects
       obstacle(rock, canvasesW /2 - caracterW *2.5, floor - caracterH, caracterW, caracterH, 2);
       obstacle(rock, canvasesW /2 - caracterW *1.5, floor - caracterH *1.5, caracterW, caracterH *1.5, 3);
       vine(canvasesW /2 - caracterW *0.5 + caracterW /4, 0, caracterW /2, caracterH *5, 1);
-      obstacle(rock, canvasesW /2 + caracterW *2.425, 0 - caracterH *2.5, caracterW *1.25, caracterH *6, 4);
+      obstacle(rock, canvasesW /2 + caracterW *2.425, 0 - caracterH *3.5, caracterW *1.25, caracterH *6, 4);
           
       //door
       portal(canvasesW *1/6 - caracterW, canvasesH *1/12);
@@ -622,6 +622,9 @@ requestAnimationFrame(game);
       movingTrap(spikeBall, canvasesW /2 - caracterW *1.5 + traping.mh1, undefined, canvasesH *2/6 - caracterH *2 + traping.mv1, canvasesH *2/6 - caracterH *2, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /150, 1);
       trap(spikeFloor, canvasesW /2 - caracterW *1.5, floor - caracterH *2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW /2 + caracterW *2.5, floor - caracterH /2, caracterW, caracterH /2);
+      trap(spikeWall, canvasesW /2 + caracterW *2.25, 0, caracterW *3/5, caracterH *1.5);
+      trap(spikeWall, canvasesW /2 + caracterW *2.25, 0 + caracterH *1.5, caracterW *3/5, caracterH *1.5);
+      
       }
     
     //-----hearts and damage-----//
