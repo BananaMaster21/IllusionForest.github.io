@@ -610,7 +610,7 @@ requestAnimationFrame(game);
       obstacle(rock, canvasesW /2 - caracterW *2.5, floor - caracterH, caracterW, caracterH, 2);
       obstacle(rock, canvasesW /2 - caracterW *1.5, floor - caracterH *1.5, caracterW, caracterH *1.5, 3);
       vine(canvasesW /2 - caracterW *0.5 + caracterW /4, 0, caracterW /2, caracterH *5, 1);
-      obstacle(rock, canvasesW /2 + caracterW *2.5, 0 - caracterH /2, caracterW, caracterH *3, 4);
+      obstacle(rock, canvasesW /2 + caracterW *2.5, 0 - caracterH *2.5, caracterW, caracterH *6, 4);
           
       //door
       portal(canvasesW *1/6 - caracterW, canvasesH *1/12);
