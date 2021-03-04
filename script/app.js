@@ -233,9 +233,9 @@ function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, spe
 //----------------------------------------------------------
 //DOOR STUFF
 //----------------------------------------------------------
-var ee = false;
+function tp (event) {var thing = event.key; if (thing === "e" || thing === "E" ) {if (number === 1){playLevel = 70923742194;}if (number === 2){playLevel = 0180481080;}}}
 
-function portal (x, y, number, event) {
+function portal (x, y, number) {
    ctx1.drawImage(door, x, y, caracterW, caracterH *1.5);
    if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + caracterW && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + caracterH *1.5) {
         
@@ -245,13 +245,10 @@ function portal (x, y, number, event) {
         ctx1.font = ""+canvasesH /20+"px Arial";
         ctx1.fillText("Press E to enter", x + caracterW /2, y);
        
-       if(event.key === "e" || event.key === "E"){ee = true;}else{ee = false;}
+       
        
        //do something
-       if (ee === true) {
-           if (number === 1) {playLevel = 70923742194;}
-           if (number === 2) {playLevel = 0180481080;}
-       }
+       tp(event);
    }
 }
 
