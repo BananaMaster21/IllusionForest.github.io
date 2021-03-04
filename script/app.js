@@ -486,7 +486,18 @@ requestAnimationFrame(game);
    }  
     
        //secrrrrrrrrrrrrrrrret leeeeeeeeevvvvvvvvvvvvels
-   if (playLevel === 525852758123) {ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); ctx1.drawImage(ruin, 0, floor - caracterH *1.5, caracterW *2, caracterH *1.5);ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);}
+   if (playLevel === 525852758123) {
+       ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
+       ctx1.drawImage(ruin, 0, floor - caracterH *1.5, caracterW *2, caracterH *1.5);
+       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+       
+       //objects not in use
+        obstacle(rock, 0, 0, 0, 0, 1);
+        obstacle(rock, 0, 0, 0, 0, 2);
+        obstacle(rock, 0, 0, 0, 0, 3);
+        obstacle(rock, 0, 0, 0, 0, 4);
+       vine(0, 0, 0, 0, 1);
+   }
    if (playLevel === 70923742194) {ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH); ctx1.drawImage(sign, canvasesW /2, floor - caracterH *2, caracterW, caracterH *2); ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);}
    if (playLevel === 0180481080) {ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); ctx1.drawImage(sign, canvasesW /2, floor - caracterH *2, caracterW, caracterH *2); ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);}
     
