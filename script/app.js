@@ -80,8 +80,8 @@ var ee = false;
 //Control STUFF
 //----------------------------------------------------------
 function caracterMove (event) {side = event.key;otherSide = event.key;}
-function caracterStop (event) {var offKey = event.key;if (offKey === "ArrowLeft" || offKey === "ArrowRight") {caracterMoveSide = 0;side = undefined;}if (offKey === " ") {otherSide = 0}}
-function controls () {if (side === "ArrowLeft") {caracterMoveSide = 1;caracterKeepSide = "left";}if (side === "ArrowRight") {caracterMoveSide = 2;caracterKeepSide = "right";}if (otherSide === " " && onGround === 1) {jump = 1;}}
+function caracterStop (event) {var offKey = event.key;if (offKey === "ArrowLeft" || offKey === "ArrowRight" || offKey === "e" || offKey === "E") {caracterMoveSide = 0;side = undefined;}if (offKey === " ") {otherSide = 0}}
+function controls () {if (side === "ArrowLeft") {caracterMoveSide = 1;caracterKeepSide = "left";}if (side === "ArrowRight") {caracterMoveSide = 2;caracterKeepSide = "right";}if (otherSide === " " && onGround === 1) {jump = 1;}if(side === "e" || side === "E"){ee === true;}}
 
 //----------------------------------------------------------
 //WALKING STUFF
@@ -496,10 +496,32 @@ requestAnimationFrame(game);
         obstacle(rock, 0, 0, 0, 0, 2);
         obstacle(rock, 0, 0, 0, 0, 3);
         obstacle(rock, 0, 0, 0, 0, 4);
+        vine(0, 0, 0, 0, 1);
+   }
+   if (playLevel === 70923742194) {
+       ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH);
+       ctx1.drawImage(sign, canvasesW /2, floor - caracterH *2, caracterW, caracterH *2);
+       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+       
+       //objects not in use
+       obstacle(rock, 0, 0, 0, 0, 1);
+       obstacle(rock, 0, 0, 0, 0, 2);
+       obstacle(rock, 0, 0, 0, 0, 3);
+       obstacle(rock, 0, 0, 0, 0, 4);
        vine(0, 0, 0, 0, 1);
    }
-   if (playLevel === 70923742194) {ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH); ctx1.drawImage(sign, canvasesW /2, floor - caracterH *2, caracterW, caracterH *2); ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);}
-   if (playLevel === 0180481080) {ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); ctx1.drawImage(sign, canvasesW /2, floor - caracterH *2, caracterW, caracterH *2); ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);}
+   if (playLevel === 0180481080) {
+       ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
+       ctx1.drawImage(sign, canvasesW /2, floor - caracterH *2, caracterW, caracterH *2);
+       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+   
+       //objects not in use
+       obstacle(rock, 0, 0, 0, 0, 1);
+       obstacle(rock, 0, 0, 0, 0, 2);
+       obstacle(rock, 0, 0, 0, 0, 3);
+       obstacle(rock, 0, 0, 0, 0, 4);
+       vine(0, 0, 0, 0, 1);
+   }
     
     //-----BUILD LEVEL 1-----//
    //----------------------------------------------------------
