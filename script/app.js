@@ -74,13 +74,14 @@ var hitingRight = 0;
 var rightStop = 0;
 var fallStop = 0;
 var sliping = 0;
+var ee = false;
 
 //----------------------------------------------------------
 //Control STUFF
 //----------------------------------------------------------
 function caracterMove (event) {side = event.key;otherSide = event.key;}
 function caracterStop (event) {var offKey = event.key;if (offKey === "ArrowLeft" || offKey === "ArrowRight") {caracterMoveSide = 0;side = undefined;}if (offKey === " ") {otherSide = 0}}
-function controls () {if (side === "ArrowLeft") {caracterMoveSide = 1;caracterKeepSide = "left";}if (side === "ArrowRight") {caracterMoveSide = 2;caracterKeepSide = "right";}if (otherSide === " " && onGround === 1) {jump = 1;}}
+function controls () {if (side === "ArrowLeft") {caracterMoveSide = 1;caracterKeepSide = "left";}if (side === "ArrowRight") {caracterMoveSide = 2;caracterKeepSide = "right";}if (otherSide === " " && onGround === 1) {jump = 1;}if (side === "e" || "E") {ee = true;}else{ee = false;}}
 
 //----------------------------------------------------------
 //WALKING STUFF
@@ -241,10 +242,10 @@ function portal (x, y, number) {
         ctx1.fillStyle = "black";
         ctx1.textAlign = "center";
         ctx1.font = ""+canvasesH /20+"px Arial";
-        ctx1.fillText("Jump to enter", x + caracterW /2, y);
+        ctx1.fillText("Press E to enter", x + caracterW /2, y);
        
        //make something
-       if (jump === 1) {
+       if (ee === true) {
            if (number === 1) {playLevel = 70923742194;}
            if (number === 2) {playLevel = 0180481080;}
        }
