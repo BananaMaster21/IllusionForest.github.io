@@ -487,8 +487,8 @@ requestAnimationFrame(game);
     
        //secrrrrrrrrrrrrrrrret leeeeeeeeevvvvvvvvvvvvels
    if (playLevel === 525852758123) {ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); ctx1.drawImage(ruin, 0, floor - caracterH *1.5, caracterW *2, caracterH *1.5);ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);}
-   if (playLevel === 70923742194) {ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH); ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH); ctx1.drawImage(sign, canvasesW /2, floor - caracterH *2, caracterW, caracterH *2);}
-   if (playLevel === 0180481080) {ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH); ctx1.drawImage(sign, canvasesW /2, floor - caracterH *2, caracterW, caracterH *2);}
+   if (playLevel === 70923742194) {ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH); ctx1.drawImage(sign, canvasesW /2, floor - caracterH *2, caracterW, caracterH *2); ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);}
+   if (playLevel === 0180481080) {ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); ctx1.drawImage(sign, canvasesW /2, floor - caracterH *2, caracterW, caracterH *2); ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);}
     
     //-----BUILD LEVEL 1-----//
    //----------------------------------------------------------
