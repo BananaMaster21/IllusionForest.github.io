@@ -233,7 +233,7 @@ function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, spe
 //----------------------------------------------------------
 //DOOR STUFF
 //----------------------------------------------------------
-function portal (x, y) {
+function portal (x, y, number) {
    ctx1.drawImage(door, x, y, caracterW, caracterH *1.5);
    if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + caracterW && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + caracterH *1.5) {
         
@@ -245,9 +245,8 @@ function portal (x, y) {
        
        //make something
        if (jump === 1) {
-           
-           console.log("Caracter activated a portal");
-           
+           if (number === 1) {playLevel = 70923742194;}
+           if (number === 2) {playLevel = 0180481080;}
        }
    }
 }
@@ -284,7 +283,7 @@ function reset () {
 function next () {
    if (caracterX >= 0 + canvasesW) {
        
-       if (playLevel === 0) { 
+       if (playLevel === 0 || playLevel === 525852758123) { 
       caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 1;//-----from lvl: intro to lvl: 1-----// 
        }else if (playLevel === 1) {
           caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 2;//-----from lvl: 1 to lvl: 2-----//
@@ -485,8 +484,10 @@ requestAnimationFrame(game);
       trap(spikeFloor, canvasesW *4/5, floor - caracterH /2, caracterW *4/3, caracterH /2);
    }  
     
-       //secrrrrrrrrrrrrrrrret leeeeeeeeevvvvvvvvvvvvel
+       //secrrrrrrrrrrrrrrrret leeeeeeeeevvvvvvvvvvvvels
    if (playLevel === 525852758123) {ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); ctx1.drawImage(ruin, 0, floor - caracterH *1.5, caracterW *2, caracterH *1.5);ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);}
+   if (playLevel === 70923742194) {ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH); ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH); ctx1.drawImage(sign, canvasesW /2, floor - caracterH *2, caracterW, caracterH *2);}
+   if (playLevel === 0180481080) {ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH); ctx1.drawImage(sign, canvasesW /2, floor - caracterH *2, caracterW, caracterH *2);}
     
     //-----BUILD LEVEL 1-----//
    //----------------------------------------------------------
@@ -545,7 +546,7 @@ requestAnimationFrame(game);
       vine(canvasesW *5/8 + caracterW *3.25, 0, caracterW /2, caracterH *5, 1);
       
       //DooooooooooooooooooooooooooooooooooooooooooR
-      portal(canvasesW *1/6, canvasesH *1/12);
+      portal(canvasesW *1/6, canvasesH *1/12, 1);
       
       //player
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
@@ -624,7 +625,7 @@ requestAnimationFrame(game);
       obstacle(rock, canvasesW /2 + caracterW *2.125, 0 - caracterH *4, caracterW *1.75, caracterH *6, 4);
           
       //door
-      portal(canvasesW *1/6 - caracterW, canvasesH *1/12);
+      portal(canvasesW *1/6 - caracterW, canvasesH *1/12, 2);
           
       //player
       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
