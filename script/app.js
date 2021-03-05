@@ -27,6 +27,7 @@ var bobRight1 = document.getElementById("bobRight1");
 var bobRight2 = document.getElementById("bobRight2");
 var bobLeft1 = document.getElementById("bobLeft1");
 var bobLeft2 = document.getElementById("bobLeft2");
+var tom = document.getElementById("tom");
 var caracterImage = bobRight1;
 var caracterMoveSide = 0;
 var caracterKeepSide = "right";
@@ -682,10 +683,12 @@ requestAnimationFrame(game);
       
       }if (playLevel === 7) {
           
+       //building and TOM
+       obstacle(villageDoor, canvasesW - caracterW *3, 0, caracterW *3, caracterH *5, 1);
+       ctx1.drawImage(tom, canvasesW - caracterW *5.5, floor - caracterH *2, caracterW *2, caracterH *2);
+          
        //carcter
        ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
-          
-       obstacle(villageDoor, canvasesW - caracterW *3, 0, caracterW *3, caracterH *5, 1);
           
        //objects not in use
        obstacle(rock, 0, 0, 0, 0, 2);
