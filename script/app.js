@@ -419,10 +419,14 @@ requestAnimationFrame(game);
       ctx1.drawImage(lvl_5Back, 0, 0, canvasesW, canvasesH);
       //lvl number
       ctx1.drawImage(meter5, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);
-  }else if (playLevel === 6) {
+  }if (playLevel === 6) {
       ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH);
       //lvl number
       ctx1.drawImage(meter6, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);
+  }if (playLevel === 7) {
+      ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);
+      //lvl number
+      ctx1.drawImage(meter7, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);
   }
    
    //-----level music-----//
@@ -669,7 +673,19 @@ requestAnimationFrame(game);
       movingTrap(spikeBall, canvasesW /2 - caracterW *1.5 + traping.mh1, undefined, canvasesH *2/6 - caracterH *2 + traping.mv1, canvasesH *2/6 - caracterH *2, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /150, 1);
       trap(spikeFloor, canvasesW /2 - caracterW *1.5, floor - caracterH *2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW /2 + caracterW *2.25, floor - caracterH /2, caracterW *1.5, caracterH /2);
-      }
+      
+      }if (playLevel === 7) {
+          
+       //carcter
+       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+   
+       //objects not in use
+       obstacle(rock, 0, 0, 0, 0, 1);
+       obstacle(rock, 0, 0, 0, 0, 2);
+       obstacle(rock, 0, 0, 0, 0, 3);
+       obstacle(rock, 0, 0, 0, 0, 4);
+       vine(0, 0, 0, 0, 1);
+   }
     
     //-----hearts and damage-----//
     live();
