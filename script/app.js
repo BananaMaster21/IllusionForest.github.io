@@ -685,7 +685,7 @@ requestAnimationFrame(game);
           
        //building and TOM
        obstacle(villageDoor, canvasesW - caracterW *3, 0, caracterW *3, caracterH *5, 1);
-       ctx1.drawImage(tom, canvasesW - caracterW *5.5, floor - caracterH *2, caracterW *2, caracterH *2);
+       ctx1.drawImage(tom, canvasesW - caracterW *6, floor - caracterH *2.5, caracterW *2.5, caracterH *2.5);
           
        //carcter
        ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
