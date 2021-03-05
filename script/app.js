@@ -292,10 +292,13 @@ function next () {
        }else if (playLevel === 3) {
           caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 4;//-----from lvl: 3 to lvl: 4-----//
        }else if (playLevel === 4) {
-          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 5;//-----from lvl: 3 to lvl: 4-----//
+          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 5;//-----from lvl: 4 to lvl: 5-----//
        }else if (playLevel === 5) {
-          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 6;//-----from lvl: 3 to lvl: 4-----//
+          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 6;//-----from lvl: 5 to lvl: 6-----//
+       }else if (playLevel === 6) {
+          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 7;//-----from lvl: 6 to lvl: 7-----//
        }
+       
        traping.d1 = undefined;
        traping.mh1 = 0;
        traping.mv1 = 0;
@@ -316,7 +319,10 @@ function next () {
           caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 4;
        }else if (playLevel === 6) {
           caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 5;
+       }else if (playLevel === 7) {
+          caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 6;
        }
+        
        traping.d1 = undefined;
        traping.mh1 = 0;
        traping.mv1 = 0;
@@ -678,9 +684,10 @@ requestAnimationFrame(game);
           
        //carcter
        ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
-   
+          
+       obstacle(villageDoor, canvasesW - caracterW *3, 0, caracterW *3, caracterH *5, 1);
+          
        //objects not in use
-       obstacle(rock, 0, 0, 0, 0, 1);
        obstacle(rock, 0, 0, 0, 0, 2);
        obstacle(rock, 0, 0, 0, 0, 3);
        obstacle(rock, 0, 0, 0, 0, 4);
