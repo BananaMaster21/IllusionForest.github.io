@@ -303,6 +303,10 @@ function next () {
           caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 986593659;
        }else if (playLevel === 0180481080) {
           caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 824982691;
+       }else if (playLevel === 2793487593) {
+          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 70923742194;
+       }else if (playLevel === 3859293759) {
+          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 0180481080;
        }
        
        traping.d1 = undefined;
@@ -331,6 +335,10 @@ function next () {
           caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 2793487593;
        }else if (playLevel === 0180481080) {
           caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 3859293759;
+       }else if (playLevel === 986593659) {
+          caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 70923742194;
+       }else if (playLevel === 824982691) {
+          caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 0180481080;
        }
         
        traping.d1 = undefined;
