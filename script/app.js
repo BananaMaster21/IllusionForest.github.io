@@ -299,6 +299,10 @@ function next () {
           caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 6;//-----from lvl: 5 to lvl: 6-----//
        }else if (playLevel === 6) {
           caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 7;//-----from lvl: 6 to lvl: 7-----//
+       }else if (playLevel === 70923742194) {
+          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 986593659;
+       }else if (playLevel === 0180481080) {
+          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 824982691;
        }
        
        traping.d1 = undefined;
@@ -323,6 +327,10 @@ function next () {
           caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 5;
        }else if (playLevel === 7) {
           caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 6;
+       }else if (playLevel === 70923742194) {
+          caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 2793487593;
+       }else if (playLevel === 0180481080) {
+          caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 3859293759;
        }
         
        traping.d1 = undefined;
@@ -398,7 +406,6 @@ var instructionTimer = 0;
 function game () {
 requestAnimationFrame(game);
     
-    ctx1.font
    
    //-----level backgrounds-----//
   if (playLevel === 0) {
@@ -528,6 +535,50 @@ requestAnimationFrame(game);
    if (playLevel === 0180481080) {
        ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
        ctx1.drawImage(sign, canvasesW /2, floor - caracterH *2, caracterW, caracterH *2);
+       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+   
+       //objects not in use
+       obstacle(rock, 0, 0, 0, 0, 1);
+       obstacle(rock, 0, 0, 0, 0, 2);
+       obstacle(rock, 0, 0, 0, 0, 3);
+       obstacle(rock, 0, 0, 0, 0, 4);
+       vine(0, 0, 0, 0, 1);
+   }
+    if (playLevel === 986593659) {
+       ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);
+       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+   
+       //objects not in use
+       obstacle(rock, 0, 0, 0, 0, 1);
+       obstacle(rock, 0, 0, 0, 0, 2);
+       obstacle(rock, 0, 0, 0, 0, 3);
+       obstacle(rock, 0, 0, 0, 0, 4);
+       vine(0, 0, 0, 0, 1);
+   }
+    if (playLevel === 824982691) {
+       ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
+       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+   
+       //objects not in use
+       obstacle(rock, 0, 0, 0, 0, 1);
+       obstacle(rock, 0, 0, 0, 0, 2);
+       obstacle(rock, 0, 0, 0, 0, 3);
+       obstacle(rock, 0, 0, 0, 0, 4);
+       vine(0, 0, 0, 0, 1);
+   }
+     if (playLevel === 2793487593) {
+       ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
+       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+   
+       //objects not in use
+       obstacle(rock, 0, 0, 0, 0, 1);
+       obstacle(rock, 0, 0, 0, 0, 2);
+       obstacle(rock, 0, 0, 0, 0, 3);
+       obstacle(rock, 0, 0, 0, 0, 4);
+       vine(0, 0, 0, 0, 1);
+   }
+    if (playLevel === 3859293759) {
+       ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
        ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
    
        //objects not in use
