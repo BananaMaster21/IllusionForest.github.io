@@ -65,6 +65,7 @@ var cristal5 = document.getElementById("cristal5");
 var villageDoor = document.getElementById("villageDoor");
 var ruin = document.getElementById("ruin");
 var sign = document.getElementById("sign");
+var box = document.getElementById("box");
 
 
 
@@ -244,7 +245,7 @@ function portal (x, y, number) {
        //writing
         ctx1.fillStyle = "black";
         ctx1.textAlign = "center";
-        ctx1.font = ""+canvasesH /20+"px Arial";
+        ctx1.font = ""+canvasesH /20+"px cursive";
         ctx1.fillText("Press E to enter", x + caracterW /2, y);
        
        //do thing
@@ -364,7 +365,7 @@ function live () {
        var resetY = canvasesH /5;
        pause = 1;
        ctx1.fillStyle = "rgba( 0, 0, 0,"+Darkness+")"; ctx1.fillRect(0, 0, canvasesW, canvasesH); 
-       ctx1.fillStyle = "lightGrey"; ctx1.textAlign = "center"; ctx1.font = ""+TextSize+"px Arial"; ctx1.fillText("Click to restart", canvasesW /2, canvasesH /4);
+       ctx1.fillStyle = "lightGrey"; ctx1.textAlign = "center"; ctx1.font = ""+TextSize+"px cursive"; ctx1.fillText("Click to restart", canvasesW /2, canvasesH /4);
        ctx1.drawImage(resetButton, canvasesW /2 - resetW /2, canvasesH /2 - resetY /2, resetW, resetY);
     }
 }
@@ -396,6 +397,8 @@ var instructionTimer = 0;
 //----------------------------------------------------------
 function game () {
 requestAnimationFrame(game);
+    
+    ctx1.font
    
    //-----level backgrounds-----//
   if (playLevel === 0) {
@@ -466,7 +469,7 @@ requestAnimationFrame(game);
       
       ctx1.fillStyle = "black";
       ctx1.textAlign = "start";
-      ctx1.font = ""+canvasesH /20+"px Arial";
+      ctx1.font = ""+canvasesH /20+"px cursive";
       
       //spike hurt instructions
       ctx1.fillText("Spikes hurt", canvasesW *4/5, floor - caracterH *1.5 );
@@ -683,8 +686,11 @@ requestAnimationFrame(game);
       
       }if (playLevel === 7) {
           
-       //building and TOM
+       //building
        obstacle(villageDoor, canvasesW - caracterW *3, 0, caracterW *3, caracterH *5, 1);
+         
+       //Tom!!!!!!!!!!!!!!!!!
+       if(caracterX >= 250 || caracterX <= 920){ctx1.drawImage(box, canvasesW - caracterW *5.5, floor - caracterH *1.75, caracterW *1.5, caracterH *0.75);}
        ctx1.drawImage(tom, canvasesW - caracterW *6, floor - caracterH *2.5, caracterW *2.5, caracterH *2.5);
           
        //carcter
