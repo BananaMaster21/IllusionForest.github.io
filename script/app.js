@@ -317,6 +317,7 @@ function next () {
        traping.d2 = undefined;
        traping.mh2 = 0;
        traping.mv2 = 0;
+       instructionTimer = 0;
     }
     if (caracterX + caracterW < 0) {
         if (playLevel === 1){
@@ -343,12 +344,13 @@ function next () {
           caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 0180481080;
        }
         
-       traping.d1 = undefined;
-       traping.mh1 = 0;
-       traping.mv1 = 0;
-       traping.d2 = undefined;
-       traping.mh2 = 0;
-       traping.mv2 = 0;
+        traping.d1 = undefined;
+        traping.mh1 = 0;
+        traping.mv1 = 0;
+        traping.d2 = undefined;
+        traping.mh2 = 0;
+        traping.mv2 = 0;
+        instructionTimer = 0;
         }
 }
 
@@ -757,7 +759,7 @@ requestAnimationFrame(game);
            ctx1.font = ""+canvasesH /20+"px cursive";
            
            if (instructionTimer < 75) {
-               ctx1.fillText("Hello", canvasesW - caracterW *5.5 - caracterW *1.45, floor - caracterH *1.7 - caracterH *0.75);
+               ctx1.fillText("Hello", canvasesW - caracterW *5.5 - caracterW *1.45, floor - caracterH *1.5 - caracterH *0.75);
            }
            
        }
