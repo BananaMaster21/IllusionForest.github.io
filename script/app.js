@@ -750,7 +750,7 @@ requestAnimationFrame(game);
        obstacle(villageDoor, canvasesW - caracterW *3, 0, caracterW *3, caracterH *5, 1);
          
        //Tom!!!!!!!!!!!!!!!!!
-       if(caracterX >= 250 && caracterX <= 920){
+       if(caracterX >= canvasesW *0.16 && caracterX <= canvasesW *0.6){
            instructionTimer += 1;
            ctx1.drawImage(box, canvasesW - caracterW *5.5 - caracterW *1.5, floor - caracterH *1.25 - caracterH *0.75, caracterW *1.5, caracterH *0.75);
            
