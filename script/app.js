@@ -254,6 +254,7 @@ function portal (x, y, number) {
 }
 
 
+var instructionTimer = 0;
 
 //----------------------------------------------------------
 //RESETING WHEN DIE STUFF
@@ -262,6 +263,7 @@ function reset () {
    if (lives === 0) {
  pause = 0;
  if (playLevel > 0 && playLevel < 3) {playLevel = 1;}else if (playLevel > 0) {playLevel = 3;}
+ instructionTimer = 0;
  caracterX = canvasesW /25;
  caracterY = ground - caracterH;
  caracterMoveSide = 0;
@@ -403,9 +405,6 @@ if (playLevel === 3 || playLevel === 4) {audio_2.play();}else {audio_2.pause();}
 if (playLevel === 5 || playLevel === 6) {audio_3.play();}else {audio_3.pause();}
 if (playLevel === 525852758123 || playLevel === 70923742194 || playLevel === 0180481080) {audio_4.play();}else {audio_4.pause();}
 }
-
-var instructionTimer = 0;
-
 
 
 //----------------------------------------------------------
@@ -664,10 +663,10 @@ requestAnimationFrame(game);
       trap(spikeWall, canvasesW *5/8 + caracterW *2 - caracterW /2, floor - caracterH *2 - caracterH *1/4, caracterW *3/4, caracterH *1.5);
       trap(spikeFloor, canvasesW *5/8 + caracterW *2, floor - caracterH *3.5 - caracterH *1/4, caracterW, caracterH *3/4);
       
-      //instructions
+      //reminder
       ctx1.fillStyle = "forestGreen";
       ctx1.textAlign = "center";
-      ctx1.font = ""+canvasesH /20+"px Arial";
+      ctx1.font = ""+canvasesH /20+"px cursive";
       ctx1.fillText("Remember walk or jump out of the screen to change level", canvasesW *1/2, canvasesH *7/9);
       
    }
@@ -749,11 +748,24 @@ requestAnimationFrame(game);
        obstacle(villageDoor, canvasesW - caracterW *3, 0, caracterW *3, caracterH *5, 1);
          
        //Tom!!!!!!!!!!!!!!!!!
-       if(caracterX >= 250 && caracterX <= 920){ctx1.drawImage(box, canvasesW - caracterW *5.5 - caracterW *1.5, floor - caracterH *1.75 - caracterH *0.75, caracterW *1.5, caracterH *0.75);}
+       if(caracterX >= 250 && caracterX <= 920){
+           instructionTimer += 1;
+           ctx1.drawImage(box, canvasesW - caracterW *5.5 - caracterW *1.5, floor - caracterH *1.75 - caracterH *0.75, caracterW *1.5, caracterH *0.75);
+           
+           ctx1.fillStyle = "black";
+           ctx1.textAlign = "start";
+           ctx1.font = ""+canvasesH /20+"px cursive";
+           
+           if (instructionTimer < 75) {
+               ctx1.fillText("Hello", canvasesW - caracterW *5.5 - caracterW *1.45, floor - caracterH *1.7 - caracterH *0.75);
+           }
+           
+       }
+          
        ctx1.drawImage(tom, canvasesW - caracterW *6, floor - caracterH *2.5, caracterW *2.5, caracterH *2.5);
           
        //carcter
-       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH); 
           
        //objects not in use
        obstacle(rock, 0, 0, 0, 0, 2);
