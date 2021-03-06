@@ -752,14 +752,14 @@ requestAnimationFrame(game);
        //Tom!!!!!!!!!!!!!!!!!
        if(caracterX >= canvasesW *0.16 && caracterX <= canvasesW *0.6){
            instructionTimer += 1;
-           ctx1.drawImage(box, canvasesW - caracterW *5.5 - caracterW *1.5, floor - caracterH *1.25 - caracterH *0.75, caracterW *1.5, caracterH *0.75);
+           ctx1.drawImage(box, canvasesW - caracterW *5.5 - caracterW *1.5, floor - caracterH *1.75 - caracterH *0.75, caracterW *1.5, caracterH *0.75);
            
            ctx1.fillStyle = "black";
            ctx1.textAlign = "center";
            ctx1.font = ""+canvasesH /20+"px cursive";
            
            if (instructionTimer < 100) {
-               ctx1.fillText("Hello", canvasesW - caracterW *5.25, floor - caracterH *1.25 - - caracterH *0.325);
+               ctx1.fillText("Hello", canvasesW - caracterW *5.5 - caracterW *1.3, floor - caracterH *1.75 - caracterH *0.5);
            }
            
        }
