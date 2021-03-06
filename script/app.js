@@ -3,10 +3,10 @@ var nextLevel = 0;
 var startButton = document.getElementById("startButton");
 startButton.onclick = function () {playLevel = 0;}
 var mycanvas = document.getElementById("mycanvas");
-mycanvas.setAttribute("width", screen.width + "px");
-mycanvas.setAttribute("height", screen.height + "px");
-var canvasesW = screen.width;
-var canvasesH = screen.height;
+mycanvas.setAttribute("width", window.outerWidth + "px");
+mycanvas.setAttribute("height", window.outerHeight + "px");
+var canvasesW = window.outerWidth;
+var canvasesH = window.outerHeight;
 var ctx1 = mycanvas.getContext("2d");
 var ground = canvasesH /1.25;
 var onGround = 1;
@@ -752,14 +752,14 @@ requestAnimationFrame(game);
        //Tom!!!!!!!!!!!!!!!!!
        if(caracterX >= 250 && caracterX <= 920){
            instructionTimer += 1;
-           ctx1.drawImage(box, canvasesW - caracterW *5.5 - caracterW *1.5, floor - caracterH *1.75 - caracterH *0.75, caracterW *1.5, caracterH *0.75);
+           ctx1.drawImage(box, canvasesW - caracterW *5.5 - caracterW *1.5, floor - caracterH *2, caracterW *1.5, caracterH *0.75);
            
            ctx1.fillStyle = "black";
-           ctx1.textAlign = "start";
+           ctx1.textAlign = "center";
            ctx1.font = ""+canvasesH /20+"px cursive";
            
-           if (instructionTimer < 75) {
-               ctx1.fillText("Hello", canvasesW - caracterW *5.5 - caracterW *1.45, floor - caracterH *1.5 - caracterH *0.75);
+           if (instructionTimer < 100) {
+               ctx1.fillText("Hello", canvasesW - caracterW *5.25, floor - caracterH *1.25);
            }
            
        }
