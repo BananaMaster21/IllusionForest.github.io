@@ -227,7 +227,7 @@ function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, spe
    if (axis === "vertical" && traping.d2 === "up") {if (y >= oldY - distance /2) {traping.mv2 -= speed}else if (y < oldY - distance /2) {traping.d2 = "down";}}
 
  }
-   if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /2 >= y && caracterY - caracterH /2 <= y + height ) {if (damageActivated === 0){if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
+   if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /2 >= y && caracterY - caracterH /2 <= y + height ) {if (damageActivated === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
  }
 
 
@@ -262,7 +262,7 @@ function crystal (what, thing, x, y)  {
     if(thing === 0){ctx1.drawImage(what, x, y, caracterW *0.5, caracterH *0.75);}
     if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + caracterW *0.5 && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + caracterH *0.75 ) {
         if (what === crystal1) {hasCrystal1 = 1;}
-        if (what === crystal2) {hasCrystal2 = 1;lives = 3;}
+        if (what === crystal2) {if(hasCrystal2 === 0){lives = 3;}hasCrystal2 = 1;}
         if (what === crystal3) {hasCrystal3 = 1;}
         if (what === crystal4) {hasCrystal4 = 1;}
         if (what === crystal5) {hasCrystal5 = 1;}
