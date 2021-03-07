@@ -293,7 +293,7 @@ function reset () {
  upTimer = canvasesH /40;
  fallTimer = 0;
  healTimer = 0;
- lives = 2;
+ if (hasCrystal1 === 1){lives = 3;}else{lives = 2;}
    }
 }
 
