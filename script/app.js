@@ -541,7 +541,7 @@ requestAnimationFrame(game);
        ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
        
        //crystal
-       crystal(crystal2, hasCrystal2, caracterW *0.75, floor - caracterH *1.25);
+       crystal(crystal2, hasCrystal2, caracterW *0.75, floor - caracterH *1.5);
        
        //objects not in use
         obstacle(rock, 0, 0, 0, 0, 1);
