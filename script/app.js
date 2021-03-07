@@ -256,13 +256,13 @@ function portal (x, y, number) {
 //----------------------------------------------------------
 //CRISTAL STUFF
 //----------------------------------------------------------
-var hasCrystal1 = 0;
+var hasCrystal2 = 0;
 
 function crystal (what, thing, x, y)  {
     if(thing === 0){ctx1.drawImage(what, x, y, caracterW *0.5, caracterH *0.75);}
     if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + caracterW *0.5 && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + caracterH *0.75 ) {
         if (what === crystal1) {hasCrystal1 = 1;}
-        if (what === crystal2) {hasCrystal2 = 1;}
+        if (what === crystal2) {hasCrystal2 = 1;lives = 3;}
         if (what === crystal3) {hasCrystal3 = 1;}
         if (what === crystal4) {hasCrystal4 = 1;}
         if (what === crystal5) {hasCrystal5 = 1;}
@@ -293,7 +293,7 @@ function reset () {
  upTimer = canvasesH /40;
  fallTimer = 0;
  healTimer = 0;
- if (hasCrystal1 === 1){lives = 3;}else{lives = 2;}
+ if (hasCrystal2 === 1){lives = 3;}else{lives = 2;}
    }
 }
 
@@ -380,7 +380,7 @@ var lives = 2;
 //-----heart positioning-----//
 var heart1X = canvasesW /25;
 var heart2X = canvasesW /12.5;
-var heart3X = canvasesW /6.25;
+var heart3X = canvasesW /8.3;
 var heartsY = canvasesH /20;
 var heartsW = canvasesW /50;
 var heartsH = canvasesH /25;
@@ -541,7 +541,7 @@ requestAnimationFrame(game);
        ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
        
        //crystal
-       crystal(crystal1, hasCrystal1, caracterW *0.75, floor - caracterH);
+       crystal(crystal2, hasCrystal2, caracterW *0.75, floor - caracterH *1.25);
        
        //objects not in use
         obstacle(rock, 0, 0, 0, 0, 1);
