@@ -57,11 +57,11 @@ var spikeFloor = document.getElementById("spikeFloor");
 var spikeWall = document.getElementById("spikeWall");
 var spikeBall = document.getElementById("spikeBall");
 var door = document.getElementById("door");
-var cristal1 = document.getElementById("cristal1");
-var cristal2 = document.getElementById("cristal2");
-var cristal3 = document.getElementById("cristal3");
-var cristal4 = document.getElementById("cristal4");
-var cristal5 = document.getElementById("cristal5");
+var crystal1 = document.getElementById("cristal1");
+var crystal2 = document.getElementById("cristal2");
+var crystal3 = document.getElementById("cristal3");
+var crystal4 = document.getElementById("cristal4");
+var crystal5 = document.getElementById("cristal5");
 var villageDoor = document.getElementById("villageDoor");
 var ruin = document.getElementById("ruin");
 var sign = document.getElementById("sign");
@@ -183,7 +183,7 @@ function damageTimer () {
 function trap (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
    
-   if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + height ) {if (damageActivated === 0){if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
+   if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + height ) {if (damageActivated === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
 }
 
 
@@ -251,6 +251,22 @@ function portal (x, y, number) {
        //do thing
        if (isEbeingPressed === 1) {if (number === 1){playLevel = 70923742194;}if (number === 2){playLevel = 0180481080;}}
    }
+}
+
+//----------------------------------------------------------
+//CRISTAL STUFF
+//----------------------------------------------------------
+var hasCrystal1 = 0;
+
+function crystal (what, thing, x, y)  {
+    if(thing === 0){ctx1.drawImage(what, x, y, caracterW *0.5, caracterH *0.75);}
+    if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + caracterW *0.5 && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + caracterH *0.75 ) {
+        if (what === crystal1) {hasCrystal1 = 1;}
+        if (what === crystal2) {hasCrystal2 = 1;}
+        if (what === crystal3) {hasCrystal3 = 1;}
+        if (what === crystal4) {hasCrystal4 = 1;}
+        if (what === crystal5) {hasCrystal5 = 1;}
+    }
 }
 
 
@@ -364,6 +380,7 @@ var lives = 2;
 //-----heart positioning-----//
 var heart1X = canvasesW /25;
 var heart2X = canvasesW /12.5;
+var heart3X = canvasesW /6.25;
 var heartsY = canvasesH /20;
 var heartsW = canvasesW /50;
 var heartsH = canvasesH /25;
@@ -373,6 +390,7 @@ var pause = 0;
 
 //-----place hearts and activate death if needed-----//
 function live () {
+  if (lives === 3) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart2X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart3X, heartsY, heartsW, heartsH);}
   if (lives === 2) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart2X, heartsY, heartsW, heartsH);}
   
     if (lives === 1) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);}
@@ -521,6 +539,9 @@ requestAnimationFrame(game);
        ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
        ctx1.drawImage(ruin, 0, floor - caracterH *1.5, caracterW *2, caracterH *1.5);
        ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+       
+       //crystal
+       crystal(crystal1, hasCrystal1, caracterW *0.75, floor - caracterH);
        
        //objects not in use
         obstacle(rock, 0, 0, 0, 0, 1);
