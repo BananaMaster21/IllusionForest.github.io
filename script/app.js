@@ -262,7 +262,7 @@ var hasCrystal1 = 0;
 function crystal (what, thing, x, y)  {
     if(thing === 0){ctx1.drawImage(what, x, y, caracterW *0.5, caracterH *0.75);}
     if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + caracterW *0.5 && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + caracterH *0.75 ) {
-        if (what === crystal1) {if(hasCrystal1 === 0){speed = ;}hasCrystal1 = 1;}
+        if (what === crystal1) {hasCrystal1 = 1;}
         if (what === crystal2) {if(hasCrystal2 === 0){lives = 3;}hasCrystal2 = 1;}
         if (what === crystal3) {hasCrystal3 = 1;}
         if (what === crystal4) {hasCrystal4 = 1;}
