@@ -599,7 +599,6 @@ requestAnimationFrame(game);
    }
      if (playLevel === 2793487593) {
        ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
-       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
          
        //ruin
        ctx1.drawImage(ruin, caracterW /2, floor - caracterH *1.5 - caracterH *2.25, caracterW *2, caracterH *1.5);
@@ -610,11 +609,16 @@ requestAnimationFrame(game);
        //objects
        obstacle(rock, 0, floor - caracterH *2.25, caracterW *2.5, caracterH *2.25, 1);
        obstacle(rock, 0 - caracterW /2, 0 - caracterH *0.5, caracterW *1, caracterH *5, 2);
-       obstacle(rock, canvasesW /2 - caracterW /2, floor - caracterH *2.125, caracterW, caracterH *2.125, 3);
-       obstacle(rock, canvasesW /2 - caracterW /2, 0 - caracterH *0.5, caracterW, caracterH *2, 4);
+       obstacle(rock, canvasesW /2 - caracterW /2, floor - caracterH *2.25, caracterW, caracterH *2.25, 3);
+       obstacle(rock, canvasesW /2 - caracterW /2, 0 - caracterH *0.625, caracterW, caracterH *2, 4);
+       vine(canvasesW /2 - caracterW /2 + caracterW *1.5, 0, caracterW /2, caracterH *5, 1);
          
-       //objects not in use
-       vine(0, 0, 0, 0, 1);
+       //caracter
+       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+         
+       //traps
+       trap(spikeFloor, caracterW *2.5, floor - caracterH /2, caracterW, caracterH /2);
+       trap(spikeFloor, caracterW *3.5, floor - caracterH /2, caracterW, caracterH /2);
    }
     if (playLevel === 3859293759) {
        ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
