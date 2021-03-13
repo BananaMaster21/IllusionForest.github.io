@@ -91,8 +91,8 @@ var feetSwitch = 0;
 var speed = 0;
 
 function walking () {
-    if(caracterMoveSide===1&&hitingLeft===0){caracterX=caracterX-speed;if(speed<=canvasesW/100){speed=speed+canvasesW/1000;}if(jump===0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){caracterImage=bobLeft1;}if(feetSwitch>=5){caracterImage=bobLeft2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){caracterImage=bobLeft2;}}
-    if(caracterMoveSide===2&&hitingRight===0){caracterX=caracterX+speed;if(speed<=canvasesW/100){speed=speed+canvasesW/1000;}if(jump===0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){caracterImage=bobRight1;}if(feetSwitch>=5){caracterImage=bobRight2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){caracterImage=bobRight2;}}
+    if(caracterMoveSide===1&&hitingLeft===0){caracterX=caracterX-speed;if(speed<=canvasesW/100 && hasCrystal1 === 0){speed=speed+canvasesW/1000;}else if (speed<=canvasesW/150 && hasCrystal1 === 1){speed=speed+canvasesW/500;}if(jump===0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){caracterImage=bobLeft1;}if(feetSwitch>=5){caracterImage=bobLeft2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){caracterImage=bobLeft2;}}
+    if(caracterMoveSide===2&&hitingRight===0){caracterX=caracterX+speed;if(speed<=canvasesW/100 && hasCrystal1 === 0){speed=speed+canvasesW/1000;}else if(speed<=canvasesW/150 && hasCrystal1 === 1){speed=speed+canvasesW/500;}if(jump===0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){caracterImage=bobRight1;}if(feetSwitch>=5){caracterImage=bobRight2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){caracterImage=bobRight2;}}
     if(caracterMoveSide===0){caracterX = caracterX - 0;if (caracterKeepSide === "left") {caracterImage = bobLeft1;}if (caracterKeepSide === "right") { caracterImage = bobRight1;}}
 }
 
@@ -257,11 +257,12 @@ function portal (x, y, number) {
 //CRISTAL STUFF
 //----------------------------------------------------------
 var hasCrystal2 = 0;
+var hasCrystal1 = 0;
 
 function crystal (what, thing, x, y)  {
     if(thing === 0){ctx1.drawImage(what, x, y, caracterW *0.5, caracterH *0.75);}
     if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + caracterW *0.5 && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + caracterH *0.75 ) {
-        if (what === crystal1) {hasCrystal1 = 1;}
+        if (what === crystal1) {if(hasCrystal1 === 0){speed = ;}hasCrystal1 = 1;}
         if (what === crystal2) {if(hasCrystal2 === 0){lives = 3;}hasCrystal2 = 1;}
         if (what === crystal3) {hasCrystal3 = 1;}
         if (what === crystal4) {hasCrystal4 = 1;}
@@ -600,11 +601,17 @@ requestAnimationFrame(game);
        ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
        ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
          
+       //ruin
+       ctx1.drawImage(ruin, caracterW /2, floor - caracterH *1.5 - caracterH *2.25, caracterW *2, caracterH *1.5);
+         
+       //crystal
+       crystal(crystal1, hasCrystal1, caracterW *0.75, floor - caracterH *2 - caracterH *2.25);
+         
        //objects
        obstacle(rock, 0, floor - caracterH *2.25, caracterW *2.5, caracterH *2.25, 1);
-       obstacle(rock, 0, 0 - carcaterH *0.5, caracterW *0.5, caracterH *5.5, 2);
-       obstacle(rock, canvasesW - caracterW /2, floor - caracterH *2.125, caracterW, caracterH *2.125, 3);
-       obstacle(rock, canvasesW - caracterW /2, 0 - caracterH *0.5, caracterW, caracterH *2.25, 4);
+       obstacle(rock, 0 - caracterW /2, 0 - caracterH *0.5, caracterW *1, caracterH *5, 2);
+       obstacle(rock, canvasesW /2 - caracterW /2, floor - caracterH *2.125, caracterW, caracterH *2.125, 3);
+       obstacle(rock, canvasesW /2 - caracterW /2, 0 - caracterH *0.5, caracterW, caracterH *2, 4);
          
        //objects not in use
        vine(0, 0, 0, 0, 1);
