@@ -91,8 +91,8 @@ var feetSwitch = 0;
 var speed = 0;
 
 function walking () {
-    if(caracterMoveSide===1&&hitingLeft===0){caracterX=caracterX-speed;if(speed<=canvasesW/100 && hasCrystal1 === 0){speed=speed+canvasesW/1000;}else if (speed<=canvasesW/60 && hasCrystal1 === 1){speed=speed+canvasesW/600;}if(jump===0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){caracterImage=bobLeft1;}if(feetSwitch>=5){caracterImage=bobLeft2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){caracterImage=bobLeft2;}}
-    if(caracterMoveSide===2&&hitingRight===0){caracterX=caracterX+speed;if(speed<=canvasesW/100 && hasCrystal1 === 0){speed=speed+canvasesW/1000;}else if(speed<=canvasesW/60 && hasCrystal1 === 1){speed=speed+canvasesW/600;}if(jump===0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){caracterImage=bobRight1;}if(feetSwitch>=5){caracterImage=bobRight2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){caracterImage=bobRight2;}}
+    if(caracterMoveSide===1&&hitingLeft===0){caracterX=caracterX-speed;if(speed<=canvasesW/100 && hasCrystal1 === 0){speed=speed+canvasesW/1000;}else if (speed<=canvasesW/85 && hasCrystal1 === 1){speed=speed+canvasesW/850;}if(jump===0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){caracterImage=bobLeft1;}if(feetSwitch>=5){caracterImage=bobLeft2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){caracterImage=bobLeft2;}}
+    if(caracterMoveSide===2&&hitingRight===0){caracterX=caracterX+speed;if(speed<=canvasesW/100 && hasCrystal1 === 0){speed=speed+canvasesW/1000;}else if(speed<=canvasesW/85 && hasCrystal1 === 1){speed=speed+canvasesW/850;}if(jump===0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){caracterImage=bobRight1;}if(feetSwitch>=5){caracterImage=bobRight2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){caracterImage=bobRight2;}}
     if(caracterMoveSide===0){caracterX = caracterX - 0;if (caracterKeepSide === "left") {caracterImage = bobLeft1;}if (caracterKeepSide === "right") { caracterImage = bobRight1;}}
 }
 
