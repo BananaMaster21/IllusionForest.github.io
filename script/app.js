@@ -608,13 +608,13 @@ requestAnimationFrame(game);
        crystal(crystal4, hasCrystal4, canvasesW - caracterW *1.5, floor - caracterH *4.25);
         
        //objects
-       obstacle(rock, caracterW *3, 0, caracterW *2, caracterH *1.5, 1);
-       obstacle(rock, caracterW *3, floor - caracterH *3.25, caracterW *2, caracterH, 2);
-       obstacle(rock, canvasesW - caracterW *2.5, floor - caracterH *2.75, caracterW *2.5, 0, 3);
-       obstacle(rock, canvasesW - caracterW *0.5, 0, caracterW *0.5, caracterH *5.25, 4);
+       obstacle(rock, caracterW *3, floor - caracterH *1.25, caracterW *2, caracterH *1.25, 1);
+       obstacle(rock, caracterW *3, 0 - caracterH *0.5, caracterW *2, caracterH *2, 2);
+       obstacle(rock, canvasesW - caracterW *2.5, floor - caracterH *2.75, caracterW *2, caracterH *2.75, 3);
+       obstacle(rock, canvasesW - caracterW *0.5, 0 - caracterH *0.5, caracterW *0.5, caracterH *5.25, 4);
         
        //traps
-       trap(spikeFloor, caracterW *3.5, floor - caracterH *1.625, caracterW, caracterH /2);
+       trap(spikeFloor, caracterW *3.5, floor - caracterH *1.75, caracterW, caracterH /2);
    
        //objects not in use
        vine(0, 0, 0, 0, 1);
