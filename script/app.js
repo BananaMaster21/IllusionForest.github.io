@@ -250,7 +250,7 @@ function portal (x, y, number) {
         ctx1.fillText("Press E to enter", x + caracterW /2, y);
        
        //do thing
-       if (isEbeingPressed === 1) {if (number === 1){playLevel = 70923742194;}if (number === 2){playLevel = 0180481080;}}
+       if (isEbeingPressed === 1) {if (number === 1){playLevel = 70923742194;}if (number === 2){playLevel = 0180481080;}if (number === 111){playLevel = 3;}if (number === 222){playLevel = 6;}}
    }
 }
 
@@ -573,6 +573,9 @@ requestAnimationFrame(game);
        ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH);
        ctx1.drawImage(sign, canvasesW /2, floor - caracterH *2, caracterW, caracterH *2);
        
+       //DooooooooooooooooooooooooooooooooooooooooooR
+       portal(canvasesW *0.8, floor - caracterH *1.5, 111);
+       
        //objects not in use
        obstacle(rock, 0, 0, 0, 0, 1);
        obstacle(rock, 0, 0, 0, 0, 2);
@@ -587,6 +590,9 @@ requestAnimationFrame(game);
        ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
        ctx1.drawImage(sign, canvasesW /2, floor - caracterH *2, caracterW, caracterH *2);
    
+       //DooooooooooooooooooooooooooooooooooooooooooR
+       portal(canvasesW /25, floor - caracterH *1.5, 222);
+       
        //objects not in use
        obstacle(rock, 0, 0, 0, 0, 1);
        obstacle(rock, 0, 0, 0, 0, 2);
