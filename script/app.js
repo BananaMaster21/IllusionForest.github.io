@@ -84,13 +84,6 @@ function caracterMove (event) {side = event.key;otherSide = event.key;}
 function caracterStop (event) {var offKey = event.key;if (offKey === "ArrowLeft" || offKey === "ArrowRight") {caracterMoveSide = 0;side = undefined;}if (offKey === " ") {otherSide = 0}}
 function controls () {if (side === "ArrowLeft") {caracterMoveSide = 1;caracterKeepSide = "left";}if (side === "ArrowRight") {caracterMoveSide = 2;caracterKeepSide = "right";}if (otherSide === " " && onGround === 1) {jump = 1;}}
 
-//----------------------------------------------------------
-//CARACTER STUFF
-//----------------------------------------------------------
-function caracter () {
-   ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, if (hasCrystal4 === 0){caracterW}else{caracterW*0.75}, if (hasCrystal4 === 0){caracterH}else{caracterH*0.75}); 
-}
-
 
 //----------------------------------------------------------
 //WALKING STUFF
@@ -279,6 +272,18 @@ function crystal (what, thing, x, y)  {
         if (what === crystal4) {hasCrystal4 = 1;}
         if (what === crystal5) {hasCrystal5 = 1;}
     }
+}
+
+
+//----------------------------------------------------------
+//CARACTER STUFF
+//----------------------------------------------------------
+var cW = caracterW;
+var cH = caracterH;
+
+function caracter () {
+   if (hasCristal4 === 1){cW = caracterW *0.75;cH = caracterH *0.75;}
+   ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, cW, cH); 
 }
 
 
