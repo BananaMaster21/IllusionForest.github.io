@@ -794,8 +794,8 @@ requestAnimationFrame(game);
            ctx1.textAlign = "center";
            ctx1.font = ""+canvasesH /20+"px cursive";
            
-           if (instructionTimer < 100) {
-               ctx1.fillText("Hello", canvasesW - caracterW *5.5 - caracterW *0.75, floor - caracterH *1.75 - caracterH *0.3);
+           if (instructionTimer < 125) {
+               ctx1.fillText("Halt", canvasesW - caracterW *5.5 - caracterW *0.75, floor - caracterH *1.75 - caracterH *0.3);
            }
            
        }
