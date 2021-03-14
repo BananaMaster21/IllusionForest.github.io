@@ -140,15 +140,15 @@ function obstacle (image, x, y, width, height, number) {
    ctx1.drawImage(image, x, y, width, height);
     
    //colision right
-   if (x <= caracterX + caracterW && caracterX + caracterW < x + width /2 && caracterY - caracterH /2 > y && caracterY - caracterH /2 < y + height) {hitingRight = 1;}else {
+   if (x <= caracterX + cW && caracterX + cW < x + width /2 && caracterY - cH /2 > y && caracterY - cH /2 < y + height) {hitingRight = 1;}else {
          if (number === 1) {ob.right_1 = 1;}else if (number === 2) {ob.right_2 = 1;}else if (number === 3) {ob.right_3 = 1;}else if (number === 4) {ob.right_4 = 1;}}
    
    //colision left
-   if (x + width >= caracterX && caracterX > x + width /2 && caracterY - caracterH /2 > y && caracterY - caracterH /2 < y + height) {hitingLeft = 1;}else {
+   if (x + width >= caracterX && caracterX > x + width /2 && caracterY - cH /2 > y && caracterY - cH /2 < y + height) {hitingLeft = 1;}else {
          if (number === 1) {ob.left_1 = 1;}else if (number === 2) {ob.left_2 = 1;}else if (number === 3) {ob.left_3 = 1;}else if (number === 4) {ob.left_4 = 1;}}
    
    //colision top
-   if (y <= caracterY && caracterY < y + height /2 && caracterX + caracterW *1/3 > x && caracterX + caracterW *1/3 < x + width || y <= caracterY && caracterY < y + height /2 && caracterX + caracterW *2/3 < x + width && caracterX + caracterW *2/3 > x) {fallStop = 1; if (number === 1) {ob.fall_1 = 0;}else if (number === 2) {ob.fall_2 = 0;}else if (number === 3) {ob.fall_3 = 0;}else if (number === 4) {ob.fall_4 = 0;}}else {
+   if (y <= caracterY && caracterY < y + height /2 && caracterX + cW *1/3 > x && caracterX + cW *1/3 < x + width || y <= caracterY && caracterY < y + height /2 && caracterX + cW *2/3 < x + width && caracterX + cW *2/3 > x) {fallStop = 1; if (number === 1) {ob.fall_1 = 0;}else if (number === 2) {ob.fall_2 = 0;}else if (number === 3) {ob.fall_3 = 0;}else if (number === 4) {ob.fall_4 = 0;}}else {
       if (number === 1) {ob.fall_1 = 1;}else if (number === 2) {ob.fall_2 = 1;}else if (number === 3) {ob.fall_3 = 1;}else if (number === 4) {ob.fall_4 = 1;}}
 }
 
@@ -157,7 +157,7 @@ function obstacle (image, x, y, width, height, number) {
 //----------------------------------------------------------
 function vine (x, y, width, height, number) {
    ctx1.drawImage(vineImg, x, y, width, height);
-   if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + height ) {fallStop = 1; if (number === 1) {ob.v1 = 0;}}else {if (number === 1) {ob.v1 = 1;}}
+   if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {fallStop = 1; if (number === 1) {ob.v1 = 0;}}else {if (number === 1) {ob.v1 = 1;}}
 }
 
 
@@ -184,7 +184,7 @@ function damageTimer () {
 function trap (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
    
-   if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + height ) {if (damageActivated === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
+   if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {if (damageActivated === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
 }
 
 
@@ -228,7 +228,7 @@ function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, spe
    if (axis === "vertical" && traping.d2 === "up") {if (y >= oldY - distance /2) {traping.mv2 -= speed}else if (y < oldY - distance /2) {traping.d2 = "down";}}
 
  }
-   if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + width && caracterY - caracterH /2 >= y && caracterY - caracterH /2 <= y + height ) {if (damageActivated === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
+   if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /2 >= y && caracterY - cH /2 <= y + height ) {if (damageActivated === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
  }
 
 
@@ -241,7 +241,7 @@ var isEbeingPressed = 0;
 function teleport (event) {var thing = event.key; if (thing === "e" || thing === "E" ){isEbeingPressed = 1;}else {isEbeingPressed = 0;}}
 function portal (x, y, number) {
    ctx1.drawImage(door, x, y, caracterW, caracterH *1.5);
-   if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + caracterW && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + caracterH *1.5) {
+   if (caracterX + cW /2 >= x && caracterX + cW /2 <= x + caracterW && caracterY - cH /3 >= y && caracterY - cH /3 <= y + caracterH *1.5) {
         
        //writing
         ctx1.fillStyle = "black";
@@ -282,7 +282,7 @@ var cW = caracterW;
 var cH = caracterH;
 
 function caracter () {
-   if (hasCristal4 === 1){cW = caracterW *0.75;cH = caracterH *0.75;}
+   if (hasCrystal4 === 1){cW = caracterW *0.75;cH = caracterH *0.75;}
    ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, cW, cH); 
 }
 
@@ -352,7 +352,7 @@ function next () {
        traping.mv2 = 0;
        instructionTimer = 0;
     }
-    if (caracterX + caracterW < 0) {
+    if (caracterX + cW < 0) {
         if (playLevel === 1){
         caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 525852758123;
        }else if (playLevel === 2) {
