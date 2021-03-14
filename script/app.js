@@ -583,7 +583,7 @@ requestAnimationFrame(game);
        obstacle(rock, caracterW *3, floor - caracterH *1.25, caracterW *2, caracterH, 1);
         
        //traps
-       trap(spikeFloor, caracterW *3.5, floor - caracterH *1.5, caracterW, caracterH /2);
+       trap(spikeFloor, caracterW *3.5, floor - caracterH *1.75, caracterW, caracterH /2);
    
        //objects not in use
        obstacle(rock, 0, 0, 0, 0, 2);
