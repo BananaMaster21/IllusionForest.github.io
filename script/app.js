@@ -599,25 +599,22 @@ requestAnimationFrame(game);
    }
     if (playLevel === 986593659) {
        ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);
-       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
         
        //ruin
        ctx1.drawImage(ruin, canvasesW - caracterW *2.5, floor - caracterH *1.5 - caracterH *2.75, caracterW *2, caracterH *1.5);
        
        //crystal
-       crystal(crystal4, hasCrystal4, canvasesW - caracterW *1.5, floor - caracterH *4.25);
+       crystal(crystal4, hasCrystal4, canvasesW - caracterW *1.25, floor - caracterH *4.5);
         
        //objects
        obstacle(rock, caracterW *3, floor - caracterH *1.25, caracterW *2, caracterH *1.25, 1);
        obstacle(rock, caracterW *3, 0 - caracterH *0.5, caracterW *2, caracterH *2, 2);
-       obstacle(rock, canvasesW - caracterW *2.5, floor - caracterH *2.75, caracterW *2, caracterH *2.75, 3);
-       obstacle(rock, canvasesW - caracterW *0.5, 0 - caracterH *0.5, caracterW *0.5, caracterH *5.25, 4);
+       obstacle(rock, canvasesW - caracterW *2.5, floor - caracterH *2.75, caracterW *2.5, caracterH *3, 3);
+       obstacle(rock, canvasesW - caracterW *0.5, 0 - caracterH *0.5, caracterW *0.75, caracterH *5.25, 4);
+       vine(caracterW *5.125, 0 - caracterH *0.25, caracterW *0.5, caracterH *1.25, 1);
         
        //traps
        trap(spikeFloor, caracterW *3.5, floor - caracterH *1.75, caracterW, caracterH /2);
-   
-       //objects not in use
-       vine(0, 0, 0, 0, 1);
         
        //caracter
        caracter();
