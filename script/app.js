@@ -108,7 +108,7 @@ var fallTimer = 0;
 function jumpFallLand () {
     if(jump===1){onGround=0;upTimer=upTimer-canvasesH/800;caracterY=caracterY-upTimer;}
     if(caracterY<ground&&onGround===0&&upTimer===0||sliping===1){onGround=0;if(fallTimer<=canvasesH/80){fallTimer=fallTimer+canvasesH/800;}caracterY=caracterY+fallTimer;}
-    if(caracterY>=ground-cH||fallStop===1){onGround=1;upTimer=canvasesH/40;fallTimer=0;jump=0;}
+    if(caracterY>=ground - caracterH||fallStop===1){onGround=1;upTimer=canvasesH/40;fallTimer=0;jump=0;}
 }
 
 //obstacles
@@ -298,7 +298,7 @@ function reset () {
  if (playLevel > 0 && playLevel < 3) {playLevel = 1;}else if (playLevel > 0) {playLevel = 3;}
  instructionTimer = 0;
  caracterX = canvasesW /25;
- caracterY = ground - caracterH;
+ caracterY = ground - cH;
  caracterMoveSide = 0;
  caracterKeepSide = "right";
  side = undefined;
