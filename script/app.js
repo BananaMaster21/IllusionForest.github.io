@@ -578,13 +578,21 @@ requestAnimationFrame(game);
     if (playLevel === 986593659) {
        ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);
        ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
+        
+       //objects
+       obstacle(rock, caracterW *3, floor - caracterH *1.25, caracterW *2, caracterH, 1);
+        
+       //traps
+       trap(spikeFloor, caracterW *3.5, floor - caracterH 1.5, caracterW, caracterH /2);
    
        //objects not in use
-       obstacle(rock, 0, 0, 0, 0, 1);
        obstacle(rock, 0, 0, 0, 0, 2);
        obstacle(rock, 0, 0, 0, 0, 3);
        obstacle(rock, 0, 0, 0, 0, 4);
        vine(0, 0, 0, 0, 1);
+        
+       //caracter
+       ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, caracterW, caracterH);
    }
     if (playLevel === 824982691) {
        ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
