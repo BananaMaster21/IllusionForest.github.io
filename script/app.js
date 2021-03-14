@@ -604,14 +604,14 @@ requestAnimationFrame(game);
        ctx1.drawImage(ruin, canvasesW - caracterW *2.5, floor - caracterH *1.5 - caracterH *2.75, caracterW *2, caracterH *1.5);
        
        //crystal
-       crystal(crystal4, hasCrystal4, canvasesW - caracterW *1.25, floor - caracterH *4.5);
+       crystal(crystal4, hasCrystal4, canvasesW - caracterW *1.25, floor - caracterH *4.625);
         
        //objects
-       obstacle(rock, caracterW *3, floor - caracterH *1.25, caracterW *2, caracterH *1.25, 1);
+       obstacle(rock, caracterW *3, floor - caracterH *0.5, caracterW *2, caracterH *1.25, 1);
        obstacle(rock, caracterW *3, 0 - caracterH *0.5, caracterW *2, caracterH *2, 2);
-       obstacle(rock, canvasesW - caracterW *2.5, floor - caracterH *2.75, caracterW *2.5, caracterH *3, 3);
+       obstacle(rock, canvasesW - caracterW *2.5, floor - caracterH *3, caracterW *2.5, caracterH *3, 3);
        obstacle(rock, canvasesW - caracterW *0.5, 0 - caracterH *0.5, caracterW *0.75, caracterH *5.25, 4);
-       vine(caracterW *5.125, 0 - caracterH *0.25, caracterW *0.5, caracterH *1.25, 1);
+       vine(caracterW *5.25, 0 - caracterH *0.25, caracterW *0.5, caracterH *1.5, 1);
         
        //traps
        trap(spikeFloor, caracterW *3.5, floor - caracterH *1.75, caracterW, caracterH /2);
@@ -646,7 +646,7 @@ requestAnimationFrame(game);
        obstacle(rock, 0 - caracterW /2, 0 - caracterH *0.5, caracterW *1, caracterH *5, 2);
        obstacle(rock, canvasesW /2 - caracterW /2, floor - caracterH *2.25, caracterW, caracterH *2.25, 3);
        obstacle(rock, canvasesW /2 - caracterW /2, 0 - caracterH *0.625, caracterW, caracterH *2, 4);
-       vine(canvasesW /2 - caracterW /2 + caracterW *3, 0, caracterW /2, caracterH *5.25, 1);
+       vine(canvasesW /2 - caracterW /2 + caracterW *3, 0 - caracterH *0.5, caracterW /2, caracterH *5.25, 1);
          
        //caracter
        caracter();
