@@ -66,7 +66,7 @@ var villageDoor = document.getElementById("villageDoor");
 var ruin = document.getElementById("ruin");
 var sign = document.getElementById("sign");
 var box = document.getElementById("box");
-
+var water = document.getElementById("water");
 
 
 
@@ -187,6 +187,11 @@ function trap (image, x, y, width, height) {
    if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {if (damageActivated === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
 }
 
+//-----build water trap-----//
+function aqua (x, y, width, height) {
+   ctx1.drawImage(water, x, y, width, height); 
+   if (caracterX > x && caracterX + cW < x + width && caracterY - cH < y) {lives = 0;}
+}
 
 
 //----------------------------------------------------------
@@ -606,28 +611,6 @@ requestAnimationFrame(game);
     if (playLevel === 986593659) {
        ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);
         
-       //ruin
-       ctx1.drawImage(ruin, canvasesW - caracterW *2.5, floor - caracterH *1.75 - caracterH *2.75, caracterW *2, caracterH *1.5);
-       
-       //crystal
-       crystal(crystal4, hasCrystal4, canvasesW - caracterW *2, floor - caracterH *4.625);
-        
-       //objects
-       obstacle(rock, caracterW *3, floor - caracterH *1.25, caracterW *2, caracterH *1.25, 1);
-       obstacle(rock, caracterW *3, 0 - caracterH *0.5, caracterW *2, caracterH *2, 2);
-       obstacle(rock, canvasesW - caracterW *2.5, floor - caracterH *3.625, caracterW *2.5, caracterH *3.625, 3);
-       obstacle(rock, canvasesW - caracterW *0.5, 0 - caracterH *0.5, caracterW *0.75, caracterH *5.25, 4);
-       vine(caracterW *5.375, 0 - caracterH *0.25, caracterW *0.5, caracterH *1.625, 1);
-        
-       //traps
-       trap(spikeFloor, caracterW *3.5, floor - caracterH *1.75, caracterW, caracterH /2);
-        
-       //caracter
-       caracter();
-   }
-    if (playLevel === 824982691) {
-       ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
-   
        //objects not in use
        obstacle(rock, 0, 0, 0, 0, 1);
        obstacle(rock, 0, 0, 0, 0, 2);
@@ -635,8 +618,32 @@ requestAnimationFrame(game);
        obstacle(rock, 0, 0, 0, 0, 4);
        vine(0, 0, 0, 0, 1);
         
+       //caracter
+       caracter();
+   }
+    if (playLevel === 824982691) {
+       ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
+   
+               //ruin
+       ctx1.drawImage(ruin, canvasesW - caracterW *2.5, floor - caracterH *1.75 - caracterH *2.75, caracterW *2, caracterH *1.5);
+       
+       //crystal
+       crystal(crystal4, hasCrystal4, canvasesW - caracterW *2, floor - caracterH *4.625);
+        
+       //objects
+       obstacle(rock,caracterW * 3, floor - caracterH *1.25, caracterW *2, caracterH *1.25, 1);
+       obstacle(rock, caracterW *3, 0 - caracterH *0.5, caracterW *2, caracterH *2, 2);
+       obstacle(rock, canvasesW - caracterW *2.5, floor - caracterH *3.625, caracterW *2.5, caracterH *3.625, 3);
+       obstacle(rock, canvasesW - caracterW *0.5, 0 - caracterH *0.5, caracterW *0.75, caracterH *5.25, 4);
+       vine(caracterW *5.375, 0 - caracterH *0.25, caracterW *0.5, caracterH *1.625, 1);
+        
+        
        //player
        caracter();
+        
+       //traps
+       trap(spikeFloor, caracterW *3.5, floor - caracterH *1.75, caracterW, caracterH /2);
+       aqua(caracterW * 4, floor - caracterH * 1.25, caracterW *4.25);
    }
      if (playLevel === 2793487593) {
        ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
