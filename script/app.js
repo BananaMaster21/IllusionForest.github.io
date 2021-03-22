@@ -300,7 +300,9 @@ var instructionTimer = 0;
 function reset () {
    if (lives === 0) {
  pause = 0;
- if (playLevel > 0 && playLevel < 3) {playLevel = 1;}else if (playLevel > 0) {playLevel = 3;}
+ if (playLevel > 0 && playLevel < 3) {playLevel = 1;
+     }else if (playLevel > 0 && playLevel < 6 || playLevel === 70923742194 || playLevel === 2393487593 || playLevel === 986593659) {playLevel = 3;
+               }else if (playLevel > 0) {playLevel = 6;}
  instructionTimer = 0;
  caracterX = canvasesW /25;
  caracterY = ground - cH;
@@ -596,7 +598,7 @@ requestAnimationFrame(game);
        ctx1.drawImage(sign, canvasesW /2, floor - caracterH *2, caracterW, caracterH *2);
    
        //DooooooooooooooooooooooooooooooooooooooooooR
-       portal(canvasesW /25, floor - caracterH *1.5, 222);
+       portal( canvasesW /2 - caracterW *2.5, floor - caracterH *2.5, 222);
        
        //objects not in use
        obstacle(rock, 0, 0, 0, 0, 1);
