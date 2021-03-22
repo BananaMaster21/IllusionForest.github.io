@@ -190,7 +190,7 @@ function trap (image, x, y, width, height) {
 //-----build water trap-----//
 function aqua (x, y, width, height) {
    ctx1.drawImage(water, x, y, width, height); 
-   if (caracterX > x && caracterX + cW < x + width && caracterY - cH < y) {lives = 0;}
+   if (caracterX > x && caracterX + cW < x + width && caracterY - cH < y && caracterY - cH < y) {lives = 0;}
 }
 
 
@@ -643,7 +643,7 @@ requestAnimationFrame(game);
         
        //traps
        trap(spikeFloor, caracterW *3.5, floor - caracterH *1.75, caracterW, caracterH /2);
-       aqua(caracterW * 4, floor - caracterH * 1.25, caracterW *4.25);
+       aqua(caracterW * 4, floor - caracterH * 1.25, caracterW *4.25, caracterH);
    }
      if (playLevel === 2793487593) {
        ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
