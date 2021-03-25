@@ -190,7 +190,7 @@ function trap (image, x, y, width, height) {
 //-----build water trap-----//
 function aqua (x, y, width, height) {
    ctx1.drawImage(water, x, y, width, height); 
-   if (caracterX > x && caracterX + cW < x + width && caracterY - cH < y && caracterY - cH < y) {lives = 0;}
+   if (caracterX > x && caracterX + cW < x + width && caracterY - cH < y && caracterY - cH > y) {lives = 0;}
 }
 
 
