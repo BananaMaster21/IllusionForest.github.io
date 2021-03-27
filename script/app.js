@@ -23,6 +23,23 @@ var lvl_5Back = document.getElementById("lvl5back");
 //----------------------------------------------------------
 //CARACTER STUFF
 //----------------------------------------------------------
+var c = {
+    w: canvasesW /10,
+    h: canvasesH /7,
+    x: canvasesW /25,
+    y: ground - caracterH,
+    
+    keep: "right",
+    move: 0,
+    side: undefined,
+    otherside: undefined,
+    
+    image: c.r1,
+    r1: document.getElementById("bobRight1"),
+    r2: document.getElementById("bobRight2"),
+    l1: document.getElementById("bobLeft1"),
+    l2: document.getElementById("bobLeft2"),
+}
 var bobRight1 = document.getElementById("bobRight1");
 var bobRight2 = document.getElementById("bobRight2");
 var bobLeft1 = document.getElementById("bobLeft1");
@@ -33,10 +50,11 @@ var caracterMoveSide = 0;
 var caracterKeepSide = "right";
 var side = undefined;
 var otherSide = undefined;
-var caracterW = canvasesW /10;
-var caracterH = canvasesH /7;
-var caracterX = canvasesW /25;
-var caracterY = ground - caracterH;
+
+var b = {
+    w: canvasesW /10,
+    h: canvasesH /7,
+}
 
 //----------------------------------------------------------
 //IMAGE STUFF
@@ -80,9 +98,9 @@ var sliping = 0;
 //----------------------------------------------------------
 //Control STUFF
 //----------------------------------------------------------
-function caracterMove (event) {side = event.key;otherSide = event.key;}
-function caracterStop (event) {var offKey = event.key;if (offKey === "ArrowLeft" || offKey === "ArrowRight") {caracterMoveSide = 0;side = undefined;}if (offKey === " ") {otherSide = 0}}
-function controls () {if (side === "ArrowLeft") {caracterMoveSide = 1;caracterKeepSide = "left";}if (side === "ArrowRight") {caracterMoveSide = 2;caracterKeepSide = "right";}if (otherSide === " " && onGround === 1) {jump = 1;}}
+function caracterMove (event) {c.side = event.key;c.otherside = event.key;}
+function caracterStop (event) {var offKey = event.key;if (offKey === "ArrowLeft" || offKey === "ArrowRight") {c.move = 0;c.side = undefined;}if (offKey === " ") {c.otherside = 0}}
+function controls () {if (c.side === "ArrowLeft") {c.move = 1;c.keep = "left";}if (c.side === "ArrowRight") {c.move = 2;c.keep = "right";}if (c.otherside === " " && onGround === 1) {jump = 1;}}
 
 
 //----------------------------------------------------------
@@ -92,9 +110,9 @@ var feetSwitch = 0;
 var speed = 0;
 
 function walking () {
-    if(caracterMoveSide===1&&hitingLeft===0){caracterX=caracterX-speed;if(speed<=canvasesW/100 && hasCrystal1 === 0){speed=speed+canvasesW/1000;}else if (speed<=canvasesW/85 && hasCrystal1 === 1){speed=speed+canvasesW/850;}if(jump===0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){caracterImage=bobLeft1;}if(feetSwitch>=5){caracterImage=bobLeft2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){caracterImage=bobLeft2;}}
-    if(caracterMoveSide===2&&hitingRight===0){caracterX=caracterX+speed;if(speed<=canvasesW/100 && hasCrystal1 === 0){speed=speed+canvasesW/1000;}else if(speed<=canvasesW/85 && hasCrystal1 === 1){speed=speed+canvasesW/850;}if(jump===0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){caracterImage=bobRight1;}if(feetSwitch>=5){caracterImage=bobRight2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){caracterImage=bobRight2;}}
-    if(caracterMoveSide===0){caracterX = caracterX - 0;if (caracterKeepSide === "left") {caracterImage = bobLeft1;}if (caracterKeepSide === "right") { caracterImage = bobRight1;}}
+    if(c.move===1&&hitingLeft===0){c.x=c.x-speed;if(speed<=canvasesW/100 && hasCrystal1 === 0){speed=speed+canvasesW/1000;}else if (speed<=canvasesW/85 && hasCrystal1 === 1){speed=speed+canvasesW/850;}if(jump===0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){c.image=c.l1;}if(feetSwitch>=5){c.image=c.l2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){c.image=c.l2;}}
+    if(c.move===2&&hitingRight===0){c.x=c.x+speed;if(speed<=canvasesW/100 && hasCrystal1 === 0){speed=speed+canvasesW/1000;}else if(speed<=canvasesW/85 && hasCrystal1 === 1){speed=speed+canvasesW/850;}if(jump===0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){c.image=c.r1;}if(feetSwitch>=5){c.image=c.r2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){c.image=c.r2;}}
+    if(c.move===0)c.x = c.x - 0;if (c.keep === "left") {c.image = c.l1;}if (c.keep === "right") {c.image = c.r1;}}
 }
 
 //----------------------------------------------------------
@@ -116,12 +134,15 @@ var ob = {
 fall_1: 0,
 left_1: 0,
 right_1: 0,
+    
 fall_2: 0,
 left_2: 0,
 right_2: 0,
+    
 fall_3: 0,
 left_3: 0,
 right_3: 0,
+    
 fall_4: 0,
 left_4: 0,
 right_4: 0,
@@ -140,15 +161,15 @@ function obstacle (image, x, y, width, height, number) {
    ctx1.drawImage(image, x, y, width, height);
     
    //colision right
-   if (x <= caracterX + cW && caracterX + cW < x + width /2 && caracterY - cH /2 > y && caracterY - cH /2 < y + height) {hitingRight = 1;}else {
-         if (number === 1) {ob.right_1 = 1;}else if (number === 2) {ob.right_2 = 1;}else if (number === 3) {ob.right_3 = 1;}else if (number === 4) {ob.right_4 = 1;}}
+   if (x <= c.x + c.w && c.x + c.w < x + width /2 && c.y - c.h /2 > y && c.y - c.h /2 < y + height) {hitingRight = 1;}else {
+         if (number === 1){ob.right_1 = 1;}else if (number === 2){ob.right_2 = 1;}else if (number === 3){ob.right_3 = 1;}else if (number === 4){ob.right_4 = 1;}}
    
    //colision left
-   if (x + width >= caracterX && caracterX > x + width /2 && caracterY - cH /2 > y && caracterY - cH /2 < y + height) {hitingLeft = 1;}else {
-         if (number === 1) {ob.left_1 = 1;}else if (number === 2) {ob.left_2 = 1;}else if (number === 3) {ob.left_3 = 1;}else if (number === 4) {ob.left_4 = 1;}}
+   if (x + width >= c.x && c.x > x + width /2 && c.y - c.h /2 > y && c.y - c.h /2 < y + height) {hitingLeft = 1;}else {
+         if (number === 1){ob.left_1 = 1;}else if (number === 2){ob.left_2 = 1;}else if (number === 3){ob.left_3 = 1;}else if (number === 4){ob.left_4 = 1;}}
    
    //colision top
-   if (y <= caracterY && caracterY < y + height /2 && caracterX + cW *1/3 > x && caracterX + cW *1/3 < x + width || y <= caracterY && caracterY < y + height /2 && caracterX + cW *2/3 < x + width && caracterX + cW *2/3 > x) {fallStop = 1; if (number === 1) {ob.fall_1 = 0;}else if (number === 2) {ob.fall_2 = 0;}else if (number === 3) {ob.fall_3 = 0;}else if (number === 4) {ob.fall_4 = 0;}}else {
+   if (y <= c.y && c.y < y + height /2 && c.x + c.w *1/5 > x && c.x + c.w *1/5 < x + width || y <= c.y && c.y < y + height /2 && c.x + c.w *4/5 < x + width && c.x + c.w *4/5 > x) {fallStop = 1; if (number === 1) {ob.fall_1 = 0;}else if (number === 2) {ob.fall_2 = 0;}else if (number === 3) {ob.fall_3 = 0;}else if (number === 4) {ob.fall_4 = 0;}}else {
       if (number === 1) {ob.fall_1 = 1;}else if (number === 2) {ob.fall_2 = 1;}else if (number === 3) {ob.fall_3 = 1;}else if (number === 4) {ob.fall_4 = 1;}}
 }
 
@@ -157,7 +178,7 @@ function obstacle (image, x, y, width, height, number) {
 //----------------------------------------------------------
 function vine (x, y, width, height, number) {
    ctx1.drawImage(vineImg, x, y, width, height);
-   if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {fallStop = 1; if (number === 1) {ob.v1 = 0;}}else {if (number === 1) {ob.v1 = 1;}}
+   if (c.x + c.w /2 > x && c.x + c.w /2 < x + width && c.y - c.h /3 >= y && c.y - c.h /3 <= y + height ) {fallStop = 1; if (number === 1) {ob.v1 = 0;}}else {if (number === 1) {ob.v1 = 1;}}
 }
 
 
@@ -165,13 +186,15 @@ function vine (x, y, width, height, number) {
 //----------------------------------------------------------
 //NEEDED FOR ALL TRAP STUFF
 //----------------------------------------------------------
-var damageActivated = 0;
-var damageReset = 0;
-var inTrap = 0;
+var t = {
+    da: 0,
+    dr: 0,
+    it: 0,
+}
 
 //-----timer for damage-----//
 function damageTimer () {
-   if (damageActivated === 1 ) {damageReset += 1;if (damageReset === 75) {damageActivated = 0;}}
+   if (t.da === 1 ) {t.dr += 1;if (t.dr === 75) {t.da = 0;}}
 }
 
 
@@ -183,14 +206,13 @@ function damageTimer () {
 //-----build static trap-----//
 function trap (image, x, y, width, height) {
    ctx1.drawImage(image, x, y, width, height);
-   
-   if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {if (damageActivated === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
+   if (c.x + c.w /2 > x && c.x + c.w /2 < x + width && c.y - c.h /3 >= y && c.y - c.h /3 <= y + height ) {if (t.da === 0){if(lives === 3){lives = 2;t.dr = 0; t.da = 1;}else if(lives === 2){lives = 1; t.dr = 0; t.da = 1;}else if (lives === 1){lives = 0;}}} 
 }
 
 //-----build water trap-----//
 function aqua (x, y, width, height) {
    ctx1.drawImage(water, x, y, width, height); 
-   if (caracterX > x && caracterX + cW < x + width && caracterY - cH < y && caracterY - cH > y) {lives = 0;}
+   if (c.x > x && c.x + c.w < x + width && c.y - c.h > y) {lives = 0;}
 }
 
 
@@ -207,7 +229,7 @@ var traping = {
 }
 
 //-----build moving trap-----//
-function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, speed, number) {
+function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, speed, number) {//    ← What is thisssssssssssssssss so many 
    ctx1.drawImage(image, x, y, width, height);
 
  if (number === 1) {
@@ -233,7 +255,7 @@ function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, spe
    if (axis === "vertical" && traping.d2 === "up") {if (y >= oldY - distance /2) {traping.mv2 -= speed}else if (y < oldY - distance /2) {traping.d2 = "down";}}
 
  }
-   if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /2 >= y && caracterY - cH /2 <= y + height ) {if (damageActivated === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} 
+   if (c.x + c.w /2 > x && c.x + c.w /2 < x + width && c.y - c.h /2 >= y && c.y - c.h /2 <= y + height ) {if (t.da === 0){if(lives === 3){lives = 2; t.dr = 0; t.da = 1;}else if(lives === 2){lives = 1; t.dr = 0; t.da = 1;}else if (lives === 1){lives = 0;}}} 
  }
 
 
@@ -245,8 +267,8 @@ var isEbeingPressed = 0;
 
 function teleport (event) {var thing = event.key; if (thing === "e" || thing === "E" ){isEbeingPressed = 1;}else {isEbeingPressed = 0;}}
 function portal (x, y, number) {
-   ctx1.drawImage(door, x, y, caracterW, caracterH *1.5);
-   if (caracterX + cW /2 >= x && caracterX + cW /2 <= x + caracterW && caracterY - cH /3 >= y && caracterY - cH /3 <= y + caracterH *1.5) {
+   ctx1.drawImage(door, x, y, b.w, caracterH *1.5);
+   if (c.x + c.w /2 >= x && c.x + c.w /2 <= x + b.w && c.y - c.h /3 >= y && c.y - c.h /3 <= y + b.h *1.5) {
         
        //writing
         ctx1.fillStyle = "black";
@@ -262,20 +284,22 @@ function portal (x, y, number) {
 //----------------------------------------------------------
 //CRISTAL STUFF
 //----------------------------------------------------------
-var hasCrystal1 = 0;
-var hasCrystal2 = 0;
-var hasCrystal3 = 0;
-var hasCrystal4 = 0;
-var hasCrystal5 = 0;
+h = {
+    c1: 0,
+    c2: 0,
+    c3: 0,
+    c4: 0,
+    c5: 0,
+}
 
 function crystal (what, thing, x, y)  {
-    if(thing === 0){ctx1.drawImage(what, x, y, caracterW *0.5, caracterH *0.75);}
-    if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + caracterW *0.5 && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + caracterH *0.75 ) {
-        if (what === crystal1) {hasCrystal1 = 1;}
-        if (what === crystal2) {if(hasCrystal2 === 0){lives = 3;}hasCrystal2 = 1;}
-        if (what === crystal3) {hasCrystal3 = 1;}
-        if (what === crystal4) {hasCrystal4 = 1;}
-        if (what === crystal5) {hasCrystal5 = 1;}
+    if(thing === 0){ctx1.drawImage(what, x, y, b.w *0.5, b.h *0.75);}
+    if (c.x + c.w /2 > x && c.x + c.w /2 < x + b.w *0.5 && c.y - c.h /3 >= y && c.y - c.h /3 <= y + b.h *0.75 ) {
+        if (what === crystal1) {h.c1 = 1;}
+        if (what === crystal2) {if(h.c2 === 0){lives = 3;}h.c2 = 1;}
+        if (what === crystal3) {h.c3 = 1;}
+        if (what === crystal4) {h.c4 = 1;}
+        if (what === crystal5) {h.c5 = 1;}
     }
 }
 
@@ -287,8 +311,8 @@ var cW = caracterW;
 var cH = caracterH;
 
 function caracter () {
-   if (hasCrystal4 === 1){cW = caracterW *0.75;cH = caracterH *0.75;}
-   ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, cW, cH); 
+   if (h.c4 === 1){c.w = c.w *0.75;c.h = c.h *0.75;}
+   ctx1.drawImage(c.image, c.x, c.y - c.h, c.w, c.h); 
 }
 
 
@@ -301,14 +325,14 @@ function reset () {
    if (lives === 0) {
  pause = 0;
  if (playLevel > 0 && playLevel < 3) {playLevel = 1;
-     }else if (playLevel > 0 && playLevel < 6 || playLevel === 70923742194 || playLevel === 2393487593 || playLevel === 986593659) {playLevel = 3;
+     }else if (playLevel > 0 && playLevel < 6 || playLevel === 70923742194 || playLevel === 27393487593 || playLevel === 986593659) {playLevel = 3;
                }else if (playLevel > 0) {playLevel = 6;}
  instructionTimer = 0;
- caracterX = canvasesW /25;
- caracterY = ground - cH;
- caracterMoveSide = 0;
- caracterKeepSide = "right";
- side = undefined;
+ c.x = canvasesW /25;
+ c.y = ground - cH;
+ c.move = 0;
+ c.keep = "right";
+ c.side = undefined;
  feetSwitch = 0;
  speed = 0;
  jump = false;
@@ -317,39 +341,23 @@ function reset () {
  upTimer = canvasesH /40;
  fallTimer = 0;
  healTimer = 0;
- if (hasCrystal2 === 1){lives = 3;}else{lives = 2;}
+ h.c1 = 0;
+ h.c2 = 0;
+ h.c3 = 0;
+ h.c4 = 0;
+ h.c5 = 0;
    }
 }
 
 //----------------------------------------------------------
 //SWITCHING LEVELS STUFF
 //----------------------------------------------------------
-function next () {
-   if (caracterX >= 0 + canvasesW) {
+function next (next_lvl) {
+   if (c.x > 0 + canvasesW) {
        
-       if (playLevel === 0 || playLevel === 525852758123) { 
-      caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 1;//-----from lvl: intro to lvl: 1-----// 
-       }else if (playLevel === 1) {
-          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 2;//-----from lvl: 1 to lvl: 2-----//
-       }else if (playLevel === 2) {
-          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 3;//-----from lvl: 2 to lvl: 3-----//
-       }else if (playLevel === 3) {
-          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 4;//-----from lvl: 3 to lvl: 4-----//
-       }else if (playLevel === 4) {
-          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 5;//-----from lvl: 4 to lvl: 5-----//
-       }else if (playLevel === 5) {
-          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 6;//-----from lvl: 5 to lvl: 6-----//
-       }else if (playLevel === 6) {
-          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 7;//-----from lvl: 6 to lvl: 7-----//
-       }else if (playLevel === 70923742194) {
-          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 986593659;
-       }else if (playLevel === 0180481080) {
-          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 824982691;
-       }else if (playLevel === 2793487593) {
-          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 70923742194;
-       }else if (playLevel === 3859293759) {
-          caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 0180481080;
-       }
+       c.x = canvasesW /25;
+       
+       playLevel = next_lvl;
        
        traping.d1 = undefined;
        traping.mh1 = 0;
@@ -359,41 +367,20 @@ function next () {
        traping.mv2 = 0;
        instructionTimer = 0;
     }
-    if (caracterX + cW < 0) {
-        if (playLevel === 1){
-        caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 525852758123;
-       }else if (playLevel === 2) {
-          caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 1;
-       }else if (playLevel === 3) {
-          caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 2;
-       }else if (playLevel === 4) {
-          caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 3;
-       }else if (playLevel === 5) {
-          caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 4;
-       }else if (playLevel === 6) {
-          caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 5;
-       }else if (playLevel === 7) {
-          caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 6;
-       }else if (playLevel === 70923742194) {
-          caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 2793487593;
-       }else if (playLevel === 0180481080) {
-          caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 3859293759;
-       }else if (playLevel === 986593659) {
-          caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 70923742194;
-       }else if (playLevel === 824982691) {
-          caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 0180481080;
-       }
-        
-        traping.d1 = undefined;
-        traping.mh1 = 0;
-        traping.mv1 = 0;
-        traping.d2 = undefined;
-        traping.mh2 = 0;
-        traping.mv2 = 0;
-        instructionTimer = 0;
-        }
 }
-
+function prev (previous_lvl) {
+   if (c.x < 0 + canvasesW) {
+       c.x = canvasesW *24/25;
+       playLevel = previous_lvl;
+       traping.d1 = undefined;
+       traping.mh1 = 0;
+       traping.mv1 = 0;
+       traping.d2 = undefined;
+       traping.mh2 = 0;
+       traping.mv2 = 0;
+       instructionTimer = 0;
+    }
+}
 
 
 //----------------------------------------------------------
@@ -556,6 +543,8 @@ requestAnimationFrame(game);
       //traps
       trap(spikeFloor, canvasesW *3/8, floor - caracterH /2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW *4/5, floor - caracterH /2, caracterW *4/3, caracterH /2);
+        
+      next(1);
    }  
     
        //secrrrrrrrrrrrrrrrret leeeeeeeeevvvvvvvvvvvvels
@@ -689,7 +678,9 @@ requestAnimationFrame(game);
     //-----BUILD LEVEL 1-----//
    //----------------------------------------------------------
    if (playLevel === 1) {
-      
+       
+      prev(525852758123);
+       
       //obstacles
       obstacle(rock, canvasesW *1/3, floor - caracterH, caracterW, caracterH, 1);
       obstacle(rock, canvasesW *1/3, floor - caracterH *3.5, caracterW, caracterH, 2);
@@ -704,6 +695,7 @@ requestAnimationFrame(game);
       trap(spikeFloor, canvasesW *1/3 + caracterW, floor - caracterH /2, caracterW *1.5, caracterH /2);
       trap(spikeFloor, canvasesW *1/3 + caracterW *2.5, floor - caracterH /2, caracterW, caracterH /2);
       
+      next(2);
    }
     
     
@@ -711,6 +703,8 @@ requestAnimationFrame(game);
 //----------------------------------------------------------
    if (playLevel === 2) {
       
+      prev(1);
+       
       //obstacles
       obstacle(rock, canvasesW *1/4 - caracterW /2, floor - caracterH *1.5, caracterW, caracterH *1.5, 1);
       obstacle(rock, canvasesW *1/4 + caracterW /2, floor - caracterH *3, caracterW, caracterH *3, 2);
@@ -726,6 +720,8 @@ requestAnimationFrame(game);
       trap(spikeFloor, canvasesW *1/4 + caracterW *3, floor - caracterH /2, caracterW *1.5, caracterH /2);
       trap(spikeFloor, canvasesW *1/4 + caracterW *4.5, floor - caracterH /2, caracterW *1.5, caracterH /2);
       
+      next(3);
+       
    }
     
     
@@ -733,6 +729,8 @@ requestAnimationFrame(game);
 //----------------------------------------------------------
    if (playLevel === 3) {
       
+      prev(2);
+       
       //obstacles
       obstacle(rock, canvasesW *1/6 - caracterW /6, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW + caracterW *1/3, caracterH *3/4, 1);
       
@@ -759,6 +757,8 @@ requestAnimationFrame(game);
       ctx1.font = ""+canvasesH /20+"px cursive";
       ctx1.fillText("Remember walk or jump out of the screen to change level", canvasesW *1/2, canvasesH *7/9);
       
+      next(4); 
+       
    }
     
     
@@ -766,6 +766,8 @@ requestAnimationFrame(game);
 //----------------------------------------------------------
    if (playLevel === 4) {
       
+      prev(3); 
+       
       //objects
       obstacle(rock, canvasesW *1/6 + caracterW *1/3, floor - caracterH, caracterW, caracterH, 1);
       obstacle(rock, canvasesW *1/6 +  caracterW *1/3 + caracterW *2, floor - caracterH *2.25, caracterW, caracterH *2.25, 2);
@@ -786,7 +788,12 @@ requestAnimationFrame(game);
       trap(spikeFloor, canvasesW *1/6 +  caracterW *1/3 + caracterW *3, floor - caracterH /2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW *1/6 +  caracterW *1/3 + caracterW *4, floor - caracterH /2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW *1/6 +  caracterW *1/3 + caracterW *5, floor - caracterH /2, caracterW, caracterH /2);
+       
+      next(5);
+       
    }if (playLevel === 5) {
+       
+      prev(4);
        
       //objects
       obstacle(rock, canvasesW *2/6, floor - caracterH, caracterW, caracterH, 1);
@@ -807,7 +814,11 @@ requestAnimationFrame(game);
       trap(spikeFloor, canvasesW *2/6 + caracterW *2, floor - caracterH /2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW *2/6 + caracterW *3, floor - caracterH /2, caracterW, caracterH /2);
         
+      next(6);
+       
       }if (playLevel === 6) {
+          
+      prev(5);
           
       //objects
       obstacle(rock, canvasesW *1/6 - caracterW /6 - caracterW, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW + caracterW *1/3, caracterH *3/4, 1);
@@ -832,7 +843,11 @@ requestAnimationFrame(game);
       trap(spikeFloor, canvasesW /2 - caracterW *1.5, floor - caracterH *2, caracterW, caracterH /2);
       trap(spikeFloor, canvasesW /2 + caracterW *2.25, floor - caracterH /2, caracterW *1.5, caracterH /2);
       
+      next(7);
+          
       }if (playLevel === 7) {
+          
+       prev(6);
           
        //building
        obstacle(villageDoor, canvasesW - caracterW *3, 0, caracterW *3, caracterH *5, 1);
@@ -862,6 +877,8 @@ requestAnimationFrame(game);
        obstacle(rock, 0, 0, 0, 0, 3);
        obstacle(rock, 0, 0, 0, 0, 4);
        vine(0, 0, 0, 0, 1);
+          
+       next(8);
    }
     
     //-----hearts and damage-----//
