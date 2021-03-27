@@ -683,7 +683,7 @@ requestAnimationFrame(game);
        
       //obstacles
       obstacle(rock, canvasesW *1/3, floor - b.h, b.w, b.h, 1);
-      obstacle(rock, canvasesW *1/3, floor - b.h *3.5, b.w b.h, 2);
+      obstacle(rock, canvasesW *1/3, floor - b.h *3.5, b.w, b.h, 2);
       obstacle(rock, canvasesW - b.w *3.5, floor - b.h *2, b.w *2, b.h *2, 3);
       obstacle(rock, canvasesW - b.w *2, floor - b.h *4.5, b.w, b.h *4.5, 4);
       vine(canvasesW - b.w *0.75, 0, b.w /2, b.h *5, 1);
