@@ -34,11 +34,11 @@ var c = {
     side: undefined,
     otherside: undefined,
     
-    image: c.r1,
     r1: document.getElementById("bobRight1"),
     r2: document.getElementById("bobRight2"),
     l1: document.getElementById("bobLeft1"),
     l2: document.getElementById("bobLeft2"),
+    image: c.r1,
 }
 
 
