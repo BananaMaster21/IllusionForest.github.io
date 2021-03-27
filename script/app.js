@@ -40,6 +40,13 @@ var c = {
     l1: document.getElementById("bobLeft1"),
     l2: document.getElementById("bobLeft2"),
 }
+
+
+var caracterH = c.h;
+var caracterW = c.w;
+
+
+
 var bobRight1 = document.getElementById("bobRight1");
 var bobRight2 = document.getElementById("bobRight2");
 var bobLeft1 = document.getElementById("bobLeft1");
