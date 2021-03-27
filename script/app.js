@@ -38,9 +38,9 @@ var c = {
     r2: document.getElementById("bobRight2"),
     l1: document.getElementById("bobLeft1"),
     l2: document.getElementById("bobLeft2"),
-    image: c.r1,
+    image: undefined,
 }
-
+c.image = c.r1;
 
 var caracterH = c.h;
 var caracterW = c.w;
