@@ -318,7 +318,7 @@ var cW = caracterW;
 var cH = caracterH;
 
 function caracter () {
-   if (h.c4 === 1){c.w = c.w *0.75;c.h = c.h *0.75;}
+   //if (h.c4 === 1){c.w = c.w *0.75;c.h = c.h *0.75;}
    ctx1.drawImage(c.image, c.x, c.y - c.h, c.w, c.h); 
 }
 
