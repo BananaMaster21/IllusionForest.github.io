@@ -160,7 +160,7 @@ v1: 0,
 //obstacles
 var floor = ground - caracterH;
 //sliping off obstacles 
-function slip(){if(ob.fall_1+ob.fall_2+ob.fall_3+ob.fall_4+ob.v1===5&&caracterY<ground-caracterH&&jump===0){fallStop=0;sliping=1;}else{sliping=0;}}
+function slip(){if(ob.fall_1+ob.fall_2+ob.fall_3+ob.fall_4+ob.v1===5&&c.y<ground-c.h&&jump===0){fallStop=0;sliping=1;}else{sliping=0;}}
 function wallRight(){if(ob.right_1+ob.right_2+ob.right_3+ob.right_4===4){hitingRight=0;}else{ob.right_1=0;ob.right_2=0;ob.right_3=0;ob.right_4=0;}}
 function wallLeft(){if(ob.left_1+ob.left_2+ob.left_3+ob.left_4===4){hitingLeft=0;}else{ob.left_1=0;ob.left_2=0;ob.left_3=0;ob.left_4=0;}}
 
@@ -274,7 +274,7 @@ var isEbeingPressed = 0;
 
 function teleport (event) {var thing = event.key; if (thing === "e" || thing === "E" ){isEbeingPressed = 1;}else {isEbeingPressed = 0;}}
 function portal (x, y, number) {
-   ctx1.drawImage(door, x, y, b.w, caracterH *1.5);
+   ctx1.drawImage(door, x, y, b.w, b.h *1.5);
    if (c.x + c.w /2 >= x && c.x + c.w /2 <= x + b.w && c.y - c.h /3 >= y && c.y - c.h /3 <= y + b.h *1.5) {
         
        //writing
@@ -641,7 +641,7 @@ requestAnimationFrame(game);
         
        //traps
        trap(spikeFloor, b.w *3.5, floor - b.h *1.75, b.w, b.h /2);
-       aqua(b.w * 4, floor -b.h * 1.25, b.w *4.25, b.h *1.25);
+       aqua(b.w * 5, floor -b.h * 1.25, b.w *3.25, b.h *1.25);
    }
      if (playLevel === 2793487593) {
        ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
