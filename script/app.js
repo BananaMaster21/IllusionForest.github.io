@@ -362,8 +362,6 @@ function reset () {
 function next (next_lvl) {
    if (c.x > 0 + canvasesW) {
        
-       c.x = canvasesW /25;
-       
        playLevel = next_lvl;
        
        traping.d1 = undefined;
@@ -373,6 +371,7 @@ function next (next_lvl) {
        traping.mh2 = 0;
        traping.mv2 = 0;
        instructionTimer = 0;
+       c.x = canvasesW /25;
     }
 }
 function prev (previous_lvl) {
