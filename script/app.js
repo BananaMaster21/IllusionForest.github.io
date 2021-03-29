@@ -375,7 +375,7 @@ function next (next_lvl) {
     }
 }
 function prev (previous_lvl) {
-   if (c.x < 0 + canvasesW) {
+   if (c.x < 0) {
        c.x = canvasesW *24/25;
        playLevel = previous_lvl;
        traping.d1 = undefined;
