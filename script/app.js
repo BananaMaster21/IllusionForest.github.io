@@ -27,7 +27,7 @@ var c = {
     w: canvasesW /10,
     h: canvasesH /7,
     x: canvasesW /25,
-    y: ground - caracterH,
+    y: undefined,
     
     keep: "right",
     move: 0,
@@ -40,6 +40,7 @@ var c = {
     l2: document.getElementById("bobLeft2"),
     image: undefined,
 }
+c.y = ground - c.h;
 c.image = c.r1;
 
 var caracterH = c.h;
@@ -859,7 +860,7 @@ requestAnimationFrame(game);
        obstacle(villageDoor, canvasesW - caracterW *3, 0, caracterW *3, caracterH *5, 1);
          
        //Tom!!!!!!!!!!!!!!!!!
-       if(caracterX >= canvasesW *0.16 && caracterX <= canvasesW *0.6){
+       if(c.x >= canvasesW *0.16 && c.x <= canvasesW *0.6){
            instructionTimer += 1;
            ctx1.drawImage(box, canvasesW - caracterW *5.5 - caracterW *1.5, floor - caracterH *1.75 - caracterH *0.75, caracterW *1.5, caracterH *0.75);
            
