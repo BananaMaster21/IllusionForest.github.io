@@ -177,7 +177,7 @@ function obstacle (image, x, y, width, height, number) {
          if (number === 1){ob.left_1 = 1;}else if (number === 2){ob.left_2 = 1;}else if (number === 3){ob.left_3 = 1;}else if (number === 4){ob.left_4 = 1;}}
    
    //colision top
-   if (y <= c.y && c.y < y + height /2 && c.x + c.w *1/5 > x && c.x + c.w *1/5 < x + width || y <= c.y && c.y < y + height /2 && c.x + c.w *4/5 < x + width && c.x + c.w *4/5 > x) {fallStop = 1; if (number === 1) {ob.fall_1 = 0;}else if (number === 2) {ob.fall_2 = 0;}else if (number === 3) {ob.fall_3 = 0;}else if (number === 4) {ob.fall_4 = 0;}}else {
+   if (y <= c.y && c.y < y + height /2 && c.x + c.w *1/3 > x && c.x + c.w *1/3 < x + width || y <= c.y && c.y < y + height /2 && c.x + c.w *2/3 < x + width && c.x + c.w *2/3 > x) {fallStop = 1; if (number === 1) {ob.fall_1 = 0;}else if (number === 2) {ob.fall_2 = 0;}else if (number === 3) {ob.fall_3 = 0;}else if (number === 4) {ob.fall_4 = 0;}}else {
       if (number === 1) {ob.fall_1 = 1;}else if (number === 2) {ob.fall_2 = 1;}else if (number === 3) {ob.fall_3 = 1;}else if (number === 4) {ob.fall_4 = 1;}}
 }
 
@@ -753,7 +753,7 @@ requestAnimationFrame(game);
       vine(canvasesW *5/8 + b.w *3.25, 0, b.w /2, b.h *5, 1);
       
       //DooooooooooooooooooooooooooooooooooooooooooR
-      portal(canvasesW *1/6, canvasesH *1/12, 1);
+      portal(canvasesW *1/6, canvasesH *1/12 - b.h/2, 1);
       
       //player
       caracter();
