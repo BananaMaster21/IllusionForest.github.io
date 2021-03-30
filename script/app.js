@@ -354,6 +354,7 @@ function reset () {
  h.c4 = 0;
  h.c5 = 0;
  lives = 2;
+ pause = 0;
    }
 }
 
