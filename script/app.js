@@ -336,7 +336,7 @@ function reset () {
                }else if (playLevel > 0) {playLevel = 6;}
  instructionTimer = 0;
  c.x = canvasesW /25;
- c.y = ground - cH;
+ c.y = ground - c.h;
  c.move = 0;
  c.keep = "right";
  c.side = undefined;
