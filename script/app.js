@@ -329,6 +329,7 @@ var instructionTimer = 0;
 //----------------------------------------------------------
 //RESETING WHEN DIE STUFF
 //----------------------------------------------------------
+mycanvas.onclick = function () {if(lives === 0){reset();}}
 function reset () {
    if (lives === 0) {
  pause = 0;
@@ -373,11 +374,11 @@ function next (next_lvl) {
        traping.mv2 = 0;
        instructionTimer = 0;
        c.x = canvasesW /25;
+       c.y = ground - c.h;
     }
 }
 function prev (previous_lvl) {
    if (c.x < 0) {
-       c.x = canvasesW *24/25;
        playLevel = previous_lvl;
        traping.d1 = undefined;
        traping.mh1 = 0;
@@ -386,6 +387,8 @@ function prev (previous_lvl) {
        traping.mh2 = 0;
        traping.mv2 = 0;
        instructionTimer = 0;
+       c.x = canvasesW *24/25;
+       c.y = ground - c.h;
     }
 }
 
