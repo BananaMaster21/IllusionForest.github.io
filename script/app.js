@@ -118,8 +118,8 @@ var feetSwitch = 0;
 var speed = 0;
 
 function walking () {
-    if(c.move===1&&hitingLeft===0){c.x=c.x-speed;if(speed<=canvasesW/100 && h.c1 === 0){speed=speed+canvasesW/1000;}else if (speed<=canvasesW/85 && h.c1 === 1){speed=speed+canvasesW/850;}if(jump===0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){c.image=c.l1;}if(feetSwitch>=5){c.image=c.l2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){c.image=c.l2;}}
-    if(c.move===2&&hitingRight===0){c.x=c.x+speed;if(speed<=canvasesW/100 && h.c1 === 0){speed=speed+canvasesW/1000;}else if(speed<=canvasesW/85 && h.c1 === 1){speed=speed+canvasesW/850;}if(jump===0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){c.image=c.r1;}if(feetSwitch>=5){c.image=c.r2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){c.image=c.r2;}}
+    if(c.move===1&&hitingLeft===0){c.x=c.x-speed;if(speed<=canvasesW/100 && h.c1 === 0){speed=speed+canvasesW/1000;}else if (speed<=canvasesW/85 && h.c1 === 1){speed=speed+canvasesW/850;}if(jump===0){feetSwitch+=1;if(feetSwitch<=4){c.image=c.l1;}if(feetSwitch>=5){c.image=c.l2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){c.image=c.l2;}}
+    if(c.move===2&&hitingRight===0){c.x=c.x+speed;if(speed<=canvasesW/100 && h.c1 === 0){speed=speed+canvasesW/1000;}else if(speed<=canvasesW/85 && h.c1 === 1){speed=speed+canvasesW/850;}if(jump===0){feetSwitch+=1;if(feetSwitch<=4){c.image=c.r1;}if(feetSwitch>=5){c.image=c.r2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){c.image=c.r2;}}
     if(c.move===0)c.x = c.x - 0;if (c.keep === "left") {c.image = c.l1;}if (c.keep === "right") {c.image = c.r1;}
 }
 
@@ -315,8 +315,6 @@ function crystal (what, thing, x, y)  {
 //----------------------------------------------------------
 //CARACTER STUFF
 //----------------------------------------------------------
-var cW = caracterW;
-var cH = caracterH;
 
 function caracter () {
    //if (h.c4 === 1){c.w = c.w *0.75;c.h = c.h *0.75;}
@@ -355,6 +353,7 @@ function reset () {
  h.c3 = 0;
  h.c4 = 0;
  h.c5 = 0;
+ lives = 2;
    }
 }
 
@@ -574,6 +573,8 @@ requestAnimationFrame(game);
        
        //player
        caracter();
+       
+       next(1);
    }
    if (playLevel === 70923742194) {
        ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH);
