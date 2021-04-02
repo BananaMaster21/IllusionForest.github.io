@@ -293,12 +293,14 @@ function game () {
         ctx1.drawImage(ruin, canvasesW - caracterW *2.5, floor - caracterH *1.75 - caracterH *2.75, caracterW *2, caracterH *1.5); 
         //crystal 
         crystal(crystal4, hasCrystal4, canvasesW - caracterW *2, floor - caracterH *4.625); 
+        //water
+        aqua(caracterW * 5, floor - caracterH * 1.25, caracterW *2.25, caracterH *1.25);
         //objects 
         obstacle(rock,caracterW * 3, floor - caracterH *1.25, caracterW *2, caracterH *1.25, 1); obstacle(rock, caracterW *3, 0 - caracterH *0.5, caracterW *2, caracterH *2, 2); obstacle(rock, canvasesW - caracterW *2.5, floor - caracterH *3.625, caracterW *2.5, caracterH *3.625, 3); obstacle(rock, canvasesW - caracterW *0.5, 0 - caracterH *0.5, caracterW *0.75, caracterH *5.25, 4); vine(caracterW *5.375, 0 - caracterH *0.25, caracterW *0.5, caracterH *1.625, 1); 
         //player 
         caracter(); 
         //traps 
-        trap(spikeFloor, caracterW *3.5, floor - caracterH *1.75, caracterW, caracterH /2); aqua(caracterW * 5, floor - caracterH * 1.25, caracterW *2.25, caracterH *1.25); 
+        trap(spikeFloor, caracterW *3.5, floor - caracterH *1.75, caracterW, caracterH /2); 
     } 
     if (playLevel === 2793487593) { 
         ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); 
