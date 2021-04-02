@@ -180,7 +180,7 @@ function crystal (what, thing, x, y)  { if(thing === 0){ctx1.drawImage(what, x, 
 //---------------------------------------------------------- 
 var cW = caracterW; 
 var cH = caracterH; 
-function caracter () { if (hasCrystal4 === 1){cW = caracterW *0.75;cH = caracterH *0.75;} ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, cW, cH); } 
+function caracter () { if (hasCrystal4 === 1){cW = caracterW *0.75;cH = caracterH *0.75;}else{cW = caracterW;cH = caracterH;} ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, cW, cH); } 
 
 
 var instructionTimer = 0; 
