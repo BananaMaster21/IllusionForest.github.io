@@ -145,7 +145,7 @@ function damageTimer () { if (damageActivated === 1 ) {damageReset += 1;if (dama
 function trap (image, x, y, width, height) { ctx1.drawImage(image, x, y, width, height); if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {if (damageActivated === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} } 
 
 //-----build water trap-----// 
-function aqua (x, y, width, height) { ctx1.drawImage(water, x, y, width, height);if (caracterX > x && caracterX + cW < x + width && caracterY - cH < y && caracterY - cH > y) {lives = 0;} } 
+function aqua (x, y, width, height) { ctx1.drawImage(water, x, y, width, height);if (caracterX > x && caracterX + cW < x + width && caracterY - cH > y) {lives = 0;} } 
 
 
 //---------------------------------------------------------- 
@@ -298,7 +298,7 @@ function game () {
         //player 
         caracter(); 
         //traps 
-        trap(spikeFloor, caracterW *3.5, floor - caracterH *1.75, caracterW, caracterH /2); aqua(caracterW * 4, floor - caracterH * 1.25, caracterW *4.25, caracterH); 
+        trap(spikeFloor, caracterW *3.5, floor - caracterH *1.75, caracterW, caracterH /2); aqua(caracterW * 5, floor - caracterH * 1.25, caracterW *2.25, caracterH *1.25); 
     } 
     if (playLevel === 2793487593) { 
         ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); 
