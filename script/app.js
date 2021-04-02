@@ -272,9 +272,8 @@ function game () {
     if (playLevel === 0180481080) { 
         ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); 
         ctx1.drawImage(sign, canvasesW /2, floor - caracterH *2, caracterW, caracterH *2); 
-        portal( canvasesW /2 - caracterW *2.5, floor - caracterH *2.5, 222);
-        obstacle(rock, 0, 0, 0, 0, 1); obstacle(rock, 0, 0, 0, 0, 2); 
-        obstacle(rock, 0, 0, 0, 0, 3); obstacle(rock, 0, 0, 0, 0, 4); 
+        portal( canvasesW /2 - caracterW *2.5, floor - caracterH *2.5, 222);obstacle(rock, canvasesW /2 - caracterW *2.5, floor - caracterH, caracterW, CaracterH, 1);
+        obstacle(rock, 0, 0, 0, 0, 2); obstacle(rock, 0, 0, 0, 0, 3); obstacle(rock, 0, 0, 0, 0, 4); 
         vine(0, 0, 0, 0, 1);
         caracter(); 
     } 
