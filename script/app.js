@@ -187,7 +187,7 @@ var instructionTimer = 0;
 //---------------------------------------------------------- 
 //RESETING WHEN DIE STUFF 
 //---------------------------------------------------------- 
-function reset () { if (lives === 0) { pause = 0; if (playLevel > 0 && playLevel < 3) {playLevel = 1; }else if (playLevel > 0 && playLevel < 6 || playLevel === 70923742194 || playLevel === 2393487593 || playLevel === 986593659) {playLevel = 3; }else if (playLevel > 0) {playLevel = 6;} instructionTimer = 0; caracterX = canvasesW /25; caracterY = ground - cH; caracterMoveSide = 0; caracterKeepSide = "right"; side = undefined; feetSwitch = 0; speed = 0; jump = false; fall = false; onGround = 1; upTimer = canvasesH /40; fallTimer = 0; healTimer = 0; if (hasCrystal2 === 1){lives = 3;}else{lives = 2;} } } 
+function reset () { if (lives === 0) { pause = 0; if (playLevel > 0 && playLevel < 3) {playLevel = 1; }else if (playLevel > 0 && playLevel < 6 || playLevel === 70923742194 || playLevel === 2393487593 || playLevel === 986593659) {playLevel = 3; }else if (playLevel > 0) {playLevel = 6;} instructionTimer = 0; caracterX = canvasesW /25; caracterY = ground - cH; caracterMoveSide = 0; caracterKeepSide = "right"; side = undefined; feetSwitch = 0; speed = 0; jump = false; fall = false; onGround = 1; upTimer = canvasesH /40; fallTimer = 0; healTimer = 0;hasCrystal1=0;hasCrystal2=0;hasCrystal3=0;hasCrystal4=0;hasCrystal5=0;lives = 2; } } 
 
 
 //---------------------------------------------------------- 
@@ -293,7 +293,7 @@ function game () {
         //crystal 
         crystal(crystal4, hasCrystal4, canvasesW - caracterW *2, floor - caracterH *4.625); 
         //water
-        aqua(caracterW * 5, floor - caracterH * 1.25, caracterW *2.25, caracterH *1.25);
+        aqua(caracterW * 5, floor - caracterH * 1.25, caracterW *2.5, caracterH *1.25);
         //objects 
         obstacle(rock,caracterW * 3, floor - caracterH *1.25, caracterW *2, caracterH *1.25, 1); obstacle(rock, caracterW *3, 0 - caracterH *0.5, caracterW *2, caracterH *2, 2); obstacle(rock, canvasesW - caracterW *2.5, floor - caracterH *3.625, caracterW *2.5, caracterH *3.625, 3); obstacle(rock, canvasesW - caracterW *0.5, 0 - caracterH *0.5, caracterW *0.75, caracterH *5.25, 4); vine(caracterW *5.375, 0 - caracterH *0.25, caracterW *0.5, caracterH *1.625, 1); 
         //player 
