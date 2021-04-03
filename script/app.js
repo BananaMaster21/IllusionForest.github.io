@@ -383,6 +383,8 @@ function game () {
     //-----BUILD LEVEL 6-----// 
     //---------------------------------------------------------- 
     if (playLevel === 6) { 
+         //flag
+        ctx1.drawImage(checkpoint, 0, floor - caracterH*1.25, caracterW*0.75, caracterH*1.25);
         //objects 
         obstacle(rock, canvasesW *1/6 - caracterW /6 - caracterW, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW + caracterW *1/3, caracterH *3/4, 1); 
         //behind rock trap 
