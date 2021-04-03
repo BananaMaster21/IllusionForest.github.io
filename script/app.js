@@ -70,6 +70,14 @@ var ruin = document.getElementById("ruin");
 var sign = document.getElementById("sign"); 
 var box = document.getElementById("box"); 
 var water = document.getElementById("water"); 
+var poison1 = document.getElementById("poison1");
+var egg = document.getElementById("egg");
+var chicken = document.getElementById("chicken");
+
+
+//---------------------------------------------------------- 
+//RANDOM MOVEMENT VARIABLES LAYING AROUND
+//---------------------------------------------------------- 
 var hitingLeft = 0; 
 var leftStop = 0; 
 var hitingRight = 0; 
@@ -406,8 +414,10 @@ function game () {
         //Tom!!!!!!!!!!!!!!!!! 
         if(caracterX >= canvasesW *0.16 && caracterX <= canvasesW *0.6){ instructionTimer += 1;ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /20+"px cursive";
         if(instructionTimer < 100) {ctx1.drawImage(box, canvasesW - caracterW *5.5 - caracterW *1.5, floor - caracterH *1.75 - caracterH *0.75, caracterW *1.5, caracterH *0.75);ctx1.fillText("Stop", canvasesW - caracterW *5.5 - caracterW *0.75, floor - caracterH *1.75 - caracterH *0.3);
-        }else if(instructionTimer < 300){ctx1.font = ""+canvasesH /30+"px cursive"; ctx1.drawImage(box, canvasesW - caracterW *6.5 - caracterW *1.5, floor - caracterH *2.5 - caracterH *0.75, caracterW *2.5, caracterH *1.5);ctx1.fillText("To pass", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2.5 - caracterH *0.3);ctx1.fillText("Answer this riddle you must", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2 - caracterH *0.3);}
-        } 
+        }else if(instructionTimer < 300){ctx1.font = ""+canvasesH /30+"px cursive"; ctx1.drawImage(box, canvasesW - caracterW *6.5 - caracterW *1.5, floor - caracterH *2.5 - caracterH *0.75, caracterW *2.5, caracterH *1.5);ctx1.fillText("To pass", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2.5 - caracterH *0.3);ctx1.fillText("Answer this riddle you must", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2 - caracterH *0.3);
+        }else if(instructionTimer < 600){ctx1.font = ""+canvasesH /30+"px cursive"; ctx1.drawImage(box, canvasesW - caracterW *6.5 - caracterW *1.5, floor - caracterH *2.5 - caracterH *0.75, caracterW *2.5, caracterH *1.5);ctx1.fillText("What came first?", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2.5 - caracterH *0.3);ctx1.fillText("The chicken or the egg", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2 - caracterH *0.3);
+        }else if(instructionTimer < 750){ctx1.drawImage(egg,canvasesW*0.25-caracterW*1.25/2,canvasesH*5-caracterH*1.5/2,caracterW*1.25,caracterH*1.5);ctx1.drawImage(chicken,canvasesW*0.75-caracterW*1.25/2,canvasesH*5-caracterH*1.5/2,caracterW*1.25,caracterH*1.5);}
+                                                                       }
         ctx1.drawImage(tom, canvasesW - caracterW *6, floor - caracterH *2.5, caracterW *2.5, caracterH *2.5); 
         //carcter 
         caracter(); 
