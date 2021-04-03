@@ -293,7 +293,7 @@ function game () {
         //crystal 
         crystal(crystal4, hasCrystal4, canvasesW - caracterW *2, floor - caracterH *4.625); 
         //water
-        aqua(caracterW * 5, floor - caracterH * 1.25, caracterW *2.5, caracterH *1.25);
+        aqua(caracterW * 4.75, floor - caracterH * 1.25, caracterW *3, caracterH *1.25);
         //objects 
         obstacle(rock,caracterW * 3, floor - caracterH *1.25, caracterW *2, caracterH *1.25, 1); obstacle(rock, caracterW *3, 0 - caracterH *0.5, caracterW *2, caracterH *2, 2); obstacle(rock, canvasesW - caracterW *2.5, floor - caracterH *3.625, caracterW *2.5, caracterH *3.625, 3); obstacle(rock, canvasesW - caracterW *0.5, 0 - caracterH *0.5, caracterW *0.75, caracterH *5.25, 4); vine(caracterW *5.375, 0 - caracterH *0.25, caracterW *0.5, caracterH *1.625, 1); 
         //player 
@@ -399,7 +399,11 @@ function game () {
         //building 
         obstacle(villageDoor, canvasesW - caracterW *3, 0, caracterW *3, caracterH *5, 1); 
         //Tom!!!!!!!!!!!!!!!!! 
-        if(caracterX >= canvasesW *0.16 && caracterX <= canvasesW *0.6){ instructionTimer += 1; ctx1.drawImage(box, canvasesW - caracterW *5.5 - caracterW *1.5, floor - caracterH *1.75 - caracterH *0.75, caracterW *1.5, caracterH *0.75); ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /20+"px cursive"; if (instructionTimer < 125) { ctx1.fillText("Stop", canvasesW - caracterW *5.5 - caracterW *0.75, floor - caracterH *1.75 - caracterH *0.3); } } ctx1.drawImage(tom, canvasesW - caracterW *6, floor - caracterH *2.5, caracterW *2.5, caracterH *2.5); 
+        if(caracterX >= canvasesW *0.16 && caracterX <= canvasesW *0.6){ instructionTimer += 1;ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /20+"px cursive"; 
+        if(instructionTimer < 100) {ctx1.drawImage(box, canvasesW - caracterW *5.5 - caracterW *1.5, floor - caracterH *1.75 - caracterH *0.75, caracterW *1.5, caracterH *0.75);ctx1.fillText("Stop", canvasesW - caracterW *5.5 - caracterW *0.75, floor - caracterH *1.75 - caracterH *0.3);
+        }else if(instructionTimer < 225){ctx1.drawImage(box, canvasesW - caracterW *4.5 - caracterW *1.5, floor - caracterH *1.75 - caracterH *0.75, caracterW *2.5, caracterH *0.75);ctx1.fillText("To pass answer this ridle you must!", canvasesW - caracterW *4.5 - caracterW *0.75, floor - caracterH *1.75 - caracterH *0.3);}
+        } 
+        ctx1.drawImage(tom, canvasesW - caracterW *6, floor - caracterH *2.5, caracterW *2.5, caracterH *2.5); 
         //carcter 
         caracter(); 
         //objects not in use 
