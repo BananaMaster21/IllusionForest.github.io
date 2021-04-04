@@ -415,7 +415,7 @@ function game () {
         //building 
         if(instructionTimer < 816 && WentHere === 0){obstacle(villageDoor, canvasesW - caracterW *3, 0, caracterW *3, caracterH *5, 1);}
         //Tom
-        ctx1.drawImage(tom, canvasesW - caracterW *6, floor - caracterH *2.5, caracterW *2.5, caracterH *2.5); 
+        if(WentHere === 0){ctx1.drawImage(tom, canvasesW - caracterW *6, floor - caracterH *2.5, caracterW *2.5, caracterH *2.5);}
         //carcter 
         caracter();
         //dialog of tom
@@ -426,7 +426,8 @@ function game () {
         }else if(instructionTimer < 675){ctx1.fillStyle = "rgba( 0, 0, 0,0.8)";ctx1.fillRect(0, 0, canvasesW, canvasesH);ctx1.drawImage(egg,canvasesW*0.25-caracterW,canvasesH/2-caracterH*2.5/2,caracterW*2,caracterH*2.5);ctx1.drawImage(chicken,canvasesW*0.75-caracterW*2/2,canvasesH/2-caracterH*2.5/2,caracterW*2,caracterH*2.5);
         }else if(instructionTimer < 800){ctx1.font = ""+canvasesH /30+"px cursive";ctx1.drawImage(box, canvasesW - caracterW *6.5 - caracterW *1.5, floor - caracterH *2.5 - caracterH *0.75, caracterW *2.5, caracterH *1.5);ctx1.fillText("Trick question hehe", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2.5 - caracterH *0.3);ctx1.fillText("It was the jellyfish", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2 - caracterH *0.3);
         }else if(instructionTimer < 810){ctx1.drawImage(jelly,canvasesW/4,canvasesH/8,canvasesW/2,canvasesH*0.75);
-        }else if(instructionTimer < 885){ctx1.font = ""+canvasesH /30+"px cursive";ctx1.drawImage(box, canvasesW - caracterW *6.5 - caracterW *1.5, floor - caracterH *2.5 - caracterH *0.75, caracterW *2.5, caracterH *1.5);ctx1.fillText("You may", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2.5 - caracterH *0.3);ctx1.fillText("Pass now", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2 - caracterH *0.3);
+        }else if(instructionTimer < 910){ctx1.font = ""+canvasesH /30+"px cursive";ctx1.drawImage(box, canvasesW - caracterW *6.5 - caracterW *1.5, floor - caracterH *2.5 - caracterH *0.75, caracterW *2.5, caracterH *1.5);ctx1.fillText("You may", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2.5 - caracterH *0.3);ctx1.fillText("Pass now", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2 - caracterH *0.3);
+        }else if(instructionTimer < 915){ctx1.font = ""+canvasesH /20+"px cursive";ctx1.drawImage(box, canvasesW - caracterW *5.5 - caracterW *1.5, floor - caracterH *1.75 - caracterH *0.75, caracterW *1.5, caracterH *0.75);ctx1.fillText("Poof", canvasesW - caracterW *5.5 - caracterW *0.75, floor - caracterH *1.75 - caracterH *0.3);
         }else {WentHere = 1;}
                                                                        } 
         //objects not in use 
