@@ -411,7 +411,7 @@ function game () {
     //---------------------------------------------------------- 
     if (playLevel === 7) { 
         //building 
-        obstacle(villageDoor, canvasesW - caracterW *3, 0, caracterW *3, caracterH *5, 1); 
+        if(instructionTimer < 816){obstacle(villageDoor, canvasesW - caracterW *3, 0, caracterW *3, caracterH *5, 1);}
         //Tom
         ctx1.drawImage(tom, canvasesW - caracterW *6, floor - caracterH *2.5, caracterW *2.5, caracterH *2.5); 
         //carcter 
@@ -423,7 +423,8 @@ function game () {
         }else if(instructionTimer < 500){ctx1.font = ""+canvasesH /30+"px cursive"; ctx1.drawImage(box, canvasesW - caracterW *6.5 - caracterW *1.5, floor - caracterH *2.5 - caracterH *0.75, caracterW *2.5, caracterH *1.5);ctx1.fillText("What came first?", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2.5 - caracterH *0.3);ctx1.fillText("The chicken or the egg", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2 - caracterH *0.3);
         }else if(instructionTimer < 675){ctx1.fillStyle = "rgba( 0, 0, 0,0.8)";ctx1.fillRect(0, 0, canvasesW, canvasesH);ctx1.drawImage(egg,canvasesW*0.25-caracterW,canvasesH/2-caracterH*2.5/2,caracterW*2,caracterH*2.5);ctx1.drawImage(chicken,canvasesW*0.75-caracterW*2/2,canvasesH/2-caracterH*2.5/2,caracterW*2,caracterH*2.5);
         }else if(instructionTimer < 800){ctx1.font = ""+canvasesH /30+"px cursive";ctx1.drawImage(box, canvasesW - caracterW *6.5 - caracterW *1.5, floor - caracterH *2.5 - caracterH *0.75, caracterW *2.5, caracterH *1.5);ctx1.fillText("Trick question hehe", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2.5 - caracterH *0.3);ctx1.fillText("It was the jellyfish", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2 - caracterH *0.3);
-        }else if(instructionTimer < 810){ctx1.drawImage(jelly,canvasesW/4,canvasesH/8,canvasesW/2,canvasesH*0.75);}
+        }else if(instructionTimer < 810){ctx1.drawImage(jelly,canvasesW/4,canvasesH/8,canvasesW/2,canvasesH*0.75);
+        }else if(instructionTimer < 811){ctx1.font = ""+canvasesH /30+"px cursive";ctx1.drawImage(box, canvasesW - caracterW *6.5 - caracterW *1.5, floor - caracterH *2.5 - caracterH *0.75, caracterW *2.5, caracterH *1.5);ctx1.fillText("You may", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2.5 - caracterH *0.3);ctx1.fillText("Pass now", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2 - caracterH *0.3);}
                                                                        } 
         //objects not in use 
         obstacle(rock, 0, 0, 0, 0, 2); obstacle(rock, 0, 0, 0, 0, 3); obstacle(rock, 0, 0, 0, 0, 4); vine(0, 0, 0, 0, 1); 
