@@ -236,7 +236,7 @@ var instructionTimer = 0;
 //---------------------------------------------------------- 
 //RESETING WHEN DIE STUFF 
 //---------------------------------------------------------- 
-function reset () { if (lives === 0) { pause = 0; if(setDifficulty.diff === 0){if (playLevel > 0 && playLevel < 3) {playLevel = 1; }else if (playLevel > 0 && playLevel < 6 || playLevel === 70923742194 || playLevel === 2793487593 || playLevel === 986593659) {playLevel = 3; }else if (playLevel > 0) {playLevel = 6;}} instructionTimer = 0; caracterX = canvasesW /25; caracterY = ground - cH; caracterMoveSide = 0; caracterKeepSide = "right"; side = undefined; feetSwitch = 0; speed = 0; jump = false; fall = false; onGround = 1; upTimer = canvasesH /40; fallTimer = 0; healTimer = 0;hasCrystal1=0;hasCrystal2=0;hasCrystal3=0;hasCrystal4=0;hasCrystal5=0;if(setDifficulty.diff === 0){lives = 2;}else if(setDifficulty.diff === 1){lives = 1;}}} 
+    function reset () { if (lives === 0) { pause = 0; if(setDifficulty.diff === 0){if (playLevel > 0 && playLevel < 3) {playLevel = 1; }else if (playLevel > 0 && playLevel < 6 || playLevel === 70923742194 || playLevel === 2793487593 || playLevel === 986593659) {playLevel = 3; }else if (playLevel > 0) {playLevel = 6;}}else if(setDifficulty.diff === 1){if(playLevel > 0){playLevel = 1;}} instructionTimer = 0; caracterX = canvasesW /25; caracterY = ground - cH; caracterMoveSide = 0; caracterKeepSide = "right"; side = undefined; feetSwitch = 0; speed = 0; jump = false; fall = false; onGround = 1; upTimer = canvasesH /40; fallTimer = 0; healTimer = 0;hasCrystal1=0;hasCrystal2=0;hasCrystal3=0;hasCrystal4=0;hasCrystal5=0;if(setDifficulty.diff === 0){lives = 2;}else if(setDifficulty.diff === 1){lives = 1;}}} 
 
 
 //---------------------------------------------------------- 
@@ -270,7 +270,7 @@ var audio_1 = document.getElementById("sound_1");
 var audio_2 = document.getElementById("sound_2"); 
 var audio_3 = document.getElementById("sound_3"); 
 var audio_4 = document.getElementById("sound_4"); 
-function music () { if(setAudio.want === 0){if (playLevel === 0 || playLevel === 7) {audio_0.play();}else {audio_0.pause();} if (playLevel === 1 || playLevel === 2) {audio_1.play();}else {audio_1.pause();} if (playLevel === 3 || playLevel === 4) {audio_2.play();}else {audio_2.pause();} if (playLevel === 5 || playLevel === 6) {audio_3.play();}else {audio_3.pause();} if (playLevel === 525852758123 || playLevel === 70923742194 || playLevel === 0180481080) {audio_4.play();}else {audio_4.pause();}}else if (setAudio.want === 0){audio_0.pause();audio_1.pause();audio_2.pause();audio_3.pause();audio_4.pause();}} 
+function music () { if(setAudio.want === 1){if (playLevel === 0 || playLevel === 7) {audio_0.play();}else {audio_0.pause();} if (playLevel === 1 || playLevel === 2) {audio_1.play();}else {audio_1.pause();} if (playLevel === 3 || playLevel === 4) {audio_2.play();}else {audio_2.pause();} if (playLevel === 5 || playLevel === 6) {audio_3.play();}else {audio_3.pause();} if (playLevel === 525852758123 || playLevel === 70923742194 || playLevel === 0180481080) {audio_4.play();}else {audio_4.pause();}}else if (setAudio.want === 0){audio_0.pause();audio_1.pause();audio_2.pause();audio_3.pause();audio_4.pause();}} 
 
 //random variables
 var WentHere = 0;
