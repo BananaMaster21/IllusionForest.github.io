@@ -19,6 +19,7 @@ var lvl_1Back = document.getElementById("lvl1back");
 var lvl_2Back = document.getElementById("lvl2back"); 
 var lvl_3Back = document.getElementById("lvl3back"); 
 var lvl_5Back = document.getElementById("lvl5back"); 
+var caveBack1 = document.getElementById("cave1Back");
 
 
 //---------------------------------------------------------- 
@@ -61,6 +62,7 @@ var spikeFloor = document.getElementById("spikeFloor");
 var spikeWall = document.getElementById("spikeWall"); 
 var spikeBall = document.getElementById("spikeBall"); 
 var door = document.getElementById("door"); 
+var pit = document.getElementById("pit");
 var crystal1 = document.getElementById("cristal1"); 
 var crystal2 = document.getElementById("cristal2"); 
 var crystal3 = document.getElementById("cristal3"); 
@@ -195,6 +197,10 @@ function trap (image, x, y, width, height) { ctx1.drawImage(image, x, y, width, 
 //-----build water trap-----// 
 function aqua (x, y, width, height) { ctx1.drawImage(water, x, y, width, height);if (caracterX > x && caracterX + cW < x + width && caracterY - cH > y && inSettings === 0) {lives = 0;} } 
 
+//-----build poison trap-----// 
+var effect = undefined;
+function mushroom (image, x, y, w, h, thing) {ctx1.drawImage(image,x,y,w,h);if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {if(thing==="purple"){effect="purple";}if (damageActivated === 0 && inSettings === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} } }
+function poisonEffects () {if(effect === "purple"){ctx1.fillStyle="rgba(128,0,128,0.6)";ctx1.fillRect(0,0,canvasesw,canvasesH);}}
 
 //---------------------------------------------------------- 
 //MOVING TRAP STUFF 
@@ -205,11 +211,16 @@ function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, spe
 
 
 //---------------------------------------------------------- 
-//DOOR STUFF 
+//PORTALS AND STUFF 
 //---------------------------------------------------------- 
 var isEbeingPressed = 0; 
 function teleport (event) {var thing = event.key; if (thing === "e" || thing === "E" ){isEbeingPressed = 1;}else {isEbeingPressed = 0;}} 
 function portal (x, y, number) { ctx1.drawImage(door, x, y, caracterW, caracterH *1.5); if (caracterX + cW /2 >= x && caracterX + cW /2 <= x + caracterW && caracterY - cH /3 >= y && caracterY - cH /3 <= y + caracterH *1.5) {ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /20+"px cursive"; ctx1.fillText("Press E to enter", x + caracterW /2, y);if (isEbeingPressed === 1) {if (number === 1){playLevel = 70923742194;}if (number === 2){playLevel = 0180481080;}if (number === 111){playLevel = 3;}if (number === 222){playLevel = 6;}} } } 
+
+function pitOfDoom(x,y,width,height, number) {
+    ctx1.drawImage(pit,x,y,width,height);
+    if(caracterX > x && caracterX + cW < x + width && caracterH < y){if(number===1){}}
+}
 
 
 //---------------------------------------------------------- 
@@ -235,7 +246,7 @@ var instructionTimer = 0;
 //---------------------------------------------------------- 
 //RESETING WHEN DIE STUFF 
 //---------------------------------------------------------- 
-    function reset () { if (lives === 0) { pause = 0; if(setDifficulty.diff === 0){if (playLevel > 0 && playLevel < 3) {playLevel = 1; }else if (playLevel > 0 && playLevel < 6 || playLevel === 70923742194 || playLevel === 2793487593 || playLevel === 986593659) {playLevel = 3; }else if (playLevel > 0) {playLevel = 6;}}else if(setDifficulty.diff === 1){if(playLevel > 0){playLevel = 1;}} instructionTimer = 0; caracterX = canvasesW /25; caracterY = ground - cH; caracterMoveSide = 0; caracterKeepSide = "right"; side = undefined; feetSwitch = 0; speed = 0; jump = false; fall = false; onGround = 1; upTimer = canvasesH /40; fallTimer = 0; healTimer = 0;hasCrystal1=0;hasCrystal2=0;hasCrystal3=0;hasCrystal4=0;hasCrystal5=0;if(setDifficulty.diff === 0){lives = 2;}else if(setDifficulty.diff === 1){lives = 1;}}} 
+    function reset () { if (lives === 0) { pause = 0; effect = undefined; if(setDifficulty.diff === 0){if (playLevel > 0 && playLevel < 3) {playLevel = 1; }else if (playLevel > 0 && playLevel < 6 || playLevel === 70923742194 || playLevel === 2793487593 || playLevel === 986593659) {playLevel = 3; }else if (playLevel > 0) {playLevel = 6;}}else if(setDifficulty.diff === 1){if(playLevel > 0){playLevel = 1;}} instructionTimer = 0; caracterX = canvasesW /25; caracterY = ground - cH; caracterMoveSide = 0; caracterKeepSide = "right"; side = undefined; feetSwitch = 0; speed = 0; jump = false; fall = false; onGround = 1; upTimer = canvasesH /40; fallTimer = 0; healTimer = 0;hasCrystal1=0;hasCrystal2=0;hasCrystal3=0;hasCrystal4=0;hasCrystal5=0;if(setDifficulty.diff === 0){lives = 2;}else if(setDifficulty.diff === 1){lives = 1;}}} 
 
 
 //---------------------------------------------------------- 
@@ -329,12 +340,21 @@ function game () {
     } 
     if (playLevel === 986593659) {
         ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);
-        obstacle(rock, 0, 0, 0, 0, 1);
-        obstacle(rock, 0, 0, 0, 0, 2); 
-        obstacle(rock, 0, 0, 0, 0, 3); 
+        //obstacles
+        obstacle(rock, canvasesW - caracterW*6, floor - caracterH, caracterW, caracterH, 1);
+        pitOfDoom(canvasesW - caracterW*5, floor - caracterH/3, caracterW*1.5, caracterh*4);
+        obstacle(rock, canvasesW - caracterW/2.5, floor - caracterH, caracterW, caracterH, 2);
+        obstacle(rock, canvasesW - caracterW/2, 0 - caracterh/2, caracterW, caracterH*6, 3);
+        
+        //obstacles not in use 
         obstacle(rock, 0, 0, 0, 0, 4); 
         vine(0, 0, 0, 0, 1);
         caracter(); 
+        
+        //traps
+        poison(poison1, canvasesW - caracterW*7, floor - caracterH*1.25, caracterW, caracterH*1.25, "purple");
+        poison(poison1, canvasesW - caracterW*3.5, floor - caracterH*1.25, caracterW, caracterH*1.25, "purple");
+        poison(poison1, canvasesW - caracterW*1.5, floor - caracterH*1.25, caracterW, caracterH*1.25, "purple");
     } 
     if (playLevel === 824982691) { 
         ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); 
@@ -477,5 +497,8 @@ function game () {
     
     //-----settings and stuff like that-----//
     settingsStuff();
-
+    
+    //-----ui poison effects-----//
+    poisonEffects();
+    
 } requestAnimationFrame(game);
