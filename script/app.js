@@ -81,20 +81,37 @@ var jelly = document.getElementById("jelly");
 //SETTINGS STUFF 
 //---------------------------------------------------------- 
 var setBack = document.getElementById("setBack");
-var setThing = document.getElementById("setThing");
 var inSettings = 0;
 var setBTN = {x:canvasesW-caracterW/3-caracterW/2,y:0 + canvasesH/28,w:caracterW/2,h:caracterW/2,};
+var setGoBack = {x:caracterW/2,y:canvasesH/2-caracterH,w:caracterW*2.5,h:caracterH,};
+var setAudio = {x:caracterW*4,y:canvasesH/2-caracterH,w:caracterW*2.5,h:caracterH,want:1,};
+var setDifficulty = {x:caracterW*7.5,y:canvasesH/2-caracterH,w:caracterW*2.75,h:caracterH,diff:0,};
+
 function set (event) {
     var x = event.clientX;
     var y = event.clientY;
     if(x > setBTN.x && x < setBTN.x + setBTN.w && y > setBTN.y && y < setBTN.y + setBTN.h && inSettings === 0){pause=1;inSettings=1;}
+    if(x > setGoBack.x && x < setGoBack.x + setGoBack.w && y > setGoBack.y && y < setGoBack.y + setGoBack.h && inSettings === 1){pause=0;inSettings=0;}
+    if(x > setAudio.x && x < setAudio.x + setAudio.w && y > setAudio.y && y < setAudio.y + setAudio.h && inSettings === 1){if(setAudio.want === 1){setAudio.want = 0;}else if(setAudio.want === 0){setAudio.want = 1;}}
+    if(x > setDifficulty.x && x < setDifficulty.x + setDifficulty.w && y > setDifficulty.y && y < setDifficulty.y + setDifficulty.h && inSettings === 1){if(setDifficulty.diff === 0){setDifficulty.diff = 1;}else if(setDifficulty.diff === 1){setDifficulty.diff = 0;}lives = 0;}
 }
 function settingsStuff () {
     ctx1.drawImage(settings, setBTN.x, setBTN.y, setBTN.w, setBTN.h);
     
     if(inSettings === 1){
-    ctx1.drawImage(setBack, 0, 0, canvasesW, canvasesH);
-    
+        ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /20+"px cursive";
+        
+        ctx1.drawImage(setBack, 0, 0, canvasesW, canvasesH);
+        
+        ctx1.drawImage(rock, setGoBack.x, setGoBack.y, setGoBack.w, setGoBack.h);
+        ctx1.fillText("Back to game", setGoBack.x + setGoBack.w/2, setGoBack.y + setGoBack.h/1.5);
+        
+        ctx1.drawImage(rock, setAudio.x, setAudio.y, setAudio.w, setAudio.h);
+        if (setAudio.want === 1){ctx1.fillText("Turn off music", setAudio.x + setAudio.w/2, setAudio.y + setAudio.h/1.5);}else if (setAudio.want === 0){ctx1.fillText("Turn on music", setAudio.x + setAudio.w/2, setAudio.y + setAudio.h/1.5);}
+        
+        ctx1.drawImage(rock, setDifficulty.x, setDifficulty.y, setDifficulty.w, setDifficulty.h);
+        if (setDifficulty.diff === 0){ctx1.fillText("Play hard mode", setDifficulty.x + setDifficulty.w/2, setDifficulty.y + setDifficulty.h/1.5);}else if (setDifficulty.diff === 1){ctx1.fillText("Play normal mode", setDifficulty.x + setDifficulty.w/2, setDifficulty.y + setDifficulty.h/1.5);}
+
     }
 }
 
@@ -174,10 +191,10 @@ function damageTimer () { if (damageActivated === 1 ) {damageReset += 1;if (dama
 //STATIC TRAP STUFF 
 //---------------------------------------------------------- 
 //-----build static trap-----// 
-function trap (image, x, y, width, height) { ctx1.drawImage(image, x, y, width, height); if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {if (damageActivated === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} } 
+function trap (image, x, y, width, height) { ctx1.drawImage(image, x, y, width, height); if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {if (damageActivated === 0 && inSettings === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} } 
 
 //-----build water trap-----// 
-function aqua (x, y, width, height) { ctx1.drawImage(water, x, y, width, height);if (caracterX > x && caracterX + cW < x + width && caracterY - cH > y) {lives = 0;} } 
+function aqua (x, y, width, height) { ctx1.drawImage(water, x, y, width, height);if (caracterX > x && caracterX + cW < x + width && caracterY - cH > y && inSettings === 0) {lives = 0;} } 
 
 
 //---------------------------------------------------------- 
@@ -185,7 +202,7 @@ function aqua (x, y, width, height) { ctx1.drawImage(water, x, y, width, height)
 //---------------------------------------------------------- 
 var traping = { mh1: 0,mv1: 0,d1: undefined,mh2: 0, mv2: 0, d2: undefined, } 
 //-----build moving trap-----// 
-function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, speed, number) { ctx1.drawImage(image, x, y, width, height); if (number === 1) { if (axis === "horizontal" &&  traping.d1 === undefined) {traping.d1 = "right";} if (axis === "vertical" && traping.d1 === undefined) {traping.d1 = "down";} if (axis === "horizontal" && traping.d1 === "right") {if (x <= oldX + distance /2) {traping.mh1 += speed}else if (x > oldX + distance /2) {traping.d1 = "left";}} if (axis === "horizontal" && traping.d1 === "left") {if (x >= oldX - distance /2) {traping.mh1 -= speed}else if (x < oldX - distance /2) {traping.d1 = "right";}} if (axis === "vertical" && traping.d1 === "down") {if (y <= oldY + distance /2) {traping.mv1 += speed}else if (y > oldY + distance /2) {traping.d1 = "up";}} if (axis === "vertical" && traping.d1 === "up") {if (y >= oldY - distance /2) {traping.mv1 -= speed}else if (y < oldY - distance /2) {traping.d1 = "down";}} }else if (number === 2) { if (axis === "horizontal" &&  traping.d2 === undefined) {traping.d2 = "right";} if (axis === "vertical" && traping.d2 === undefined) {traping.d2 = "down";} if (axis === "horizontal" && traping.d2 === "right") {if (x <= oldX + distance /2) {traping.mh2 += speed}else if (x > oldX + distance /2) {traping.d2 = "left";}} if (axis === "horizontal" && traping.d2 === "left") {if (x >= oldX - distance /2) {traping.mh2 -= speed}else if (x < oldX - distance /2) {traping.d2 = "right";}} if (axis === "vertical" && traping.d2 === "down") {if (y <= oldY + distance /2) {traping.mv2 += speed}else if (y > oldY + distance /2) {traping.d2 = "up";}} if (axis === "vertical" && traping.d2 === "up") {if (y >= oldY - distance /2) {traping.mv2 -= speed}else if (y < oldY - distance /2) {traping.d2 = "down";}} } if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /2 >= y && caracterY - cH /2 <= y + height ) {if (damageActivated === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} } 
+function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, speed, number) { ctx1.drawImage(image, x, y, width, height); if (number === 1) { if (axis === "horizontal" &&  traping.d1 === undefined) {traping.d1 = "right";} if (axis === "vertical" && traping.d1 === undefined) {traping.d1 = "down";} if (axis === "horizontal" && traping.d1 === "right") {if (x <= oldX + distance /2) {traping.mh1 += speed}else if (x > oldX + distance /2) {traping.d1 = "left";}} if (axis === "horizontal" && traping.d1 === "left") {if (x >= oldX - distance /2) {traping.mh1 -= speed}else if (x < oldX - distance /2) {traping.d1 = "right";}} if (axis === "vertical" && traping.d1 === "down") {if (y <= oldY + distance /2) {traping.mv1 += speed}else if (y > oldY + distance /2) {traping.d1 = "up";}} if (axis === "vertical" && traping.d1 === "up") {if (y >= oldY - distance /2) {traping.mv1 -= speed}else if (y < oldY - distance /2) {traping.d1 = "down";}} }else if (number === 2) { if (axis === "horizontal" &&  traping.d2 === undefined) {traping.d2 = "right";} if (axis === "vertical" && traping.d2 === undefined) {traping.d2 = "down";} if (axis === "horizontal" && traping.d2 === "right") {if (x <= oldX + distance /2) {traping.mh2 += speed}else if (x > oldX + distance /2) {traping.d2 = "left";}} if (axis === "horizontal" && traping.d2 === "left") {if (x >= oldX - distance /2) {traping.mh2 -= speed}else if (x < oldX - distance /2) {traping.d2 = "right";}} if (axis === "vertical" && traping.d2 === "down") {if (y <= oldY + distance /2) {traping.mv2 += speed}else if (y > oldY + distance /2) {traping.d2 = "up";}} if (axis === "vertical" && traping.d2 === "up") {if (y >= oldY - distance /2) {traping.mv2 -= speed}else if (y < oldY - distance /2) {traping.d2 = "down";}} } if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /2 >= y && caracterY - cH /2 <= y + height ) {if (damageActivated === 0 && inSettings === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} } 
 
 
 //---------------------------------------------------------- 
@@ -219,7 +236,7 @@ var instructionTimer = 0;
 //---------------------------------------------------------- 
 //RESETING WHEN DIE STUFF 
 //---------------------------------------------------------- 
-function reset () { if (lives === 0) { pause = 0; if (playLevel > 0 && playLevel < 3) {playLevel = 1; }else if (playLevel > 0 && playLevel < 6 || playLevel === 70923742194 || playLevel === 2793487593 || playLevel === 986593659) {playLevel = 3; }else if (playLevel > 0) {playLevel = 6;} instructionTimer = 0; caracterX = canvasesW /25; caracterY = ground - cH; caracterMoveSide = 0; caracterKeepSide = "right"; side = undefined; feetSwitch = 0; speed = 0; jump = false; fall = false; onGround = 1; upTimer = canvasesH /40; fallTimer = 0; healTimer = 0;hasCrystal1=0;hasCrystal2=0;hasCrystal3=0;hasCrystal4=0;hasCrystal5=0;lives = 2; } } 
+function reset () { if (lives === 0) { pause = 0; if(setDifficulty.diff === 0){if (playLevel > 0 && playLevel < 3) {playLevel = 1; }else if (playLevel > 0 && playLevel < 6 || playLevel === 70923742194 || playLevel === 2793487593 || playLevel === 986593659) {playLevel = 3; }else if (playLevel > 0) {playLevel = 6;}} instructionTimer = 0; caracterX = canvasesW /25; caracterY = ground - cH; caracterMoveSide = 0; caracterKeepSide = "right"; side = undefined; feetSwitch = 0; speed = 0; jump = false; fall = false; onGround = 1; upTimer = canvasesH /40; fallTimer = 0; healTimer = 0;hasCrystal1=0;hasCrystal2=0;hasCrystal3=0;hasCrystal4=0;hasCrystal5=0;if(setDifficulty.diff === 0){lives = 2;}else if(setDifficulty.diff === 1){lives = 1;}}} 
 
 
 //---------------------------------------------------------- 
@@ -253,7 +270,7 @@ var audio_1 = document.getElementById("sound_1");
 var audio_2 = document.getElementById("sound_2"); 
 var audio_3 = document.getElementById("sound_3"); 
 var audio_4 = document.getElementById("sound_4"); 
-function music () { if (playLevel === 0 || playLevel === 7) {audio_0.play();}else {audio_0.pause();} if (playLevel === 1 || playLevel === 2) {audio_1.play();}else {audio_1.pause();} if (playLevel === 3 || playLevel === 4) {audio_2.play();}else {audio_2.pause();} if (playLevel === 5 || playLevel === 6) {audio_3.play();}else {audio_3.pause();} if (playLevel === 525852758123 || playLevel === 70923742194 || playLevel === 0180481080) {audio_4.play();}else {audio_4.pause();} } 
+function music () { if(setAudio.want === 0){if (playLevel === 0 || playLevel === 7) {audio_0.play();}else {audio_0.pause();} if (playLevel === 1 || playLevel === 2) {audio_1.play();}else {audio_1.pause();} if (playLevel === 3 || playLevel === 4) {audio_2.play();}else {audio_2.pause();} if (playLevel === 5 || playLevel === 6) {audio_3.play();}else {audio_3.pause();} if (playLevel === 525852758123 || playLevel === 70923742194 || playLevel === 0180481080) {audio_4.play();}else {audio_4.pause();}}else if (setAudio.want === 0){audio_0.pause();audio_1.pause();audio_2.pause();audio_3.pause();audio_4.pause();}} 
 
 //random variables
 var WentHere = 0;
@@ -457,7 +474,7 @@ function game () {
     } 
     
     //-----hearts and damage-----// 
-    live(); 
+    if(inSettings === 0){live();} 
     
     //-----settings and stuff like that-----//
     settingsStuff();
