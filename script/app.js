@@ -50,6 +50,7 @@ var meter4 = document.getElementById("meter4");
 var meter5 = document.getElementById("meter5"); 
 var meter6 = document.getElementById("meter6"); 
 var meter7 = document.getElementById("meter7"); 
+var settings = document.getElementById("settings");
 var checkpoint = document.getElementById("checkpoint");
 var heart = document.getElementById("heart"); 
 var resetButton = document.getElementById("reviveButton"); 
@@ -77,8 +78,24 @@ var jelly = document.getElementById("jelly");
 
 
 //---------------------------------------------------------- 
-//RANDOM MOVEMENT VARIABLES LAYING AROUND
+//WALKING STUFF 
 //---------------------------------------------------------- 
+var inSettings = 0;
+var setBTN = {x:0,y:0,w:0,h:0,};
+function set (event) {
+    var x = event.clientX;
+    var y = event.clientY;
+    if(x > setBTN.x && x < setBTN.x + setBTN.w && y > setBTN.y && y < setBTN.y + setBTN.h && inSettings === 0){pause=1;inSettings=1;}
+}
+function settingsStuff () {
+    ctx1.drawImage(settings, setBTN.x, setBTN.y, setBTN.w, setBTN.h);
+    
+    if(inSettings === 1){}
+}
+
+//---------------------------------------------------------- 
+//RANDOM MOVEMENT VARIABLES LAYING AROUND
+//----------------------------------------------------------
 var hitingLeft = 0; 
 var leftStop = 0; 
 var hitingRight = 0; 
@@ -436,5 +453,8 @@ function game () {
     
     //-----hearts and damage-----// 
     live(); 
+    
+    //-----settings and stuff like that-----//
+    settingsStuff();
 
 } requestAnimationFrame(game);
