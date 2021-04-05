@@ -3,9 +3,9 @@ var nextLevel = 0;
 var startButton = document.getElementById("startButton"); 
 startButton.onclick = function () {playLevel = 0;} 
 var mycanvas = document.getElementById("mycanvas"); 
-mycanvas.setAttribute("width", window.outerWidth + "px"); 
-mycanvas.setAttribute("height", window.outerHeight + "px"); 
-var canvasesW = window.outerWidth; var canvasesH = window.outerHeight; 
+mycanvas.setAttribute("width", window.innerWidth + "px"); 
+mycanvas.setAttribute("height", window.innerHeight + "px"); 
+var canvasesW = window.innerWidth; var canvasesH = window.innerHeight; 
 var ctx1 = mycanvas.getContext("2d"); 
 var ground = canvasesH /1.25; 
 var onGround = 1; 
