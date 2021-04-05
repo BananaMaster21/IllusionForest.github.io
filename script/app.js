@@ -78,7 +78,7 @@ var jelly = document.getElementById("jelly");
 
 
 //---------------------------------------------------------- 
-//WALKING STUFF 
+//SETTINGS STUFF 
 //---------------------------------------------------------- 
 var inSettings = 0;
 var setBTN = {x:0,y:0,w:0,h:0,};
