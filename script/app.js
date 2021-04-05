@@ -83,7 +83,7 @@ var jelly = document.getElementById("jelly");
 var setBack = document.getElementById("setBack");
 var setThing = document.getElementById("setThing");
 var inSettings = 0;
-var setBTN = {x:canvasesW-caracterW/3-caracterW/2,y:0 + canvasesH/20,w:caracterW/2,h:caracterW/2,};
+var setBTN = {x:canvasesW-caracterW/3-caracterW/2,y:0 + canvasesH/28,w:caracterW/2,h:caracterW/2,};
 function set (event) {
     var x = event.clientX;
     var y = event.clientY;
