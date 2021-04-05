@@ -80,8 +80,10 @@ var jelly = document.getElementById("jelly");
 //---------------------------------------------------------- 
 //SETTINGS STUFF 
 //---------------------------------------------------------- 
+var setBack = document.getElementById("setBack");
+var setThing = docuemnt.getElementById("setThing");
 var inSettings = 0;
-var setBTN = {x:0,y:0,w:0,h:0,};
+var setBTN = {x:canvasesW-caracterW/3-caracterW/2,y:0 + canvasesH/20,w:caracterW/2,h:caracterW/2,};
 function set (event) {
     var x = event.clientX;
     var y = event.clientY;
@@ -90,7 +92,10 @@ function set (event) {
 function settingsStuff () {
     ctx1.drawImage(settings, setBTN.x, setBTN.y, setBTN.w, setBTN.h);
     
-    if(inSettings === 1){}
+    if(inSettings === 1){
+    ctx1.drawImage(setBack, 0, 0, canvasesW, canvasesH);
+    
+    }
 }
 
 //---------------------------------------------------------- 
