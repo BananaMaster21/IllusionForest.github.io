@@ -345,7 +345,7 @@ function game () {
         //water
         aqua(caracterW * 4.75, floor - caracterH * 1.25, caracterW *3, caracterH *1.25);
         //objects 
-        obstacle(rock,caracterW * 3, floor - caracterH *1.25, caracterW *2, caracterH *1.25, 1); obstacle(rock, caracterW *3, 0 - caracterH *0.5, caracterW *2, caracterH *2, 2); obstacle(rock, canvasesW - caracterW *2.5, floor - caracterH *3.625, caracterW *2.5, caracterH *3.625, 3); obstacle(rock, canvasesW - caracterW *0.5, 0 - caracterH *0.5, caracterW *0.75, caracterH *5.25, 4); vine(caracterW *5.375, 0 - caracterH *0.25, caracterW *0.5, caracterH *1.625, 1); 
+        obstacle(rock,caracterW * 3, floor - caracterH *1.25, caracterW *2, caracterH *1.25, 1); obstacle(rock, caracterW *3, 0 - caracterH *0.5, caracterW *2, caracterH *2, 2); obstacle(rock, canvasesW - caracterW *2.5, floor - caracterH *3.625, caracterW *2.5, caracterH *3.625, 3); obstacle(rock, canvasesW - caracterW *0.5, 0 - caracterH *3.5, caracterW *0.75, caracterH *8.25, 4); vine(caracterW *5.375, 0 - caracterH *0.25, caracterW *0.5, caracterH *1.625, 1); 
         //player 
         caracter(); 
         //traps 
