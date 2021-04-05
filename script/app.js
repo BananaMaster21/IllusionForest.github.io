@@ -83,9 +83,9 @@ var jelly = document.getElementById("jelly");
 var setBack = document.getElementById("setBack");
 var inSettings = 0;
 var setBTN = {x:canvasesW-caracterW/3-caracterW/2,y:0 + canvasesH/28,w:caracterW/2,h:caracterW/2,};
-var setGoBack = {x:caracterW/2,y:canvasesH/2-caracterH,w:caracterW*2.5,h:caracterH,};
-var setAudio = {x:caracterW*4,y:canvasesH/2-caracterH,w:caracterW*2.5,h:caracterH,want:1,};
-var setDifficulty = {x:caracterW*7.5,y:canvasesH/2-caracterH,w:caracterW*2.75,h:caracterH,diff:0,};
+var setGoBack = {x:caracterW/2-caracterW/3,y:canvasesH/2-caracterH,w:caracterW*2.5,h:caracterH,};
+var setAudio = {x:caracterW*4-caracterW/3,y:canvasesH/2-caracterH,w:caracterW*2.5,h:caracterH,want:1,};
+var setDifficulty = {x:caracterW*7.5-caracterW/3,y:canvasesH/2-caracterH,w:caracterW*2.75,h:caracterH,diff:0,};
 
 function set (event) {
     var x = event.clientX;
@@ -111,7 +111,6 @@ function settingsStuff () {
         
         ctx1.drawImage(rock, setDifficulty.x, setDifficulty.y, setDifficulty.w, setDifficulty.h);
         if (setDifficulty.diff === 0){ctx1.fillText("Play hard mode", setDifficulty.x + setDifficulty.w/2, setDifficulty.y + setDifficulty.h/1.5);}else if (setDifficulty.diff === 1){ctx1.fillText("Play normal mode", setDifficulty.x + setDifficulty.w/2, setDifficulty.y + setDifficulty.h/1.5);}
-
     }
 }
 
@@ -259,7 +258,7 @@ var heartsH = canvasesH /25;
 //-----pause when die-----// 
 var pause = 0; 
 //-----place hearts and activate death if needed-----// 
-function live () { if (lives === 3) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart2X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart3X, heartsY, heartsW, heartsH);} if (lives === 2) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart2X, heartsY, heartsW, heartsH);} if (lives === 1) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);} if (lives === 0) {var TextSize = canvasesH /10; var resetW = canvasesW /5; var resetY = canvasesH /5; pause = 1; ctx1.drawImage(setBack,0, 0, canvasesW, canvasesH); ctx1.fillStyle = "lightGrey"; ctx1.textAlign = "center"; ctx1.font = ""+TextSize+"px cursive"; ctx1.fillText("Click to restart", canvasesW /2, canvasesH /4); ctx1.drawImage(resetButton, canvasesW /2 - resetW /2, canvasesH /2 - resetY /2, resetW, resetY); } } 
+function live () { if (lives === 3) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart2X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart3X, heartsY, heartsW, heartsH);} if (lives === 2) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart2X, heartsY, heartsW, heartsH);} if (lives === 1) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);} if (lives === 0) {var TextSize = canvasesH /10; var resetW = canvasesW /5; var resetY = canvasesH /5; pause = 1; ctx1.drawImage(setBack,0, 0, canvasesW, canvasesH); ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+TextSize+"px cursive"; ctx1.fillText("Click to restart", canvasesW /2, canvasesH /4); ctx1.drawImage(resetButton, canvasesW /2 - resetW /2, canvasesH /2 - resetY /2, resetW, resetY); } } 
 
 
 //---------------------------------------------------------- 
