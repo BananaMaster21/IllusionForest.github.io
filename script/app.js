@@ -81,7 +81,7 @@ var jelly = document.getElementById("jelly");
 //SETTINGS STUFF 
 //---------------------------------------------------------- 
 var setBack = document.getElementById("setBack");
-var setThing = docuemnt.getElementById("setThing");
+var setThing = document.getElementById("setThing");
 var inSettings = 0;
 var setBTN = {x:canvasesW-caracterW/3-caracterW/2,y:0 + canvasesH/20,w:caracterW/2,h:caracterW/2,};
 function set (event) {
