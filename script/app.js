@@ -221,7 +221,7 @@ var hasCrystal2 = 0;
 var hasCrystal3 = 0; 
 var hasCrystal4 = 0; 
 var hasCrystal5 = 0; 
-function crystal (what, thing, x, y)  { if(thing === 0){ctx1.drawImage(what, x, y, caracterW *0.5, caracterH *0.75);} if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + caracterW *0.5 && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + caracterH *0.75 ) { if (what === crystal1) {hasCrystal1 = 1;} if (what === crystal2) {if(hasCrystal2 === 0){lives = 3;}hasCrystal2 = 1;} if (what === crystal3) {hasCrystal3 = 1;} if (what === crystal4) {hasCrystal4 = 1;} if (what === crystal5) {hasCrystal5 = 1;} } } 
+function crystal (what, thing, x, y)  { if(thing === 0){ctx1.drawImage(what, x, y, caracterW *0.5, caracterH *0.75);} if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + caracterW *0.5 && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + caracterH *0.75 ) { if (what === crystal1) {hasCrystal1 = 1;} if (what === crystal2) {if(hasCrystal2 === 0){if(setDifficulty.diff === 0){lives = 3;}else if(setDifficulty.diff === 1){lives = 2;}}hasCrystal2 = 1;} if (what === crystal3) {hasCrystal3 = 1;} if (what === crystal4) {hasCrystal4 = 1;} if (what === crystal5) {hasCrystal5 = 1;} } } 
 
 
 //---------------------------------------------------------- 
@@ -259,7 +259,7 @@ var heartsH = canvasesH /25;
 //-----pause when die-----// 
 var pause = 0; 
 //-----place hearts and activate death if needed-----// 
-function live () { if (lives === 3) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart2X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart3X, heartsY, heartsW, heartsH);} if (lives === 2) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart2X, heartsY, heartsW, heartsH);} if (lives === 1) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);} if (lives === 0) {var TextSize = canvasesH /10; var Darkness = 0.8; var resetW = canvasesW /5; var resetY = canvasesH /5; pause = 1; ctx1.fillStyle = "rgba( 0, 0, 0,"+Darkness+")"; ctx1.fillRect(0, 0, canvasesW, canvasesH); ctx1.fillStyle = "lightGrey"; ctx1.textAlign = "center"; ctx1.font = ""+TextSize+"px cursive"; ctx1.fillText("Click to restart", canvasesW /2, canvasesH /4); ctx1.drawImage(resetButton, canvasesW /2 - resetW /2, canvasesH /2 - resetY /2, resetW, resetY); } } 
+function live () { if (lives === 3) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart2X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart3X, heartsY, heartsW, heartsH);} if (lives === 2) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart2X, heartsY, heartsW, heartsH);} if (lives === 1) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);} if (lives === 0) {var TextSize = canvasesH /10; var resetW = canvasesW /5; var resetY = canvasesH /5; pause = 1; ctx1.drawImage(setBack,0, 0, canvasesW, canvasesH); ctx1.fillStyle = "lightGrey"; ctx1.textAlign = "center"; ctx1.font = ""+TextSize+"px cursive"; ctx1.fillText("Click to restart", canvasesW /2, canvasesH /4); ctx1.drawImage(resetButton, canvasesW /2 - resetW /2, canvasesH /2 - resetY /2, resetW, resetY); } } 
 
 
 //---------------------------------------------------------- 
