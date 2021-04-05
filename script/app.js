@@ -393,7 +393,7 @@ function game () {
     //---------------------------------------------------------- 
     if (playLevel === 3) { 
         //flag
-        ctx1.drawImage(checkpoint, 0, floor - caracterH*1.25, caracterW*0.75, caracterH*1.25);
+        if(setDifficulty.diff === 0){ctx1.drawImage(checkpoint, 0, floor - caracterH*1.25, caracterW*0.75, caracterH*1.25);}
         //obstacles 
         obstacle(rock, canvasesW *1/6 - caracterW /6, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW + caracterW *1/3, caracterH *3/4, 1);obstacle(rock, canvasesW *1/6 + caracterW *2 + caracterW *2/3, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW, caracterH *3/4, 2); obstacle(rock, canvasesW *5/8 + caracterW /2, floor - caracterH, caracterW + caracterW *3/4, caracterH, 3); obstacle(rock, canvasesW *5/8 + caracterW *2, floor - caracterH *3.5, caracterW, caracterH *3.5, 4); vine(canvasesW *5/8 + caracterW *3.25, 0, caracterW /2, caracterH *5, 1); 
         //DooooooooooooooooooooooooooooooooooooooooooR 
@@ -433,7 +433,7 @@ function game () {
     //---------------------------------------------------------- 
     if (playLevel === 6) { 
          //flag
-        ctx1.drawImage(checkpoint, 0, floor - caracterH*1.25, caracterW*0.75, caracterH*1.25);
+        if(setDifficulty.diff === 0){ctx1.drawImage(checkpoint, 0, floor - caracterH*1.25, caracterW*0.75, caracterH*1.25);}
         //objects 
         obstacle(rock, canvasesW *1/6 - caracterW /6 - caracterW, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW + caracterW *1/3, caracterH *3/4, 1); 
         //behind rock trap 
