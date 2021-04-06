@@ -346,7 +346,7 @@ function game () {
         obstacle(rock, canvasesW - caracterW*6, floor - caracterH, caracterW, caracterH, 1);
         pitOfDoom(canvasesW - caracterW*5, floor - caracterH/3, caracterW*1.5, caracterH*4);
         obstacle(rock, canvasesW - caracterW/2.5, floor - caracterH, caracterW, caracterH, 2);
-        obstacle(rock, canvasesW - caracterW/2, 0 - caracterH/2, caracterW, caracterH*6, 3);
+        obstacle(rock, canvasesW - caracterW/2, 0 - caracterH/2, caracterW, caracterH*5, 3);
         
         //obstacles not in use 
         obstacle(rock, 0, 0, 0, 0, 4); 
