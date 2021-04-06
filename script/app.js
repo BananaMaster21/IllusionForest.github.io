@@ -201,7 +201,7 @@ function aqua (x, y, width, height) { ctx1.drawImage(water, x, y, width, height)
 var effect = undefined;
 var isInverted = 0;
 function mushroom (image, x, y, width, height, thing) {ctx1.drawImage(image,x,y,width,height);if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {if(thing==="invert"){effect="invert";}if (damageActivated === 0 && inSettings === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}}}
-function poisonEffects () {if(effect === "invert"){isInverted = 1;}}
+function poisonEffects () {if(effect === "invert"){isInverted = 1;ctx1.fillStyle = "rgba(128,0,128,0.8)";ctx1.fillRect(0,canvasesH - caracterH*2.75,canvasesW,caracterH*3):}}
 
 //---------------------------------------------------------- 
 //MOVING TRAP STUFF 
@@ -247,7 +247,7 @@ var instructionTimer = 0;
 //---------------------------------------------------------- 
 //RESETING WHEN DIE STUFF 
 //---------------------------------------------------------- 
-    function reset () { if (lives === 0) { pause = 0; effect = undefined; if(setDifficulty.diff === 0){if (playLevel > 0 && playLevel < 3) {playLevel = 1; }else if (playLevel > 0 && playLevel < 6 || playLevel === 70923742194 || playLevel === 2793487593 || playLevel === 986593659) {playLevel = 3; }else if (playLevel > 0) {playLevel = 6;}}else if(setDifficulty.diff === 1){if(playLevel > 0){playLevel = 1;}} instructionTimer = 0; caracterX = canvasesW /25; caracterY = ground - cH; caracterMoveSide = 0; caracterKeepSide = "right"; side = undefined; feetSwitch = 0; speed = 0; jump = false; fall = false; onGround = 1; upTimer = canvasesH /40; fallTimer = 0; healTimer = 0;hasCrystal1=0;hasCrystal2=0;hasCrystal3=0;hasCrystal4=0;hasCrystal5=0;if(setDifficulty.diff === 0){lives = 2;}else if(setDifficulty.diff === 1){lives = 1;}}} 
+    function reset () { if (lives === 0) { pause = 0; effect = undefined; isInverted = 0;if(setDifficulty.diff === 0){if (playLevel > 0 && playLevel < 3) {playLevel = 1; }else if (playLevel > 0 && playLevel < 6 || playLevel === 70923742194 || playLevel === 2793487593 || playLevel === 986593659) {playLevel = 3; }else if (playLevel > 0) {playLevel = 6;}}else if(setDifficulty.diff === 1){if(playLevel > 0){playLevel = 1;}} instructionTimer = 0; caracterX = canvasesW /25; caracterY = ground - cH; caracterMoveSide = 0; caracterKeepSide = "right"; side = undefined; feetSwitch = 0; speed = 0; jump = false; fall = false; onGround = 1; upTimer = canvasesH /40; fallTimer = 0; healTimer = 0;hasCrystal1=0;hasCrystal2=0;hasCrystal3=0;hasCrystal4=0;hasCrystal5=0;if(setDifficulty.diff === 0){lives = 2;}else if(setDifficulty.diff === 1){lives = 1;}}} 
 
 
 //---------------------------------------------------------- 
