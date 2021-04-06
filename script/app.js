@@ -1,5 +1,4 @@
 var playLevel = 99;  
-var nextLevel = 0; 
 var startButton = document.getElementById("startButton"); 
 startButton.onclick = function () {playLevel = 0;} 
 var mycanvas = document.getElementById("mycanvas"); 
