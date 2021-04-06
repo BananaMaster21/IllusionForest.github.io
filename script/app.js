@@ -201,7 +201,7 @@ function aqua (x, y, width, height) { ctx1.drawImage(water, x, y, width, height)
 var effect = undefined;
 var isInverted = 0;
 function mushroom (image, x, y, width, height, thing) {ctx1.drawImage(image,x,y,width,height);if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {if(thing==="invert"){effect="invert";}if (damageActivated === 0 && inSettings === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}}}
-function poisonEffects () {if(effect === "invert"){isInverted = 1;ctx1.fillStyle = "rgba(128,0,128,0.8)";ctx1.fillRect(0,canvasesH - caracterH*2.75,canvasesW,caracterH*3):}}
+function poisonEffects () {if(effect === "invert"){isInverted = 1;ctx1.fillStyle = "rgba(128,0,128,0.8)";ctx1.fillRect(0,canvasesH - caracterH*2.75,canvasesW,caracterH*3);}}
 
 //---------------------------------------------------------- 
 //MOVING TRAP STUFF 
