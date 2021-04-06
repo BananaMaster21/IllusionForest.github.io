@@ -132,7 +132,7 @@ var sliping = 0;
 //---------------------------------------------------------- 
 function caracterMove (event) {side = event.key;otherSide = event.key;} 
 function caracterStop (event) {var offKey = event.key;if (offKey === "ArrowLeft" || offKey === "ArrowRight") {caracterMoveSide = 0;side = undefined;}if (offKey === " ") {otherSide = 0}} 
-function controls () {if (side === "ArrowLeft") {caracterMoveSide = 1;caracterKeepSide = "left";}if (side === "ArrowRight") {caracterMoveSide = 2;caracterKeepSide = "right";}if (otherSide === " " && onGround === 1) {jump = 1;}} 
+function controls () {if (side === "ArrowLeft") {if(isInverted === 0){caracterMoveSide = 1;caracterKeepSide = "left";}else if(isInverted === 1){caracterMoveSide = 2;caracterKeepSide = "right";}}if (side === "ArrowRight") {if(isInverted === 0){caracterMoveSide = 2;caracterKeepSide = "right";}else if(isInverted === 1){caracterMoveSide = 1;caracterKeepSide = "left";}}if (otherSide === " " && onGround === 1) {jump = 1;}} 
 
 
 //---------------------------------------------------------- 
@@ -199,8 +199,9 @@ function aqua (x, y, width, height) { ctx1.drawImage(water, x, y, width, height)
 
 //-----build poison trap-----// 
 var effect = undefined;
-function mushroom (image, x, y, w, h, thing) {ctx1.drawImage(image,x,y,w,h);if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {if(thing==="purple"){effect="purple";}if (damageActivated === 0 && inSettings === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}} } }
-function poisonEffects () {if(effect === "purple"){ctx1.fillStyle="rgba(128,0,128,0.6)";ctx1.fillRect(0,0,canvasesw,canvasesH);}}
+var isInverted = 0;
+function mushroom (image, x, y, width, height, thing) {ctx1.drawImage(image,x,y,width,height);if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {if(thing==="invert"){effect="invert";}if (damageActivated === 0 && inSettings === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}}}
+function poisonEffects () {if(effect === "invert"){isInverted = 1;}}
 
 //---------------------------------------------------------- 
 //MOVING TRAP STUFF 
@@ -342,9 +343,9 @@ function game () {
         ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);
         //obstacles
         obstacle(rock, canvasesW - caracterW*6, floor - caracterH, caracterW, caracterH, 1);
-        pitOfDoom(canvasesW - caracterW*5, floor - caracterH/3, caracterW*1.5, caracterh*4);
+        pitOfDoom(canvasesW - caracterW*5, floor - caracterH/3, caracterW*1.5, caracterH*4);
         obstacle(rock, canvasesW - caracterW/2.5, floor - caracterH, caracterW, caracterH, 2);
-        obstacle(rock, canvasesW - caracterW/2, 0 - caracterh/2, caracterW, caracterH*6, 3);
+        obstacle(rock, canvasesW - caracterW/2, 0 - caracterH/2, caracterW, caracterH*6, 3);
         
         //obstacles not in use 
         obstacle(rock, 0, 0, 0, 0, 4); 
@@ -352,9 +353,9 @@ function game () {
         caracter(); 
         
         //traps
-        poison(poison1, canvasesW - caracterW*7, floor - caracterH*1.25, caracterW, caracterH*1.25, "purple");
-        poison(poison1, canvasesW - caracterW*3.5, floor - caracterH*1.25, caracterW, caracterH*1.25, "purple");
-        poison(poison1, canvasesW - caracterW*1.5, floor - caracterH*1.25, caracterW, caracterH*1.25, "purple");
+        mushroom(poison1, canvasesW - caracterW*7, floor - caracterH*1.25, caracterW, caracterH*1.25, "invert");
+        mushroom(poison1, canvasesW - caracterW*3.5, floor - caracterH*1.25, caracterW, caracterH*1.25, "invert");
+        mushroom(poison1, canvasesW - caracterW*1.5, floor - caracterH*1.25, caracterW, caracterH*1.25, "invert");
     } 
     if (playLevel === 824982691) { 
         ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); 
