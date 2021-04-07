@@ -132,7 +132,7 @@ var sliping = 0;
 //---------------------------------------------------------- 
 function caracterMove (event) {side = event.key;otherSide = event.key;} 
 function caracterStop (event) {var offKey = event.key;if (offKey === "ArrowLeft" || offKey === "ArrowRight") {caracterMoveSide = 0;side = undefined;}if (offKey === " ") {otherSide = 0}} 
-function controls () {if (side === "ArrowLeft") caracterMoveSide = 1;caracterKeepSide = "left";}if (side === "ArrowRight") {caracterMoveSide = 2;caracterKeepSide = "right";}if (otherSide === " " && onGround === 1) {jump = 1;}} 
+function controls () {if (side === "ArrowLeft"){caracterMoveSide = 1;caracterKeepSide = "left";}if (side === "ArrowRight") {caracterMoveSide = 2;caracterKeepSide = "right";}if (otherSide === " " && onGround === 1) {jump = 1;}} 
 
 
 //---------------------------------------------------------- 
@@ -199,7 +199,7 @@ function aqua (x, y, width, height) { ctx1.drawImage(water, x, y, width, height)
 
 //-----build poison trap-----// 
 var effect = undefined;
-function mushroom (image, x, y, width, height, thing) {ctx1.drawImage(image,x,y,width,height);if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {if(thing==="jelly"){effect="jelly";}}
+function mushroom (image, x, y, width, height, thing) {ctx1.drawImage(image,x,y,width,height);if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {if(thing==="jelly"){effect="jelly";}}}
 function poisonEffects () {if(effect === "jelly"){ctx1.drawImage(jigle,0,0,canvasesW,canvasesH);}}
 
 //---------------------------------------------------------- 
@@ -288,8 +288,19 @@ var WentHere = 0;
 //---------------------------------------------------------- 
 //GAME LOOP THING 
 //---------------------------------------------------------- 
+//-----fps controling stuff-----//
+var fps = 1000 / 60;
+var fpsTime = Date.now();
+var fpsNow = undefined;
+var fpsElapsed = undefined;
+
 function game () { 
     requestAnimationFrame(game); 
+    fpsNow = Date.now();
+    fpsElapsed = fpsNow - fpsTime;
+    if (fpsElapsed > fps) {
+    fpsTime = fpsNow - (fpsElapsed % fps);
+        
     //-----level backgrounds-----// 
     if (playLevel === 0) {ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); } if (playLevel === 1) { ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH); ctx1.drawImage(house, 0 - caracterW *3, floor - caracterH *3.5, caracterW *6, caracterH *4);ctx1.drawImage(meter1, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); } if (playLevel === 2) { ctx1.drawImage(lvl_2Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter2, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); } if (playLevel === 3) { ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter3, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); } if (playLevel === 4) { ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter4, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); } if (playLevel === 5) { ctx1.drawImage(lvl_5Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter5, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); }if (playLevel === 6) { ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter6, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); }if (playLevel === 7) { ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);if(instructionTimer < 920){ctx1.drawImage(meter7, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);}else if(instructionTimer > 921){ctx1.drawImage(meter1, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);}} 
     
@@ -500,5 +511,5 @@ function game () {
     
     //-----ui poison effects-----//
     poisonEffects();
-    
+}
 } requestAnimationFrame(game);
