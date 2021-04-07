@@ -2,8 +2,8 @@ var playLevel = 99;
 var startButton = document.getElementById("startButton"); 
 startButton.onclick = function () {playLevel = 0;} 
 var mycanvas = document.getElementById("mycanvas"); 
-mycanvas.setAttribute("width", window.innerWidth + "px"); 
-mycanvas.setAttribute("height", window.innerHeight + "px"); 
+mycanvas.setAttribute("width", window.outerWidth + "px"); 
+mycanvas.setAttribute("height", window.outerHeight + "px"); 
 var canvasesW = window.innerWidth; var canvasesH = window.innerHeight; 
 var ctx1 = mycanvas.getContext("2d"); 
 var ground = canvasesH /1.25; 
@@ -132,7 +132,7 @@ var sliping = 0;
 //---------------------------------------------------------- 
 function caracterMove (event) {side = event.key;otherSide = event.key;} 
 function caracterStop (event) {var offKey = event.key;if (offKey === "ArrowLeft" || offKey === "ArrowRight") {caracterMoveSide = 0;side = undefined;}if (offKey === " ") {otherSide = 0}} 
-function controls () {if (side === "ArrowLeft") {if(isInverted === 0){caracterMoveSide = 1;caracterKeepSide = "left";}else if(isInverted === 1){caracterMoveSide = 2;caracterKeepSide = "right";}}if (side === "ArrowRight") {if(isInverted === 0){caracterMoveSide = 2;caracterKeepSide = "right";}else if(isInverted === 1){caracterMoveSide = 1;caracterKeepSide = "left";}}if (otherSide === " " && onGround === 1) {jump = 1;}} 
+function controls () {if (side === "ArrowLeft") caracterMoveSide = 1;caracterKeepSide = "left";}if (side === "ArrowRight") {caracterMoveSide = 2;caracterKeepSide = "right";}if (otherSide === " " && onGround === 1) {jump = 1;}} 
 
 
 //---------------------------------------------------------- 
@@ -199,9 +199,8 @@ function aqua (x, y, width, height) { ctx1.drawImage(water, x, y, width, height)
 
 //-----build poison trap-----// 
 var effect = undefined;
-var isInverted = 0;
-function mushroom (image, x, y, width, height, thing) {ctx1.drawImage(image,x,y,width,height);if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {if(thing==="invert"){effect="invert";}if (damageActivated === 0 && inSettings === 0){if(lives === 3){lives = 2; damageReset = 0; damageActivated = 1;}else if(lives === 2){lives = 1; damageReset = 0; damageActivated = 1;}else if (lives === 1){lives = 0;}}}}
-function poisonEffects () {if(effect === "invert"){isInverted = 1;ctx1.drawImage(jigle,0,0,canvasesW,canvasesH);}}
+function mushroom (image, x, y, width, height, thing) {ctx1.drawImage(image,x,y,width,height);if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {if(thing==="jelly"){effect="jelly";}}}
+function poisonEffects () {if(effect === "jelly"){ctx1.drawImage(jigle,0,0,canvasesW,canvasesH);}}
 
 //---------------------------------------------------------- 
 //MOVING TRAP STUFF 
@@ -353,9 +352,9 @@ function game () {
         caracter(); 
         
         //traps
-        mushroom(poison1, canvasesW - caracterW*7, floor - caracterH*1.25, caracterW, caracterH*1.25, "invert");
-        mushroom(poison1, canvasesW - caracterW*3.5, floor - caracterH*1.25, caracterW, caracterH*1.25, "invert");
-        mushroom(poison1, canvasesW - caracterW*1.5, floor - caracterH*1.25, caracterW, caracterH*1.25, "invert");
+        mushroom(poison1, canvasesW - caracterW*7, floor - caracterH*1.25, caracterW, caracterH*1.25, "jelly");
+        mushroom(poison1, canvasesW - caracterW*3.5, floor - caracterH*1.25, caracterW, caracterH*1.25, "jelly");
+        mushroom(poison1, canvasesW - caracterW*1.5, floor - caracterH*1.25, caracterW, caracterH*1.25, "jelly");
     } 
     if (playLevel === 824982691) { 
         ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); 
