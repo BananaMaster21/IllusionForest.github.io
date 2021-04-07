@@ -199,7 +199,7 @@ function aqua (x, y, width, height) { ctx1.drawImage(water, x, y, width, height)
 
 //-----build poison trap-----// 
 var effect = undefined;
-function mushroom (image, x, y, width, height, thing) {ctx1.drawImage(image,x,y,width,height);if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {if(thing==="jelly"){effect="jelly";}}}
+function mushroom (image, x, y, width, height, thing) {ctx1.drawImage(image,x,y,width,height);if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {if(thing==="jelly"){effect="jelly";}}
 function poisonEffects () {if(effect === "jelly"){ctx1.drawImage(jigle,0,0,canvasesW,canvasesH);}}
 
 //---------------------------------------------------------- 
