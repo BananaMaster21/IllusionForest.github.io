@@ -72,7 +72,7 @@ var ruin = document.getElementById("ruin");
 var sign = document.getElementById("sign"); 
 var box = document.getElementById("box"); 
 var water = document.getElementById("water"); 
-var poison1 = document.getElementById("poison1");
+var mushroom1 = document.getElementById("mushroom1");
 var egg = document.getElementById("egg");
 var chicken = document.getElementById("chicken");
 var jelly = document.getElementById("jelly");
@@ -363,9 +363,9 @@ function game () {
         caracter(); 
         
         //traps
-        mushroom(poison1, canvasesW - caracterW*7, floor - caracterH*1.25, caracterW, caracterH*1.25, "jelly");
-        mushroom(poison1, canvasesW - caracterW*3.5, floor - caracterH*1.25, caracterW, caracterH*1.25, "jelly");
-        mushroom(poison1, canvasesW - caracterW*1.5, floor - caracterH*1.25, caracterW, caracterH*1.25, "jelly");
+        mushroom(mushroom1, canvasesW - caracterW*7, floor - caracterH*1.25, caracterW, caracterH*1.25, "jelly");
+        mushroom(mushroom1, canvasesW - caracterW*3.5, floor - caracterH*1.25, caracterW, caracterH*1.25, "jelly");
+        mushroom(mushroom1, canvasesW - caracterW*1.5, floor - caracterH*1.25, caracterW, caracterH*1.25, "jelly");
     } 
     if (playLevel === 824982691) { 
         ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); 
