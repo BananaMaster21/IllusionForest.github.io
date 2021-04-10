@@ -354,7 +354,7 @@ function game () {
         //obstacles
         obstacle(rock, canvasesW - caracterW*6, floor - caracterH, caracterW, caracterH, 1);
         pitOfDoom(canvasesW - caracterW*5, floor - caracterH/3, caracterW*1.5, caracterH*4);
-        obstacle(rock, canvasesW - caracterW/2.5, floor - caracterH, caracterW, caracterH, 2);
+        obstacle(rock, canvasesW - caracterW*2.5, floor - caracterH, caracterW, caracterH, 2);
         obstacle(rock, canvasesW - caracterW/2, 0 - caracterH/2, caracterW, caracterH*5, 3);
         
         //obstacles not in use 
@@ -363,9 +363,9 @@ function game () {
         caracter(); 
         
         //traps
-        mushroom(mushroom1, canvasesW - caracterW*7, floor - caracterH*1.25, caracterW, caracterH/2, "jelly");
-        mushroom(mushroom1, canvasesW - caracterW*3.5, floor - caracterH*1.25, caracterW, caracterH/2, "jelly");
-        mushroom(mushroom1, canvasesW - caracterW*1.5, floor - caracterH*1.25, caracterW, caracterH/2, "jelly");
+        mushroom(mushroom1, canvasesW - caracterW*7, floor - caracterH/2, caracterW, caracterH/2, "jelly");
+        mushroom(mushroom1, canvasesW - caracterW*3.5, floor - caracterH/2, caracterW, caracterH/2, "jelly");
+        mushroom(mushroom1, canvasesW - caracterW*1.5, floor - caracterH/2, caracterW, caracterH/2, "jelly");
     } 
     if (playLevel === 824982691) { 
         ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); 
