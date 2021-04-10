@@ -363,9 +363,9 @@ function game () {
         caracter(); 
         
         //traps
-        mushroom(mushroom1, canvasesW - caracterW*7, floor - caracterH*1.25, caracterW, caracterH*1.25, "jelly");
-        mushroom(mushroom1, canvasesW - caracterW*3.5, floor - caracterH*1.25, caracterW, caracterH*1.25, "jelly");
-        mushroom(mushroom1, canvasesW - caracterW*1.5, floor - caracterH*1.25, caracterW, caracterH*1.25, "jelly");
+        mushroom(mushroom1, canvasesW - caracterW*7, floor - caracterH*1.25, caracterW, caracterH/2, "jelly");
+        mushroom(mushroom1, canvasesW - caracterW*3.5, floor - caracterH*1.25, caracterW, caracterH/2, "jelly");
+        mushroom(mushroom1, canvasesW - caracterW*1.5, floor - caracterH*1.25, caracterW, caracterH/2, "jelly");
     } 
     if (playLevel === 824982691) { 
         ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); 
