@@ -252,7 +252,7 @@ var instructionTimer = 0;
 //---------------------------------------------------------- 
 //SWITCHING LEVELS STUFF 
 //---------------------------------------------------------- 
-function next () { if (caracterX >= 0 + canvasesW) { if (playLevel === 0 || playLevel === 525852758123) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 1;}else if (playLevel === 1) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 2;}else if (playLevel === 2) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 3;}else if (playLevel === 3) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 4;}else if (playLevel === 4) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 5;}else if (playLevel === 5) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 6;}else if (playLevel === 6) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 7;}else if (playLevel === 70923742194) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 986593659; }else if (playLevel === 0180481080) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 824982691; }else if (playLevel === 2793487593) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 70923742194; }else if (playLevel === 3859293759) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 0180481080; } traping.d1 = undefined; traping.mh1 = 0; traping.mv1 = 0; traping.d2 = undefined; traping.mh2 = 0; traping.mv2 = 0; instructionTimer = 0; } if (caracterX + cW < 0) { if (playLevel === 1){ caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 525852758123; }else if (playLevel === 2) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 1; }else if (playLevel === 3) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 2; }else if (playLevel === 4) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 3; }else if (playLevel === 5) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 4; }else if (playLevel === 6) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 5; }else if (playLevel === 7) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 6; }else if (playLevel === 70923742194) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 2793487593; }else if (playLevel === 0180481080) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 3859293759; }else if (playLevel === 986593659) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 70923742194; }else if (playLevel === 824982691) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 0180481080; } traping.d1 = undefined; traping.mh1 = 0; traping.mv1 = 0; traping.d2 = undefined; traping.mh2 = 0; traping.mv2 = 0; instructionTimer = 0; } } 
+function next () { if (caracterX >= 0 + canvasesW) { if (playLevel === 0 || playLevel === 525852758123) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 1;}else if (playLevel === 1) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 2;}else if (playLevel === 2) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 3;}else if (playLevel === 3) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 4;}else if (playLevel === 4) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 5;}else if (playLevel === 5) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 6;}else if (playLevel === 6) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 7;}else if (playLevel === 70923742194) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 986593659; }else if (playLevel === 0180481080) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 824982691; }else if (playLevel === 2793487593) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 70923742194; }else if (playLevel === 3859293759) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 0180481080; } traping.d1 = undefined; traping.mh1 = 0; traping.mv1 = 0; traping.d2 = undefined; traping.mh2 = 0; traping.mv2 = 0; instructionTimer = 0; } if (caracterX + cW < 0) { if (playLevel === 1){ caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 525852758123; }else if (playLevel === 2) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 1; }else if (playLevel === 3) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 2; }else if (playLevel === 4) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 3; }else if (playLevel === 5) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 4; }else if (playLevel === 6) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 5; }else if (playLevel === 7) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 6; }else if (playLevel === 70923742194) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 2793487593; }else if (playLevel === 0180481080) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 3859293759; }else if (playLevel === 986593659) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 70923742194; }else if (playLevel === 824982691) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 0180481080; } effect = undefined; traping.d1 = undefined; traping.mh1 = 0; traping.mv1 = 0; traping.d2 = undefined; traping.mh2 = 0; traping.mv2 = 0; instructionTimer = 0; } } 
 
 
 //---------------------------------------------------------- 
@@ -261,9 +261,9 @@ function next () { if (caracterX >= 0 + canvasesW) { if (playLevel === 0 || play
 var lives = 2; 
 //-----heart positioning-----// 
 var heart1X = canvasesW /25; 
-var heart2X = canvasesW /12.5; 
-var heart3X = canvasesW /8.3; 
-var heartsY = canvasesH /20; 
+var heart2X = canvasesW /12.5;
+var heart3X = canvasesW /8.3;
+var heartsY = canvasesH /20;
 var heartsW = canvasesW /50; 
 var heartsH = canvasesH /25; 
 //-----pause when die-----// 
@@ -282,7 +282,7 @@ var audio_3 = document.getElementById("sound_3");
 var audio_4 = document.getElementById("sound_4"); 
 function music () { if(setAudio.want === 1){if (playLevel === 0 || playLevel === 7) {audio_0.play();}else {audio_0.pause();} if (playLevel === 1 || playLevel === 2) {audio_1.play();}else {audio_1.pause();} if (playLevel === 3 || playLevel === 4) {audio_2.play();}else {audio_2.pause();} if (playLevel === 5 || playLevel === 6) {audio_3.play();}else {audio_3.pause();} if (playLevel === 525852758123 || playLevel === 70923742194 || playLevel === 0180481080) {audio_4.play();}else {audio_4.pause();}}else if (setAudio.want === 0){audio_0.pause();audio_1.pause();audio_2.pause();audio_3.pause();audio_4.pause();}} 
 
-//random variables
+//random variable
 var WentHere = 0;
 
 //---------------------------------------------------------- 
@@ -296,13 +296,29 @@ var fpsElapsed = undefined;
 
 function game () { 
     requestAnimationFrame(game); 
+    
     fpsNow = Date.now();
     fpsElapsed = fpsNow - fpsTime;
     if (fpsElapsed > fps) {
     fpsTime = fpsNow - (fpsElapsed % fps);
         
+    canvasesW = window.innerWidth;
+    canvasesH = window.innerHeight; 
+    caracterW = canvasesW /10; 
+    caracterH = canvasesH /7; 
+    setBTN.x=canvasesW-caracterW/3-caracterW/2;setBTN.y=0+canvasesH/28;setBTN.w=caracterW/2;setBTN.h=caracterW/2;
+    setGoBack.x=caracterW/2-caracterW/3;setGoBack.y=canvasesH/2-caracterH;setGoBack.w=caracterW*2.5;setGoBack.h=caracterH;
+    setAudio.x=caracterW*4-caracterW/3;setAudio.y=canvasesH/2-caracterH;setAudio.w=caracterW*2.5;setAudio.h=caracterH;
+    setDifficulty.x=caracterW*7.5-caracterW/3;setDifficulty.y=canvasesH/2-caracterH;setDifficulty.w=caracterW*2.75;setDifficulty.h=caracterH;
+    heart1X = canvasesW /25; 
+    heart2X = canvasesW /12.5; 
+    heart3X = canvasesW /8.3; 
+    heartsY = canvasesH /20; 
+    heartsW = canvasesW /50; 
+    heartsH = canvasesH /25; 
+        
     //-----level backgrounds-----// 
-    if (playLevel === 0) {ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); } if (playLevel === 1) { ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH); ctx1.drawImage(house, 0 - caracterW *3, floor - caracterH *3.5, caracterW *6, caracterH *4);ctx1.drawImage(meter1, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); } if (playLevel === 2) { ctx1.drawImage(lvl_2Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter2, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); } if (playLevel === 3) { ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter3, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); } if (playLevel === 4) { ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter4, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); } if (playLevel === 5) { ctx1.drawImage(lvl_5Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter5, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); }if (playLevel === 6) { ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter6, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); }if (playLevel === 7) { ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);if(instructionTimer < 920){ctx1.drawImage(meter7, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);}else if(instructionTimer > 921){ctx1.drawImage(meter1, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);}} 
+    if (playLevel === 0) {ctx1.drawImage(introBack, 0, 0,y= canvasesW, canvasesH); } if (playLevel === 1) { ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH); ctx1.drawImage(house, 0 - caracterW *3, floor - caracterH *3.5, caracterW *6, caracterH *4);ctx1.drawImage(meter1, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); } if (playLevel === 2) { ctx1.drawImage(lvl_2Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter2, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); } if (playLevel === 3) { ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter3, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); } if (playLevel === 4) { ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter4, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); } if (playLevel === 5) { ctx1.drawImage(lvl_5Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter5, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); }if (playLevel === 6) { ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter6, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); }if (playLevel === 7) { ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);if(instructionTimer < 920){ctx1.drawImage(meter7, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);}else if(instructionTimer > 921){ctx1.drawImage(meter1, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);}} 
     
     //-----level music-----// 
     music(); 
@@ -482,21 +498,21 @@ function game () {
     //---------------------------------------------------------- 
     if (playLevel === 7) { 
         //building 
-        if(instructionTimer < 816 && WentHere === 0){obstacle(villageDoor, canvasesW - caracterW *3, 0, caracterW *3, caracterH *5, 1);}
+        if(instructionTimer < 855 && WentHere === 0){obstacle(villageDoor, canvasesW - caracterW *3, 0, caracterW *3, caracterH *5, 1);}
         //Tom
         if(WentHere === 0){ctx1.drawImage(tom, canvasesW - caracterW *6, floor - caracterH *2.5, caracterW *2.5, caracterH *2.5);}
         //carcter 
         caracter();
         //dialog of tom
-        if(caracterX >= canvasesW *0.16 && caracterX <= canvasesW *0.6 && WentHere === 0){ instructionTimer += 1;ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /20+"px cursive";
+        if(caracterX >= canvasesW *0.16 && WentHere === 0){ instructionTimer += 1;ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /20+"px cursive";
         if(instructionTimer < 100) {ctx1.drawImage(box, canvasesW - caracterW *5.5 - caracterW *1.5, floor - caracterH *1.75 - caracterH *0.75, caracterW *1.5, caracterH *0.75);ctx1.fillText("Stop", canvasesW - caracterW *5.5 - caracterW *0.75, floor - caracterH *1.75 - caracterH *0.3);
         }else if(instructionTimer < 300){ctx1.font = ""+canvasesH /30+"px cursive"; ctx1.drawImage(box, canvasesW - caracterW *6.5 - caracterW *1.5, floor - caracterH *2.5 - caracterH *0.75, caracterW *2.5, caracterH *1.5);ctx1.fillText("To pass", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2.5 - caracterH *0.3);ctx1.fillText("Answer this riddle you must", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2 - caracterH *0.3);
         }else if(instructionTimer < 500){ctx1.font = ""+canvasesH /30+"px cursive"; ctx1.drawImage(box, canvasesW - caracterW *6.5 - caracterW *1.5, floor - caracterH *2.5 - caracterH *0.75, caracterW *2.5, caracterH *1.5);ctx1.fillText("What came first?", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2.5 - caracterH *0.3);ctx1.fillText("The chicken or the egg", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2 - caracterH *0.3);
         }else if(instructionTimer < 675){ctx1.fillStyle = "rgba( 0, 0, 0,0.8)";ctx1.fillRect(0, 0, canvasesW, canvasesH);ctx1.drawImage(egg,canvasesW*0.25-caracterW,canvasesH/2-caracterH*2.5/2,caracterW*2,caracterH*2.5);ctx1.drawImage(chicken,canvasesW*0.75-caracterW*2/2,canvasesH/2-caracterH*2.5/2,caracterW*2,caracterH*2.5);
         }else if(instructionTimer < 800){ctx1.font = ""+canvasesH /30+"px cursive";ctx1.drawImage(box, canvasesW - caracterW *6.5 - caracterW *1.5, floor - caracterH *2.5 - caracterH *0.75, caracterW *2.5, caracterH *1.5);ctx1.fillText("Trick question hehe", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2.5 - caracterH *0.3);ctx1.fillText("It was the jellyfish", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2 - caracterH *0.3);
         }else if(instructionTimer < 810){ctx1.drawImage(jelly,canvasesW/4,canvasesH/8,canvasesW/2,canvasesH*0.75);
-        }else if(instructionTimer < 910){ctx1.font = ""+canvasesH /30+"px cursive";ctx1.drawImage(box, canvasesW - caracterW *6.5 - caracterW *1.5, floor - caracterH *2.5 - caracterH *0.75, caracterW *2.5, caracterH *1.5);ctx1.fillText("You may", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2.5 - caracterH *0.3);ctx1.fillText("Pass now", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2 - caracterH *0.3);
-        }else if(instructionTimer < 920){ctx1.font = ""+canvasesH /20+"px cursive";ctx1.drawImage(box, canvasesW - caracterW *5.5 - caracterW *1.5, floor - caracterH *1.75 - caracterH *0.75, caracterW *1.5, caracterH *0.75);ctx1.fillText("Poof", canvasesW - caracterW *5.5 - caracterW *0.75, floor - caracterH *1.75 - caracterH *0.3);
+        }else if(instructionTimer < 850){ctx1.font = ""+canvasesH /30+"px cursive";ctx1.drawImage(box, canvasesW - caracterW *6.5 - caracterW *1.5, floor - caracterH *2.5 - caracterH *0.75, caracterW *2.5, caracterH *1.5);ctx1.fillText("You may", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2.5 - caracterH *0.3);ctx1.fillText("Pass now", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2 - caracterH *0.3);
+        }else if(instructionTimer < 960){ctx1.font = ""+canvasesH /20+"px cursive";ctx1.drawImage(box, canvasesW - caracterW *5.5 - caracterW *1.5, floor - caracterH *1.75 - caracterH *0.75, caracterW *1.5, caracterH *0.75);ctx1.fillText("Poof", canvasesW - caracterW *5.5 - caracterW *0.75, floor - caracterH *1.75 - caracterH *0.3);
         }else {WentHere = 1;}
                                                                        } 
         //objects not in use 
