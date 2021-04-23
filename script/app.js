@@ -302,23 +302,8 @@ function game () {
     if (fpsElapsed > fps) {
     fpsTime = fpsNow - (fpsElapsed % fps);
         
-    canvasesW = window.innerWidth;
-    canvasesH = window.innerHeight; 
-    caracterW = canvasesW /10; 
-    caracterH = canvasesH /7; 
-    setBTN.x=canvasesW-caracterW/3-caracterW/2;setBTN.y=0+canvasesH/28;setBTN.w=caracterW/2;setBTN.h=caracterW/2;
-    setGoBack.x=caracterW/2-caracterW/3;setGoBack.y=canvasesH/2-caracterH;setGoBack.w=caracterW*2.5;setGoBack.h=caracterH;
-    setAudio.x=caracterW*4-caracterW/3;setAudio.y=canvasesH/2-caracterH;setAudio.w=caracterW*2.5;setAudio.h=caracterH;
-    setDifficulty.x=caracterW*7.5-caracterW/3;setDifficulty.y=canvasesH/2-caracterH;setDifficulty.w=caracterW*2.75;setDifficulty.h=caracterH;
-    heart1X = canvasesW /25; 
-    heart2X = canvasesW /12.5; 
-    heart3X = canvasesW /8.3; 
-    heartsY = canvasesH /20; 
-    heartsW = canvasesW /50; 
-    heartsH = canvasesH /25; 
-        
     //-----level backgrounds-----// 
-    if (playLevel === 0) {ctx1.drawImage(introBack, 0, 0,y= canvasesW, canvasesH); } if (playLevel === 1) { ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH); ctx1.drawImage(house, 0 - caracterW *3, floor - caracterH *3.5, caracterW *6, caracterH *4);ctx1.drawImage(meter1, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); } if (playLevel === 2) { ctx1.drawImage(lvl_2Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter2, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); } if (playLevel === 3) { ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter3, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); } if (playLevel === 4) { ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter4, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); } if (playLevel === 5) { ctx1.drawImage(lvl_5Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter5, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); }if (playLevel === 6) { ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH);ctx1.drawImage(meter6, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5); }if (playLevel === 7) { ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);if(instructionTimer < 920){ctx1.drawImage(meter7, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);}else if(instructionTimer > 921){ctx1.drawImage(meter1, canvasesW /2 - canvasesW *1/6, 0, canvasesW *1/3, caracterH *3/5);}} 
+    0===playLevel&&ctx1.drawImage(introBack,0,0,y=canvasesW,canvasesH),1===playLevel&&(ctx1.drawImage(lvl_1Back,0,0,canvasesW,canvasesH),ctx1.drawImage(house,0-3*caracterW,floor-3.5*caracterH,6*caracterW,4*caracterH),ctx1.drawImage(meter1,canvasesW/2-1*canvasesW/6,0,1*canvasesW/3,3*caracterH/5)),2===playLevel&&(ctx1.drawImage(lvl_2Back,0,0,canvasesW,canvasesH),ctx1.drawImage(meter2,canvasesW/2-1*canvasesW/6,0,1*canvasesW/3,3*caracterH/5)),3===playLevel&&(ctx1.drawImage(lvl_3Back,0,0,canvasesW,canvasesH),ctx1.drawImage(meter3,canvasesW/2-1*canvasesW/6,0,1*canvasesW/3,3*caracterH/5)),4===playLevel&&(ctx1.drawImage(lvl_3Back,0,0,canvasesW,canvasesH),ctx1.drawImage(meter4,canvasesW/2-1*canvasesW/6,0,1*canvasesW/3,3*caracterH/5)),5===playLevel&&(ctx1.drawImage(lvl_5Back,0,0,canvasesW,canvasesH),ctx1.drawImage(meter5,canvasesW/2-1*canvasesW/6,0,1*canvasesW/3,3*caracterH/5)),6===playLevel&&(ctx1.drawImage(lvl_1Back,0,0,canvasesW,canvasesH),ctx1.drawImage(meter6,canvasesW/2-1*canvasesW/6,0,1*canvasesW/3,3*caracterH/5)),7===playLevel&&(ctx1.drawImage(lvl_3Back,0,0,canvasesW,canvasesH),0===WentHere?ctx1.drawImage(meter7,canvasesW/2-1*canvasesW/6,0,1*canvasesW/3,3*caracterH/5):1===WentHere&&ctx1.drawImage(meter1,canvasesW/2-1*canvasesW/6,0,1*canvasesW/3,3*caracterH/5));
     
     //-----level music-----// 
     music(); 
@@ -334,36 +319,18 @@ function game () {
     
     //-----BUILD INTRO-----// 
     //---------------------------------------------------------- 
-    if (playLevel === 0) { instructionTimer += 1; ctx1.fillStyle = "black"; ctx1.textAlign = "start"; ctx1.font = ""+canvasesH /20+"px cursive";ctx1.fillText("Spikes hurt", canvasesW *4/5, floor - caracterH *1.5 ); obstacle(rock, canvasesW *1/3 - caracterW /2, floor - caracterH, caracterW, caracterH, 1); obstacle(rock, canvasesW *1/2 - caracterW /2, floor - caracterH *2, caracterW, caracterH *2, 2); obstacle(rock, canvasesW *2/3 - caracterW /2, floor - caracterH, caracterW, caracterH, 3);obstacle(rock, 0, 0, 0, 0, 4); vine(0, 0, 0, 0, 1);ctx1.fillText("Your lives", heart2X *1.5, canvasesH /20 + canvasesH /40);ctx1.textAlign = "center"; if (instructionTimer < 225) { ctx1.fillText("Arrow keys to move left and right, Space to jump", canvasesW /2,floor - caracterH *3);}else { ctx1.fillText("Move out of the screen to change level", canvasesW /2,floor - caracterH *3); }caracter();trap(spikeFloor, canvasesW *3/8, floor - caracterH /2, caracterW, caracterH /2); trap(spikeFloor, canvasesW *4/5, floor - caracterH /2, caracterW *4/3, caracterH /2); }
-    
+    if (playLevel === 0) {
+        instructionTimer+=1,ctx1.fillStyle="black",ctx1.textAlign="start",ctx1.font=canvasesH/20+"px cursive",ctx1.fillText("Spikes hurt",4*canvasesW/5,floor-1.5*caracterH),obstacle(rock,1*canvasesW/3-caracterW/2,floor-caracterH,caracterW,caracterH,1),obstacle(rock,1*canvasesW/2-caracterW/2,floor-2*caracterH,caracterW,2*caracterH,2),obstacle(rock,2*canvasesW/3-caracterW/2,floor-caracterH,caracterW,caracterH,3),obstacle(rock,0,0,0,0,4),vine(0,0,0,0,1),ctx1.fillText("Your lives",1.5*heart2X,canvasesH/20+canvasesH/40),ctx1.textAlign="center",instructionTimer<225?ctx1.fillText("Arrow keys to move left and right, Space to jump",canvasesW/2,floor-3*caracterH):ctx1.fillText("Move out of the screen to change level",canvasesW/2,floor-3*caracterH),caracter(),trap(spikeFloor,3*canvasesW/8,floor-caracterH/2,caracterW,caracterH/2),trap(spikeFloor,4*canvasesW/5,floor-caracterH/2,4*caracterW/3,caracterH/2);
+    }
     //secrrrrrrrrrrrrrrrret leeeeeeeeevvvvvvvvvvvvels 
-    if (playLevel === 525852758123) { 
-        ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); 
-        ctx1.drawImage(ruin, 0, floor - caracterH *1.5, caracterW *2, caracterH *1.5);
-        crystal(crystal2, hasCrystal2, caracterW *0.75, floor - caracterH *2);
-        obstacle(rock, 0, 0, 0, 0, 1); 
-        obstacle(rock, 0, 0, 0, 0, 2); 
-        obstacle(rock, 0, 0, 0, 0, 3); 
-        obstacle(rock, 0, 0, 0, 0, 4); 
-        vine(0, 0, 0, 0, 1); 
-        caracter();
+    if (playLevel === 525852758123) {
+        ctx1.drawImage(introBack,0,0,canvasesW,canvasesH),ctx1.drawImage(ruin,0,floor-1.5*caracterH,2*caracterW,1.5*caracterH),crystal(crystal2,hasCrystal2,.75*caracterW,floor-2*caracterH),obstacle(rock,0,0,0,0,1),obstacle(rock,0,0,0,0,2),obstacle(rock,0,0,0,0,3),obstacle(rock,0,0,0,0,4),vine(0,0,0,0,1),caracter();
     }
     if (playLevel === 70923742194) {
-        ctx1.drawImage(lvl_1Back, 0, 0, canvasesW, canvasesH);
-        ctx1.drawImage(sign, canvasesW /2, floor - caracterH *2, caracterW, caracterH *2);
-        portal(canvasesW /25, floor - caracterH *1.5, 111);
-        obstacle(rock, 0, 0, 0, 0, 1); obstacle(rock, 0, 0, 0, 0, 2);
-        obstacle(rock, 0, 0, 0, 0, 3); obstacle(rock, 0, 0, 0, 0, 4);
-        vine(0, 0, 0, 0, 1);
-        caracter(); 
+        ctx1.drawImage(lvl_1Back,0,0,canvasesW,canvasesH),ctx1.drawImage(sign,canvasesW/2,floor-2*caracterH,caracterW,2*caracterH),portal(canvasesW/25,floor-1.5*caracterH,111),obstacle(rock,0,0,0,0,1),obstacle(rock,0,0,0,0,2),obstacle(rock,0,0,0,0,3),obstacle(rock,0,0,0,0,4),vine(0,0,0,0,1),caracter();
     } 
     if (playLevel === 0180481080) { 
-        ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); 
-        ctx1.drawImage(sign, canvasesW /2, floor - caracterH *2, caracterW, caracterH *2); 
-        portal( canvasesW /2 - caracterW *2.5, floor - caracterH *2.5, 222);obstacle(rock, canvasesW /2 - caracterW *2.5, floor - caracterH, caracterW, caracterH, 1);
-        obstacle(rock, 0, 0, 0, 0, 2); obstacle(rock, 0, 0, 0, 0, 3); obstacle(rock, 0, 0, 0, 0, 4); 
-        vine(0, 0, 0, 0, 1);
-        caracter(); 
+        ctx1.drawImage(introBack,0,0,canvasesW,canvasesH);ctx1.drawImage(sign,canvasesW/2,floor-caracterH*2,caracterW,caracterH*2);portal(canvasesW/2-caracterW*2.5,floor-caracterH*2.5,222);obstacle(rock,canvasesW/2-caracterW*2.5,floor-caracterH,caracterW,caracterH,1);obstacle(rock,0,0,0,0,2);obstacle(rock,0,0,0,0,3);obstacle(rock,0,0,0,0,4);vine(0,0,0,0,1);caracter(); 
     } 
     if (playLevel === 986593659) {
         ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);
@@ -372,12 +339,10 @@ function game () {
         pitOfDoom(canvasesW - caracterW*5, floor - caracterH/3, caracterW*1.5, caracterH*4);
         obstacle(rock, canvasesW - caracterW*2.5, floor - caracterH, caracterW, caracterH, 2);
         obstacle(rock, canvasesW - caracterW/2, 0 - caracterH/2, caracterW, caracterH*5, 3);
-        
         //obstacles not in use 
         obstacle(rock, 0, 0, 0, 0, 4); 
         vine(0, 0, 0, 0, 1);
-        caracter(); 
-        
+        caracter();
         //traps
         mushroom(mushroom1, canvasesW - caracterW*7, floor - caracterH/2, caracterW, caracterH/2, "jelly");
         mushroom(mushroom1, canvasesW - caracterW*3.5, floor - caracterH/2, caracterW, caracterH/2, "jelly");
@@ -392,7 +357,7 @@ function game () {
         //water
         aqua(caracterW * 4.75, floor - caracterH * 1.25, caracterW *3, caracterH *1.25);
         //objects 
-        obstacle(rock,caracterW * 3, floor - caracterH *1.25, caracterW *2, caracterH *1.25, 1); obstacle(rock, caracterW *3, 0 - caracterH *0.5, caracterW *2, caracterH *2, 2); obstacle(rock, canvasesW - caracterW *2.5, floor - caracterH *3.625, caracterW *2.5, caracterH *3.625, 3); obstacle(rock, canvasesW - caracterW *0.5, 0 - caracterH *3.5, caracterW *0.75, caracterH *8.25, 4); vine(caracterW *5.375, 0 - caracterH *0.25, caracterW *0.5, caracterH *1.625, 1); 
+        obstacle(rock,caracterW * 3, floor - caracterH *1.25, caracterW *2, caracterH *1.25, 1); obstacle(rock, caracterW *3, 0 - caracterH *0.5, caracterW *2, caracterH *2, 2); obstacle(rock, canvasesW - caracterW *2.5, floor - caracterH *3.625, caracterW *2.5, caracterH *3.625, 3); obstacle(rock, canvasesW - caracterW *0.5, 0 - caracterH *3.5, caracterW *0.75, caracterH *8.25, 4); vine(caracterW *5.375, 0 - caracterH *0.25, caracterW *0.5, caracterH *1.75, 1); 
         //player 
         caracter(); 
         //traps 
@@ -418,105 +383,38 @@ function game () {
     
     //-----BUILD LEVEL 1-----// 
     //---------------------------------------------------------- 
-    if (playLevel === 1) { 
-        //obstacles 
-        obstacle(rock, canvasesW *1/3, floor - caracterH, caracterW, caracterH, 1); obstacle(rock, canvasesW *1/3, floor - caracterH *3.5, caracterW, caracterH, 2); obstacle(rock, canvasesW - caracterW *3.5, floor - caracterH *2, caracterW *2, caracterH *2, 3); obstacle(rock, canvasesW - caracterW *2, floor - caracterH *4.5, caracterW, caracterH *4.5, 4); vine(canvasesW - caracterW *0.75, 0, caracterW /2, caracterH *5, 1); 
-        //player 
-        caracter(); 
-        //traps 
-        trap(spikeFloor, canvasesW *1/3 + caracterW, floor - caracterH /2, caracterW *1.5, caracterH /2); trap(spikeFloor, canvasesW *1/3 + caracterW *2.5, floor - caracterH /2, caracterW, caracterH /2); 
+    if (playLevel === 1) {
+        obstacle(rock,1*canvasesW/3,floor-caracterH,caracterW,caracterH,1),obstacle(rock,1*canvasesW/3,floor-3.5*caracterH,caracterW,caracterH,2),obstacle(rock,canvasesW-3.5*caracterW,floor-2*caracterH,2*caracterW,2*caracterH,3),obstacle(rock,canvasesW-2*caracterW,floor-4.5*caracterH,caracterW,4.5*caracterH,4),vine(canvasesW-.75*caracterW,0,caracterW/2,5*caracterH,1),caracter(),trap(spikeFloor,1*canvasesW/3+caracterW,floor-caracterH/2,1.5*caracterW,caracterH/2),trap(spikeFloor,1*canvasesW/3+2.5*caracterW,floor-caracterH/2,caracterW,caracterH/2);
     } 
     //-----BUILD LEVEL 2-----// 
     //---------------------------------------------------------- 
-    if (playLevel === 2) { 
-        //obstacles 
-        obstacle(rock, canvasesW *1/4 - caracterW /2, floor - caracterH *1.5, caracterW, caracterH *1.5, 1); obstacle(rock, canvasesW *1/4 + caracterW /2, floor - caracterH *3, caracterW, caracterH *3, 2); obstacle(rock, canvasesW *3/4 + caracterW, 0 - caracterH *2, caracterW, caracterH *2.5, 3); obstacle(rock, canvasesW *3/4 + caracterW, floor - caracterH *2.5, caracterW, caracterH *2.5, 4); vine(canvasesW *3/4 + caracterW *2.25, 0, caracterW /2, caracterH *5, 1); 
-        //player 
-        caracter(); 
-        //traps 
-        trap(spikeFloor, canvasesW *1/4 + caracterW *1.5, floor - caracterH /2, caracterW *1.5, caracterH /2); trap(spikeFloor, canvasesW *1/4 + caracterW *3, floor - caracterH /2, caracterW *1.5, caracterH /2); trap(spikeFloor, canvasesW *1/4 + caracterW *4.5, floor - caracterH /2, caracterW *1.5, caracterH /2); 
+    if (playLevel === 2) {
+        obstacle(rock,1*canvasesW/4-caracterW/2,floor-1.5*caracterH,caracterW,1.5*caracterH,1),obstacle(rock,1*canvasesW/4+caracterW/2,floor-3*caracterH,caracterW,3*caracterH,2),obstacle(rock,3*canvasesW/4+caracterW,0-2*caracterH,caracterW,2.5*caracterH,3),obstacle(rock,3*canvasesW/4+caracterW,floor-2.5*caracterH,caracterW,2.5*caracterH,4),vine(3*canvasesW/4+2.25*caracterW,0,caracterW/2,5*caracterH,1),caracter(),trap(spikeFloor,1*canvasesW/4+1.5*caracterW,floor-caracterH/2,1.5*caracterW,caracterH/2),trap(spikeFloor,1*canvasesW/4+3*caracterW,floor-caracterH/2,1.5*caracterW,caracterH/2),trap(spikeFloor,1*canvasesW/4+4.5*caracterW,floor-caracterH/2,1.5*caracterW,caracterH/2);
     } 
     //-----BUILD LEVEL 3-----// 
     //---------------------------------------------------------- 
-    if (playLevel === 3) { 
-        //flag
-        if(setDifficulty.diff === 0){ctx1.drawImage(checkpoint, 0, floor - caracterH*1.25, caracterW*0.75, caracterH*1.25);}
-        //obstacles 
-        obstacle(rock, canvasesW *1/6 - caracterW /6, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW + caracterW *1/3, caracterH *3/4, 1);obstacle(rock, canvasesW *1/6 + caracterW *2 + caracterW *2/3, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW, caracterH *3/4, 2); obstacle(rock, canvasesW *5/8 + caracterW /2, floor - caracterH, caracterW + caracterW *3/4, caracterH, 3); obstacle(rock, canvasesW *5/8 + caracterW *2, floor - caracterH *3.5, caracterW, caracterH *3.5, 4); vine(canvasesW *5/8 + caracterW *3.25, 0, caracterW /2, caracterH *5, 1); 
-        //DooooooooooooooooooooooooooooooooooooooooooR 
-        portal(canvasesW *1/6, canvasesH *1/12, 1); 
-        //player 
-        caracter(); 
-        //traps 
-        movingTrap(spikeBall, canvasesW *1/6 + caracterW + caracterW *1/3 + traping.mh1, undefined, canvasesH *2/6 + traping.mv1, canvasesH *2/6, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /200, 1); trap(spikeWall, canvasesW *5/8 + caracterW *2 - caracterW /2, floor - caracterH *2 - caracterH *1/4, caracterW *3/4, caracterH *1.5);
-        //reminder 
-        ctx1.fillStyle = "forestGreen"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /20+"px cursive"; ctx1.fillText("Remember walk or jump out of the screen to change level", canvasesW *1/2, canvasesH *7/9); 
+    if (playLevel === 3) {
+        0===setDifficulty.diff&&ctx1.drawImage(checkpoint,0,floor-1.25*caracterH,.75*caracterW,1.25*caracterH),obstacle(rock,1*canvasesW/6-caracterW/6,1*canvasesH/12+1.5*caracterH-caracterH/8,caracterW+1*caracterW/3,3*caracterH/4,1),obstacle(rock,1*canvasesW/6+2*caracterW+2*caracterW/3,1*canvasesH/12+1.5*caracterH-caracterH/8,caracterW,3*caracterH/4,2),obstacle(rock,5*canvasesW/8+caracterW/2,floor-caracterH,caracterW+3*caracterW/4,caracterH,3),obstacle(rock,5*canvasesW/8+2*caracterW,floor-3.5*caracterH,caracterW,3.5*caracterH,4),vine(5*canvasesW/8+3.25*caracterW,0,caracterW/2,5*caracterH,1),portal(1*canvasesW/6,1*canvasesH/12,1),caracter(),movingTrap(spikeBall,1*canvasesW/6+caracterW+1*caracterW/3+traping.mh1,void 0,2*canvasesH/6+traping.mv1,2*canvasesH/6,caracterW,caracterW,1*canvasesH/3,"vertical",canvasesW/200,1),trap(spikeWall,5*canvasesW/8+2*caracterW-caracterW/2,floor-2*caracterH-1*caracterH/4,3*caracterW/4,1.5*caracterH),ctx1.fillStyle="forestGreen",ctx1.textAlign="center",ctx1.font=canvasesH/20+"px cursive",ctx1.fillText("Remember walk or jump out of the screen to change level",1*canvasesW/2,7*canvasesH/9);
     } 
     //-----BUILD LEVEL 4-----// 
     //---------------------------------------------------------- 
-    if (playLevel === 4) { 
-        //objects 
-        obstacle(rock, canvasesW *1/6 + caracterW *1/3, floor - caracterH, caracterW, caracterH, 1); obstacle(rock, canvasesW *1/6 +  caracterW *1/3 + caracterW *2, floor - caracterH *2.25, caracterW, caracterH *2.25, 2); obstacle(rock, canvasesW *1/6 +  caracterW *1/3 + caracterW *6, floor - caracterH *2.25, caracterW, caracterH *2.25, 3); vine(canvasesW *1/6 +  caracterW *1/3 + caracterW *7.25, 0, caracterW /2, caracterH *5, 1); 
-        //objects not in use 
-        obstacle(rock, 0, 0, 0, 0, 4); 
-        //player 
-        caracter(); 
-        //traps 
-        movingTrap(spikeBall, canvasesW *1/6 + caracterW *1/3 + traping.mh1, undefined, canvasesH *2/6 - caracterH + traping.mv1, canvasesH *2/6 - caracterH, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /200, 1); movingTrap(spikeBall, canvasesW *1/6 +  caracterW *1/3 + caracterW *6 + traping.mh2, undefined, 0 + traping.mv2, 0, caracterW, caracterW, canvasesH *3/5 - caracterW *1.5, "vertical", canvasesW /200, 2); trap(spikeFloor, canvasesW *1/6 +  caracterW *1/3 + caracterW, floor - caracterH /2, caracterW, caracterH /2); trap(spikeWall, canvasesW *1/6 +  caracterW *1/3 + caracterW *1.5, floor - caracterH *2, caracterW *3/5, caracterH *1.5); trap(spikeFloor, canvasesW *1/6 +  caracterW *1/3 + caracterW *3, floor - caracterH /2, caracterW, caracterH /2); trap(spikeFloor, canvasesW *1/6 +  caracterW *1/3 + caracterW *4, floor - caracterH /2, caracterW, caracterH /2); trap(spikeFloor, canvasesW *1/6 +  caracterW *1/3 + caracterW *5, floor - caracterH /2, caracterW, caracterH /2); 
+    if (playLevel === 4) {
+        obstacle(rock,1*canvasesW/6+1*caracterW/3,floor-caracterH,caracterW,caracterH,1),obstacle(rock,1*canvasesW/6+1*caracterW/3+2*caracterW,floor-2.25*caracterH,caracterW,2.25*caracterH,2),obstacle(rock,1*canvasesW/6+1*caracterW/3+6*caracterW,floor-2.25*caracterH,caracterW,2.25*caracterH,3),vine(1*canvasesW/6+1*caracterW/3+7.25*caracterW,0,caracterW/2,5*caracterH,1),obstacle(rock,0,0,0,0,4),caracter(),movingTrap(spikeBall,1*canvasesW/6+1*caracterW/3+traping.mh1,void 0,2*canvasesH/6-caracterH+traping.mv1,2*canvasesH/6-caracterH,caracterW,caracterW,1*canvasesH/3,"vertical",canvasesW/200,1),movingTrap(spikeBall,1*canvasesW/6+1*caracterW/3+6*caracterW+traping.mh2,void 0,0+traping.mv2,0,caracterW,caracterW,3*canvasesH/5-1.5*caracterW,"vertical",canvasesW/200,2),trap(spikeFloor,1*canvasesW/6+1*caracterW/3+caracterW,floor-caracterH/2,caracterW,caracterH/2),trap(spikeWall,1*canvasesW/6+1*caracterW/3+1.5*caracterW,floor-2*caracterH,3*caracterW/5,1.5*caracterH),trap(spikeFloor,1*canvasesW/6+1*caracterW/3+3*caracterW,floor-caracterH/2,caracterW,caracterH/2),trap(spikeFloor,1*canvasesW/6+1*caracterW/3+4*caracterW,floor-caracterH/2,caracterW,caracterH/2),trap(spikeFloor,1*canvasesW/6+1*caracterW/3+5*caracterW,floor-caracterH/2,caracterW,caracterH/2);
     }
     //-----BUILD LEVEL 5-----// 
     //---------------------------------------------------------- 
-    if (playLevel === 5) { 
-        //objects 
-        obstacle(rock, canvasesW *2/6, floor - caracterH, caracterW, caracterH, 1); obstacle(rock, canvasesW *2/6 + caracterW *2, floor - caracterH *2.5, caracterW, caracterH, 2); obstacle(rock, canvasesW *2/6 + caracterW *4, floor - caracterH *3.5, caracterW, caracterH *3.5, 3); vine(canvasesW *2/6 + caracterW *5.5, 0, caracterW /2, caracterH *5, 1); 
-        //objects not in use 
-        obstacle(rock, 0, 0, 0, 0, 4); 
-        //player 
-        caracter(); 
-        //traps 
-        movingTrap(spikeBall, canvasesW *2/6 + traping.mh1, undefined, canvasesH *2/6 - caracterH + traping.mv1, canvasesH *2/6 - caracterH, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /237.5, 1); movingTrap(spikeBall, canvasesW *2/6 + caracterW *2 + traping.mh2, canvasesW *2/6 + caracterW *2.5, floor - caracterH *4 + traping.mv2, undefined, caracterW, caracterW, canvasesW *1/3, "horizontal", canvasesW /200, 2); trap(spikeFloor, canvasesW *2/6 + caracterW, floor - caracterH /2, caracterW, caracterH /2); trap(spikeFloor, canvasesW *2/6 + caracterW *2, floor - caracterH /2, caracterW, caracterH /2); trap(spikeFloor, canvasesW *2/6 + caracterW *3, floor - caracterH /2, caracterW, caracterH /2); 
+    if (playLevel === 5) {
+        obstacle(rock,2*canvasesW/6,floor-caracterH,caracterW,caracterH,1),obstacle(rock,2*canvasesW/6+2*caracterW,floor-2.5*caracterH,caracterW,caracterH,2),obstacle(rock,2*canvasesW/6+4*caracterW,floor-3.5*caracterH,caracterW,3.5*caracterH,3),vine(2*canvasesW/6+5.5*caracterW,0,caracterW/2,5*caracterH,1),obstacle(rock,0,0,0,0,4),caracter(),movingTrap(spikeBall,2*canvasesW/6+traping.mh1,void 0,2*canvasesH/6-caracterH+traping.mv1,2*canvasesH/6-caracterH,caracterW,caracterW,1*canvasesH/3,"vertical",canvasesW/237.5,1),movingTrap(spikeBall,2*canvasesW/6+2*caracterW+traping.mh2,2*canvasesW/6+2.5*caracterW,floor-4*caracterH+traping.mv2,void 0,caracterW,caracterW,1*canvasesW/3,"horizontal",canvasesW/200,2),trap(spikeFloor,2*canvasesW/6+caracterW,floor-caracterH/2,caracterW,caracterH/2),trap(spikeFloor,2*canvasesW/6+2*caracterW,floor-caracterH/2,caracterW,caracterH/2),trap(spikeFloor,2*canvasesW/6+3*caracterW,floor-caracterH/2,caracterW,caracterH/2);
     }
     //-----BUILD LEVEL 6-----// 
     //---------------------------------------------------------- 
-    if (playLevel === 6) { 
-         //flag
-        if(setDifficulty.diff === 0){ctx1.drawImage(checkpoint, 0, floor - caracterH*1.25, caracterW*0.75, caracterH*1.25);}
-        //objects 
-        obstacle(rock, canvasesW *1/6 - caracterW /6 - caracterW, canvasesH *1/12 + caracterH *1.5 - caracterH /8, caracterW + caracterW *1/3, caracterH *3/4, 1); 
-        //behind rock trap 
-        movingTrap(spikeBall, canvasesW /2 + caracterW *2.5 + traping.mh2, undefined, canvasesH *2/6 - caracterH + traping.mv2, canvasesH *2/6 - caracterH, caracterW, caracterW, canvasesH *1/3 + caracterH, "vertical", canvasesW /125, 2); 
-        //objects 
-        obstacle(rock, canvasesW /2 - caracterW *2.5, floor - caracterH, caracterW, caracterH, 2); obstacle(rock, canvasesW /2 - caracterW *1.5, floor - caracterH *1.5, caracterW, caracterH *1.5, 3); vine(canvasesW /2 - caracterW *0.5 + caracterW /4, 0, caracterW /2, caracterH *5, 1); obstacle(rock, canvasesW /2 + caracterW *2.125, 0 - caracterH *4, caracterW *1.75, caracterH *6, 4); 
-        //door 
-        portal(canvasesW *1/6 - caracterW, canvasesH *1/12, 2); 
-        //player 
-        caracter(); 
-        //traps 
-        movingTrap(spikeBall, canvasesW /2 - caracterW *1.5 + traping.mh1, undefined, canvasesH *2/6 - caracterH *2 + traping.mv1, canvasesH *2/6 - caracterH *2, caracterW, caracterW, canvasesH *1/3, "vertical", canvasesW /150, 1); trap(spikeFloor, canvasesW /2 - caracterW *1.5, floor - caracterH *2, caracterW, caracterH /2); trap(spikeFloor, canvasesW /2 + caracterW *2.25, floor - caracterH /2, caracterW *1.5, caracterH /2); 
+    if (playLevel === 6) {
+        0===setDifficulty.diff&&ctx1.drawImage(checkpoint,0,floor-1.25*caracterH,.75*caracterW,1.25*caracterH),obstacle(rock,1*canvasesW/6-caracterW/6-caracterW,1*canvasesH/12+1.5*caracterH-caracterH/8,caracterW+1*caracterW/3,3*caracterH/4,1),movingTrap(spikeBall,canvasesW/2+2.5*caracterW+traping.mh2,void 0,2*canvasesH/6-caracterH+traping.mv2,2*canvasesH/6-caracterH,caracterW,caracterW,1*canvasesH/3+caracterH,"vertical",canvasesW/125,2),obstacle(rock,canvasesW/2-2.5*caracterW,floor-caracterH,caracterW,caracterH,2),obstacle(rock,canvasesW/2-1.5*caracterW,floor-1.5*caracterH,caracterW,1.5*caracterH,3),vine(canvasesW/2-.5*caracterW+caracterW/4,0,caracterW/2,5*caracterH,1),obstacle(rock,canvasesW/2+2.125*caracterW,0-4*caracterH,1.75*caracterW,6*caracterH,4),portal(1*canvasesW/6-caracterW,1*canvasesH/12,2),caracter(),movingTrap(spikeBall,canvasesW/2-1.5*caracterW+traping.mh1,void 0,2*canvasesH/6-2*caracterH+traping.mv1,2*canvasesH/6-2*caracterH,caracterW,caracterW,1*canvasesH/3,"vertical",canvasesW/150,1),trap(spikeFloor,canvasesW/2-1.5*caracterW,floor-2*caracterH,caracterW,caracterH/2),trap(spikeFloor,canvasesW/2+2.25*caracterW,floor-caracterH/2,1.5*caracterW,caracterH/2);
     }
     //-----BUILD LEVEL 7-----// 
     //---------------------------------------------------------- 
-    if (playLevel === 7) { 
-        //building 
-        if(instructionTimer < 855 && WentHere === 0){obstacle(villageDoor, canvasesW - caracterW *3, 0, caracterW *3, caracterH *5, 1);}
-        //Tom
-        if(WentHere === 0){ctx1.drawImage(tom, canvasesW - caracterW *6, floor - caracterH *2.5, caracterW *2.5, caracterH *2.5);}
-        //carcter 
-        caracter();
-        //dialog of tom
-        if(caracterX >= canvasesW *0.16 && WentHere === 0){ instructionTimer += 1;ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /20+"px cursive";
-        if(instructionTimer < 100) {ctx1.drawImage(box, canvasesW - caracterW *5.5 - caracterW *1.5, floor - caracterH *1.75 - caracterH *0.75, caracterW *1.5, caracterH *0.75);ctx1.fillText("Stop", canvasesW - caracterW *5.5 - caracterW *0.75, floor - caracterH *1.75 - caracterH *0.3);
-        }else if(instructionTimer < 300){ctx1.font = ""+canvasesH /30+"px cursive"; ctx1.drawImage(box, canvasesW - caracterW *6.5 - caracterW *1.5, floor - caracterH *2.5 - caracterH *0.75, caracterW *2.5, caracterH *1.5);ctx1.fillText("To pass", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2.5 - caracterH *0.3);ctx1.fillText("Answer this riddle you must", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2 - caracterH *0.3);
-        }else if(instructionTimer < 500){ctx1.font = ""+canvasesH /30+"px cursive"; ctx1.drawImage(box, canvasesW - caracterW *6.5 - caracterW *1.5, floor - caracterH *2.5 - caracterH *0.75, caracterW *2.5, caracterH *1.5);ctx1.fillText("What came first?", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2.5 - caracterH *0.3);ctx1.fillText("The chicken or the egg", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2 - caracterH *0.3);
-        }else if(instructionTimer < 675){ctx1.fillStyle = "rgba( 0, 0, 0,0.8)";ctx1.fillRect(0, 0, canvasesW, canvasesH);ctx1.drawImage(egg,canvasesW*0.25-caracterW,canvasesH/2-caracterH*2.5/2,caracterW*2,caracterH*2.5);ctx1.drawImage(chicken,canvasesW*0.75-caracterW*2/2,canvasesH/2-caracterH*2.5/2,caracterW*2,caracterH*2.5);
-        }else if(instructionTimer < 800){ctx1.font = ""+canvasesH /30+"px cursive";ctx1.drawImage(box, canvasesW - caracterW *6.5 - caracterW *1.5, floor - caracterH *2.5 - caracterH *0.75, caracterW *2.5, caracterH *1.5);ctx1.fillText("Trick question hehe", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2.5 - caracterH *0.3);ctx1.fillText("It was the jellyfish", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2 - caracterH *0.3);
-        }else if(instructionTimer < 810){ctx1.drawImage(jelly,canvasesW/4,canvasesH/8,canvasesW/2,canvasesH*0.75);
-        }else if(instructionTimer < 850){ctx1.font = ""+canvasesH /30+"px cursive";ctx1.drawImage(box, canvasesW - caracterW *6.5 - caracterW *1.5, floor - caracterH *2.5 - caracterH *0.75, caracterW *2.5, caracterH *1.5);ctx1.fillText("You may", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2.5 - caracterH *0.3);ctx1.fillText("Pass now", canvasesW - caracterW *6 - caracterW *0.75, floor - caracterH *2 - caracterH *0.3);
-        }else if(instructionTimer < 960){ctx1.font = ""+canvasesH /20+"px cursive";ctx1.drawImage(box, canvasesW - caracterW *5.5 - caracterW *1.5, floor - caracterH *1.75 - caracterH *0.75, caracterW *1.5, caracterH *0.75);ctx1.fillText("Poof", canvasesW - caracterW *5.5 - caracterW *0.75, floor - caracterH *1.75 - caracterH *0.3);
-        }else {WentHere = 1;}
-                                                                       } 
-        //objects not in use 
-        obstacle(rock, 0, 0, 0, 0, 2); obstacle(rock, 0, 0, 0, 0, 3); obstacle(rock, 0, 0, 0, 0, 4); vine(0, 0, 0, 0, 1); 
+    if (playLevel === 7) {
+        instructionTimer<845&&0===WentHere&&obstacle(villageDoor,canvasesW-3*caracterW,0,3*caracterW,5*caracterH,1),0===WentHere&&ctx1.drawImage(tom,canvasesW-6*caracterW,floor-2.5*caracterH,2.5*caracterW,2.5*caracterH),caracter(),caracterX>=.16*canvasesW&&0===WentHere&&(instructionTimer+=1,ctx1.fillStyle="black",ctx1.textAlign="center",ctx1.font=canvasesH/20+"px cursive",instructionTimer<100?(ctx1.drawImage(box,canvasesW-5.5*caracterW-1.5*caracterW,floor-1.75*caracterH-.75*caracterH,1.5*caracterW,.75*caracterH),ctx1.fillText("Stop",canvasesW-5.5*caracterW-.75*caracterW,floor-1.75*caracterH-.3*caracterH)):instructionTimer<300?(ctx1.font=canvasesH/30+"px cursive",ctx1.drawImage(box,canvasesW-6.5*caracterW-1.5*caracterW,floor-2.5*caracterH-.75*caracterH,2.5*caracterW,1.5*caracterH),ctx1.fillText("To pass",canvasesW-6*caracterW-.75*caracterW,floor-2.5*caracterH-.3*caracterH),ctx1.fillText("Answer this riddle you must",canvasesW-6*caracterW-.75*caracterW,floor-2*caracterH-.3*caracterH)):instructionTimer<500?(ctx1.font=canvasesH/30+"px cursive",ctx1.drawImage(box,canvasesW-6.5*caracterW-1.5*caracterW,floor-2.5*caracterH-.75*caracterH,2.5*caracterW,1.5*caracterH),ctx1.fillText("What came first?",canvasesW-6*caracterW-.75*caracterW,floor-2.5*caracterH-.3*caracterH),ctx1.fillText("The chicken or the egg",canvasesW-6*caracterW-.75*caracterW,floor-2*caracterH-.3*caracterH)):instructionTimer<675?(ctx1.fillStyle="rgba( 0, 0, 0,0.8)",ctx1.fillRect(0,0,canvasesW,canvasesH),ctx1.drawImage(egg,.25*canvasesW-caracterW,canvasesH/2-2.5*caracterH/2,2*caracterW,2.5*caracterH),ctx1.drawImage(chicken,.75*canvasesW-2*caracterW/2,canvasesH/2-2.5*caracterH/2,2*caracterW,2.5*caracterH)):instructionTimer<800?(ctx1.font=canvasesH/30+"px cursive",ctx1.drawImage(box,canvasesW-6.5*caracterW-1.5*caracterW,floor-2.5*caracterH-.75*caracterH,2.5*caracterW,1.5*caracterH),ctx1.fillText("Trick question hehe",canvasesW-6*caracterW-.75*caracterW,floor-2.5*caracterH-.3*caracterH),ctx1.fillText("It was the jellyfish",canvasesW-6*caracterW-.75*caracterW,floor-2*caracterH-.3*caracterH)):instructionTimer<810?ctx1.drawImage(jelly,canvasesW/4,canvasesH/8,canvasesW/2,.75*canvasesH):instructionTimer<840?(ctx1.font=canvasesH/30+"px cursive",ctx1.drawImage(box,canvasesW-6.5*caracterW-1.5*caracterW,floor-2.5*caracterH-.75*caracterH,2.5*caracterW,1.5*caracterH),ctx1.fillText("You may",canvasesW-6*caracterW-.75*caracterW,floor-2.5*caracterH-.3*caracterH),ctx1.fillText("Pass now",canvasesW-6*caracterW-.75*caracterW,floor-2*caracterH-.3*caracterH)):instructionTimer<845?(ctx1.font=canvasesH/20+"px cursive",ctx1.drawImage(box,canvasesW-5.5*caracterW-1.5*caracterW,floor-1.75*caracterH-.75*caracterH,1.5*caracterW,.75*caracterH),ctx1.fillText("Poof",canvasesW-5.5*caracterW-.75*caracterW,floor-1.75*caracterH-.3*caracterH)):WentHere=1),obstacle(rock,0,0,0,0,2),obstacle(rock,0,0,0,0,3),obstacle(rock,0,0,0,0,4),vine(0,0,0,0,1);
     } 
     
     //-----hearts and damage-----// 
