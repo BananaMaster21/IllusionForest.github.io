@@ -2,120 +2,23 @@
 
 <html>
 <head>
-
 <meta charset="utf-8"> 
-<meta name="description" content="Help a gnome run and hop over and under obstacles on its road to the elf village Elhendyre and back in this forest platformer. But watch out the elves dont like visitors and have placed magic all around the forest surounding Elhendyre. Good luck and have fun!">
 <meta name="google-site-verification" content="dw1tzdBNSi6Ppgojtg-tYByLNdJJFdChVw5SLjvGBUI" />
-  
-<title>Illusion Forest</title>
-
-<link rel="icon" href="image/favicon.png">
-<link rel="stylesheet" type="text/css" href="style/main.css">
-
+<title>Illusion Forest</title><link rel="icon" href="image/favicon.png"><link rel="stylesheet" type="text/css" href="style/main.css">
 </head>
 <body onkeydown="caracterMove(event);teleport(event);" onkeyup="caracterStop(event);">
-
-  
-  
-  <div id=startScreen>
-    <br>
-  <h1 id=title>Illusion Forest</h1>
-    <br>
-    <br>
-  <a href="#mycanvas"><img src="image/start.png" id=startButton></a>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQqL8pUBOxQNKqaR2M2CXaC5UrYRO02J8vEAT-0HBmhKqGwA/viewform?usp=sf_link"><h2 style="text-align:center;text-decoration:none;">link to a form for bugs and speedruns</h2></a>
-  </div>
-  
-  
-  
-  <div>
-    <canvas id=mycanvas class=canvases onclick="reset();set(event);"></canvas>
-  </div>
-  
-  <audio id=sound_intro src="sound/5693765046501376.wav" loop></audio>
-  <audio id=sound_1 src="sound/5395415772430336.wav" loop></audio>
-  <audio id=sound_2 src="sound/5829014900441088.wav" loop></audio>
-  <audio id=sound_3 src="sound/5097789470539776.wav" loop></audio>
-  <audio id=sound_4 src="sound/5805286695108608.wav" loop></audio>
-  
-  <img id=setBack src="image/settingsBack.png" width=0 height=0 alt="forest">
-  <img id=introback src="image/intro.png" width=0 height=0 alt="forest">
-  <img id=lvl1back src="image/lvl_1.png" width=0 height=0 alt="forest">
-  <img id=lvl2back src="image/lvl_2.png" width=0 height=0 alt="forest">
-  <img id=lvl3back src="image/lvl_3.png" width=0 height=0 alt="forest">
-  <img id=lvl5back src="image/lvl_5.png" width=0 height=0 alt="forest">
-  <img id=cave1back src="image/caveBack1.png" width=0 height=0 alt="cave">
-  
-  <img id=house src="image/house.png" width=0 height=0 alt="house">
-  
-  <img id=bobRight1 src="image/bob1.png" width=0 height=0 alt="gnome">
-  <img id=bobRight2 src="image/bob2.png" width=0 height=0 alt="gnome">
-  <img id=bobLeft1 src="image/bob3.png" width=0 height=0 alt="gnome">
-  <img id=bobLeft2 src="image/bob4.png" width=0 height=0 alt="gnome">
-  
-  <img id=tom src="image/tom.png" width=0 height=0 alt="elf">
-  
-  <img id=meter1 src="image/meter1.png" width=0 height=0 alt="illusion">
-  <img id=meter2 src="image/meter2.png" width=0 height=0 alt="illusion">
-  <img id=meter3 src="image/meter3.png" width=0 height=0 alt="illusion">
-  <img id=meter4 src="image/meter4.png" width=0 height=0 alt="illusion">
-  <img id=meter5 src="image/meter5.png" width=0 height=0 alt="illusion">
-  <img id=meter6 src="image/meter6.png" width=0 height=0 alt="illusion">
-  <img id=meter7 src="image/meter7.png" width=0 height=0 alt="illusion">
-  <img id=settings src="image/pause.png" width=0 height=0 alt="illusion">
-  <img id=checkpoint src="image/checkpoint.png" width=0 height=0 alt="illusion">
-  
-  <img id=cristal1 src="image/cristal_1.png" width=0 height=0 alt="enchanted cristal">
-  <img id=cristal2 src="image/cristal_2.png" width=0 height=0 alt="enchanted cristal">
-  <img id=cristal3 src="image/cristal_3.png" width=0 height=0 alt="enchanted cristal">
-  <img id=cristal4 src="image/cristal_4.png" width=0 height=0 alt="enchanted cristal">
-  <img id=cristal5 src="image/cristal_5.png" width=0 height=0 alt="enchanted cristal">
-  
-  <img id=villageDoor src="image/door2.png" width=0 height=0 alt="enchanted door">
-  <img id=ruin src="image/ruin.png" width=0 height=0 alt="enchanted ruin">
-  <img id=sign src="image/sign.png" width=0 height=0 alt="enchanted sign">
-  
-  <img id=heart src="image/life.png" width=0 height=0 alt="illusion">
-  <img id=reviveButton src="image/revive.png" width=0 height=0 alt="illusion">
-  <img id=box src="image/box.png" width=0 height=0 alt="illusion">
-  
-  <img id=chicken src="image/chiken.png" width=0 height=0 alt="illusion">
-  <img id=egg src="image/egg.png" width=0 height=0 alt="illusion">
-  <img id=jelly src="image/jelly.png" width=0 height=0 alt="illusion">
-  <img id=jigle src="image/jigle.png" width=0 height=0 alt="illusion">
-  
-  <img id=door src="image/door.png" width=0 height=0 alt="enchanted door">
-  <img id=pit src="image/pit.png" width=0 height=0 alt="enchanted pit">
-  
-  <img id=rock src="image/rock.png" width=0 height=0 alt="rock">
-  <img id=vine src="image/vine.png" width=0 height=0 alt="vine">
-  
-  <img id=spikeFloor src="image/spikeFloor.png" width=0 height=0 alt="spike">
-  <img id=spikeWall src="image/spikeWall.png" width=0 height=0 alt="spike">
-  <img id=spikeBall src="image/spikeBall.png" width=0 height=0 alt="spike">
-  <img id=water src="image/water.png" width=0 height=0 alt="water">
-  <img id=mushroom1 src="image/mushroom.png" width=0 height=0 alt="illusion">
-
-
-<script src="script/app.js"></script>
-
+ <div id=startScreen><br><h1 id=title>Illusion Forest</h1><br><br><a href="#mycanvas"><img src="image/start.png" id=startButton></a><br></div>
+  <div><canvas id=play class=canvases onclick="reset();set(event);"></canvas></div>
+  <audio id=sound_intro src="sound/5693765046501376.wav" loop></audio><audio id=sound_1 src="sound/5395415772430336.wav" loop></audio><audio id=sound_2 src="sound/5829014900441088.wav" loop></audio><audio id=sound_3 src="sound/5097789470539776.wav" loop></audio><audio id=sound_4 src="sound/5805286695108608.wav" loop></audio>
+  <img id=setBack src="image/settingsBack.png" width=0 height=0 alt="forest"><img id=introback src="image/intro.png" width=0 height=0 alt="forest"><img id=lvl1back src="image/lvl_1.png" width=0 height=0 alt="forest"><img id=lvl2back src="image/lvl_2.png" width=0 height=0 alt="forest"><img id=lvl3back src="image/lvl_3.png" width=0 height=0 alt="forest"><img id=lvl5back src="image/lvl_5.png" width=0 height=0 alt="forest"><img id=cave1back src="image/caveBack1.png" width=0 height=0 alt="cave"><img id=house src="image/house.png" width=0 height=0 alt="house">
+  <img id=bobRight1 src="image/bob1.png" width=0 height=0 alt="gnome"><img id=bobRight2 src="image/bob2.png" width=0 height=0 alt="gnome"><img id=bobLeft1 src="image/bob3.png" width=0 height=0 alt="gnome"><img id=bobLeft2 src="image/bob4.png" width=0 height=0 alt="gnome"><img id=tom src="image/tom.png" width=0 height=0 alt="elf">
+  <img id=meter1 src="image/meter1.png" width=0 height=0 alt="illusion"><img id=meter2 src="image/meter2.png" width=0 height=0 alt="illusion"><img id=meter3 src="image/meter3.png" width=0 height=0 alt="illusion"><img id=meter4 src="image/meter4.png" width=0 height=0 alt="illusion"><img id=meter5 src="image/meter5.png" width=0 height=0 alt="illusion"><img id=meter6 src="image/meter6.png" width=0 height=0 alt="illusion"><img id=meter7 src="image/meter7.png" width=0 height=0 alt="illusion"><img id=settings src="image/pause.png" width=0 height=0 alt="illusion"><img id=checkpoint src="image/checkpoint.png" width=0 height=0 alt="illusion">
+  <img id=cristal1 src="image/cristal_1.png" width=0 height=0 alt="enchanted cristal"><img id=cristal2 src="image/cristal_2.png" width=0 height=0 alt="enchanted cristal"><img id=cristal3 src="image/cristal_3.png" width=0 height=0 alt="enchanted cristal"><img id=cristal4 src="image/cristal_4.png" width=0 height=0 alt="enchanted cristal"><img id=cristal5 src="image/cristal_5.png" width=0 height=0 alt="enchanted cristal">
+  <img id=villageDoor src="image/door2.png" width=0 height=0 alt="enchanted door"><img id=ruin src="image/ruin.png" width=0 height=0 alt="enchanted ruin"><img id=sign src="image/sign.png" width=0 height=0 alt="enchanted sign">
+  <img id=heart src="image/life.png" width=0 height=0 alt="illusion"><img id=reviveButton src="image/revive.png" width=0 height=0 alt="illusion"><img id=box src="image/box.png" width=0 height=0 alt="illusion">
+  <img id=chicken src="image/chiken.png" width=0 height=0 alt="illusion"><img id=egg src="image/egg.png" width=0 height=0 alt="illusion"><img id=jelly src="image/jelly.png" width=0 height=0 alt="illusion"><img id=jigle src="image/jigle.png" width=0 height=0 alt="illusion">
+  <img id=door src="image/door.png" width=0 height=0 alt="enchanted door"><img id=pit src="image/pit.png" width=0 height=0 alt="enchanted pit"><img id=rock src="image/rock.png" width=0 height=0 alt="rock"><img id=vine src="image/vine.png" width=0 height=0 alt="vine">
+  <img id=spikeFloor src="image/spikeFloor.png" width=0 height=0 alt="spike"><img id=spikeWall src="image/spikeWall.png" width=0 height=0 alt="spike"><img id=spikeBall src="image/spikeBall.png" width=0 height=0 alt="spike"><img id=water src="image/water.png" width=0 height=0 alt="water"><img id=mushroom1 src="image/mushroom.png" width=0 height=0 alt="illusion">
+  <script src="script/app.js"></script>
 </body>
 </html>
