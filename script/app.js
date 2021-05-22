@@ -228,20 +228,28 @@ function pitOfDoom(x,y,width,height, number) {
 //---------------------------------------------------------- 
 //CRISTAL STUFF 
 //---------------------------------------------------------- 
-var hasCrystal1 = 0; 
-var hasCrystal2 = 0; 
-var hasCrystal3 = 0; 
-var hasCrystal4 = 0; 
-var hasCrystal5 = 0; 
-function crystal (what, thing, x, y)  { if(thing === 0){ctx1.drawImage(what, x, y, caracterW *0.5, caracterH *0.75);} if (caracterX + caracterW /2 > x && caracterX + caracterW /2 < x + caracterW *0.5 && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + caracterH *0.75 ) { if (what === crystal1) {hasCrystal1 = 1;} if (what === crystal2) {if(hasCrystal2 === 0){if(setDifficulty.diff === 0){lives = 3;}else if(setDifficulty.diff === 1){lives = 2;}}hasCrystal2 = 1;} if (what === crystal3) {hasCrystal3 = 1;} if (what === crystal4) {hasCrystal4 = 1;} if (what === crystal5) {hasCrystal5 = 1;} } } 
-
+var totalCrystals = 0;
+var hasCrystal1 = 0; var crystalActivated1 = 0; var first = undefined;
+var hasCrystal2 = 0; var crystalActivated2 = 0; var second = undefined;
+var hasCrystal3 = 0; var crystalActivated3 = 0; var third = undefined;
+var hasCrystal4 = 0; var crystalActivated4 = 0; var fourth = undefined;
+var hasCrystal5 = 0; var crystalActivated5 = 0; var fith = undefined;
+function crystal (what, thing, x, y)  { if(thing === 0){ctx1.drawImage(what, x, y, caracterW *0.5, caracterH *0.75);} if (caracterX + caracterW /2 > x && caracte[rX + caracterW /2 < x + caracterW *0.5 && caracterY - caracterH /3 >= y && caracterY - caracterH /3 <= y + caracterH *0.75 ) { if (what === crystal1) {hasCrystal1 = 1;} if (what === crystal2) {if(hasCrystal2 === 0){if(setDifficulty.diff === 0){lives = 3;}else if(setDifficulty.diff === 1){lives = 2;}}hasCrystal2 = 1;} if (what === crystal3) {hasCrystal3 = 1;} if (what === crystal4) {hasCrystal4 = 1;} if (what === crystal5) {hasCrystal5 = 1;} } } 
+function drawShape (image, n){ctx1.drawImage(image, canvasesW*n, canvasesH*0.75, caracterW*0.75, caracterW);}
+function showOwnedCrystals (){
+    if(first === 1){}else if(first === 2){}else if(first === 3){}else if(first === 4){}else if(first === 5){}
+    if(second === 1){}else if(second === 2){}else if(second === 3){}else if(second === 4){}else if(second === 5){}
+    if(third === 1){}else if(third === 2){}else if(third === 3){}else if(third === 4){}else if(third === 5){}
+    if(fourth === 1){}else if(fourth === 2){}else if(fourth === 3){}else if(fourth === 4){}else if(fourth === 5){}
+    if(fith === 1){}else if(fith === 2){}else if(fith === 3){}else if(fith === 4){}else if(fith === 5){}
+}
 
 //---------------------------------------------------------- 
 //CARACTER STUFF 
 //---------------------------------------------------------- 
 var cW = caracterW; 
 var cH = caracterH; 
-function caracter () { if (hasCrystal4 === 1){cW = caracterW *0.75;cH = caracterH *0.75;}else{cW = caracterW;cH = caracterH;} ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, cW, cH); } 
+function caracter () { if (hasCrystal4 === 1 && crystalActivated4 === 1){cW = caracterW *0.75;cH = caracterH *0.75;}else{cW = caracterW;cH = caracterH;} ctx1.drawImage(caracterImage, caracterX, caracterY - caracterH, cW, cH); } 
 
 
 var instructionTimer = 0; 
