@@ -1,7 +1,7 @@
 var playLevel = 99;  
 var startButton = document.getElementById("startButton"); 
 startButton.onclick = function () {playLevel = 0;} 
-var mycanvas = document.getElementById("mycanvas"); 
+var mycanvas = document.getElementById("play"); 
 mycanvas.setAttribute("width", window.outerWidth + "px"); 
 mycanvas.setAttribute("height", window.outerHeight + "px"); 
 var canvasesW = window.innerWidth; var canvasesH = window.innerHeight; 
