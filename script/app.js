@@ -77,7 +77,9 @@ var egg = document.getElementById("egg");
 var chicken = document.getElementById("chicken");
 var jelly = document.getElementById("jelly");
 var jigle = document.getElementById("jigle");
-
+var shape = document.getElementById("shape");
+var shape2 = document.getElementById("shape2");
+var mole = document.getElementById("mole");
 
 //---------------------------------------------------------- 
 //SETTINGS STUFF 
