@@ -204,7 +204,7 @@ var effect = undefined;
 var countdown = 540;
 var activated = false;
 function deactivatejelly(){effect=undefined;activated=false;countdown=540;}
-function mushroom (image, x, y, width, height, thing) {ctx1.drawImage(image,x,y,width,height);if(activated===true){if(countdown<=0){deactivatejelly();}countdown-=1;}if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {if(thing==="jelly"){effect="jelly";activated=true;}}}
+function mushroom (image, x, y, width, height, thing) {ctx1.drawImage(image,x,y,width,height);if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {if(thing==="jelly"){effect="jelly";activated=true;}}}
 function poisonEffects () {if(effect === "jelly"){ctx1.drawImage(jigle,0,0,canvasesW,canvasesH);}}
 
 //---------------------------------------------------------- 
@@ -441,5 +441,7 @@ function game () {
     
     //-----ui poison effects-----//
     poisonEffects();
+    //-----thing-----//
+    if(activated===true){if(countdown<=0){deactivatejelly();}countdown-=1;}
 }
 } requestAnimationFrame(game);
