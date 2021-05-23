@@ -395,7 +395,7 @@ function game () {
     } 
         if (playLevel === 3859293759) { ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); 
         //objects
-        obstacle(rock, 0 - cararcterW/2, 0 - caracterH/2, caracterW, caracterH*5.25, 1);
+        obstacle(rock, 0 - caracterW/2, 0 - caracterH/2, caracterW, caracterH*5.25, 1);
         //objects not in use 
         obstacle(rock, 0, 0, 0, 0, 2); obstacle(rock, 0, 0, 0, 0, 3); obstacle(rock, 0, 0, 0, 0, 4); vine(0, 0, 0, 0, 1); 
         //bird
