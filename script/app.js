@@ -80,6 +80,7 @@ var jigle = document.getElementById("jigle");
 var shape = document.getElementById("shape");
 var shape2 = document.getElementById("shape2");
 var mole = document.getElementById("mole");
+var bird = document.getElementById("bird");
 
 //---------------------------------------------------------- 
 //SETTINGS STUFF 
@@ -398,7 +399,7 @@ function game () {
         //objects not in use 
         obstacle(rock, 0, 0, 0, 0, 2); obstacle(rock, 0, 0, 0, 0, 3); obstacle(rock, 0, 0, 0, 0, 4); vine(0, 0, 0, 0, 1); 
         //bird
-        ctx1.drawImage(rock,)
+        ctx1.drawImage(bird, caracterW, floor - caracterH*2.5, caracterW*3.5, caracterH*2.5);
         //player 
         caracter(); 
         } 
