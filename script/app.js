@@ -390,9 +390,15 @@ function game () {
         //player
         caracter(); 
         //traps 
-        trap(spikeFloor, caracterW *2.5, floor - caracterH /2, caracterW, caracterH /2); trap(spikeFloor, caracterW *3.5, floor - caracterH /2, caracterW, caracterH /2); trap(spikeFloor, canvasesW /2 - caracterW /2 + caracterW, floor - caracterH /2, caracterW, caracterH /2); trap(spikeFloor, canvasesW /2 - caracterW /2 + caracterW *2, floor - caracterH /2, caracterW, caracterH /2); } if (playLevel === 3859293759) { ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); 
+        trap(spikeFloor, caracterW *2.5, floor - caracterH /2, caracterW, caracterH /2); trap(spikeFloor, caracterW *3.5, floor - caracterH /2, caracterW, caracterH /2); trap(spikeFloor, canvasesW /2 - caracterW /2 + caracterW, floor - caracterH /2, caracterW, caracterH /2); trap(spikeFloor, canvasesW /2 - caracterW /2 + caracterW *2, floor - caracterH /2, caracterW, caracterH /2); 
+    } 
+        if (playLevel === 3859293759) { ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH); 
+        //objects
+        obstacle(rock, 0 - cararcterW/2, 0 - caracterH/2, caracterW, caracterH*5.25, 1);
         //objects not in use 
-        obstacle(rock, 0, 0, 0, 0, 1); obstacle(rock, 0, 0, 0, 0, 2); obstacle(rock, 0, 0, 0, 0, 3); obstacle(rock, 0, 0, 0, 0, 4); vine(0, 0, 0, 0, 1); 
+        obstacle(rock, 0, 0, 0, 0, 2); obstacle(rock, 0, 0, 0, 0, 3); obstacle(rock, 0, 0, 0, 0, 4); vine(0, 0, 0, 0, 1); 
+        //bird
+        ctx1.drawImage(rock,)
         //player 
         caracter(); 
         } 
