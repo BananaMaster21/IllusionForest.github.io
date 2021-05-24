@@ -489,7 +489,7 @@ function game () {
     if (playLevel === 11) {
         //backgrounds
         ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
-        ctx1.drawImage(town, 0, 0, canvasesW, canvasesH);
+        ctx1.drawImage(town, 0, 0-caracterH*0.75, canvasesW, canvasesH);
         //objects not in use
         obstacle(rock,0,0,0,0,1);
         obstacle(rock,0,0,0,0,2);
