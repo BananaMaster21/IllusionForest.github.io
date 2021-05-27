@@ -2,7 +2,7 @@
 var xx = 20;
 var yy = 20;
 //end of position testing variables for random stuff
-if(document.location.href === "https://bananamaster21.github.io/IllusionForest.github.io/#play"){document.location.href = "https://bananamaster21.github.io/IllusionForest.github.io/";}
+if(document.location.href==="https://bananamaster21.github.io/IllusionForest.github.io/#play"){document.location.href = "https://bananamaster21.github.io/IllusionForest.github.io/";}
 var playLevel = 99;  
 var startButton = document.getElementById("startButton"); 
 startButton.onclick = function () {playLevel = 0;} 
@@ -63,6 +63,7 @@ var resetButton = document.getElementById("reviveButton");
 var house = document.getElementById("house"); 
 var rock = document.getElementById("rock"); 
 var vineImg = document.getElementById("vine"); 
+var chief = document.getElementById("chief");
 var spikeFloor = document.getElementById("spikeFloor"); 
 var spikeWall = document.getElementById("spikeWall"); 
 var spikeBall = document.getElementById("spikeBall"); 
@@ -497,7 +498,9 @@ function game () {
     if (playLevel === 11) {
         //backgrounds
         ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
-        ctx1.drawImage(town, 0, 0-caracterH*0.75, canvasesW, canvasesH);
+        ctx1.drawImage(town, 0, 0-caracterH*0.75, canvasesW, canvasesH+caracterH/4);
+        //vilage chief
+        ctx1.drawImage(chief,caracterW/2,floor-2.5*caracterH,2.5*caracterW,2.5*caracterH);
         //objects not in use
         obstacle(rock,0,0,0,0,1);
         obstacle(rock,0,0,0,0,2);
