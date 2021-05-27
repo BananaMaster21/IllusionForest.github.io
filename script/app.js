@@ -2,7 +2,7 @@
 var xx = 20;
 var yy = 20;
 //end of position testing variables for random stuff
-document.location.href = "https://bananamaster21.github.io/IllusionForest.github.io/"
+if(document.location.href === "https://bananamaster21.github.io/IllusionForest.github.io/#play"){document.location.href = "https://bananamaster21.github.io/IllusionForest.github.io/";}
 var playLevel = 99;  
 var startButton = document.getElementById("startButton"); 
 startButton.onclick = function () {playLevel = 0;} 
