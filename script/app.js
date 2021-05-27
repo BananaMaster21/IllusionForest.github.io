@@ -69,6 +69,7 @@ var spikeBall = document.getElementById("spikeBall");
 var town = document.getElementById("town");
 var door = document.getElementById("door"); 
 var pit = document.getElementById("pit");
+var nest = document.getElementById("nest");
 var crystal1 = document.getElementById("cristal1"); 
 var crystal2 = document.getElementById("cristal2"); 
 var crystal3 = document.getElementById("cristal3"); 
