@@ -2,8 +2,8 @@
 var xx = 20;
 var yy = 20;
 //end of position testing variables for random stuff
-
-var playLevel = 0;  
+document.location.href = "https://bananamaster21.github.io/IllusionForest.github.io/"
+var playLevel = 99;  
 var startButton = document.getElementById("startButton"); 
 startButton.onclick = function () {playLevel = 0;} 
 var mycanvas = document.getElementById("play"); 
@@ -405,8 +405,8 @@ function game () {
         //objects not in use 
         obstacle(rock, 0, 0, 0, 0, 2); obstacle(rock, 0, 0, 0, 0, 3); obstacle(rock, 0, 0, 0, 0, 4); vine(0, 0, 0, 0, 1); 
         //bird
-        if(WentHere2===0){ctx1.drawImage(bird, caracterW, floor - caracterH*2.5, caracterW*3.5, caracterH*2.5);}else{ctx1.drawImage(bird, caracterW, floor - caracterH*1.25, caracterW*3.5, caracterH*1.25);crystal(crystal1,hasCrystal1, xx, floor - carcterH*2.25, caracterW*0.75, caracterH*0.75);}
-        if(caracterX <= canvasesW-caracterW*2.5&&WentHere2===0){instructionTimer+=1;ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";if(instructionTimer<=150){ctx1.drawImage(box2, caracterW*4, caracterH*1.25,2.5*caracterW,1.5*caracterH);ctx1.fillText("Hello there",caracterW*5.25,caracterH*2);}else if (instructionTimer <= 350){ctx1.font=canvasesH/35+"px cursive";ctx1.drawImage(box2, caracterW*4, caracterH*1.25,2.5*caracterW,1.5*caracterH);ctx1.fillText("Rare to see",caracterW*525,caracterH*1.75);ctx1.fillText("Travelers out here",caracterW*5.25,caracterH*2.125);}else if (instructionTimer <= 550){ctx1.font=canvasesH/35+"px cursive";ctx1.drawImage(box2, caracterW*4, caracterH*1.25,2.5*caracterW,1.5*caracterH);ctx1.fillText("Here have this",caracterW*5.25,caracterH*1.75);ctx1.fillText("It boosts your speed",caracterW*5.25,caracterH*2.125);}else if (instructionTimer > 550){WentHere2}}
+        if(WentHere2===0){ctx1.drawImage(bird, caracterW, floor - caracterH*2.5, caracterW*3.5, caracterH*2.5);}else if (WentHere2===1){ctx1.drawImage(nest, caracterW, floor - caracterH*1.25, caracterW*3.5, caracterH*1.25);crystal(crystal1,hasCrystal1, xx, floor - carcterH*2.25, caracterW*0.75, caracterH*0.75);}
+        if(caracterX <= canvasesW-caracterW*2.5&&WentHere2===0){instructionTimer+=1;ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";if(instructionTimer<=150){ctx1.drawImage(box2, caracterW*4, caracterH*1.25,2.5*caracterW,1.5*caracterH);ctx1.fillText("Hello there",caracterW*5.25,caracterH*2);}else if (instructionTimer <= 350){ctx1.font=canvasesH/35+"px cursive";ctx1.drawImage(box2, caracterW*4, caracterH*1.25,2.5*caracterW,1.5*caracterH);ctx1.fillText("Rare to see",caracterW*5.25,caracterH*1.75);ctx1.fillText("Travelers out here",caracterW*5.25,caracterH*2.125);}else if (instructionTimer <= 550){ctx1.font=canvasesH/35+"px cursive";ctx1.drawImage(box2, caracterW*4, caracterH*1.25,2.5*caracterW,1.5*caracterH);ctx1.fillText("Here have this",caracterW*5.25,caracterH*1.75);ctx1.fillText("It boosts your speed",caracterW*5.25,caracterH*2.125);}else if (instructionTimer > 550){WentHere2 = 1;}}
         //player 
         caracter(); 
         } 
