@@ -1,9 +1,9 @@
-var x = 0;
-var y = 0;
+//start of position testing variables for random stuff
+var xx = 20;
+var yy = 20;
+//end of position testing variables for random stuff
 
-
-
-var playLevel = 99;  
+var playLevel = 0;  
 var startButton = document.getElementById("startButton"); 
 startButton.onclick = function () {playLevel = 0;} 
 var mycanvas = document.getElementById("play"); 
@@ -301,7 +301,8 @@ var audio_3 = document.getElementById("sound_3");
 var audio_4 = document.getElementById("sound_4"); 
 function music () { if(setAudio.want === 1){if (playLevel === 0 || playLevel === 7) {audio_0.play();}else {audio_0.pause();} if (playLevel === 1 || playLevel === 2) {audio_1.play();}else {audio_1.pause();} if (playLevel === 3 || playLevel === 4) {audio_2.play();}else {audio_2.pause();} if (playLevel === 5 || playLevel === 6) {audio_3.play();}else {audio_3.pause();} if (playLevel === 525852758123 || playLevel === 70923742194 || playLevel === 0180481080) {audio_4.play();}else {audio_4.pause();}}else if (setAudio.want === 0){audio_0.pause();audio_1.pause();audio_2.pause();audio_3.pause();audio_4.pause();}} 
 
-//random variable
+//random variables
+var WentHere2 = 0;
 var WentHere = 0;
 
 //---------------------------------------------------------- 
@@ -375,7 +376,7 @@ function game () {
         //ruin 
         ctx1.drawImage(ruin, canvasesW - caracterW *2.5, floor - caracterH *1.75 - caracterH *2.75, caracterW *2, caracterH *1.5); 
         //crystal 
-        crystal(crystal4, hasCrystal4, canvasesW - caracterW *2, floor - caracterH *4.625); 
+        crystal(crystal5, hasCrystal5, canvasesW - caracterW *2, floor - caracterH *4.625); 
         //water
         aqua(caracterW * 4.75, floor - caracterH * 1.25, caracterW *3, caracterH *1.25);
         //objects 
@@ -390,7 +391,7 @@ function game () {
         //ruin 
         ctx1.drawImage(ruin, caracterW /2, floor - caracterH *1.5 - caracterH *1.75, caracterW *2, caracterH *1.5); 
         //crystal 
-        crystal(crystal1, hasCrystal1, caracterW *1.25, floor - caracterH *2 - caracterH *1.75); 
+        crystal(crystal4, hasCrystal4, caracterW *1.25, floor - caracterH *2 - caracterH *1.75); 
         //objects 
         obstacle(rock, 0, floor - caracterH *2.25, caracterW *2.5, caracterH *2.25, 1); obstacle(rock, 0 - caracterW /2, 0 - caracterH *0.5, caracterW *1, caracterH *5, 2); obstacle(rock, canvasesW /2 - caracterW /2, floor - caracterH *2.25, caracterW, caracterH *2.25, 3); obstacle(rock, canvasesW /2 - caracterW /2, 0 - caracterH *0.625, caracterW, caracterH *2, 4); vine(canvasesW /2 - caracterW /2 + caracterW *3, 0 - caracterH *0.5, caracterW /2, caracterH *5.25, 1); 
         //player
@@ -404,8 +405,8 @@ function game () {
         //objects not in use 
         obstacle(rock, 0, 0, 0, 0, 2); obstacle(rock, 0, 0, 0, 0, 3); obstacle(rock, 0, 0, 0, 0, 4); vine(0, 0, 0, 0, 1); 
         //bird
-        ctx1.drawImage(bird, caracterW, floor - caracterH*2.5, caracterW*3.5, caracterH*2.5);
-        if(caracterX <= canvasesW-caracterW){}
+        if(WentHere2===0){ctx1.drawImage(bird, caracterW, floor - caracterH*2.5, caracterW*3.5, caracterH*2.5);}else{ctx1.drawImage(bird, caracterW, floor - caracterH*1.25, caracterW*3.5, caracterH*1.25);crystal(crystal1,hasCrystal1, xx, floor - carcterH*2.25, caracterW*0.75, caracterH*0.75);}
+        if(caracterX <= canvasesW-caracterW*2.5&&WentHere2===0){instructionTimer+=1;ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";if(instructionTimer<=150){ctx1.drawImage(box2, caracterW*4, caracterH*1.25,2.5*caracterW,1.5*caracterH);ctx1.fillText("Hello there",caracterW*5.25,caracterH*2);}else if (instructionTimer <= 350){ctx1.font=canvasesH/35+"px cursive";ctx1.drawImage(box2, caracterW*4, caracterH*1.25,2.5*caracterW,1.5*caracterH);ctx1.fillText("Rare to see",caracterW*525,caracterH*1.75);ctx1.fillText("Travelers out here",caracterW*5.25,caracterH*2.125);}else if (instructionTimer <= 550){ctx1.font=canvasesH/35+"px cursive";ctx1.drawImage(box2, caracterW*4, caracterH*1.25,2.5*caracterW,1.5*caracterH);ctx1.fillText("Here have this",caracterW*5.25,caracterH*1.75);ctx1.fillText("It boosts your speed",caracterW*5.25,caracterH*2.125);}else if (instructionTimer > 550){WentHere2}}
         //player 
         caracter(); 
         } 
