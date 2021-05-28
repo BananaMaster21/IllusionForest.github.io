@@ -1,6 +1,6 @@
 //start of position testing variables for random stuff
-var xx = 20;
-var yy = 20;
+var xx = 0;
+var yy = 0;
 //end of position testing variables for random stuff
 if(document.location.href==="https://bananamaster21.github.io/IllusionForest.github.io/#play"){document.location.href = "https://bananamaster21.github.io/IllusionForest.github.io/";}
 var playLevel = 99;  
@@ -186,11 +186,9 @@ if (y <= caracterY && caracterY < y + height /2 && caracterX + cW *1/3 > x && ca
 
 
 //---------------------------------------------------------- 
-//VINE STUFF 
+//VINE STUFF
 //---------------------------------------------------------- 
 function vine (x, y, width, height, number) { ctx1.drawImage(vineImg, x, y, width, height); if (caracterX + cW /2 > x && caracterX + cW /2 < x + width && caracterY - cH /3 >= y && caracterY - cH /3 <= y + height ) {fallStop = 1; if (number === 1) {ob.v1 = 0;}}else {if (number === 1) {ob.v1 = 1;}} } 
-
-
 //---------------------------------------------------------- 
 //NEEDED FOR ALL TRAP STUFF 
 //---------------------------------------------------------- 
@@ -272,7 +270,7 @@ function reset () { if (lives === 0) { pause = 0; effect = undefined; isInverted
 //---------------------------------------------------------- 
 //SWITCHING LEVELS STUFF 
 //---------------------------------------------------------- 
-function next () { if (caracterX >= canvasesW) { if (playLevel === 0 || playLevel === 525852758123) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 1;}else if (playLevel === 1) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 2;}else if (playLevel === 2) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 3;}else if (playLevel === 3) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 4;}else if (playLevel === 4) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 5;}else if (playLevel === 5) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 6;}else if (playLevel === 6) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 7;}else if (playLevel === 7) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 8;}else if (playLevel === 8) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 9;}else if (playLevel === 9) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 10;}else if (playLevel === 10) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 11;}else if (playLevel === 70923742194) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 986593659; }else if (playLevel === 0180481080) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 824982691; }else if (playLevel === 2793487593) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 70923742194; }else if (playLevel === 3859293759) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 0180481080; } traping.d1 = undefined; traping.mh1 = 0; traping.mv1 = 0; traping.d2 = undefined; traping.mh2 = 0; traping.mv2 = 0; instructionTimer = 0; } if (caracterX + cW < 0) { if (playLevel === 1){ caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 525852758123; }else if (playLevel === 2) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 1; }else if (playLevel === 3) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 2; }else if (playLevel === 4) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 3; }else if (playLevel === 5) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 4; }else if (playLevel === 6) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 5; }else if (playLevel === 7) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 6; }else if (playLevel === 8) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 7; }else if (playLevel === 9) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 8; }else if (playLevel === 10) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 9; }else if (playLevel === 11) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 10; }else if (playLevel === 70923742194) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 2793487593; }else if (playLevel === 0180481080) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 3859293759; }else if (playLevel === 986593659) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 70923742194; }else if (playLevel === 824982691) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 0180481080; }traping.mh1 = 0; traping.mv1 = 0; traping.d2 = undefined; traping.mh2 = 0; traping.mv2 = 0; instructionTimer = 0; } } 
+function next () { if (caracterX >= canvasesW) { if (playLevel === 0 || playLevel === 525852758123) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 1;}else if (playLevel === 1) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 2;}else if (playLevel === 2) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 3;}else if (playLevel === 3) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 4;}else if (playLevel === 4) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 5;}else if (playLevel === 5) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 6;}else if (playLevel === 6) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 7;}else if (playLevel === 7) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 8;}else if (playLevel === 8) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 9;}else if (playLevel === 9) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 10;}else if (playLevel === 10) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 11;}else if (playLevel === 70923742194) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 986593659; }else if (playLevel === 0180481080) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 824982691; }else if (playLevel === 2793487593) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 70923742194; }else if (playLevel === 3859293759) { caracterX = canvasesW /25; caracterY = ground - caracterH; playLevel = 0180481080; } traping.d1 = undefined; traping.mh1 = 0; traping.mv1 = 0; traping.d2 = undefined; traping.mh2 = 0; traping.mv2 = 0; instructionTimer = 0; } if (caracterX + cW < 0) { if (playLevel === 1){ caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 525852758123; }else if (playLevel === 2) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 1; }else if (playLevel === 3) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 2; }else if (playLevel === 4) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 3; }else if (playLevel === 5) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 4; }else if (playLevel === 6) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 5; }else if (playLevel === 7) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 6; }else if (playLevel === 8) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 7; }else if (playLevel === 9) { caracterX = canvasesW *24/25; caracterY = 0; playLevel = 8; }else if (playLevel === 10) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 9; }else if (playLevel === 11) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 10; }else if (playLevel === 70923742194) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 2793487593; }else if (playLevel === 0180481080) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 3859293759; }else if (playLevel === 986593659) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 70923742194; }else if (playLevel === 824982691) { caracterX = canvasesW *24/25; caracterY = ground - caracterH; playLevel = 0180481080; }traping.mh1 = 0; traping.mv1 = 0; traping.d2 = undefined; traping.mh2 = 0; traping.mv2 = 0; instructionTimer = 0; } } 
 
 
 //---------------------------------------------------------- 
@@ -456,11 +454,11 @@ function game () {
         //background
         ctx1.drawImage(lvl_3Back,0,0,canvasesW,canvasesH);
         //obstacles
+        vine(caracterW*2.5,0-caracterH*0.5,caracterW/2,caracterH*5.25,1);
+        aqua(caracterW*2.5,floor-caracterH*1.25, caracterW*6.75, caracterH*1.25);
         obstacle(rock,caracterW*1.5,floor-caracterH*1.25,caracterW*1.25,caracterH*1.25,1);
-        vine(caracterW*2.5,0-caracterH*0.5,caracterW/2,caracterH*5.25);
-        aqua(caracterW*2.5,floor-caracterH*1.25, caracterW*6.5, caracterH*1.25);
         obstacle(rock,caracterW*3,floor-caracterH*2.5,caracterW*1.25,caracterH*1.25,2);
-        obstacle(rock,caracterW*7,caracterH*0.5,caracterW,0,3);
+        obstacle(rock,caracterW*7,caracterH*0.5,caracterW*1.5,caracterH*3.5,3);
         //objects not in use
         obstacle(rock,0,0,0,0,4);
         
@@ -477,7 +475,7 @@ function game () {
         obstacle(rock,0,0,0,0,2);
         obstacle(rock,0,0,0,0,3);
         obstacle(rock,0,0,0,0,4);
-        vine(0,0,0,0);
+        vine(0,0,0,0,1);
         
         //player 
         caracter();
@@ -492,7 +490,7 @@ function game () {
         obstacle(rock,0,0,0,0,2);
         obstacle(rock,0,0,0,0,3);
         obstacle(rock,0,0,0,0,4);
-        vine(0,0,0,0);
+        vine(0,0,0,0,1);
         
         //player 
         caracter();
@@ -510,7 +508,7 @@ function game () {
         obstacle(rock,0,0,0,0,2);
         obstacle(rock,0,0,0,0,3);
         obstacle(rock,0,0,0,0,4);
-        vine(0,0,0,0);
+        vine(0,0,0,0,1);
         
         //player 
         caracter();
