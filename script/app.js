@@ -5,7 +5,10 @@ var yy = 0;
 if(document.location.href==="https://bananamaster21.github.io/IllusionForest.github.io/#play"){document.location.href = "https://bananamaster21.github.io/IllusionForest.github.io/";}
 var playLevel = 99;  
 var startButton = document.getElementById("startButton"); 
-startButton.onclick = function () {playLevel = 0;} 
+var activatemolecutscean = 0;
+startButton.onclick = function () {playLevel = 0;
+if(document.cookie === ""){document.cookie = "thief=0";}
+if(document.cookie === "thief=1"){playLevel=348959898753935269635;activatemolecutscean=1;}} 
 var mycanvas = document.getElementById("play"); 
 mycanvas.setAttribute("width", window.outerWidth + "px"); 
 mycanvas.setAttribute("height", window.outerHeight + "px"); 
@@ -24,12 +27,13 @@ var lvl_2Back = document.getElementById("lvl2back");
 var lvl_3Back = document.getElementById("lvl3back"); 
 var lvl_5Back = document.getElementById("lvl5back"); 
 var lvl_9Back = document.getElementById("lvl9back");
-var caveBack1 = document.getElementById("cave1Back");
+var caveBack1 = document.getElementById("caveBack1");
 
 
 //---------------------------------------------------------- 
 //CARACTER STUFF 
 //---------------------------------------------------------- 
+var isStatue = 0;
 var bobRight1 = document.getElementById("bobRight1"); 
 var bobRight2 = document.getElementById("bobRight2"); 
 var bobLeft1 = document.getElementById("bobLeft1"); 
@@ -63,6 +67,8 @@ var resetButton = document.getElementById("reviveButton");
 var house = document.getElementById("house"); 
 var rock = document.getElementById("rock"); 
 var vineImg = document.getElementById("vine"); 
+var bed = document.getElementById("bed");
+var statue = document.getElementById("statue");
 var chief = document.getElementById("chief");
 var spikeFloor = document.getElementById("spikeFloor"); 
 var spikeWall = document.getElementById("spikeWall"); 
@@ -153,10 +159,10 @@ function controls () {if (side === "ArrowLeft"){caracterMoveSide = 1;caracterKee
 //---------------------------------------------------------- 
 var feetSwitch = 0; 
 var speed = 0; 
-function walking () { if(caracterMoveSide===1&&hitingLeft===0){caracterX=caracterX-speed;if(speed<=canvasesW/100 && hasCrystal1 === 0){speed=speed+canvasesW/1000;}else if (speed<=canvasesW/85 && hasCrystal1 === 1){speed=speed+canvasesW/850;}if(jump===0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){caracterImage=bobLeft1;}if(feetSwitch>=5){caracterImage=bobLeft2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){caracterImage=bobLeft2;}} if(caracterMoveSide===2&&hitingRight===0){caracterX=caracterX+speed;if(speed<=canvasesW/100 && hasCrystal1 === 0){speed=speed+canvasesW/1000;}else if(speed<=canvasesW/85 && hasCrystal1 === 1){speed=speed+canvasesW/850;}if(jump===0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){caracterImage=bobRight1;}if(feetSwitch>=5){caracterImage=bobRight2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1){caracterImage=bobRight2;}} if(caracterMoveSide===0){caracterX = caracterX - 0;if (caracterKeepSide === "left") {caracterImage = bobLeft1;}if (caracterKeepSide === "right") { caracterImage = bobRight1;}} } 
+function walking () { if(caracterMoveSide===1&&hitingLeft===0){caracterX=caracterX-speed;if(speed<=canvasesW/100 && hasCrystal1 === 0){speed=speed+canvasesW/1000;}else if (speed<=canvasesW/85 && hasCrystal1 === 1){speed=speed+canvasesW/850;}if(jump===0 && isStatue === 0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){caracterImage=bobLeft1;}if(feetSwitch>=5){caracterImage=bobLeft2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1 && isStatue === 0){caracterImage=bobLeft2;}} if(caracterMoveSide===2&&hitingRight===0){caracterX=caracterX+speed;if(speed<=canvasesW/100 && hasCrystal1 === 0){speed=speed+canvasesW/1000;}else if(speed<=canvasesW/85 && hasCrystal1 === 1){speed=speed+canvasesW/850;}if(jump===0 && isStatue === 0){feetSwitch=feetSwitch+1;if(feetSwitch<=4){caracterImage=bobRight1;}if(feetSwitch>=5){caracterImage=bobRight2;}if(feetSwitch>=9){feetSwitch=0;}}if(jump===1 && isStatue === 0){caracterImage=bobRight2;}} if(caracterMoveSide===0){caracterX = caracterX - 0;if (caracterKeepSide === "left") {caracterImage = bobLeft1;}if (caracterKeepSide === "right") { caracterImage = bobRight1;}} } 
 
 
-//---------------------------------------------------------- 
+//----------------------------------------------------------
 //JUMPING AND FALLING STUFF 
 //---------------------------------------------------------- 
 var jump = false; 
@@ -521,11 +527,12 @@ function game () {
         //background
         ctx1.drawImage(caveBack1,0,0,canvasesW,canvasesH);
         //bed
-        
+        ctx1.drawImage(bed, canvasesW - caracterW*3.5, floor - caracterH*1.325, caracterW*3, caracterH*1.325);
         //crystal
         ctx1.drawImage(ruin,caracterW,floor-1.5*caracterH,2*caracterW,1.5*caracterH);
         crystal(crystal3, hasCrystal3, caracterW*1.75, floor - caracterH*2);
-        
+        //door
+        portal(canvasesW/2,floor-caracterH*1.5,111);
         //obstacles
         obstacle(rock,0-caracterW/2,0-caracterH/2,caracterW,caracterH*5.25,1);
         obstacle(rock,caracterW*3,0-caracterH/2,caracterW,caracterH*3.5,2);
@@ -533,7 +540,8 @@ function game () {
         //objects not in use
         obstacle(rock,0,0,0,0,4);
         vine(0,0,0,0,1);
-        
+        //make you statue
+        if(hasCrystal3===1){caracterImage=statue;pause=1;ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.drawImage(mole, canvasesW-caracterW*4, floor - caracterH*2, caracterW*1.5, caracterH*2);instructionTimer+=1;if(instructionTimer <= 100000){ctx1.drawImage(box,xx,yy,25,2.5*caracterW,1.5*caracterH);ctx1.fillText("How dare you",xxx,yyy);ctx1.fillText("Steal from me",xxxx,yyyy);}}
         //caracter
         caracter();
     }
