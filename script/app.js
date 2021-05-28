@@ -1,6 +1,10 @@
 //start of position testing variables for random stuff
 var xx = 0;
 var yy = 0;
+var xxx = 0;
+var yyy = 0;
+var xxxx = 0;
+var yyyy = 0;
 //end of position testing variables for random stuff
 if(document.location.href==="https://bananamaster21.github.io/IllusionForest.github.io/#play"){document.location.href = "https://bananamaster21.github.io/IllusionForest.github.io/";}
 var playLevel = 99;  
