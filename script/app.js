@@ -264,7 +264,7 @@ var instructionTimer = 0;
 //---------------------------------------------------------- 
 //RESETING WHEN DIE STUFF 
 //---------------------------------------------------------- 
-function reset () { if (lives === 0) { pause = 0; effect = undefined; isInverted = 0;if(setDifficulty.diff === 0){if (playLevel > 0 && playLevel < 3) {playLevel = 1; }else if (playLevel > 0 && playLevel < 6 || playLevel === 70923742194 || playLevel === 2793487593 || playLevel === 986593659) {playLevel = 3; }else if (playLevel > 0) {playLevel = 6;}}else if(setDifficulty.diff === 1){if(playLevel > 0){playLevel = 1;}} instructionTimer = 0; caracterX = canvasesW /25; caracterY = ground - cH; caracterMoveSide = 0; caracterKeepSide = "right"; side = undefined; feetSwitch = 0; speed = 0; jump = false; fall = false; onGround = 1; upTimer = canvasesH /40; fallTimer = 0; healTimer = 0;hasCrystal1 = 0;first=undefined;hasCrystal2 = 0;second = undefined;hasCrystal3 = 0;third = undefined;hasCrystal4 = 0;fourth = undefined;hasCrystal5 = 0;fith = undefined;if(setDifficulty.diff === 0){lives = 2;}else if(setDifficulty.diff === 1){lives = 1;}}} 
+function reset () { if (lives === 0) { pause = 0; effect = undefined; isInverted = 0;if(setDifficulty.diff === 0){if (playLevel > 0 && playLevel < 3) {playLevel = 1; }else if (playLevel > 0 && playLevel < 6 || playLevel === 70923742194 || playLevel === 2793487593 || playLevel === 986593659) {playLevel = 3; }else if (playLevel > 0 && < 8||playLevel===0180481080||playLevel===3859293759||playLevel===824982691) {playLevel = 6;}else if (playLevel > 0){playLevel=8;}}else if(setDifficulty.diff === 1){if(playLevel > 0){playLevel = 1;}} instructionTimer = 0; caracterX = canvasesW /25; caracterY = ground - cH; caracterMoveSide = 0; caracterKeepSide = "right"; side = undefined; feetSwitch = 0; speed = 0; jump = false; fall = false; onGround = 1; upTimer = canvasesH /40; fallTimer = 0; healTimer = 0;hasCrystal1 = 0;first=undefined;hasCrystal2 = 0;second = undefined;hasCrystal3 = 0;third = undefined;hasCrystal4 = 0;fourth = undefined;hasCrystal5 = 0;fith = undefined;if(setDifficulty.diff === 0){lives = 2;}else if(setDifficulty.diff === 1){lives = 1;}}} 
 
 
 //---------------------------------------------------------- 
@@ -453,6 +453,7 @@ function game () {
     if (playLevel === 8) {
         //background
         ctx1.drawImage(lvl_3Back,0,0,canvasesW,canvasesH);
+        if(setDifficulty.diff===0){ctx1.drawImage(checkpoint,0,floor-1.25*caracterH,.75*caracterW,1.25*caracterH);}
         //obstacles
         vine(caracterW*2.5,0-caracterH*0.5,caracterW/2,caracterH*5.25,1);
         aqua(caracterW*2.5,floor-caracterH*1.25, caracterW*6.75, caracterH*1.25);
