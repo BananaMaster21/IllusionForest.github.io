@@ -231,9 +231,9 @@ var isEbeingPressed = 0;
 function teleport (event) {var thing = event.key; if (thing === "e" || thing === "E" ){isEbeingPressed = 1;}else {isEbeingPressed = 0;}} 
 function portal (x, y, number) { ctx1.drawImage(door, x, y, caracterW, caracterH *1.5); if (caracterX + cW /2 >= x && caracterX + cW /2 <= x + caracterW && caracterY - cH /3 >= y && caracterY - cH /3 <= y + caracterH *1.5) {ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /20+"px cursive"; ctx1.fillText("Press E to enter", x + caracterW /2, y);if (isEbeingPressed === 1) {if (number === 1){playLevel = 70923742194;}if (number === 2){playLevel = 0180481080;}if (number === 111){playLevel = 3;}if (number === 222){playLevel = 6;}} } } 
 
-function pitOfDoom(x,y,width,height, number) {
+function pitOfDoom(x,y,width,height) {
     ctx1.drawImage(pit,x,y,width,height);
-    if(caracterX > x && caracterX + cW < x + width && caracterH < y){if(number===1){}}
+    if(caracterX > x && caracterX + cW < x + width && caracterH < y){ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /20+"px cursive"; ctx1.fillText("Press E to enter", x + caracterW /2, y);if(isEbeingPressed===1){playLevel = 348959898753935269635;caracterX=canvasesW/2-caracterW/2}}
 }
 
 
@@ -301,7 +301,7 @@ var audio_1 = document.getElementById("sound_1");
 var audio_2 = document.getElementById("sound_2"); 
 var audio_3 = document.getElementById("sound_3"); 
 var audio_4 = document.getElementById("sound_4"); 
-function music () { if(setAudio.want === 1){if (playLevel === 0 || playLevel === 7) {audio_0.play();}else {audio_0.pause();} if (playLevel === 1 || playLevel === 2) {audio_1.play();}else {audio_1.pause();} if (playLevel === 3 || playLevel === 4) {audio_2.play();}else {audio_2.pause();} if (playLevel === 5 || playLevel === 6) {audio_3.play();}else {audio_3.pause();} if (playLevel === 525852758123 || playLevel === 70923742194 || playLevel === 0180481080) {audio_4.play();}else {audio_4.pause();}}else if (setAudio.want === 0){audio_0.pause();audio_1.pause();audio_2.pause();audio_3.pause();audio_4.pause();}} 
+function music () { if(setAudio.want === 1){if (playLevel === 0 || playLevel === 7 || playLevel === 11 || playLevel === 986593659 || playLevel === 3859293759) {audio_0.play();}else {audio_0.pause();} if (playLevel === 1 || playLevel === 2 || playLevel === 8 || playLevel === 824982691) {audio_1.play();}else {audio_1.pause();} if (playLevel === 3 || playLevel === 4 || playLevel === 9 || playLevel === 2793487593) {audio_2.play();}else {audio_2.pause();} if (playLevel === 5 || playLevel === 6) {audio_3.play();}else {audio_3.pause();} if (playLevel === 70923742194 || playLevel === 0180481080 || playLevel === 10) {audio_4.play();}else {audio_4.pause();}}else if (setAudio.want === 0){audio_0.pause();audio_1.pause();audio_2.pause();audio_3.pause();audio_4.pause();}} 
 
 //random variables
 var WentHere2 = 0;
@@ -513,6 +513,28 @@ function game () {
         vine(0,0,0,0,1);
         
         //player 
+        caracter();
+    }
+    //------build mole house-----//
+    //-----------------------------------------------------------
+    if (playLevel === 348959898753935269635) {
+        //background
+        ctx1.drawImage(caveBack1,0,0,canvasesW,canvasesH);
+        //bed
+        
+        //crystal
+        ctx1.drawImage(ruin,caracterW,floor-1.5*caracterH,2*caracterW,1.5*caracterH);
+        crystal(crystal3, hasCrystal3, caracterW*1.75, floor - caracterH*2);
+        
+        //obstacles
+        obstacle(rock,0-caracterW/2,0-caracterH/2,caracterW,caracterH*5.25,1);
+        obstacle(rock,caracterW*3,0-caracterH/2,caracterW,caracterH*3.5,2);
+        obstacle(rock,canvasesW-caracterW/2,0-caracterH/2,caracterW,caracterH*5.25,3);
+        //objects not in use
+        obstacle(rock,0,0,0,0,4);
+        vine(0,0,0,0,1);
+        
+        //caracter
         caracter();
     }
     //-----hearts and damage-----// 
