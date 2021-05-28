@@ -290,7 +290,7 @@ var heartsH = canvasesH /25;
 var pause = 0; 
 //-----place hearts and activate death if needed-----// 
 var regenTimer = 0;
-var regenLenght = 540;
+var regenLenght = 444;
 function regen (){if(hasCrystal5===1){if(lives===1){regenTimer+=1;if(regenTimer>=regenLenght){lives=2;regenTimer=0;}}if(hasCrystal2===1&&lives===2){regenTimer+=1;if(regenTimer>=regenLenght){lives=3;regenTimer=0;}}}}
 function live (){if (lives === 3) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart2X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart3X, heartsY, heartsW, heartsH);} if (lives === 2) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);ctx1.drawImage(heart, heart2X, heartsY, heartsW, heartsH);} if (lives === 1) {ctx1.drawImage(heart, heart1X, heartsY, heartsW, heartsH);} if (lives === 0) {hasCrystal1 = 0;first=undefined;hasCrystal2 = 0;second = undefined;hasCrystal3 = 0;third = undefined;hasCrystal4 = 0;fourth = undefined;hasCrystal5 = 0;fith = undefined;var TextSize = canvasesH /10; var resetW = canvasesW /5; var resetY = canvasesH /5; pause = 1; ctx1.drawImage(setBack,0, 0, canvasesW, canvasesH); ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+TextSize+"px cursive"; ctx1.fillText("Click to restart", canvasesW /2, canvasesH /4); ctx1.drawImage(resetButton, canvasesW /2 - resetW /2, canvasesH /2 - resetY /2, resetW, resetY); } } 
 
@@ -457,11 +457,12 @@ function game () {
         ctx1.drawImage(lvl_3Back,0,0,canvasesW,canvasesH);
         //obstacles
         obstacle(rock,caracterW*1.5,floor-caracterH*1.25,caracterW*1.25,caracterH*1.25,1);
+        vine(caracterW*2.5,0-caracterH*0.5,caracterW/2,caracterH*5.25);
+        aqua(caracterW*2.5,floor-caracterH*1.25, caracterW*6.5, caracterH*1.25);
         obstacle(rock,caracterW*3,floor-caracterH*2.5,caracterW*1.25,caracterH*1.25,2);
+        obstacle(rock,caracterW*7,caracterH*0.5,caracterW,0,3);
         //objects not in use
-        obstacle(rock,0,0,0,0,3);
         obstacle(rock,0,0,0,0,4);
-        vine(0,0,0,0);
         
         //player 
         caracter();
