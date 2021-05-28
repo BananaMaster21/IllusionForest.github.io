@@ -488,7 +488,7 @@ function game () {
         //door
         obstacle(villageDoor,canvasesW-3*caracterW,0,3*caracterW,5*caracterH,1);
         //chief
-        ctx1.drawImage(chief,canvasesW-6*caracterW,floor-2.5*caracterH,2.5*caracterW,2.5*caracterH);
+        ctx1.drawImage(chief,canvasesW-5.5*caracterW,floor-2.5*caracterH,2.5*caracterW,2.5*caracterH);
         //objects not in use
         obstacle(rock,0,0,0,0,2);
         obstacle(rock,0,0,0,0,3);
