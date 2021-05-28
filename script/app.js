@@ -546,7 +546,7 @@ function game () {
         obstacle(rock,0,0,0,0,4);
         vine(0,0,0,0,1);
         //make you statue
-        if(hasCrystal3===1){caracterImage=statue;pause=1;ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.drawImage(mole, canvasesW-caracterW*4, floor - caracterH*2, caracterW*1.5, caracterH*2);instructionTimer+=1;if(instructionTimer <= 100000){ctx1.drawImage(box,xx,yy,25,2.5*caracterW,1.5*caracterH);ctx1.fillText("How dare you",xxx,yyy);ctx1.fillText("Steal from me",xxxx,yyyy);}}
+        if(hasCrystal3===1){caracterImage=statue;pause=1;ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.drawImage(mole, canvasesW-caracterW*4, floor - caracterH*2, caracterW*1.5, caracterH*2);instructionTimer+=1;if(instructionTimer <= 100000){ctx1.drawImage(box,xx,yy,2.5*caracterW,1.5*caracterH);ctx1.fillText("How dare you",xxx,yyy);ctx1.fillText("Steal from me",xxxx,yyyy);}}
         //caracter
         caracter();
     }
