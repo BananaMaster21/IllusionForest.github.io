@@ -500,7 +500,7 @@ function game () {
         ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
         ctx1.drawImage(town, 0, 0-caracterH*0.75, canvasesW, canvasesH+caracterH/4);
         //vilage chief
-        ctx1.drawImage(chief,caracterW/2,floor-2.5*caracterH,2.5*caracterW,2.5*caracterH);
+        ctx1.drawImage(chief,canvasesW/2,floor-2.5*caracterH,2.5*caracterW,2.5*caracterH);
         //objects not in use
         obstacle(rock,0,0,0,0,1);
         obstacle(rock,0,0,0,0,2);
