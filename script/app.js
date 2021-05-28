@@ -154,7 +154,7 @@ var sliping = 0;
 //Control STUFF 
 //---------------------------------------------------------- 
 function caracterMove (event) {side = event.key;otherSide = event.key;} 
-function caracterStop (event) {var offKey = event.key;if (offKey === "ArrowLeft" || offKey === "ArrowRight") {caracterMoveSide = 0;side = undefined;}if (offKey === " ") {otherSide = 0}} 
+function caracterStop (event) {var offKey = event.key;if (offKey === "ArrowLeft" || offKey === "ArrowRight") {isEbeingPressed = 0;caracterMoveSide = 0;side = undefined;}if (offKey === " ") {otherSide = 0}} 
 function controls () {if (side === "ArrowLeft"){caracterMoveSide = 1;caracterKeepSide = "left";}if (side === "ArrowRight") {caracterMoveSide = 2;caracterKeepSide = "right";}if (otherSide === " " && onGround === 1) {jump = 1;}} 
 
 
