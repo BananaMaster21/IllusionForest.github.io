@@ -1,10 +1,3 @@
-//start of position testing variables for random stuff
-var xx = 0;
-var yy = 0;
-var xxx = 0;
-var yyy = 0;
-var xxxx = 0;
-var yyyy = 0;
 //end of position testing variables for random stuff
 if(document.location.href==="https://bananamaster21.github.io/IllusionForest.github.io/#play"){document.location.href = "https://bananamaster21.github.io/IllusionForest.github.io/";}
 var playLevel = 99;  
@@ -546,7 +539,7 @@ function game () {
         obstacle(rock,0,0,0,0,4);
         vine(0,0,0,0,1);
         //make you statue
-        if(hasCrystal3===1){caracterImage=statue;pause=1;document.cookie = "thief=1";ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.drawImage(mole, canvasesW-caracterW*4, floor - caracterH*2, caracterW*1.5, caracterH*2);instructionTimer+=1;if(instructionTimer <= 100000){ctx1.drawImage(box,canvasesW/2-caracterW*1.5,caracterH*1.75,2.5*caracterW,1.5*caracterH);ctx1.fillText("How dare you",canvasesW/2-caracterW*0.25,caracterH*2.25);ctx1.fillText("Steal from me",canvasesW/2-caracterW*0.25,caracterH*2.5);}}
+        if(hasCrystal3===1){caracterImage=statue;pause=1;document.cookie = "thief=1";ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.drawImage(mole, canvasesW-caracterW*4, floor - caracterH*2, caracterW*1.5, caracterH*2);instructionTimer+=1;if(instructionTimer < 150){ctx1.drawImage(box,canvasesW/2-caracterW*1.5,caracterH*1.75,2.5*caracterW,1.5*caracterH);ctx1.fillText("How dare you",canvasesW/2-caracterW*0.25,caracterH*2.25);ctx1.fillText("Steal from me",canvasesW/2-caracterW*0.25,caracterH*2.5);}else if (instructionTimer < 275){ctx1.drawImage(box,canvasesW/2-caracterW*1.5,caracterH*1.75,2.5*caracterW,1.5*caracterH);ctx1.font=canvasesH/25+"px cursive";ctx1.fillText("For your punishement",canvasesW/2-caracterW*0.25,caracterH*2.325);}else if (instructionTimer < 325){ctx1.drawImage(box,canvasesW/2-caracterW*1.5,caracterH*1.75,2.5*caracterW,1.5*caracterH);ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("You will now",canvasesW/2-caracterW*0.25,caracterH*2.25);ctx1.font=canvasesH/25+"px cursive";ctx1.fillText("Watch the end credits",canvasesW/2-caracterW*0.25,caracterH*2.5);}}
         //caracter
         caracter();
     }
