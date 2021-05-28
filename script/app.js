@@ -458,7 +458,7 @@ function game () {
         aqua(caracterW*2.5,floor-caracterH*1.25, caracterW*6.75, caracterH*1.25);
         obstacle(rock,caracterW*1.5,floor-caracterH*1.25,caracterW*1.25,caracterH*1.25,1);
         obstacle(rock,caracterW*3,floor-caracterH*2.5,caracterW*1.25,caracterH*1.25,2);
-        obstacle(rock,caracterW*7,caracterH*0.5,caracterW*1.5,caracterH*3.5,3);
+        obstacle(rock,caracterW*8.5,caracterH*0.5,caracterW*1.5,caracterH*4,3);
         //objects not in use
         obstacle(rock,0,0,0,0,4);
         
@@ -485,8 +485,11 @@ function game () {
     if (playLevel === 10) {
         //background
         ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
+        //door
+        obstacle(villageDoor,canvasesW-3*caracterW,0,3*caracterW,5*caracterH,1);
+        //chief
+        ctx1.drawImage(chief,canvasesW-6*caracterW,floor-2.5*caracterH,2.5*caracterW,2.5*caracterH);
         //objects not in use
-        obstacle(rock,0,0,0,0,1);
         obstacle(rock,0,0,0,0,2);
         obstacle(rock,0,0,0,0,3);
         obstacle(rock,0,0,0,0,4);
@@ -501,8 +504,6 @@ function game () {
         //backgrounds
         ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
         ctx1.drawImage(town, 0, 0-caracterH*0.75, canvasesW, canvasesH+caracterH/4);
-        //vilage chief
-        ctx1.drawImage(chief,canvasesW/2,floor-2.5*caracterH,2.5*caracterW,2.5*caracterH);
         //objects not in use
         obstacle(rock,0,0,0,0,1);
         obstacle(rock,0,0,0,0,2);
