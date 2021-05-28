@@ -537,7 +537,7 @@ function game () {
         ctx1.drawImage(ruin,caracterW,floor-1.5*caracterH,2*caracterW,1.5*caracterH);
         crystal(crystal3, hasCrystal3, caracterW*1.75, floor - caracterH*2);
         //door
-        portal(canvasesW/2,floor-caracterH*1.5,111);
+        portal(canvasesW/2 - caracterW*0.75,floor-caracterH*1.5,111);
         //obstacles
         obstacle(rock,0-caracterW/2,0-caracterH/2,caracterW,caracterH*5.25,1);
         obstacle(rock,caracterW*3,0-caracterH/2,caracterW,caracterH*3.5,2);
@@ -546,7 +546,7 @@ function game () {
         obstacle(rock,0,0,0,0,4);
         vine(0,0,0,0,1);
         //make you statue
-        if(hasCrystal3===1){caracterImage=statue;pause=1;ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.drawImage(mole, canvasesW-caracterW*4, floor - caracterH*2, caracterW*1.5, caracterH*2);instructionTimer+=1;if(instructionTimer <= 100000){ctx1.drawImage(box,xx,yy,2.5*caracterW,1.5*caracterH);ctx1.fillText("How dare you",xxx,yyy);ctx1.fillText("Steal from me",xxxx,yyyy);}}
+        if(hasCrystal3===1){caracterImage=statue;pause=1;document.cookie = "thief=1";ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.drawImage(mole, canvasesW-caracterW*4, floor - caracterH*2, caracterW*1.5, caracterH*2);instructionTimer+=1;if(instructionTimer <= 100000){ctx1.drawImage(box,canvasesW/2-caracterW*1.5,caracterH*1.75,2.5*caracterW,1.5*caracterH);ctx1.fillText("How dare you",canvasesW/2-caracterW*0.25,caracterH*2.25);ctx1.fillText("Steal from me",canvasesW/2-caracterW*0.25,caracterH*2.5);}}
         //caracter
         caracter();
     }
