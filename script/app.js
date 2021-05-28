@@ -5,10 +5,10 @@ var yy = 0;
 if(document.location.href==="https://bananamaster21.github.io/IllusionForest.github.io/#play"){document.location.href = "https://bananamaster21.github.io/IllusionForest.github.io/";}
 var playLevel = 99;  
 var startButton = document.getElementById("startButton"); 
-var activatemolecutscean = 0;
+var moleGo = 0;
 startButton.onclick = function () {playLevel = 0;
 if(document.cookie === ""){document.cookie = "thief=0";}
-if(document.cookie === "thief=1"){playLevel=348959898753935269635;activatemolecutscean=1;}} 
+if(document.cookie === "thief=1"){playLevel=348959898753935269635;caracterX=caracterW*1.25;moleGo=1;}} 
 var mycanvas = document.getElementById("play"); 
 mycanvas.setAttribute("width", window.outerWidth + "px"); 
 mycanvas.setAttribute("height", window.outerHeight + "px"); 
@@ -524,6 +524,7 @@ function game () {
     //------build mole house-----//
     //-----------------------------------------------------------
     if (playLevel === 348959898753935269635) {
+        if(moleGo===1){hasCrystal3=1;}
         //background
         ctx1.drawImage(caveBack1,0,0,canvasesW,canvasesH);
         //bed
