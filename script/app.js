@@ -14,7 +14,6 @@ var ctx1 = mycanvas.getContext("2d");
 var ground = canvasesH /1.25; 
 var onGround = 1; 
 var incredits = 0;
-var moleX = canvasesW - caracterW*4;
 
 
 //---------------------------------------------------------- 
@@ -190,15 +189,14 @@ function credits (ending) {
         ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Alex",canvasesW/2,caracterH/2+canvasesH*2.5-CF);
         ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Milo",canvasesW/2,caracterH+canvasesH*2.5-CF);
         ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Denny",canvasesW/2,caracterH*1.5+canvasesH*2.5-CF);
-        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Dassa",canvasesW/2,caracterH*2+canvasesH*2.5-CF);
-        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Yassin",canvasesW/2,caracterH*2.5+canvasesH*2.5-CF);
-        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Emerson",canvasesW/2,caracterH*3+canvasesH*2.5-CF);
-        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Prob a few others too but",canvasesW/2,caracterH*3.625+canvasesH*2.5-CF);
-        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("You guys have been forgoten",canvasesW/2,caracterH*4.125+canvasesH*2.5-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Yassin",canvasesW/2,caracterH*2+canvasesH*2.5-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Emerson",canvasesW/2,caracterH*2.5+canvasesH*2.5-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Prob a few others too but",canvasesW/2,caracterH*3.125+canvasesH*2.5-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("You guys have been forgoten",canvasesW/2,caracterH*4.625+canvasesH*2.5-CF);
         //final block
         ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/4+"px cursive";ctx1.fillText("E",canvasesW/2,canvasesH*3.5-CF);
         //reset the game
-        if(CF >= canvasesH*3.5 + caracterH/2){ree=1;document.cookie="thief=0";incredits=0;reset();}
+        if(CF >= canvasesH*3.5 + caracterH/2){ree=1;document.cookie="thief=0";incredits=0;WentHere=0;WentHere2=0;reset();}
     }
 }
 
@@ -292,7 +290,7 @@ function movingTrap (image, x, oldX, y, oldY, width, height, distance, axis, spe
 var isEbeingPressed = 0; 
 function teleport (event) {var thing = event.key; if (thing === "e" || thing === "E" ){isEbeingPressed = 1;}else {isEbeingPressed = 0;}} 
 function portal (x, y, number) { ctx1.drawImage(door, x, y, caracterW, caracterH *1.5); if (caracterX + cW /2 >= x && caracterX + cW /2 <= x + caracterW && caracterY - cH /3 >= y && caracterY - cH /3 <= y + caracterH *1.5) {ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /20+"px cursive"; ctx1.fillText("Press E to enter", x + caracterW /2, y);if (isEbeingPressed === 1) {if (number === 1){playLevel = 70923742194;}if (number === 2){playLevel = 0180481080;}if (number === 111){playLevel = 3;}if (number === 222){playLevel = 6;}} } } 
-
+var moleX = canvasesW - caracterW*4;
 function pitOfDoom(x,y,width,height) {
     ctx1.drawImage(pit,x,y,width,height);
     if(caracterX > x && caracterX + cW < x + width && caracterH < y){ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /20+"px cursive"; ctx1.fillText("Press E to enter", x + caracterW /2, y);if(isEbeingPressed===1){playLevel = 348959898753935269635;caracterX=canvasesW/2+caracterW*1.5;effect=undefined;}}
@@ -420,7 +418,7 @@ function game () {
     if (playLevel === 986593659) {
         ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);
         instructionTimer+=1;
-        if(instructionTimer<20){ctx1.drawImage(box,moleX+caracterW*1.5,floor - caracterH*2.375,caracterW*1.5,caracterH*0.75);ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("AHH!",moleX+caracterW*1.5*caracterW*0.75,floor - caracterH*2.25);}
+        if(instructionTimer<30){ctx1.drawImage(box,moleX-caracterW*1.5,floor - caracterH*2.375,caracterW*1.5,caracterH*0.75);ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("AHH!",moleX-caracterW*1.5+caracterW*0.75,floor - caracterH*2.25);}
         //obstacles
         obstacle(rock, canvasesW - caracterW*6, floor - caracterH, caracterW, caracterH, 1);
         pitOfDoom(canvasesW - caracterW*5, floor - caracterH/3, caracterW*1.5, caracterH*4);
@@ -430,7 +428,7 @@ function game () {
         obstacle(rock, 0, 0, 0, 0, 4); 
         vine(0, 0, 0, 0, 1);
         //mole
-        ctx1.drawImage(mole, moleX, floor - caracterH*2, caracterW*1.5, caracterH*2);
+        if(instructionTimer < 30){ctx1.drawImage(mole, moleX, floor - caracterH*2, caracterW*1.5, caracterH*2);}
         //caracter
         caracter();
         //traps
