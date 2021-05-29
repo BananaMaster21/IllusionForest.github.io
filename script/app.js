@@ -1,5 +1,5 @@
 //end of position testing variables for random stuff
-if(document.location.href==="https://bananamaster21.github.io/IllusionForest.github.io/#play"){document.location.href = "https://bananamaster21.github.io/IllusionForest.github.io/";}
+if(document.location.href==="https://bananamaster21.github.io/IllusionForest.github.io/#play"){document.location.href = "https://bananamaster21.github.io/IllusionForest.github.io/#play";}
 var playLevel = 99;  
 var startButton = document.getElementById("startButton"); 
 var moleGo = 0;
@@ -13,6 +13,8 @@ var canvasesW = window.innerWidth; var canvasesH = window.innerHeight;
 var ctx1 = mycanvas.getContext("2d"); 
 var ground = canvasesH /1.25; 
 var onGround = 1; 
+var incredits = 0;
+var moleX = canvasesW - caracterW*4;
 
 
 //---------------------------------------------------------- 
@@ -153,16 +155,17 @@ function credits (ending) {
     ctx1.fillRect(0,0,canvasesW,canvasesH);
     if (ending === ending){
         if(ree===0){CF+=1;}
+        incredits = 1;
         //block 1
         if(ending==="mole"){
-        ctx1.drawImage(statue, canvasesW*0.33-caracterW*0.75, canvasesH/2 - caracterH*0.75 - CF, caracterW, caracterH);
-        ctx1.fillStyle="";ctx1.textAlign="center";ctx1.font=canvasesH/15+"px cursive";ctx1.fillText("Thief Ending",canvasesW/2,canvasesH/2-CF);
-        ctx1.drawImage(crystal3, canvasesW*0.66-caracterW*0.125, canvasesH/2 - caracterH*0.75 - CF, caracterW*0.75, caracterH);
+        ctx1.drawImage(statue, canvasesW*0.33-caracterW, canvasesH/2 - caracterH*0.75 - CF, caracterW, caracterH);
+        ctx1.fillStyle="gold";ctx1.textAlign="center";ctx1.font=canvasesH/15+"px cursive";ctx1.fillText("Thief Ending",canvasesW/2,canvasesH/2-CF);
+        ctx1.drawImage(crystal3, canvasesW*0.66, canvasesH/2 - caracterH*0.75 - CF, caracterW*0.75, caracterH);
         }
         if(ending==="village"){
-        ctx1.drawImage(bobLeft1, canvasesW*0.33-caracterW/2, canvasesH/2 - caracterH*0.75 - CF, caracterW, caracterH);
-        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/15+"px cursive";ctx1.fillText("Village Ending",canvasesW/2,canvasesH/2-CF);
-        ctx1.drawImage(bobRight1, canvasesW*0.66-caracterW/2, canvasesH/2 - caracterH*0.75 - CF, caracterW, caracterH);
+        ctx1.drawImage(bobLeft1, canvasesW*0.33-caracterW, canvasesH/2 - caracterH*0.75 - CF, caracterW, caracterH);
+        ctx1.fillStyle="forestgreen";ctx1.textAlign="center";ctx1.font=canvasesH/15+"px cursive";ctx1.fillText("Village Ending",canvasesW/2,canvasesH/2-CF);
+        ctx1.drawImage(bobRight1, canvasesW*0.66, canvasesH/2 - caracterH*0.75 - CF, caracterW, caracterH);
         }
         //block2
         ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/15+"px cursive";ctx1.fillText("Developers",canvasesW/2,canvasesH*0.75-CF);
@@ -193,9 +196,9 @@ function credits (ending) {
         ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Prob a few others too but",canvasesW/2,caracterH*3.625+canvasesH*2.5-CF);
         ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("You guys have been forgoten",canvasesW/2,caracterH*4.125+canvasesH*2.5-CF);
         //final block
-        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/4+"px cursive";ctx1.fillText("E",canvasesW/2,canvasesH*2.875-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/4+"px cursive";ctx1.fillText("E",canvasesW/2,canvasesH*3.5-CF);
         //reset the game
-        if(CF >= canvasesH*2.875){ree=1;document.cookie="thief=0";}
+        if(CF >= canvasesH*3.5 + caracterH/2){ree=1;document.cookie="thief=0";incredits=0;reset();}
     }
 }
 
@@ -323,7 +326,7 @@ var instructionTimer = 0;
 //---------------------------------------------------------- 
 //RESETING WHEN DIE STUFF 
 //---------------------------------------------------------- 
-function reset () { if (lives === 0|| ree === 1) {if(ree===1){document.location.href = "https://bananamaster21.github.io/IllusionForest.github.io/";}{pause = 0; effect = undefined; isInverted = 0;if(setDifficulty.diff === 0){if (playLevel > 0 && playLevel < 3) {playLevel = 1; }else if (playLevel > 0 && playLevel < 6 || playLevel === 70923742194 || playLevel === 2793487593 || playLevel === 986593659) {playLevel = 3; }else if (playLevel > 0 && playLevel < 8 ||playLevel===0180481080||playLevel===3859293759||playLevel===824982691) {playLevel = 6;}else if (playLevel > 0){playLevel=8;}}else if(setDifficulty.diff === 1){if(playLevel > 0){playLevel = 1;}} instructionTimer = 0; caracterX = canvasesW /25; caracterY = ground - cH; caracterMoveSide = 0; caracterKeepSide = "right"; side = undefined; feetSwitch = 0; speed = 0; jump = false; fall = false; onGround = 1; upTimer = canvasesH /40; fallTimer = 0; healTimer = 0;hasCrystal1 = 0;first=undefined;hasCrystal2 = 0;second = undefined;hasCrystal3 = 0;third = undefined;hasCrystal4 = 0;fourth = undefined;hasCrystal5 = 0;fith = undefined;ree=0;if(setDifficulty.diff === 0){lives = 2;}else if(setDifficulty.diff === 1){lives = 1;}}} 
+function reset () { if (lives === 0 || ree === 1) {if(ree===1){document.location.href = "https://bananamaster21.github.io/IllusionForest.github.io/";}pause = 0; effect = undefined; isInverted = 0;if(setDifficulty.diff === 0){if (playLevel > 0 && playLevel < 3) {playLevel = 1; }else if (playLevel > 0 && playLevel < 6 || playLevel === 70923742194 || playLevel === 2793487593 || playLevel === 986593659) {playLevel = 3; }else if (playLevel > 0 && playLevel < 8 ||playLevel===0180481080||playLevel===3859293759||playLevel===824982691) {playLevel = 6;}else if (playLevel > 0){playLevel=8;}}else if(setDifficulty.diff === 1){if(playLevel > 0){playLevel = 1;}} instructionTimer = 0; caracterX = canvasesW /25; caracterY = ground - cH; caracterMoveSide = 0; caracterKeepSide = "right"; side = undefined; feetSwitch = 0; speed = 0; jump = false; fall = false; onGround = 1; upTimer = canvasesH /40; fallTimer = 0; healTimer = 0;hasCrystal1 = 0;first=undefined;hasCrystal2 = 0;second = undefined;hasCrystal3 = 0;third = undefined;hasCrystal4 = 0;fourth = undefined;hasCrystal5 = 0;fith = undefined;ree=0;if(setDifficulty.diff === 0){lives = 2;}else if(setDifficulty.diff === 1){lives = 1;}}} 
 
 
 //---------------------------------------------------------- 
@@ -361,7 +364,7 @@ var audio_2 = document.getElementById("sound_2");
 var audio_3 = document.getElementById("sound_3"); 
 var audio_4 = document.getElementById("sound_4"); 
 var audio_E = document.getElementById("sound_credits");
-function music () { if(setAudio.want === 1){if (playLevel === 0 || playLevel === 7 || playLevel === 11 || playLevel === 986593659 || playLevel === 3859293759) {audio_0.play();}else {audio_0.pause();} if (playLevel === 1 || playLevel === 2 || playLevel === 8 || playLevel === 824982691) {audio_1.play();}else {audio_1.pause();} if (playLevel === 3 || playLevel === 4 || playLevel === 9 || playLevel === 2793487593) {audio_2.play();}else {audio_2.pause();} if (playLevel === 5 || playLevel === 6) {audio_3.play();}else {audio_3.pause();} if (playLevel === 70923742194 || playLevel === 0180481080 || playLevel === 10) {audio_4.play();}else {audio_4.pause();}}else if (setAudio.want === 0){audio_0.pause();audio_1.pause();audio_2.pause();audio_3.pause();audio_4.pause();}} 
+function music () { if(setAudio.want === 1){if(incredits === 1){audio_E.play();}else {audio_E.pause();}if (playLevel === 0 || playLevel === 7 || playLevel === 11 && incredits === 0|| playLevel === 986593659 || playLevel === 3859293759 || playLevel === 348959898753935300000 && incredits === 0) {audio_0.play();}else {audio_0.pause();} if (playLevel === 1 || playLevel === 2 || playLevel === 8 || playLevel === 824982691) {audio_1.play();}else {audio_1.pause();} if (playLevel === 3 || playLevel === 4 || playLevel === 9 || playLevel === 2793487593) {audio_2.play();}else {audio_2.pause();} if (playLevel === 5 || playLevel === 6) {audio_3.play();}else {audio_3.pause();} if (playLevel === 70923742194 || playLevel === 0180481080 || playLevel === 10) {audio_4.play();}else {audio_4.pause();}}else if (setAudio.want === 0){audio_0.pause();audio_1.pause();audio_2.pause();audio_3.pause();audio_4.pause();audio_E.pause();}} 
 
 //random variables
 var WentHere2 = 0;
@@ -416,6 +419,8 @@ function game () {
     } 
     if (playLevel === 986593659) {
         ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);
+        instructionTimer+=1;
+        if(instructionTimer<1000000000){ctx1.drawImage(box,moleX*caracterW*1.5,floor - caracterH*2.375,caracterW*1.5,caracterH*0.75);ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("AHH!",moleX*caracterW*1.5*caracterW*0.75,floor - caracterH*2.25);}
         //obstacles
         obstacle(rock, canvasesW - caracterW*6, floor - caracterH, caracterW, caracterH, 1);
         pitOfDoom(canvasesW - caracterW*5, floor - caracterH/3, caracterW*1.5, caracterH*4);
@@ -425,7 +430,7 @@ function game () {
         obstacle(rock, 0, 0, 0, 0, 4); 
         vine(0, 0, 0, 0, 1);
         //mole
-        ctx1.drawImage(mole, canvasesW - caracterW*4, floor - caracterH*2, caracterW*1.5, caracterH*2);
+        ctx1.drawImage(mole, moleX, floor - caracterH*2, caracterW*1.5, caracterH*2);
         //caracter
         caracter();
         //traps
