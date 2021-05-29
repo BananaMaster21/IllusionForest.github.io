@@ -5,7 +5,7 @@ var startButton = document.getElementById("startButton");
 var moleGo = 0;
 startButton.onclick = function () {playLevel = 0;
 if(document.cookie === ""){document.cookie = "thief=0";}
-if(document.cookie === "thief=1"){playLevel=348959898753935269635;caracterX=caracterW*1.25;moleGo=1;}} 
+if(document.cookie === "thief=1"){playLevel=348959898753935269635;caracterX=caracterW*1.25;caracterY=floor-caracterH*2.5;moleGo=1;}} 
 var mycanvas = document.getElementById("play"); 
 mycanvas.setAttribute("width", window.outerWidth + "px"); 
 mycanvas.setAttribute("height", window.outerHeight + "px"); 
@@ -144,6 +144,62 @@ var sliping = 0;
 
 
 //---------------------------------------------------------- 
+//CREDIT STUFF
+//---------------------------------------------------------- 
+var CF = 0;
+var ree = 0;
+function credits (ending) {
+    ctx1.fillStyle = "rgba(0,0,0,0.80)"
+    ctx1.fillRect(0,0,canvasesW,canvasesH);
+    if (ending === ending){
+        CF+=1;
+        //block 1
+        if(ending==="mole"){
+        ctx1.drawImage(statue, canvasesW*0.33, canvasesH/2 - caracterH*0.75 - CF, caracterW, caracterH);
+        ctx1.fillStyle="";ctx1.textAlign="center";ctx1.font=canvasesH/15+"px cursive";ctx1.fillText("Thief Ending",canvasesW/2,canvasesH/2-CF);
+        ctx1.drawImage(crystal3, canvasesW*0.66, canvasesH/2 - caracterH*0.75 - CF, caracterW*0.75, caracterH);
+        }
+        if(ending==="village"){
+        ctx1.drawImage(bobLeft1, canvasesW*0.33, canvasesH/2 - caracterH*0.75 - CF, caracterW, caracterH);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/15+"px cursive";ctx1.fillText("Village Ending",canvasesW/2,canvasesH/2-CF);
+        ctx1.drawImage(bobRight1, canvasesW*0.66, canvasesH/2 - caracterH*0.75 - CF, caracterW, caracterH);
+        }
+        //block2
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/15+"px cursive";ctx1.fillText("Developers",canvasesW/2,canvasesH*0.75-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Lead Dev:  Alex",canvasesW/2,caracterH/2+canvasesH*0.75-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Assistant Dev:  Mentally Insane Alex",canvasesW/2,caracterH+canvasesH*0.75-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Another Dev:  Calm Alex",canvasesW/2,caracterH*1.5+canvasesH*0.75-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("The 4th Dev:  Happy Alex",canvasesW/2,caracterH*2+canvasesH*0.75-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Dead Dev:  Programing Physics Alex",canvasesW/2,caracterH*2.5+canvasesH*0.75-CF);
+        //block 3
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/15+"px cursive";ctx1.fillText("Musicians",canvasesW/2,canvasesH-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Tool:  Chrome Music Labs",canvasesW/2,caracterH/2+canvasesH-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Lead Musician:  Alex",canvasesW/2,caracterH+canvasesH-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Assistant Musician:  Also Alex",canvasesW/2,caracterH*1.5+canvasesH-CF);
+        //block 4
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/15+"px cursive";ctx1.fillText("Artists",canvasesW/2,canvasesH*1.5-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Tool:  Chrome Canvas",canvasesW/2,caracterH/2+canvasesH*1.5-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Lead Art Designer:  Alex",canvasesW/2,caracterH+canvasesH*1.5-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Assistant Art Designer:  Alex",canvasesW/2,caracterH*1.5+canvasesH*1.5-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Art Design Creator: Alex's Imagination",canvasesW/2,caracterH*2+canvasesH*1.5-CF);
+        //block 5
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/15+"px cursive";ctx1.fillText("Game Testers",canvasesW/2,canvasesH*2-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Alex",canvasesW/2,caracterH/2+canvasesH*2-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Milo",canvasesW/2,caracterH+canvasesH*2-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Denny",canvasesW/2,caracterH*1.5+canvasesH*2-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Dassa",canvasesW/2,caracterH*2+canvasesH*2-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Yassin",canvasesW/2,caracterH*2.5+canvasesH*2-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Emerson",canvasesW/2,caracterH*3+canvasesH*2-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Prob a few others too but",canvasesW*3.75,caracterH/2+canvasesH*2-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("You guys have been forgoten",canvasesW*4.25,caracterH/2+canvasesH*2-CF);
+        //final block
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/4+"px cursive";ctx1.fillText("E",canvasesW/2,canvasesH*5-CF);
+        //reset the game
+        if(CF >= canvasesH*5.125){ree=1;document.cookie="thief=0";location.reload();}
+    }
+}
+
+//---------------------------------------------------------- 
 //Control STUFF 
 //---------------------------------------------------------- 
 function caracterMove (event) {side = event.key;otherSide = event.key;} 
@@ -236,7 +292,7 @@ function portal (x, y, number) { ctx1.drawImage(door, x, y, caracterW, caracterH
 
 function pitOfDoom(x,y,width,height) {
     ctx1.drawImage(pit,x,y,width,height);
-    if(caracterX > x && caracterX + cW < x + width && caracterH < y){ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /20+"px cursive"; ctx1.fillText("Press E to enter", x + caracterW /2, y);if(isEbeingPressed===1){playLevel = 348959898753935269635;caracterX=canvasesW/2-caracterW/2}}
+    if(caracterX > x && caracterX + cW < x + width && caracterH < y){ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /20+"px cursive"; ctx1.fillText("Press E to enter", x + caracterW /2, y);if(isEbeingPressed===1){caractertY=floor - caracterH*1.75;playLevel = 348959898753935269635;caracterX=canvasesW/2+caracterW*1.5}}
 }
 
 
@@ -304,6 +360,7 @@ var audio_1 = document.getElementById("sound_1");
 var audio_2 = document.getElementById("sound_2"); 
 var audio_3 = document.getElementById("sound_3"); 
 var audio_4 = document.getElementById("sound_4"); 
+var audio_E = document.getElementById("sound_credits");
 function music () { if(setAudio.want === 1){if (playLevel === 0 || playLevel === 7 || playLevel === 11 || playLevel === 986593659 || playLevel === 3859293759) {audio_0.play();}else {audio_0.pause();} if (playLevel === 1 || playLevel === 2 || playLevel === 8 || playLevel === 824982691) {audio_1.play();}else {audio_1.pause();} if (playLevel === 3 || playLevel === 4 || playLevel === 9 || playLevel === 2793487593) {audio_2.play();}else {audio_2.pause();} if (playLevel === 5 || playLevel === 6) {audio_3.play();}else {audio_3.pause();} if (playLevel === 70923742194 || playLevel === 0180481080 || playLevel === 10) {audio_4.play();}else {audio_4.pause();}}else if (setAudio.want === 0){audio_0.pause();audio_1.pause();audio_2.pause();audio_3.pause();audio_4.pause();}} 
 
 //random variables
@@ -539,7 +596,7 @@ function game () {
         obstacle(rock,0,0,0,0,4);
         vine(0,0,0,0,1);
         //make you statue
-        if(hasCrystal3===1){caracterImage=statue;pause=1;document.cookie = "thief=1";ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.drawImage(mole, canvasesW-caracterW*4, floor - caracterH*2, caracterW*1.5, caracterH*2);instructionTimer+=1;if(instructionTimer < 150){ctx1.drawImage(box,canvasesW/2-caracterW*1.5,caracterH*1.75,2.5*caracterW,1.5*caracterH);ctx1.fillText("How dare you",canvasesW/2-caracterW*0.25,caracterH*2.25);ctx1.fillText("Steal from me",canvasesW/2-caracterW*0.25,caracterH*2.5);}else if (instructionTimer < 275){ctx1.drawImage(box,canvasesW/2-caracterW*1.5,caracterH*1.75,2.5*caracterW,1.5*caracterH);ctx1.font=canvasesH/25+"px cursive";ctx1.fillText("For your punishement",canvasesW/2-caracterW*0.25,caracterH*2.325);}else if (instructionTimer < 325){ctx1.drawImage(box,canvasesW/2-caracterW*1.5,caracterH*1.75,2.5*caracterW,1.5*caracterH);ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("You will now",canvasesW/2-caracterW*0.25,caracterH*2.25);ctx1.font=canvasesH/25+"px cursive";ctx1.fillText("Watch the end credits",canvasesW/2-caracterW*0.25,caracterH*2.5);}}
+        if(hasCrystal3===1){caracterImage=statue;pause=1;if(ree === 0){document.cookie = "thief=1";}ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.drawImage(mole, canvasesW-caracterW*4, floor - caracterH*2, caracterW*1.5, caracterH*2);instructionTimer+=1;if(instructionTimer < 150){ctx1.drawImage(box,canvasesW/2-caracterW*1.5,caracterH*1.75,2.5*caracterW,1.5*caracterH);ctx1.fillText("How dare you",canvasesW/2-caracterW*0.25,caracterH*2.25);ctx1.fillText("Steal from me",canvasesW/2-caracterW*0.25,caracterH*2.5);}else if (instructionTimer < 275){ctx1.drawImage(box,canvasesW/2-caracterW*1.5,caracterH*1.75,2.5*caracterW,1.5*caracterH);ctx1.font=canvasesH/25+"px cursive";ctx1.fillText("For your punishement",canvasesW/2-caracterW*0.25,caracterH*2.325);}else if (instructionTimer < 375){ctx1.drawImage(box,canvasesW/2-caracterW*1.5,caracterH*1.75,2.5*caracterW,1.5*caracterH);ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("You will now",canvasesW/2-caracterW*0.25,caracterH*2.25);ctx1.font=canvasesH/25+"px cursive";ctx1.fillText("Watch the end credits",canvasesW/2-caracterW*0.25,caracterH*2.5);}else{credits("mole");}}
         //caracter
         caracter();
     }
