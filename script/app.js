@@ -1,3 +1,5 @@
+xx = 0;
+yy = 0;
 //end of position testing variables for random stuff
 if(document.location.href==="https://bananamaster21.github.io/IllusionForest.github.io/#play"){document.location.href = "https://bananamaster21.github.io/IllusionForest.github.io/";}
 var playLevel = 99;  
@@ -192,11 +194,11 @@ function credits (ending) {
         ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Yassin",canvasesW/2,caracterH*2+canvasesH*2.5-CF);
         ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Emerson",canvasesW/2,caracterH*2.5+canvasesH*2.5-CF);
         ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("Prob a few others too but",canvasesW/2,caracterH*3.125+canvasesH*2.5-CF);
-        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("You guys have been forgoten",canvasesW/2,caracterH*4.625+canvasesH*2.5-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("You guys have been forgoten",canvasesW/2,caracterH*1.625+canvasesH*2.5-CF);
         //final block
-        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/4+"px cursive";ctx1.fillText("E",canvasesW/2,canvasesH*3.5-CF);
+        ctx1.fillStyle="white";ctx1.textAlign="center";ctx1.font=canvasesH/4+"px cursive";ctx1.fillText("E",canvasesW/2,canvasesH*3.75-CF);
         //reset the game
-        if(CF >= canvasesH*3.5 + caracterH/2){ree=1;document.cookie="thief=0";incredits=0;WentHere=0;WentHere2=0;reset();}
+        if(CF >= canvasesH*3.75 + caracterH/2){ree=1;document.cookie="thief=0";incredits=0;WentHere=0;WentHere2=0;reset();}
     }
 }
 
@@ -367,6 +369,7 @@ function music () { if(setAudio.want === 1){if(incredits === 1){audio_E.play();}
 //random variables
 var WentHere2 = 0;
 var WentHere = 0;
+var wentHere3 = 0;
 
 //---------------------------------------------------------- 
 //GAME LOOP THING 
@@ -418,7 +421,7 @@ function game () {
     if (playLevel === 986593659) {
         ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);
         instructionTimer+=1;
-        if(instructionTimer<30){ctx1.drawImage(box,moleX-caracterW*1.5,floor - caracterH*2.375,caracterW*1.5,caracterH*0.75);ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("AHH!",moleX-caracterW*1.5+caracterW*0.75,floor - caracterH*2.25);}
+        if(instructionTimer<30){ctx1.drawImage(box,moleX-caracterW*1.5,floor - caracterH*2.375,caracterW*1.5,caracterH*0.75);ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("AHH!",moleX-caracterW*1.5+caracterW*0.75,floor - caracterH*2);}
         //obstacles
         obstacle(rock, canvasesW - caracterW*6, floor - caracterH, caracterW, caracterH, 1);
         pitOfDoom(canvasesW - caracterW*5, floor - caracterH/3, caracterW*1.5, caracterH*4);
@@ -428,7 +431,7 @@ function game () {
         obstacle(rock, 0, 0, 0, 0, 4); 
         vine(0, 0, 0, 0, 1);
         //mole
-        if(instructionTimer < 35){moleX+=canvasesW*0.001;ctx1.drawImage(mole, moleX, floor - caracterH*2, caracterW*1.5, caracterH*2);}
+        if(instructionTimer < 35){moleX-=canvasesW*0.002;ctx1.drawImage(mole, moleX, floor - caracterH*2, caracterW*1.5, caracterH*2);}
         //caracter
         caracter();
         //traps
@@ -518,14 +521,12 @@ function game () {
         ctx1.drawImage(lvl_3Back,0,0,canvasesW,canvasesH);
         if(setDifficulty.diff===0){ctx1.drawImage(checkpoint,0,floor-1.25*caracterH,.75*caracterW,1.25*caracterH);}
         //obstacles
-        vine(caracterW*2.5,0-caracterH,caracterW/2,caracterH*5.75,1);
+        vine(caracterW*2.5,0-caracterH*1.5,caracterW/2,caracterH*6.25,1);
+        obstacle(rock,caracterW*2.25,0-caracterH*1.5,caracterW*1.25,caracterH);
         aqua(caracterW*2.5,floor-caracterH*1.25, caracterW*6.75, caracterH*1.25);
         obstacle(rock,caracterW*1.5,floor-caracterH*1.25,caracterW*1.25,caracterH*1.25,1);
         obstacle(rock,caracterW*3,floor-caracterH*2.5,caracterW*1.25,caracterH*1.25,2);
-        obstacle(rock,caracterW*8.25,caracterH*0.5,caracterW*1.75,caracterH*4,3);
-        //objects not in use
-        obstacle(rock,0,0,0,0,4);
-        
+        obstacle(rock,caracterW*8.25,caracterH*0.5,caracterW*1.75,caracterH*4.125,3);
         //player 
         caracter();
     }
@@ -534,13 +535,19 @@ function game () {
     if (playLevel === 9) {
         //background
         ctx1.drawImage(lvl_9Back,0,0,canvasesW,canvasesH);
-        //objects not in use
-        obstacle(rock,0,0,0,0,1);
-        obstacle(rock,0,0,0,0,2);
-        obstacle(rock,0,0,0,0,3);
-        obstacle(rock,0,0,0,0,4);
-        vine(0,0,0,0,1);
-        
+        //obstacles
+        aqua(caracterW*2.75,floor-caracterH,caracterW*5.25,caracterH);
+        obstacle(rock,caracterW*2,floor-caracterH*1.25,caracterW,caracterH*1.25,1);
+        obstacle(rock,canvasesW/2-caracterW/2,floor-caracterH*1.25,caracterW,caracterH*1.25,2);
+        obstacle(rock,canvasesW-caracterW*2.625,floor-caracterH*1.625,caracterW,caracterH*1.625,3);
+        trap(spikeWall,canvasesW-caracterW*1.875-caracterW*0.55,floor-caracterH*2.625,caracterW*0.75,caracterH*1.375);
+        obstacle(rock,canvasesW-caracterW*1.875,floor-caracterH*3.5,caracterW,caracterH*3.5,4);
+        vine(canvasesW-caracterW*0.625,0-caracterH/2,caracterW/2,caracterH*5.25,1);
+        //traps
+        trap(spikeFloor,0,floor-caracterH/2,caracterW,caracterH/2);
+        trap(spikeFloor,caracterW,floor-caracterH/2,caracterW,caracterH/2);
+        //mushroom
+        mushroom(mushroom1, canvasesW/2 - caracterW/2, floor - caracterH*1.625, caracterW, caracterH/2, "jelly");
         //player 
         caracter();
     }
@@ -550,9 +557,11 @@ function game () {
         //background
         ctx1.drawImage(introBack, 0, 0, canvasesW, canvasesH);
         //door
-        obstacle(villageDoor,canvasesW-3*caracterW,0,3*caracterW,5*caracterH,1);
+        if(wentHere3===0){obstacle(villageDoor,canvasesW-3*caracterW,0,3*caracterW,5*caracterH,1);}
         //chief
-        ctx1.drawImage(chief,canvasesW-5.5*caracterW,floor-2.5*caracterH,2.5*caracterW,2.5*caracterH);
+        if(wentHere3===0){ctx1.drawImage(chief,canvasesW-5.5*caracterW,floor-2.5*caracterH,2.5*caracterW,2.5*caracterH);}
+        
+        if(caracterX >= caracterW*2.25){instructionTimer+=1;ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";if(instructionTimer < 125){ctx1.drawImage(box,canvasesW-5.5*caracterW-caracterW*2.4,caracterH*1.75,2.5*caracterW,1.5*caracterH);ctx1.fillText("Ahh you made it!",canvasesW-5.5*caracterW-caracterW*2.4+caracterW*1.25,caracterH*2.125);}else if (instructionTimer < 250){ctx1.drawImage(box,canvasesW-5.5*caracterW-caracterW*2.4,caracterH*1.75,2.5*caracterW,1.5*caracterH);ctx1.fillText("Come in",canvasesW-5.5*caracterW-caracterW*2.4+caracterW*1.25,caracterH*2.125);}else if(instructionTimer < 275){ctx1.drawImage(box,canvasesW-5.5*caracterW-caracterW*2.4,caracterH*1.75,2.5*caracterW,1.5*caracterH);ctx1.fillText("Poooof!!",canvasesW-5.5*caracterW-caracterW*2.4+caracterW*1.25,caracterH*2.125);}else{wentHere3=1;}}
         //objects not in use
         obstacle(rock,0,0,0,0,2);
         obstacle(rock,0,0,0,0,3);
@@ -575,6 +584,8 @@ function game () {
         obstacle(rock,0,0,0,0,4);
         vine(0,0,0,0,1);
         
+        instructionTimer+=1;
+        if(instructionTimer > 225){credits("village");}
         //player 
         caracter();
     }
@@ -598,6 +609,8 @@ function game () {
         //objects not in use
         obstacle(rock,0,0,0,0,4);
         vine(0,0,0,0,1);
+        //deactivate poison
+        deactivatejelly();
         //caracter
         caracter();
         //make you statue
