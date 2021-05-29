@@ -428,7 +428,7 @@ function game () {
         obstacle(rock, 0, 0, 0, 0, 4); 
         vine(0, 0, 0, 0, 1);
         //mole
-        if(instructionTimer < 30){ctx1.drawImage(mole, moleX, floor - caracterH*2, caracterW*1.5, caracterH*2);}
+        if(instructionTimer < 35){moleX+=canvasesW*0.001;ctx1.drawImage(mole, moleX, floor - caracterH*2, caracterW*1.5, caracterH*2);}
         //caracter
         caracter();
         //traps
