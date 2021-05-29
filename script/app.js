@@ -1,5 +1,5 @@
 //end of position testing variables for random stuff
-if(document.location.href==="https://bananamaster21.github.io/IllusionForest.github.io/#play"){document.location.href = "https://bananamaster21.github.io/IllusionForest.github.io/#play";}
+if(document.location.href==="https://bananamaster21.github.io/IllusionForest.github.io/#play"){document.location.href = "https://bananamaster21.github.io/IllusionForest.github.io/";}
 var playLevel = 99;  
 var startButton = document.getElementById("startButton"); 
 var moleGo = 0;
@@ -420,7 +420,7 @@ function game () {
     if (playLevel === 986593659) {
         ctx1.drawImage(lvl_3Back, 0, 0, canvasesW, canvasesH);
         instructionTimer+=1;
-        if(instructionTimer<1000000000){ctx1.drawImage(box,moleX*caracterW*1.5,floor - caracterH*2.375,caracterW*1.5,caracterH*0.75);ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("AHH!",moleX*caracterW*1.5*caracterW*0.75,floor - caracterH*2.25);}
+        if(instructionTimer<20){ctx1.drawImage(box,moleX+caracterW*1.5,floor - caracterH*2.375,caracterW*1.5,caracterH*0.75);ctx1.fillStyle="black";ctx1.textAlign="center";ctx1.font=canvasesH/20+"px cursive";ctx1.fillText("AHH!",moleX+caracterW*1.5*caracterW*0.75,floor - caracterH*2.25);}
         //obstacles
         obstacle(rock, canvasesW - caracterW*6, floor - caracterH, caracterW, caracterH, 1);
         pitOfDoom(canvasesW - caracterW*5, floor - caracterH/3, caracterW*1.5, caracterH*4);
