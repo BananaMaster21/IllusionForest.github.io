@@ -518,7 +518,7 @@ function game () {
         ctx1.drawImage(lvl_3Back,0,0,canvasesW,canvasesH);
         if(setDifficulty.diff===0){ctx1.drawImage(checkpoint,0,floor-1.25*caracterH,.75*caracterW,1.25*caracterH);}
         //obstacles
-        vine(caracterW*2.5,0-caracterH*0.5,caracterW/2,caracterH*5.25,1);
+        vine(caracterW*2.5,0-caracterH,caracterW/2,caracterH*5.75,1);
         aqua(caracterW*2.5,floor-caracterH*1.25, caracterW*6.75, caracterH*1.25);
         obstacle(rock,caracterW*1.5,floor-caracterH*1.25,caracterW*1.25,caracterH*1.25,1);
         obstacle(rock,caracterW*3,floor-caracterH*2.5,caracterW*1.25,caracterH*1.25,2);
