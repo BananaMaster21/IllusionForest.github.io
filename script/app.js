@@ -292,7 +292,7 @@ function portal (x, y, number) { ctx1.drawImage(door, x, y, caracterW, caracterH
 
 function pitOfDoom(x,y,width,height) {
     ctx1.drawImage(pit,x,y,width,height);
-    if(caracterX > x && caracterX + cW < x + width && caracterH < y){ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /20+"px cursive"; ctx1.fillText("Press E to enter", x + caracterW /2, y);if(isEbeingPressed===1){caractertY=floor - caracterH*1.75;playLevel = 348959898753935269635;caracterX=canvasesW/2+caracterW*1.5}}
+    if(caracterX > x && caracterX + cW < x + width && caracterH < y){ctx1.fillStyle = "black"; ctx1.textAlign = "center"; ctx1.font = ""+canvasesH /20+"px cursive"; ctx1.fillText("Press E to enter", x + caracterW /2, y);if(isEbeingPressed===1){playLevel = 348959898753935269635;caracterX=canvasesW/2+caracterW*1.5;effect=undefined;}}
 }
 
 
@@ -323,7 +323,7 @@ var instructionTimer = 0;
 //---------------------------------------------------------- 
 //RESETING WHEN DIE STUFF 
 //---------------------------------------------------------- 
-function reset () { if (lives === 0) { pause = 0; effect = undefined; isInverted = 0;if(setDifficulty.diff === 0){if (playLevel > 0 && playLevel < 3) {playLevel = 1; }else if (playLevel > 0 && playLevel < 6 || playLevel === 70923742194 || playLevel === 2793487593 || playLevel === 986593659) {playLevel = 3; }else if (playLevel > 0 && playLevel < 8 ||playLevel===0180481080||playLevel===3859293759||playLevel===824982691) {playLevel = 6;}else if (playLevel > 0){playLevel=8;}}else if(setDifficulty.diff === 1){if(playLevel > 0){playLevel = 1;}} instructionTimer = 0; caracterX = canvasesW /25; caracterY = ground - cH; caracterMoveSide = 0; caracterKeepSide = "right"; side = undefined; feetSwitch = 0; speed = 0; jump = false; fall = false; onGround = 1; upTimer = canvasesH /40; fallTimer = 0; healTimer = 0;hasCrystal1 = 0;first=undefined;hasCrystal2 = 0;second = undefined;hasCrystal3 = 0;third = undefined;hasCrystal4 = 0;fourth = undefined;hasCrystal5 = 0;fith = undefined;if(setDifficulty.diff === 0){lives = 2;}else if(setDifficulty.diff === 1){lives = 1;}}} 
+function reset () { if (lives === 0|| ree === 1) {if(ree===1){document.location.href = "https://bananamaster21.github.io/IllusionForest.github.io/";}{pause = 0; effect = undefined; isInverted = 0;if(setDifficulty.diff === 0){if (playLevel > 0 && playLevel < 3) {playLevel = 1; }else if (playLevel > 0 && playLevel < 6 || playLevel === 70923742194 || playLevel === 2793487593 || playLevel === 986593659) {playLevel = 3; }else if (playLevel > 0 && playLevel < 8 ||playLevel===0180481080||playLevel===3859293759||playLevel===824982691) {playLevel = 6;}else if (playLevel > 0){playLevel=8;}}else if(setDifficulty.diff === 1){if(playLevel > 0){playLevel = 1;}} instructionTimer = 0; caracterX = canvasesW /25; caracterY = ground - cH; caracterMoveSide = 0; caracterKeepSide = "right"; side = undefined; feetSwitch = 0; speed = 0; jump = false; fall = false; onGround = 1; upTimer = canvasesH /40; fallTimer = 0; healTimer = 0;hasCrystal1 = 0;first=undefined;hasCrystal2 = 0;second = undefined;hasCrystal3 = 0;third = undefined;hasCrystal4 = 0;fourth = undefined;hasCrystal5 = 0;fith = undefined;ree=0;if(setDifficulty.diff === 0){lives = 2;}else if(setDifficulty.diff === 1){lives = 1;}}} 
 
 
 //---------------------------------------------------------- 
